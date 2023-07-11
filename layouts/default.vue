@@ -1,6 +1,24 @@
 <template>
-  <div>
-    Some default layout shared across all pages
-    <slot />
+  <div class="layout-container">
+    <NavigationHeader />
+    <main class="main-container">
+      <slot />
+    </main>
   </div>
 </template>
+
+<style>
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.main-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+}
+</style>
