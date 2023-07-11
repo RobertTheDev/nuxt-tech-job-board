@@ -8,4 +8,8 @@
 const route = useRoute();
 
 const { id } = route.params;
+
+useHead({
+  title: id,
+});
 </script>
