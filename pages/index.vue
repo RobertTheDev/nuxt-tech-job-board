@@ -2,7 +2,13 @@
   <div>
     <p>Home</p>
 
-    <NuxtLink to="/job-posts/1">Job Post</NuxtLink>
+    <NuxtLink
+      v-for="jobPost in jobPosts"
+      :key="jobPost.id"
+      :to="`/job-posts/${jobPost.id}`"
+    >
+      <p>{{ jobPost.title }}</p>
+    </NuxtLink>
   </div>
 </template>
 
@@ -10,4 +16,6 @@
 useHead({
   title: 'Home',
 });
+
+const { data: jobPosts } = await useFetch('/api/jobPosts');
 </script>
