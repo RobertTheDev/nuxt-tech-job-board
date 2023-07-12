@@ -10,6 +10,7 @@ module.exports = {
     '@nuxtjs/eslint-config-typescript',
     'plugin:vuejs-accessibility/recommended',
     'plugin:nuxt/recommended',
+    'plugin:security/recommended',
     'plugin:sonarjs/recommended',
     'prettier',
   ],
