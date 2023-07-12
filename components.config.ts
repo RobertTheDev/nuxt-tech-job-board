@@ -19,7 +19,7 @@ const componentsConfig = [
     pathPrefix: false,
   },
   {
-    path: '~/components/job-posts/',
+    path: '~/components/job-post/',
     pathPrefix: false,
   },
   {
