@@ -4,6 +4,7 @@
     <main class="main-container">
       <slot />
     </main>
+    <NavigationFooter />
   </div>
 </template>
 
