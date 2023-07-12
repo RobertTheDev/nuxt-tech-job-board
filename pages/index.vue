@@ -1,6 +1,7 @@
 <template>
   <div>
     <p>Home</p>
+    <NuxtLink to="/job-posts/upload-job"> Upload Job </NuxtLink>
 
     <NuxtLink
       v-for="jobPost in jobPosts"
