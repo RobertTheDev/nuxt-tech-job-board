@@ -6,7 +6,7 @@
     <NuxtLink to="/account-settings/upload-cv">Upload CV</NuxtLink>
     <button @click="toggleProfileMenu()">Profile</button>
 
-    <div v-if="profileMenuActive">
+    <div v-if="profileMenuActive" class="profile-menu-container">
       <NuxtLink to="/job-posts">Browse Jobs</NuxtLink>
       <NuxtLink to="/account-settings">Account Settings</NuxtLink>
       <NuxtLink to="/profile/my-companies">My Companies</NuxtLink>
@@ -37,5 +37,10 @@ function toggleProfileMenu() {
   width: 100%;
   background: palegreen;
   gap: 20px;
+}
+
+.profile-menu-container {
+  display: flex;
+  gap: 10px;
 }
 </style>
