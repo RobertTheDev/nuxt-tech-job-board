@@ -1,4 +1,6 @@
-const footerLinks = [
+import NavigationLink from 'lib/types/NavigationLink';
+
+const footerLinks: NavigationLink[] = [
   {
     href: '/info/about',
     name: 'About',
