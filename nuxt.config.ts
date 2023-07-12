@@ -7,6 +7,10 @@ export default defineNuxtConfig({
       path: '~/components',
     },
     {
+      path: '~/components/account-settings/',
+      pathPrefix: false,
+    },
+    {
       path: '~/components/auth/',
       pathPrefix: false,
     },
