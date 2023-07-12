@@ -4,12 +4,27 @@
     <NuxtLink to="/job-posts/upload-job">Upload job</NuxtLink>
     <NuxtLink to="/profile/saved-jobs">Saved Jobs</NuxtLink>
     <NuxtLink to="/account-settings/upload-cv">Upload CV</NuxtLink>
-    <NuxtLink to="/profile">Profile</NuxtLink>
+    <button @click="toggleProfileMenu()">Profile</button>
+
+    <div v-if="profileMenuActive">
+      <NuxtLink to="/job-posts">Browse Jobs</NuxtLink>
+      <NuxtLink to="/account-settings">Account Settings</NuxtLink>
+      <NuxtLink to="/profile/my-companies">My Companies</NuxtLink>
+      <NuxtLink to="/profile/followed-companies">Followed Companies</NuxtLink>
+      <NuxtLink to="/profile/my-applications">My Applications</NuxtLink>
+      <button>Log Out</button>
+    </div>
   </header>
 </template>
 
 <script setup>
 import companyName from '../../lib/constants/companyName';
+
+const profileMenuActive = ref(false);
+
+function toggleProfileMenu() {
+  profileMenuActive.value = !profileMenuActive.value;
+}
 </script>
 
 <style>
