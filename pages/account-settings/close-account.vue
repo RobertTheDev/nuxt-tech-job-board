@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <AccountSettingsMenu>
     <p>Close Account</p>
-  </div>
+  </AccountSettingsMenu>
 </template>

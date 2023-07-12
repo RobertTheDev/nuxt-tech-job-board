@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <AccountSettingsMenu>
     <p>Upload CV</p>
-  </div>
+  </AccountSettingsMenu>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <AccountSettingsMenu>
     <p>Change Email</p>
-  </div>
+  </AccountSettingsMenu>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <AccountSettingsMenu>
     <p>Account Settings</p>
-  </div>
+  </AccountSettingsMenu>
 </template>

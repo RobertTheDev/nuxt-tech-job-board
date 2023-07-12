@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <AccountSettingsMenu>
     <p>Change Password</p>
-  </div>
+  </AccountSettingsMenu>
 </template>
