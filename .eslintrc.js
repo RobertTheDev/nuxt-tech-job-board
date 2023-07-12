@@ -8,6 +8,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     '@nuxtjs/eslint-config-typescript',
+    'plugin:vuejs-accessibility/recommended',
     'plugin:nuxt/recommended',
     'prettier',
   ],
@@ -17,6 +18,6 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['vue', '@typescript-eslint'],
+  plugins: ['vue', '@typescript-eslint', 'vuejs-accessibility'],
   rules: {},
 };
