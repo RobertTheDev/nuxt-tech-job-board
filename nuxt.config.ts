@@ -2,4 +2,13 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['@/styles/index.css'],
+  components: [
+    {
+      path: '~/components',
+    },
+    {
+      path: '~/components/auth/',
+      pathPrefix: false,
+    },
+  ],
 });
