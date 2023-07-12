@@ -128,3 +128,18 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 300px;
+}
+
+input {
+  height: 30px;
+}
+
+button {
+  height: 30px;
+}
