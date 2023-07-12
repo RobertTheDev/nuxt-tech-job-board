@@ -11,6 +11,10 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
     {
+      path: '~/components/companies/',
+      pathPrefix: false,
+    },
+    {
       path: '~/components/job-posts/',
       pathPrefix: false,
     },
