@@ -10,5 +10,9 @@ export default defineNuxtConfig({
       path: '~/components/auth/',
       pathPrefix: false,
     },
+    {
+      path: '~/components/job-posts/',
+      pathPrefix: false,
+    },
   ],
 });
