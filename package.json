@@ -36,5 +36,8 @@
     "nuxt": "^3.6.2",
     "prettier": "^3.0.0",
     "vue-eslint-parser": "^9.3.1"
+  },
+  "dependencies": {
+    "yup": "^1.2.0"
   }
 }
