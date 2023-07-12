@@ -20,6 +20,12 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['vue', '@typescript-eslint', 'vuejs-accessibility', 'sonarjs'],
+  plugins: [
+    'vue',
+    '@typescript-eslint',
+    'vuejs-accessibility',
+    'import',
+    'sonarjs',
+  ],
   rules: {},
 };
