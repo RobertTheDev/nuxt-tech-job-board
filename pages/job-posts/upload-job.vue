@@ -2,8 +2,13 @@
   <div>
     <p>Upload job</p>
     <form @submit.prevent="uploadJob()">
-      <label>
-        <input v-model="title" placeholder="title" />
+      <label for="title-input">
+        <input
+          id="title-input"
+          v-model="title"
+          type="text"
+          placeholder="title"
+        />
       </label>
       <button>Upload</button>
     </form>
