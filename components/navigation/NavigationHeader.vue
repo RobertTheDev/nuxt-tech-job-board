@@ -13,15 +13,21 @@
       <button @click="navigate('/auth/sign-up')">Sign Up</button>
       <button @click="navigate('/auth/login')">Login</button>
 
-      <ProfileMenu v-if="profileMenuActive" />
+      <ProfileMenu v-if="profileMenuActive" ref="target" />
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
 import companyName from '../../lib/constants/companyName';
+import { ref } from 'vue';
+import { onClickOutside } from '@vueuse/core';
 
 const profileMenuActive = ref(false);
+
+const target = ref(null);
+
+onClickOutside(target, () => (profileMenuActive.value = false));
 
 const router = useRouter();
 
