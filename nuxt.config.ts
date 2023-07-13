@@ -5,4 +5,5 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['@/styles/index.css'],
   components: componentsConfig,
+  modules: ['@nuxt/content'],
 });
