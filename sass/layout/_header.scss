@@ -1,0 +1,33 @@
+.header {
+  &-container {
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    height: 60px;
+    left: 0px;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    background: white;
+    gap: 20px;
+    padding: 20px;
+    justify-content: space-between;
+  }
+  &-logo {
+    &-container {
+      display: flex;
+    }
+  }
+  &-content {
+    &-container {
+      align-items: center;
+      display: flex;
+      gap: 20px;
+    }
+  }
+}
+
+.profile-menu-container {
+  display: flex;
+  gap: 10px;
+}

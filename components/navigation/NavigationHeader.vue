@@ -1,14 +1,20 @@
 <template>
   <header class="header-container">
-    <NuxtLink to="/">{{ companyName }}</NuxtLink>
-    <NuxtLink to="/job-posts/upload-job">Upload job</NuxtLink>
-    <NuxtLink to="/profile/saved-jobs">Saved Jobs</NuxtLink>
-    <NuxtLink to="/account-settings/upload-cv">Upload CV</NuxtLink>
-    <button @click="toggleProfileMenu()">Profile</button>
-    <button @click="navigate('/auth/sign-up')">Sign Up</button>
-    <button @click="navigate('/auth/login')">Login</button>
+    <div class="header-logo-container">
+      <NuxtLink to="/"
+        ><p class="header-logo-text">{{ companyName }}</p></NuxtLink
+      >
+    </div>
+    <div class="header-content-container">
+      <NuxtLink to="/job-posts/upload-job">Upload job</NuxtLink>
+      <NuxtLink to="/profile/saved-jobs">Saved Jobs</NuxtLink>
+      <NuxtLink to="/account-settings/upload-cv">Upload CV</NuxtLink>
+      <button @click="toggleProfileMenu()">Profile</button>
+      <button @click="navigate('/auth/sign-up')">Sign Up</button>
+      <button @click="navigate('/auth/login')">Login</button>
 
-    <ProfileMenu v-if="profileMenuActive" />
+      <ProfileMenu v-if="profileMenuActive" />
+    </div>
   </header>
 </template>
 
@@ -27,21 +33,3 @@ function toggleProfileMenu() {
   profileMenuActive.value = !profileMenuActive.value;
 }
 </script>
-
-<style>
-.header-container {
-  display: flex;
-  height: 60px;
-  left: 0px;
-  position: sticky;
-  top: 0px;
-  width: 100%;
-  background: palegreen;
-  gap: 20px;
-}
-
-.profile-menu-container {
-  display: flex;
-  gap: 10px;
-}
-</style>
