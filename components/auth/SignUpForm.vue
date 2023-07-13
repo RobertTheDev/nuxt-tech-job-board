@@ -1,14 +1,24 @@
 <template>
   <div>
-    <Form :validation-schema="signUpSchema" @submit="handleSubmit">
-      <Field v-slot="{ field }" name="email" type="email">
-        <label for="email">
-          <input type="email" v-bind="field" placeholder="Email" />
-        </label>
-      </Field>
+    <Form
+      class="form-container"
+      :validation-schema="signUpSchema"
+      @submit="handleSubmit"
+    >
+      <div class="form-input-container">
+        <Field v-slot="{ field }" name="email" type="email">
+          <label for="email" class="form-input">
+            <input
+              type="email"
+              v-bind="field"
+              placeholder="Email"
+              class="form-input"
+            />
+          </label>
+        </Field>
 
-      <ErrorMessage name="email" />
-
+        <ErrorMessage name="email" />
+      </div>
       <Field v-slot="{ field }" name="firstName" type="text">
         <label for="firstName">
           <input type="text" v-bind="field" placeholder="First Name" />
@@ -57,7 +67,7 @@
       </Field>
 
       <ErrorMessage name="acceptTerms" />
-      <button>Submit</button>
+      <button class="form-button">Submit</button>
     </Form>
   </div>
 </template>
