@@ -1,60 +1,72 @@
 <template>
-  <form>
-    <label for="email_address">
-      <input
-        id="email_address"
-        v-model="signUp.emailAddress"
-        name="email_address"
-        type="email"
-        placeholder="Enter email address"
-      />
-    </label>
-    <label for="first_name">
-      <input
-        id="first_name"
-        v-model="signUp.firstName"
-        name="first_name"
-        type="text"
-        placeholder="Enter first name"
-      />
-    </label>
-    <label for="last_name">
-      <input
-        id="last_name"
-        v-model="signUp.lastName"
-        name="last_name"
-        type="text"
-        placeholder="Enter last name"
-      />
-    </label>
-    <label for="password">
-      <input
-        id="password"
-        v-model="signUp.password"
-        name="password"
-        type="password"
-        placeholder="Enter password"
-      />
-    </label>
-    <label for="confirm_password">
-      <input
-        id="confirm_password"
-        v-model="signUp.confirmPassword"
-        name="confirm_password"
-        type="password"
-        placeholder="Confirm password"
-      />
-    </label>
-    <button type="submit">Sign Up</button>
-  </form>
+  <div>
+    <Form :validation-schema="signUpSchema" @submit="handleSubmit">
+      <Field v-slot="{ field }" name="email" type="email">
+        <label for="email">
+          <input type="email" v-bind="field" placeholder="Email" />
+        </label>
+      </Field>
+
+      <ErrorMessage name="email" />
+
+      <Field v-slot="{ field }" name="firstName" type="text">
+        <label for="firstName">
+          <input type="text" v-bind="field" placeholder="First Name" />
+        </label>
+      </Field>
+
+      <ErrorMessage name="firstName" />
+
+      <Field v-slot="{ field }" name="lastName" type="text">
+        <label for="lastName">
+          <input type="text" v-bind="field" placeholder="Last Name" />
+        </label>
+      </Field>
+
+      <ErrorMessage name="lastName" />
+
+      <Field v-slot="{ field }" name="password" type="text">
+        <label for="password">
+          <input type="password" v-bind="field" placeholder="Password" />
+        </label>
+      </Field>
+
+      <ErrorMessage name="password" />
+
+      <Field v-slot="{ field }" name="confirmPassword" type="text">
+        <label for="confirmPassword">
+          <input
+            type="password"
+            v-bind="field"
+            placeholder="Confirm Password"
+          />
+        </label>
+      </Field>
+      <ErrorMessage name="confirmPassword" />
+
+      <Field
+        v-slot="{ field }"
+        name="acceptTerms"
+        type="checkbox"
+        :value="false"
+      >
+        <label for="acceptTerms">
+          <input type="checkbox" v-bind="field" />
+          I agree
+        </label>
+      </Field>
+
+      <ErrorMessage name="acceptTerms" />
+      <button>Submit</button>
+    </Form>
+  </div>
 </template>
 
-<script setup>
-const signUp = ref({
-  emailAddress: '',
-  firstName: '',
-  lastName: '',
-  password: '',
-  confirmPassword: '',
-});
+<script setup lang="ts">
+import { Form, Field, ErrorMessage } from 'vee-validate';
+import signUpSchema from '../../lib/validators/signUpSchema';
+
+function handleSubmit(values: any) {
+  alert(JSON.stringify(values, null, 2));
+}
 </script>
