@@ -2,23 +2,23 @@ import NavigationLink from 'lib/types/NavigationLink';
 
 const footerLinks: NavigationLink[] = [
   {
-    href: '/info/about',
+    href: '/about',
     name: 'About',
   },
   {
-    href: '/info/accessibility-statement',
+    href: '/accessibility-statement',
     name: 'Accessibility Statement',
   },
   {
-    href: '/info/cookie-policy',
+    href: '/cookie-policy',
     name: 'Cookie Policy',
   },
   {
-    href: '/info/privacy-policy',
+    href: '/privacy-policy',
     name: 'Privacy Policy',
   },
   {
-    href: '/info/terms-and-conditions',
+    href: '/terms-and-conditions',
     name: 'Terms and Conditions',
   },
 ];
