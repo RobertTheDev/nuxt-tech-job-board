@@ -38,6 +38,7 @@
     "vue-eslint-parser": "^9.3.1"
   },
   "dependencies": {
+    "vee-validate": "^4.10.6",
     "yup": "^1.2.0"
   }
 }
