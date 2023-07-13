@@ -3,7 +3,7 @@ import componentsConfig from './components.config';
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  css: ['@/styles/index.css'],
+  css: ['@/sass/style.scss'],
   components: componentsConfig,
   modules: ['@nuxt/content'],
 });
