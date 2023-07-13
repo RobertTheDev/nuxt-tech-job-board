@@ -7,14 +7,8 @@
     <button @click="toggleProfileMenu()">Profile</button>
     <button @click="navigate('/auth/sign-up')">Sign Up</button>
     <button @click="navigate('/auth/login')">Login</button>
-    <div v-if="profileMenuActive" class="profile-menu-container">
-      <NuxtLink to="/job-posts">Browse Jobs</NuxtLink>
-      <NuxtLink to="/account-settings">Account Settings</NuxtLink>
-      <NuxtLink to="/profile/my-companies">My Companies</NuxtLink>
-      <NuxtLink to="/profile/followed-companies">Followed Companies</NuxtLink>
-      <NuxtLink to="/profile/my-applications">My Applications</NuxtLink>
-      <button>Log Out</button>
-    </div>
+
+    <ProfileMenu v-if="profileMenuActive" />
   </header>
 </template>
 
