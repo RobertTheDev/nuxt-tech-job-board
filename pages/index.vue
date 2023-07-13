@@ -1,12 +1,10 @@
 <template>
   <div>
-    <NuxtLink
+    <JobPostCard
       v-for="jobPost in jobPosts"
       :key="jobPost.id"
-      :to="`/job-posts/${jobPost.id}`"
-    >
-      <p>{{ jobPost.title }}</p>
-    </NuxtLink>
+      v-bind="jobPost"
+    />
   </div>
 </template>
 
