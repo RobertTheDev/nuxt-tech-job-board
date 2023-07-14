@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>{{ jobPost.title }}</p>
+    <JobPostDetail v-bind="jobPost" />
   </div>
 </template>
 
