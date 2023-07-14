@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="container">
+  <div class="account-settings-page-container">
+    <div class="account-settings-menu-container">
       <NuxtLink
         v-for="accountSettingsMenuLink in accountSettingsMenuLinks"
         :key="accountSettingsMenuLink.href"
@@ -8,7 +8,7 @@
         >{{ accountSettingsMenuLink.name }}</NuxtLink
       >
     </div>
-    <div>
+    <div class="account-settings-page-content-container">
       <slot />
     </div>
   </div>
@@ -17,10 +17,3 @@
 <script setup>
 import accountSettingsMenuLinks from '../../lib/links/accountSettingsMenuLinks';
 </script>
-
-<style scoped>
-.container {
-  display: flex;
-  gap: 10px;
-}
-</style>
