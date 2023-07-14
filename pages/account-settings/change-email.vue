@@ -1,5 +1,10 @@
 <template>
   <AccountSettingsMenu>
-    <p>Change Email</p>
+    <p>Change Email Address</p>
+    <p>Current Email Address: robertthedev@gmail.com</p>
+    <p>Change Your Email Address</p>
+    <input placeholder="Email Address" />
+    <input placeholder="Password" />
+    <button>Change Email Address</button>
   </AccountSettingsMenu>
 </template>
