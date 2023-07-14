@@ -67,7 +67,10 @@
       </Field>
 
       <ErrorMessage name="acceptTerms" />
-      <button class="form-button">Submit</button>
+
+      <NuxtLink to="/auth/login">Already have an account? Login.</NuxtLink>
+
+      <button class="form-button">Sign Up</button>
     </Form>
   </div>
 </template>
