@@ -1,0 +1,13 @@
+<template>
+  <div class="sidebar-container">
+    <NuxtLink to="/">{{ companyName }}</NuxtLink>
+    <NuxtLink to="/job-posts">Job Posts</NuxtLink>
+    <NuxtLink to="/companies">Companies</NuxtLink>
+    <NuxtLink to="/companies">Employees</NuxtLink>
+    <NuxtLink to="/saved-jobs">Saved Jobs</NuxtLink>
+  </div>
+</template>
+
+<script setup>
+import companyName from '@/lib/constants/companyName';
+</script>

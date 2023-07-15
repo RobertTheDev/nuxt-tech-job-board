@@ -1,0 +1,13 @@
+.sidebar {
+  &-container {
+    min-height: 100vh;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 300px;
+    background: white;
+    border-right: 1px solid lightgray;
+    display: flex;
+    flex-direction: column;
+  }
+}
