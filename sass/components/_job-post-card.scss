@@ -1,0 +1,85 @@
+.job-post-card {
+  &-quick-view-button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 16px;
+    border-radius: 4px;
+  }
+  &-save-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 16px;
+    border-radius: 4px;
+  }
+  &-details {
+    &-container {
+      display: flex;
+      gap: 16px;
+    }
+  }
+  &-buttons {
+    &-container {
+      display: flex;
+      gap: 8px;
+      width: 100%;
+    }
+  }
+  &-container {
+    background: white;
+    padding: 10px;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  &-company {
+    &-container {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      align-items: center;
+      gap: 10px;
+    }
+    &-content {
+      &-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+      }
+    }
+    &-logo {
+      &-container {
+        height: 60px;
+        width: 60px;
+        border-radius: 6px;
+        overflow: hidden;
+      }
+
+      &-image {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+  &-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 20px;
+    gap: 20px;
+    width: 100%;
+
+    background: #f8f5ee;
+
+    min-height: 100vh;
+
+    justify-content: center;
+    align-items: flex-start;
+  }
+}

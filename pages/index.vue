@@ -1,5 +1,5 @@
 <template>
-  <div class="job-post-cards-list">
+  <div class="job-post-card-grid">
     <JobPostCard
       v-for="jobPost in jobPosts"
       :key="jobPost.id"
@@ -7,14 +7,6 @@
     />
   </div>
 </template>
-
-<style>
-.job-post-cards-list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-}
-</style>
 
 <script setup>
 useHead({

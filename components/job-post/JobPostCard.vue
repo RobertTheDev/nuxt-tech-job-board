@@ -1,36 +1,55 @@
 <template>
-  <NuxtLink :to="`/job-posts/${jobPost.id}`">
-    <p>
-      Posted
-      {{ differenceInDays(new Date(), new Date(jobPost.createdAt)) }} days ago.
-    </p>
-    <p>Closes {{ format(new Date(jobPost.deadlineDate), 'd MMM yyyy') }}</p>
-    <p>{{ jobPost.title }}</p>
-    <p>{{ jobPost.locationType }}</p>
-    <p>{{ jobPost.contractType }}</p>
-    <p>
-      £{{ jobPost.salary.min.toLocaleString() }} -
-      {{ jobPost.salary.max.toLocaleString() }}
-    </p>
-    <p>{{ jobPost.description }}</p>
-    <img :src="jobPost.company.logo.url" />
-    <p>{{ jobPost.company.name }}</p>
-    <button>Save</button>
-    <button>Quick View</button>
-  </NuxtLink>
+  <div @click="navigateToJobPost(jobPost.id)" class="job-post-card-container">
+    <div class="job-post-card-container">
+      <div class="job-post-card-company-container">
+        <div class="job-post-card-company-logo-container">
+          <img
+            :src="jobPost.company.logo.url"
+            class="job-post-card-company-logo-image"
+          />
+        </div>
+        <div class="job-post-card-company-content-container">
+          <p>{{ jobPost.company.name }}</p>
+          <p>
+            Posted
+            {{ differenceInDays(new Date(), new Date(jobPost.createdAt)) }} days
+            ago.
+          </p>
+        </div>
+      </div>
+
+      <p>{{ jobPost.title }}</p>
+      <div class="job-post-card-details-container">
+        <p>{{ jobPost.locationType }}</p>
+        <p>{{ jobPost.contractType }}</p>
+      </div>
+      <p>
+        £{{ jobPost.salary.min.toLocaleString() }} -
+        {{ jobPost.salary.max.toLocaleString() }}
+      </p>
+      <div class="job-post-card-buttons-container">
+        <button class="job-post-card-save-button">Save</button>
+        <button class="job-post-card-quick-view-button">Quick View</button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { format, differenceInDays } from 'date-fns';
+import { differenceInDays } from 'date-fns';
+
+const router = useRouter();
+
+function navigateToJobPost(id: string) {
+  router.push(`/job-posts/${id}`);
+}
 
 const jobPost = defineProps([
   'id',
   'createdAt',
-  'deadlineDate',
   'title',
   'locationType',
   'salary',
-  'description',
   'contractType',
   'company',
 ]);
