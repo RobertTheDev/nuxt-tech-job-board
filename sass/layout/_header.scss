@@ -1,9 +1,9 @@
 .header {
   &-container {
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid lightgray;
     display: flex;
-    height: 60px;
+    height: 64px;
     left: 0px;
     position: sticky;
     top: 0px;
