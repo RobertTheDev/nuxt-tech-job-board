@@ -17,14 +17,15 @@
           </p>
         </div>
       </div>
-
+      <div>
+        <font-awesome-icon icon="fa-regular fa-bookmark" />
+      </div>
       <p>{{ jobPost.title }}</p>
       <div class="job-post-card-details-container">
         <p>{{ jobPost.locationType }}</p>
         <p>{{ jobPost.contractType }}</p>
       </div>
 
-      <font-awesome-icon icon="fa-regular fa-bookmark" />
       <p>
         £{{ jobPost.salary.min.toLocaleString() }} -
         {{ jobPost.salary.max.toLocaleString() }}
