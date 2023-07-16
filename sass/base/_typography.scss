@@ -67,7 +67,6 @@ li {
 
 p {
   font-size: 1.6rem;
-  font-weight: 500;
   line-height: 2.4rem;
 }
 
@@ -178,4 +177,9 @@ select {
 .text-xs {
   font-size: 1.2rem;
   line-height: 1.8rem;
+}
+
+*,
+html {
+  font-family: 'Inter', sans-serif;
 }
