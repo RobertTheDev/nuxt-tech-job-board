@@ -43,7 +43,7 @@ import { differenceInDays } from 'date-fns';
 const router = useRouter();
 
 function navigateToJobPost(id: string) {
-  router.push(`/job-posts/${id}`);
+  router.replace({ name: '', query: { id } });
 }
 
 const jobPost = defineProps([
