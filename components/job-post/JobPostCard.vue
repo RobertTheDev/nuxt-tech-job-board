@@ -29,7 +29,6 @@
       </p>
       <div class="job-post-card-buttons-container">
         <button class="job-post-card-save-button">Save</button>
-        <button class="job-post-card-quick-view-button">Quick View</button>
       </div>
     </div>
   </div>
