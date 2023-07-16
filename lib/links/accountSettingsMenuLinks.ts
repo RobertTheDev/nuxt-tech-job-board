@@ -2,23 +2,27 @@ import NavigationLink from 'lib/types/NavigationLink';
 
 const accountSettingsMenuLinks: NavigationLink[] = [
   {
-    href: '/account-settings',
+    href: '/profile/edit-profile',
+    name: 'Edit Profile',
+  },
+  {
+    href: '/profile/account-settings',
     name: 'Account Settings',
   },
   {
-    href: '/account-settings/change-email',
+    href: '/profile/account-settings/change-email',
     name: 'Change Email',
   },
   {
-    href: '/account-settings/change-password',
+    href: '/profile/account-settings/change-password',
     name: 'Change Password',
   },
   {
-    href: '/account-settings/upload-cv',
+    href: '/profile/account-settings/upload-cv',
     name: 'Upload CV',
   },
   {
-    href: '/account-settings/close-account',
+    href: '/profile/account-settings/close-account',
     name: 'Close Account',
   },
 ];
