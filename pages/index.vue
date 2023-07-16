@@ -1,5 +1,5 @@
 <template>
-  <div class="job-post-card-sidebar">
+  <!-- <div class="job-post-card-sidebar">
     <div class="job-post-card-sidebar-list">
       <JobPostCard
         v-for="jobPost in jobPosts"
@@ -7,6 +7,10 @@
         v-bind="jobPost"
       />
     </div>
+  </div> -->
+  <div>
+    <p>{{ id }}</p>
+    <JobPostDetail v-bind="jobPost" />
   </div>
 </template>
 
@@ -23,4 +27,10 @@ useHead({
 });
 
 const { data: jobPosts } = await useFetch('/api/jobPosts');
+
+const route = useRoute();
+
+const id = route.query['id'];
+
+const { data: jobPost } = await useFetch(`/api/jobPosts/${id}`);
 </script>
