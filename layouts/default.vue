@@ -3,7 +3,6 @@
     <NavigationHeader />
 
     <main class="main-container">
-      <NavigationSidebar />
       <slot />
     </main>
     <NavigationFooter />
