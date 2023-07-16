@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <div v-if="!jobPost"><p>No Job</p></div>
+  <div v-if="jobPost">
+    <p>{{ jobPost.title }}</p>
     <p>
       Posted
       {{ differenceInDays(new Date(), new Date(jobPost.createdAt)) }} days ago.
@@ -19,17 +21,18 @@
 </template>
 
 <script setup lang="ts">
-import { format, differenceInDays } from 'date-fns';
+import { differenceInDays, format } from 'date-fns';
+import JobPost from 'lib/types/JobPost';
+const route = useRoute();
 
-const jobPost = defineProps([
-  'id',
-  'createdAt',
-  'deadlineDate',
-  'title',
-  'locationType',
-  'salary',
-  'description',
-  'contractType',
-  'company',
-]);
+const id = ref(route.query['id']).value as string;
+
+const jobPost = ref<JobPost | null>(null);
+
+async function getJobPostById(id: string) {
+  const { data } = await useFetch(`/api/jobPosts/${id}`);
+  jobPost.value = data.value;
+}
+
+getJobPostById(id);
 </script>
