@@ -30,9 +30,6 @@
         £{{ jobPost.salary.min.toLocaleString() }} -
         {{ jobPost.salary.max.toLocaleString() }}
       </p>
-      <div class="job-post-card-buttons-container">
-        <button class="job-post-card-save-button">Save</button>
-      </div>
     </div>
   </div>
 </template>
