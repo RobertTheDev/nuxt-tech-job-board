@@ -1,0 +1,18 @@
+<template>
+  <p>Requirements</p>
+  <label for="requirements">
+    <input
+      id="requirements"
+      v-model="createJobForm.requirements"
+      name="requirements"
+      type="text"
+      placeholder="requirements"
+    />
+  </label>
+</template>
+
+<script setup>
+import useCreateJobPostStore from '@/store/createJobPostStore';
+
+const { createJobForm } = useCreateJobPostStore();
+</script>
