@@ -1,10 +1,16 @@
 <template>
-  <div @click="navigateToJobPost(jobPost.id)" class="job-post-card-container">
+  <div
+    class="job-post-card-container"
+    role="presentation"
+    @click="navigateToJobPost(jobPost.id)"
+    @keydown.enter="navigateToJobPost(jobPost.id)"
+  >
     <div class="job-post-card-container">
       <div class="job-post-card-company-container">
         <div class="job-post-card-company-logo-container">
           <img
             :src="jobPost.company.logo.url"
+            :alt="jobPost.company.logo.alt"
             class="job-post-card-company-logo-image"
           />
         </div>

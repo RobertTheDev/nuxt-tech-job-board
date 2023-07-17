@@ -1,8 +1,8 @@
 <template>
   <div>
     <p>My Companies</p>
-    <div v-for="company in companies">
-      <img :src="company.logo.url" />
+    <div v-for="company in companies" :key="company.id">
+      <img :src="company.logo.url" :alt="company.logo.alt" />
       <p>{{ company.name }}</p>
       <div>
         <button>Edit Company</button>

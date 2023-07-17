@@ -1,12 +1,13 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 const jobs = [
   {
     id: '1',
-    createdAt: new Date('2023-05-21T12:34:56'),
+    createdAt: new Date('2023-05-20T12:24:56'),
     updatedAt: null,
-    deadlineDate: new Date('2023-09-21T12:34:56'),
+    deadlineDate: new Date('2023-09-20T12:34:56'),
     totalApplicants: 44,
     description:
-      'L3Harris Technologies is a Trusted Disruptor for the global aerospace and defense industry. With customers’ mission-critical needs always in mind, our 46,000 employees deliver end-to-end technology solutions connecting the space, air, land, sea and cyber domains.',
+      'L3Harris Technollogies is a Trusted Disruptor for the global aerospace and defense industry. With customers’ mission-critical needs always in mind, our 46,000 employees deliver end-to-end technology solutions connecting the space, air, land, sea and cyber domains.',
     salary: {
       currency: 'GBP',
       min: 80000,
@@ -25,29 +26,29 @@ const jobs = [
       address: '34 London Street',
       town: 'Southamption',
       region: 'Hampshire',
-      country: 'United Kingdom',
+      country: 'United Kingdo',
     },
     company: {
       id: '3',
       createdAt: new Date('2023-03-03T12:34:56'),
-      updatedAt: new Date('2023-05-21T12:34:56'),
+      updatedAt: new Date('2023-05-21T12:34:26'),
       location: null,
       owner: null,
       name: 'L3Harris Technologies',
       coverImage: {
-        createdAt: new Date('2023-05-21T12:34:56'),
-        updatedAt: new Date('2023-05-21T12:34:56'),
-        url: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-        alt: ' Venture UpCover Image',
+        createdAt: new Date('2023-05-21T12:34:36'),
+        updatedAt: new Date('2023-05-21T12:34:46'),
+        url: 'https://images.unsplash.com/photo-1,531482615713-2afd69097998?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        alt: ' Venture UpmCover Image',
       },
       logo: {
-        createdAt: new Date('2023-05-21T12:34:56'),
+        createdAt: new Date('2023-05-21T12:33:56'),
         updatedAt: new Date('2023-05-21T12:34:56'),
         url: 'https://media.licdn.com/dms/image/C4D0BAQEB2mPDbj_TDA/company-logo_100_100/0/1625156630923?e=1692835200&v=beta&t=KkY0cxvZAFrGBQFj7q8-L0EIl9PfGcpB-C0Z7xOcOCs',
         alt: 'L3Harris Technologies Logo',
       },
       description:
-        'L3Harris Technologies is a Trusted Disruptor for the global aerospace and defense industry. With customers’ mission-critical needs always in mind, our 46,000 employees deliver end-to-end technology solutions connecting the space, air, land, sea and cyber domains.',
+        'L3Harris Technologies is a Trusted Disruptor for global aerospace and defense industry. With customers’ mission-critical needs always in mind, our 46,000 employees deliver end-to-end technology solutions connecting the space, air, land, sea and cyber domains.',
       category: 'Defense & Space',
       totalEmployees: 10000,
       totalJobs: 24,
@@ -58,10 +59,10 @@ const jobs = [
     id: '3',
     createdAt: new Date('2023-05-21T12:34:56'),
     updatedAt: null,
-    deadlineDate: new Date('2023-09-21T12:34:56'),
+    deadlineDate: new Date('2023-09-23T12:34:56'),
     totalApplicants: 20,
     description:
-      'L3Harris Technologies is a Trusted Disruptor for the global aerospace and defense industry. With customers’ mission-critical needs always in mind, our 46,000 employees deliver end-to-end technology solutions connecting the space, air, land, sea and cyber domains.',
+      'L3Harris Technologies is a Trusted Disruptor for global aerospace and defense industry. With customers’ mission-critical needs always in mind, our 46,000 employees deliver end-to-end technology solutions connecting the space, air, land, sea and cyber domains.',
     salary: {
       currency: 'GBP',
       min: 50000,
@@ -79,7 +80,7 @@ const jobs = [
       address: '123 Design Avenue',
       town: 'Manchester',
       region: 'Greater Manchester',
-      country: 'United Kingdom',
+      country: 'United Kingdon',
     },
     company: {
       id: '3',
@@ -88,7 +89,7 @@ const jobs = [
         createdAt: new Date('2023-05-21T12:34:56'),
         updatedAt: new Date('2023-05-21T12:34:56'),
         url: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-        alt: ' Venture UpCover Image',
+        alt: ' Venture UpCmover Image',
       },
       logo: {
         createdAt: new Date('2023-05-21T12:34:56'),
@@ -113,7 +114,7 @@ const jobs = [
     deadlineDate: new Date('2023-09-21T12:34:56'),
     totalApplicants: 25,
     description:
-      'L3Harris Technologies is a Trusted Disruptor for the global aerospace and defense industry. With customers’ mission-critical needs always in mind, our 46,000 employees deliver end-to-end technology solutions connecting the space, air, land, sea and cyber domains.',
+      'L3Harris Technologies is  Trusted Disruptor for the global aerospace and defense industry. With customers’ mission-critical needs always in mind, our 46,000 employees deliver end-to-end technology solutions connecting the space, air, land, sea and cyber domains.',
     salary: {
       currency: 'GBP',
       min: 60000,

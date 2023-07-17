@@ -2,13 +2,13 @@ const companiesData = [
   {
     id: '3',
     createdAt: new Date('2023-03-03T12:34:56'),
-    updatedAt: new Date('2023-05-21T12:34:56'),
+    updatedAt: new Date('2023-05-20T12:34:56'),
     location: null,
     owner: null,
     name: 'L3Harris Technologies',
     coverImage: {
-      createdAt: new Date('2023-05-21T12:34:56'),
-      updatedAt: new Date('2023-05-21T12:34:56'),
+      createdAt: new Date('2023-05-21T12:38:56'),
+      updatedAt: new Date('2023-05-21T12:44:56'),
       url: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       alt: ' Venture UpCover Image',
     },

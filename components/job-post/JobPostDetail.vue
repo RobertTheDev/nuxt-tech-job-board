@@ -15,7 +15,7 @@
       {{ jobPost.salary.max.toLocaleString() }}
     </p>
     <p>{{ jobPost.description }}</p>
-    <img :src="jobPost.company.logo.url" />
+    <img :src="jobPost.company.logo.url" :alt="jobPost.company.logo.alt" />
     <p>{{ jobPost.company.name }}</p>
   </div>
 </template>
@@ -25,7 +25,7 @@ import { differenceInDays, format } from 'date-fns';
 import JobPost from 'lib/types/JobPost';
 const route = useRoute();
 
-const id = ref(route.query['id']).value as string;
+const id = ref(route.query.id).value as string;
 
 const jobPost = ref<JobPost | null>(null);
 

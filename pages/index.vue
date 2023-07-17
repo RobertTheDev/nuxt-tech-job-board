@@ -1,15 +1,17 @@
 <template>
-  <div class="job-post-card-sidebar">
-    <div class="job-post-card-sidebar-list">
-      <JobPostCard
-        v-for="jobPost in jobPosts"
-        :key="jobPost.id"
-        v-bind="jobPost"
-      />
+  <div>
+    <div class="job-post-card-sidebar">
+      <div class="job-post-card-sidebar-list">
+        <JobPostCard
+          v-for="jobPost in jobPosts"
+          :key="jobPost.id"
+          v-bind="jobPost"
+        />
+      </div>
     </div>
-  </div>
-  <div class="job-post-content-container">
-    <JobPostDetail />
+    <div class="job-post-content-container">
+      <JobPostDetail />
+    </div>
   </div>
 </template>
 

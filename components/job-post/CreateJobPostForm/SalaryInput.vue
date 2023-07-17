@@ -20,8 +20,8 @@
   </label>
 </template>
 
-<script setup>
-import useCreateJobPostStore from '@/store/createJobPostStore';
+<script setup lang="ts">
+import { useCreateJobPostStore } from '@/store/createJobPostStore';
 
 const { createJobForm } = useCreateJobPostStore();
 </script>

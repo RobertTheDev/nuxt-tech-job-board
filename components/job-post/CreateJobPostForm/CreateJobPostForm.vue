@@ -38,9 +38,8 @@
   </form>
 </template>
 
-<script setup>
-import useCreateJobPostStore from '@/store/createJobPostStore';
-import TitleInput from './TitleInput.vue';
+<script setup lang="ts">
+import { useCreateJobPostStore } from '@/store/createJobPostStore';
 
 const { uploadJob } = useCreateJobPostStore();
 </script>

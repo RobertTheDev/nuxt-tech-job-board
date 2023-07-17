@@ -19,9 +19,9 @@
 </template>
 
 <script setup lang="ts">
-import companyName from '../../lib/constants/companyName';
 import { ref } from 'vue';
 import { onClickOutside } from '@vueuse/core';
+import companyName from '../../lib/constants/companyName';
 
 const profileMenuActive = ref(false);
 
