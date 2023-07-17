@@ -15,7 +15,7 @@
 
 <script setup>
 useHead({
-  title: 'TechBoard: Job Search',
+  title: 'TechBoard - Job Search',
   meta: [
     {
       name: 'description',

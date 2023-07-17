@@ -9,3 +9,15 @@
     <button>Save</button>
   </AccountSettingsMenu>
 </template>
+
+<script setup lang="ts">
+useHead({
+  title: 'Change Password',
+  meta: [
+    {
+      name: 'description',
+      content: '',
+    },
+  ],
+});
+</script>

@@ -5,3 +5,15 @@
     <button>Upload CV</button>
   </AccountSettingsMenu>
 </template>
+
+<script setup lang="ts">
+useHead({
+  title: 'Upload CV',
+  meta: [
+    {
+      name: 'description',
+      content: '',
+    },
+  ],
+});
+</script>

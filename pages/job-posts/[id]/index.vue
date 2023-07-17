@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const route = useRoute();
 
 const { id } = route.params;
@@ -12,6 +12,12 @@ const { id } = route.params;
 const { data: jobPost } = await useFetch(`/api/jobPosts/${id}`);
 
 useHead({
-  title: id,
+  title: id.toString(),
+  meta: [
+    {
+      name: 'description',
+      content: '',
+    },
+  ],
 });
 </script>

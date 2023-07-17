@@ -22,3 +22,15 @@
     <input placeholder="Website" />
   </AccountSettingsMenu>
 </template>
+
+<script setup lang="ts">
+useHead({
+  title: 'Account Settings',
+  meta: [
+    {
+      name: 'description',
+      content: '',
+    },
+  ],
+});
+</script>

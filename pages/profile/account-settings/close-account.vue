@@ -16,3 +16,15 @@
     <button>Close Account</button>
   </AccountSettingsMenu>
 </template>
+
+<script setup lang="ts">
+useHead({
+  title: 'Close Account',
+  meta: [
+    {
+      name: 'description',
+      content: '',
+    },
+  ],
+});
+</script>

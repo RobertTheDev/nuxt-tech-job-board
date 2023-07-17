@@ -8,3 +8,15 @@
     <button>Change Email Address</button>
   </AccountSettingsMenu>
 </template>
+
+<script setup lang="ts">
+useHead({
+  title: 'Change Email',
+  meta: [
+    {
+      name: 'description',
+      content: '',
+    },
+  ],
+});
+</script>

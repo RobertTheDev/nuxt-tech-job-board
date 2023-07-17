@@ -16,7 +16,7 @@
 const { data: companies } = await useFetch('/api/companies');
 
 useHead({
-  title: 'TechBoard - My Companies',
+  title: 'My Companies',
   meta: [
     {
       name: 'description',

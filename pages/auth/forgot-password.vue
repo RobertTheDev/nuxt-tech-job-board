@@ -4,3 +4,15 @@
     <ResetPasswordForm />
   </div>
 </template>
+
+<script setup lang="ts">
+useHead({
+  title: 'Forgot Password',
+  meta: [
+    {
+      name: 'description',
+      content: '',
+    },
+  ],
+});
+</script>
