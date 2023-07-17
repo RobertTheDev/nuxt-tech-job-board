@@ -28,6 +28,6 @@ module.exports = {
     'sonarjs',
   ],
   rules: {
-    'vue/require-prop-types': null,
+    'vue/require-prop-types': 0,
   },
 };
