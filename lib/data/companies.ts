@@ -24,3 +24,5 @@ const companiesData = [
     totalEmployees: 10000,
   },
 ];
+
+export default companiesData;
