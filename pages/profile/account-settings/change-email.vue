@@ -76,6 +76,10 @@
 import { Form, Field } from 'vee-validate';
 import signUpSchema from '@/lib/validators/signUpSchema';
 
+definePageMeta({
+  middleware: 'unauthenticated',
+});
+
 useHead({
   title: 'Change Email',
   meta: [

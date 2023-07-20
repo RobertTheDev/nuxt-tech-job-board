@@ -18,6 +18,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  middleware: 'unauthenticated',
+});
+
 useHead({
   title: 'Close Account',
   meta: [

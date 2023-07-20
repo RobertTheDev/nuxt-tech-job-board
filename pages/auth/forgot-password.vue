@@ -6,6 +6,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  middleware: 'authenticated',
+});
+
 useHead({
   title: 'Forgot Password',
   meta: [

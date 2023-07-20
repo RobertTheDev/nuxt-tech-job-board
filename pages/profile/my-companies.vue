@@ -13,6 +13,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  middleware: 'unauthenticated',
+});
+
 const { data: companies } = await useFetch('/api/companies');
 
 useHead({

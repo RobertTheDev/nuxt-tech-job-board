@@ -20,6 +20,10 @@
 import useCreateCompanyModalStore from '@/store/createCompanyModalStore';
 import companiesData from '@/lib/data/companies';
 
+definePageMeta({
+  middleware: 'unauthenticated',
+});
+
 const companies = companiesData;
 
 const router = useRouter();
