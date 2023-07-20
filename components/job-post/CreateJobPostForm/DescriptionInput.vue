@@ -1,14 +1,16 @@
 <template>
-  <p>Description</p>
-  <label for="description">
-    <input
-      id="description"
-      v-model="createJobForm.description"
-      name="description"
-      type="text"
-      placeholder="description"
-    />
-  </label>
+  <div class="primary-form-input-content-container">
+    <p class="primary-form-input-label-text">Description</p>
+    <label for="description" class="primary-form-input-label-container">
+      <textarea
+        id="description"
+        v-model="createJobForm.description"
+        name="description"
+        type="text"
+        class="primary-form-input"
+      />
+    </label>
+  </div>
 </template>
 
 <script setup lang="ts">

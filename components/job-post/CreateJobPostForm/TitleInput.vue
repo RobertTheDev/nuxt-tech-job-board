@@ -1,14 +1,17 @@
 <template>
-  <p>Title</p>
-  <label for="title">
-    <input
-      id="title"
-      v-model="createJobForm.title"
-      name="title"
-      type="text"
-      placeholder="title"
-    />
-  </label>
+  <div class="primary-form-input-content-container">
+    <p class="primary-form-input-label-text">Title</p>
+    <label for="title" class="primary-form-input-label-container">
+      <input
+        id="title"
+        v-model="createJobForm.title"
+        name="title"
+        type="text"
+        placeholder="Title"
+        class="primary-form-input"
+      />
+    </label>
+  </div>
 </template>
 
 <script setup lang="ts">
