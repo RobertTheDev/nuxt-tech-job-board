@@ -1,12 +1,12 @@
 <template>
   <div>
-    <CreateJobPostForm />
+    <p>Preview</p>
   </div>
 </template>
 
 <script setup lang="ts">
 useHead({
-  title: 'Upload Job',
+  title: 'Upload Job - Preview',
   meta: [
     {
       name: 'description',
