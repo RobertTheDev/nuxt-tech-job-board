@@ -158,6 +158,18 @@ html {
 
 p,
 a,
+li,
 button {
   font-size: 1.6rem;
+}
+
+button {
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover {
+  cursor: pointer;
 }
