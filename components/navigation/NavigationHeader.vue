@@ -1,14 +1,15 @@
 <template>
   <header class="header-container">
     <div class="header-logo-container">
-      <NuxtLink to="/"
-        ><p class="header-logo-text">{{ companyName }}</p></NuxtLink
-      >
+      <NuxtLink to="/" class="header-logo-text"> {{ companyName }} </NuxtLink>
     </div>
     <div class="header-content-container">
+      <NuxtLink to="/">Browse Jobs</NuxtLink>
       <NuxtLink to="/job-posts/upload-job">Upload job</NuxtLink>
       <NuxtLink to="/profile/saved-jobs">Saved Jobs</NuxtLink>
       <NuxtLink to="/account-settings/upload-cv">Upload CV</NuxtLink>
+    </div>
+    <div class="header-profile-container">
       <button @click="toggleProfileMenu()">Profile</button>
       <button @click="navigate('/auth/sign-up')">Sign Up</button>
       <button @click="navigate('/auth/login')">Login</button>
