@@ -7,17 +7,28 @@
       create one by selecting the create company button.
     </p>
     <button @click="openCreateCompanyModal">Create Company</button>
-    <div v-if="createCompanyModal.active">
-      <button @click="closeCreateCompanyModal">Close</button>
-      <p>Create Company</p>
+    <CompanyCreateCompanyModal v-if="createCompanyModal.active" />
+    <div v-for="company of companies" :key="company.id">
+      <p>{{ company.name }}</p>
+      <img :src="company.logo.url" :alt="company.logo.alt" />
     </div>
+    <button @click="navigateToNextStep">Next</button>
   </div>
 </template>
 
 <script setup lang="ts">
 import useCreateCompanyModalStore from '@/store/createCompanyModalStore';
+import companiesData from '@/lib/data/companies';
 
-const { createCompanyModal, openCreateCompanyModal, closeCreateCompanyModal } =
+const companies = companiesData;
+
+const router = useRouter();
+
+function navigateToNextStep() {
+  router.push('/job-posts/upload-job/1/add-title');
+}
+
+const { createCompanyModal, openCreateCompanyModal } =
   useCreateCompanyModalStore();
 
 useHead({
