@@ -23,18 +23,37 @@
       font-weight: 600;
     }
   }
-  &-content {
+  &-link {
+    &:hover {
+      color: #8046f0;
+    }
+  }
+  &-links {
     &-container {
       align-items: center;
       display: flex;
-      gap: 20px;
+      gap: 32px;
     }
   }
+
+  &-control {
+    background: none;
+    height: 40px;
+    width: 40px;
+    &-icon {
+      font-size: 16px;
+    }
+    &:hover {
+      background: whitesmoke;
+      border-radius: 100%;
+    }
+  }
+
   &-profile {
     &-container {
       align-items: center;
       display: flex;
-      gap: 20px;
+      gap: 8px;
     }
   }
 }
