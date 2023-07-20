@@ -3,18 +3,47 @@
     <div class="header-logo-container">
       <NuxtLink to="/" class="header-logo-text"> {{ companyName }} </NuxtLink>
     </div>
-    <div class="header-content-container">
-      <NuxtLink to="/">Browse Jobs</NuxtLink>
-      <NuxtLink to="/job-posts/upload-job">Upload job</NuxtLink>
-      <NuxtLink to="/profile/saved-jobs">Saved Jobs</NuxtLink>
-      <NuxtLink to="/account-settings/upload-cv">Upload CV</NuxtLink>
+    <div class="header-links-container">
+      <NuxtLink class="header-link" to="/">Browse Jobs</NuxtLink>
+      <NuxtLink class="header-link" to="/job-posts/upload-job"
+        >Upload job</NuxtLink
+      >
+      <NuxtLink class="header-link" to="/profile/saved-jobs"
+        >Saved Jobs</NuxtLink
+      >
+      <NuxtLink class="header-link" to="/profile/account-settings/upload-cv"
+        >Upload CV</NuxtLink
+      >
     </div>
-    <div class="header-profile-container">
-      <button @click="toggleProfileMenu()">Profile</button>
-      <button @click="navigate('/auth/sign-up')">Sign Up</button>
-      <button @click="navigate('/auth/login')">Login</button>
+    <div v-if="!authenticatedUser" class="header-profile-container">
+      <button class="header-control" @click="navigate('/profile/saved-jobs')">
+        <font-awesome-icon
+          class="header-control-icon"
+          icon="fa-regular fa-heart"
+        />
+      </button>
+      <button class="header-control" @click="toggleProfileMenu()">
+        <font-awesome-icon
+          class="header-control-icon"
+          icon="fa-regular fa-user"
+        />
+      </button>
 
       <ProfileMenu v-if="profileMenuActive" ref="target" />
+    </div>
+    <div v-else class="header-profile-container">
+      <button class="header-control" @click="navigate('/auth/login')">
+        <font-awesome-icon
+          class="header-control-icon"
+          icon="fa-regular fa-heart"
+        />
+      </button>
+      <button class="header-control" @click="navigate('/auth/login')">
+        <font-awesome-icon
+          class="header-control-icon"
+          icon="fa-regular fa-user"
+        />
+      </button>
     </div>
   </header>
 </template>
@@ -23,6 +52,9 @@
 import { ref } from 'vue';
 import { onClickOutside } from '@vueuse/core';
 import companyName from '../../lib/constants/companyName';
+import useAuthenticatedUserStore from '@/store/authenticatedUserStore';
+
+const { authenticatedUser } = useAuthenticatedUserStore();
 
 const profileMenuActive = ref(false);
 
