@@ -1,7 +1,7 @@
 <template>
   <div class="auth-page-container">
-    <ForgotPasswordForm />
-    <ResetPasswordForm />
+    <ForgotPasswordForm v-if="!verifcationEmailSent" />
+    <ResetPasswordForm v-if="verifcationEmailSent" />
   </div>
 </template>
 
@@ -15,4 +15,6 @@ useHead({
     },
   ],
 });
+
+const verifcationEmailSent = ref(false);
 </script>

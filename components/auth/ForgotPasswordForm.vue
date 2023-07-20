@@ -1,31 +1,44 @@
 <template>
-  <div>
-    <Form
-      class="form-container"
-      :validation-schema="forgotPasswordSchema"
-      @submit="handleSubmit"
+  <Form
+    class="primary-form-container"
+    :validation-schema="forgotPasswordSchema"
+    @submit="handleSubmit"
+  >
+    <div class="primary-form-header-container">
+      <h1>Forgot password</h1>
+      <!-- LOGIN LINK -->
+
+      <NuxtLink class="primary-form-header-link" to="/auth/login"
+        >Back to login.</NuxtLink
+      >
+    </div>
+
+    <Field
+      v-slot="{ field }"
+      name="email"
+      type="email"
+      class="primary-form-input-container"
     >
-      <div class="form-input-container">
-        <Field v-slot="{ field }" name="email" type="email">
-          <label for="email" class="form-input">
-            <input
-              type="email"
-              v-bind="field"
-              placeholder="Email"
-              class="form-input"
-            />
-          </label>
-        </Field>
+      <label for="email" class="primary-form-input-label-container">
+        <input
+          type="email"
+          v-bind="field"
+          placeholder="Email"
+          class="primary-form-input"
+        />
+      </label>
+    </Field>
 
-        <ErrorMessage name="email" />
-      </div>
+    <ErrorMessage
+      name="email"
+      class="primary-form-input-validation-error-message-text"
+    />
 
-      <NuxtLink to="/auth/login">Back to login.</NuxtLink>
-      <NuxtLink to="/auth/sign-up">Don't have an account? Sign up.</NuxtLink>
-
-      <button class="form-button">Send</button>
-    </Form>
-  </div>
+    <div class="primary-form-footer-container">
+      <!-- SIGN UP BUTTON -->
+      <button class="primary-form-button" type="submit">Send</button>
+    </div>
+  </Form>
 </template>
 
 <script setup lang="ts">

@@ -1,32 +1,55 @@
 <template>
-  <div>
-    <Form
-      class="form-container"
-      :validation-schema="signUpSchema"
-      @submit="handleSubmit"
+  <Form
+    class="primary-form-container"
+    :validation-schema="signUpSchema"
+    @submit="handleSubmit"
+  >
+    <Field
+      v-slot="{ field }"
+      name="password"
+      type="text"
+      class="primary-form-input-container"
     >
-      <Field v-slot="{ field }" name="password" type="text">
-        <label for="password">
-          <input type="password" v-bind="field" placeholder="Password" />
-        </label>
-      </Field>
+      <label for="password" class="primary-form-input-label-container">
+        <input
+          type="password"
+          v-bind="field"
+          placeholder="Password"
+          class="primary-form-input"
+        />
+      </label>
+    </Field>
 
-      <ErrorMessage name="password" />
+    <ErrorMessage
+      name="password"
+      class="primary-form-input-validation-error-message-text"
+    />
 
-      <Field v-slot="{ field }" name="confirmPassword" type="text">
-        <label for="confirmPassword">
-          <input
-            type="password"
-            v-bind="field"
-            placeholder="Confirm Password"
-          />
-        </label>
-      </Field>
-      <ErrorMessage name="confirmPassword" />
+    <Field
+      v-slot="{ field }"
+      name="confirmPassword"
+      type="text"
+      class="primary-form-input-container"
+    >
+      <label for="confirmPassword" class="primary-form-input-label-container">
+        <input
+          type="password"
+          v-bind="field"
+          placeholder="Confirm Password"
+          class="primary-form-input"
+        />
+      </label>
+    </Field>
+    <ErrorMessage
+      name="confirmPassword"
+      class="primary-form-input-validation-error-message-text"
+    />
 
-      <button class="form-button">Reset Password</button>
-    </Form>
-  </div>
+    <div class="primary-form-footer-container">
+      <!-- SIGN UP BUTTON -->
+      <button class="primary-form-button" type="submit">Reset Password</button>
+    </div>
+  </Form>
 </template>
 
 <script setup lang="ts">
