@@ -17,8 +17,20 @@
     &-container {
       display: flex;
     }
+    &-text {
+      color: #8046f0;
+      font-size: 2.4rem;
+      font-weight: 600;
+    }
   }
   &-content {
+    &-container {
+      align-items: center;
+      display: flex;
+      gap: 20px;
+    }
+  }
+  &-profile {
     &-container {
       align-items: center;
       display: flex;
