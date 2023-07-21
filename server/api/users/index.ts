@@ -1,4 +1,5 @@
 import mongoClient from '../../db/mongoClient';
+import { hashPassword } from '../../lib/passwordManagement';
 
 export default defineEventHandler(async (event) => {
   const usersCollection = mongoClient.collection('users');
@@ -10,10 +11,26 @@ export default defineEventHandler(async (event) => {
       return error;
     }
   }
+  if (event.node.req.method === 'DELETE') {
+    try {
+      return await usersCollection.deleteMany({});
+    } catch (error) {
+      return error;
+    }
+  }
   if (event.node.req.method === 'POST') {
     try {
       const body = await readBody(event);
-      return await usersCollection.insertOne(body);
+      const { password, ...input } = body; // Destructure password and other properties from the request body
+
+      // Hash the password
+      const hashedPassword = await hashPassword(password);
+
+      // Update the input object with the hashed password
+      const userWithHashedPassword = { ...input, password: hashedPassword };
+
+      // Insert the user into the database
+      return await usersCollection.insertOne(userWithHashedPassword);
     } catch (error) {
       return error;
     }
