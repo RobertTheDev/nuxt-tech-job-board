@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .page-container {
   width: 100%;
   display: flex;
@@ -16,6 +16,10 @@
 .content-container {
   display: flex;
   justify-content: center;
-  width: 50%;
+  width: 100%;
+  padding: 0 3.2rem;
+  @media (min-width: 640px) {
+    width: 50%;
+  }
 }
 </style>
