@@ -15,14 +15,28 @@
         >Upload CV</NuxtLink
       >
     </div>
-    <div v-if="!authenticatedUser" class="header-profile-container">
+    <div class="header-profile-container">
       <button class="header-control" @click="navigate('/profile/saved-jobs')">
         <font-awesome-icon
           class="header-control-icon"
           icon="fa-regular fa-heart"
         />
       </button>
-      <button class="header-control" @click="toggleProfileMenu()">
+      <button
+        v-if="authenticatedUser"
+        class="header-control"
+        @click="toggleProfileMenu()"
+      >
+        <font-awesome-icon
+          class="header-control-icon"
+          icon="fa-regular fa-user"
+        />
+      </button>
+      <button
+        v-if="!authenticatedUser"
+        class="header-control"
+        @click="navigate('/auth/login')"
+      >
         <font-awesome-icon
           class="header-control-icon"
           icon="fa-regular fa-user"
@@ -31,20 +45,6 @@
 
       <ProfileMenu v-if="profileMenuActive" ref="target" />
     </div>
-    <div v-else class="header-profile-container">
-      <button class="header-control" @click="navigate('/auth/login')">
-        <font-awesome-icon
-          class="header-control-icon"
-          icon="fa-regular fa-heart"
-        />
-      </button>
-      <button class="header-control" @click="navigate('/auth/login')">
-        <font-awesome-icon
-          class="header-control-icon"
-          icon="fa-regular fa-user"
-        />
-      </button>
-    </div>
   </header>
 </template>
 
@@ -52,9 +52,10 @@
 import { ref } from 'vue';
 import { onClickOutside } from '@vueuse/core';
 import companyName from '../../lib/constants/companyName';
-import useAuthenticatedUserStore from '@/store/authenticatedUserStore';
 
-const { authenticatedUser } = useAuthenticatedUserStore();
+import authenticatedUserStore from '@/store/authenticatedUserStore';
+
+const { authenticatedUser } = authenticatedUserStore();
 
 const profileMenuActive = ref(false);
 
