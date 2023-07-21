@@ -1,0 +1,25 @@
+<template>
+  <div>
+    <h1>Create Job Details</h1>
+    <div>
+      <p>Job Type</p>
+      <div class="selections-container">
+        <button v-for="jobType of jobTypes" :key="jobType.value">
+          {{ jobType.name }}
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import jobTypes from '@/lib/jobTypes';
+</script>
+
+<style lang="scss" scoped>
+.selections-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+}
+</style>
