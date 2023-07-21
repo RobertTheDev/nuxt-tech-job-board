@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <div class="job-post-card-sidebar">
       <div class="job-post-card-sidebar-list">
         <JobPostCard
@@ -9,9 +9,8 @@
         />
       </div>
     </div>
-    <div class="job-post-content-container">
-      <JobPostDetail />
-    </div>
+
+    <JobPostDetail />
   </div>
 </template>
 
@@ -29,3 +28,10 @@ useHead({
 
 const { data: jobPosts } = await useFetch('/api/jobPosts');
 </script>
+
+<style lang="scss" scoped>
+.container {
+  display: flex;
+  width: 100%;
+}
+</style>
