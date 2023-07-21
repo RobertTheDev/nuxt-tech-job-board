@@ -16,6 +16,9 @@
       >
     </div>
     <div class="header-profile-container">
+      <button class="header-control" @click="openBurgerMenu">
+        <font-awesome-icon icon="fa-solid fa-bars" />
+      </button>
       <button class="header-control" @click="navigate('/profile/saved-jobs')">
         <font-awesome-icon
           class="header-control-icon"
@@ -54,6 +57,10 @@ import { onClickOutside } from '@vueuse/core';
 import companyName from '../../lib/constants/companyName';
 
 import authenticatedUserStore from '@/store/useAuthenticatedUserStore';
+
+import useBurgerMenu from '@/store/useBurgerMenu';
+
+const { openBurgerMenu } = useBurgerMenu();
 
 const { authenticatedUser } = authenticatedUserStore();
 
