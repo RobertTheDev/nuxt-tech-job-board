@@ -1,7 +1,7 @@
 <template>
   <div class="layout-container">
     <NavigationHeader />
-
+    <NavigationBurgerMenu />
     <main class="main-container">
       <slot />
     </main>
