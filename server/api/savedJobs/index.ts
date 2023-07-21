@@ -1,11 +1,11 @@
 import mongoClient from '../../db/mongoClient';
 
 export default defineEventHandler(async (event) => {
-  const companiesCollection = mongoClient.collection('companies');
+  const savedJobsCollection = mongoClient.collection('savedJobs');
 
   if (event.node.req.method === 'GET') {
     try {
-      return await companiesCollection.find({}).toArray();
+      return await savedJobsCollection.find({}).toArray();
     } catch (error) {
       return error;
     }
@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
   if (event.node.req.method === 'POST') {
     try {
       const body = await readBody(event);
-      return await companiesCollection.insertOne(body);
+      return await savedJobsCollection.insertOne(body);
     } catch (error) {
       return error;
     }
