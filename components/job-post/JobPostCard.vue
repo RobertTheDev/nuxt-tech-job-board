@@ -22,9 +22,9 @@
         </p>
       </div>
     </div>
-    <div>
+    <button>
       <font-awesome-icon icon="fa-regular fa-bookmark" />
-    </div>
+    </button>
     <p>{{ jobPost.title }}</p>
     <div class="job-post-card-details-container">
       <p>{{ jobPost.locationType }}</p>
