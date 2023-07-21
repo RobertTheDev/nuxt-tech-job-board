@@ -49,6 +49,7 @@
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "@pinia/nuxt": "^0.4.11",
     "@vueuse/core": "^10.2.1",
+    "argon2": "^0.30.3",
     "date-fns": "^2.30.0",
     "http-status-codes": "^2.2.0",
     "mongodb": "^5.7.0",
