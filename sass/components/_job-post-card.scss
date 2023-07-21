@@ -12,6 +12,8 @@
 
   &-container {
     background: white;
+    border: 1px solid lightgray;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px;
     border-radius: 16px;
     overflow: hidden;
@@ -81,7 +83,7 @@
     left: 0;
     height: 100%;
     width: 400px;
-    background-color: #f1f1f1;
+    border-right: 1px solid lightgray;
     overflow-y: scroll;
 
     gap: 20px;
