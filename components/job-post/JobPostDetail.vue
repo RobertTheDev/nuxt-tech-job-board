@@ -77,7 +77,7 @@ const { data: jobPost } = await useFetch('/api/jobPosts/3');
 
 <style lang="scss" scoped>
 .job-post-detail-company-cover-image {
-  width: 80%;
+  width: 100%;
   height: 100%;
   object-fit: cover;
   &-container {
@@ -86,8 +86,13 @@ const { data: jobPost } = await useFetch('/api/jobPosts/3');
   }
 }
 .container {
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: column;
+  margin: 32px 64px 0px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  overflow: hidden;
 }
 </style>

@@ -1,21 +1,29 @@
 .footer {
   &-container {
     align-items: center;
-    background: whitesmoke;
+    background: #1a1a1a;
+    color: #fdfdfd;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     gap: 20px;
-    padding: 20px;
-    min-height: 60px;
+    padding: 16px 32px;
+
     width: 100%;
   }
 
   &-links-container {
     display: flex;
     gap: 20px;
+    flex: 1;
+  }
+
+  &-copyright-text {
+    font-size: 1.4rem;
   }
 
   &-link {
+    font-size: 1.4rem;
+
     &:hover {
       text-decoration: underline;
     }

@@ -33,5 +33,6 @@ const { data: jobPosts } = await useFetch('/api/jobPosts');
 .container {
   display: flex;
   width: 100%;
+  background: whitesmoke;
 }
 </style>

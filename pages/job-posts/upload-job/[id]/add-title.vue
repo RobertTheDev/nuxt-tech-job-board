@@ -2,8 +2,11 @@
   <div>
     <h1>Step 1: Add Title</h1>
     <p>Now lets add some details about the job post.</p>
-    <p>Add title</p>
-    <button @click="navigateToNextStep">Next</button>
+    <form class="primary-form-container" @submit.prevent="navigateToNextStep">
+      <p>Add title</p>
+      <input class="primary-form-input-container" />
+      <button type="submit">Next</button>
+    </form>
   </div>
 </template>
 

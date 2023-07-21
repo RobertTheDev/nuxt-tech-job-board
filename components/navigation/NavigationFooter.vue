@@ -9,7 +9,11 @@
         >{{ footerLink.name }}</NuxtLink
       >
     </div>
-    <p>© {{ currentYear }} {{ companyName }}</p>
+    <div class="footer-copyright-container">
+      <p class="footer-copyright-text">
+        © {{ currentYear }} {{ companyName }}
+      </p>
+    </div>
   </footer>
 </template>
 
