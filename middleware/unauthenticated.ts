@@ -1,4 +1,4 @@
-import authenticatedUserStore from '@/store/authenticatedUserStore';
+import authenticatedUserStore from '@/store/useAuthenticatedUserStore';
 
 export default defineNuxtRouteMiddleware(() => {
   const { authenticatedUser } = authenticatedUserStore();

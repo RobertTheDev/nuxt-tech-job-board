@@ -1,6 +1,6 @@
 <template>
   <div class="modal-wrapper">
-    <div class="modal-container">
+    <div ref="target" class="modal-container">
       <button @click="closeCreateCompanyModal">Close</button>
       <p>Create Company</p>
       <label for="add-company-logo">
@@ -18,9 +18,15 @@
 </template>
 
 <script lang="ts" setup>
-import useCreateCompanyModalStore from '@/store/createCompanyModalStore';
+import { ref } from 'vue';
+import { onClickOutside } from '@vueuse/core';
+import createCompanyModalStore from '@/store/useCreateCompanyModalStore';
 
-const { closeCreateCompanyModal } = useCreateCompanyModalStore();
+const target = ref(null);
+
+const { closeCreateCompanyModal } = createCompanyModalStore();
+
+onClickOutside(target, closeCreateCompanyModal);
 </script>
 
 <style lang="scss">
@@ -46,3 +52,4 @@ const { closeCreateCompanyModal } = useCreateCompanyModalStore();
   }
 }
 </style>
+store/useCreateCompanyModalStore

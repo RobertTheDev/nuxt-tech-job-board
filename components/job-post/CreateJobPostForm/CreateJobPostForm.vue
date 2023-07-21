@@ -45,6 +45,12 @@
   </div>
 </template>
 
+<script setup lang="ts">
+import { useCreateJobPostStore } from '@/store/useCreateJobPostStore';
+
+const { uploadJob } = useCreateJobPostStore();
+</script>
+
 <style>
 .page {
   display: flex;
@@ -54,9 +60,4 @@
   padding: 4rem;
 }
 </style>
-
-<script setup lang="ts">
-import { useCreateJobPostStore } from '@/store/createJobPostStore';
-
-const { uploadJob } = useCreateJobPostStore();
-</script>
+store/useCreateJobPostStore

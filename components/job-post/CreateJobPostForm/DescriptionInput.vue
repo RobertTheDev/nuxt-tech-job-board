@@ -18,3 +18,4 @@ import { useCreateJobPostStore } from '@/store/createJobPostStore';
 
 const { createJobForm } = useCreateJobPostStore();
 </script>
+store/useCreateJobPostStore

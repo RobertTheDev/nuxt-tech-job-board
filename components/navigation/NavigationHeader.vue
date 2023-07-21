@@ -53,7 +53,7 @@ import { ref } from 'vue';
 import { onClickOutside } from '@vueuse/core';
 import companyName from '../../lib/constants/companyName';
 
-import authenticatedUserStore from '@/store/authenticatedUserStore';
+import authenticatedUserStore from '@/store/useAuthenticatedUserStore';
 
 const { authenticatedUser } = authenticatedUserStore();
 
@@ -73,3 +73,4 @@ function toggleProfileMenu() {
   profileMenuActive.value = !profileMenuActive.value;
 }
 </script>
+store/useAuthenticatedUserStore

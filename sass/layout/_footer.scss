@@ -1,15 +1,23 @@
-.footer-container {
-  align-items: center;
-  background: whitesmoke;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 20px;
-  min-height: 60px;
-  width: 100%;
-}
+.footer {
+  &-container {
+    align-items: center;
+    background: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    min-height: 60px;
+    width: 100%;
+  }
 
-.footer-links-container {
-  display: flex;
-  gap: 20px;
+  &-links-container {
+    display: flex;
+    gap: 20px;
+  }
+
+  &-link {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

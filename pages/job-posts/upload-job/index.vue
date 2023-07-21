@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import useCreateCompanyModalStore from '@/store/createCompanyModalStore';
+import createCompanyModalStore from '@/store/useCreateCompanyModalStore';
 import companiesData from '@/lib/data/companies';
 
 definePageMeta({
@@ -33,7 +33,7 @@ function navigateToNextStep() {
 }
 
 const { createCompanyModal, openCreateCompanyModal } =
-  useCreateCompanyModalStore();
+  createCompanyModalStore();
 
 useHead({
   title: 'Upload Job',
@@ -45,3 +45,4 @@ useHead({
   ],
 });
 </script>
+store/useCreateCompanyModalStore

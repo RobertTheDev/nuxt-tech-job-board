@@ -4,6 +4,7 @@
       <NuxtLink
         v-for="footerLink in footerLinks"
         :key="footerLink.href"
+        class="footer-link"
         :to="footerLink.href"
         >{{ footerLink.name }}</NuxtLink
       >
