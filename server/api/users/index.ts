@@ -4,21 +4,23 @@ import { hashPassword } from '../../lib/passwordManagement';
 export default defineEventHandler(async (event) => {
   const usersCollection = mongoClient.collection('users');
 
-  if (event.node.req.method === 'GET') {
+  const { method } = event.node.req;
+
+  if (method === 'GET') {
     try {
       return await usersCollection.find({}).toArray();
     } catch (error) {
       return error;
     }
   }
-  if (event.node.req.method === 'DELETE') {
+  if (method === 'DELETE') {
     try {
       return await usersCollection.deleteMany({});
     } catch (error) {
       return error;
     }
   }
-  if (event.node.req.method === 'POST') {
+  if (method === 'POST') {
     try {
       const body = await readBody(event);
       const { password, ...input } = body; // Destructure password and other properties from the request body
