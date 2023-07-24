@@ -4,49 +4,45 @@
       <NuxtLink to="/" class="header-logo-text"> {{ companyName }} </NuxtLink>
     </div>
     <div class="header-links-container">
-      <NuxtLink class="header-link" to="/">Browse Jobs</NuxtLink>
-      <NuxtLink class="header-link" to="/job-posts/upload-job"
-        >Upload job</NuxtLink
+      <NuxtLink
+        v-for="headerLink in headerLinks"
+        :key="headerLink.href"
+        class="header-link"
+        :to="headerLink.href"
+        >{{ headerLink.name }}</NuxtLink
       >
-      <NuxtLink class="header-link" to="/profile/saved-jobs"
-        >Saved Jobs</NuxtLink
-      >
-      <NuxtLink class="header-link" to="/profile/account-settings/upload-cv"
-        >Upload CV</NuxtLink
+
       >
     </div>
     <div class="header-profile-container">
       <button class="header-control" @click="openBurgerMenu">
         <font-awesome-icon icon="fa-solid fa-bars" />
       </button>
-      <button class="header-control" @click="navigate('/profile/saved-jobs')">
-        <font-awesome-icon
-          class="header-control-icon"
-          icon="fa-regular fa-heart"
-        />
-      </button>
-      <button
-        v-if="authenticatedUser"
-        class="header-control"
-        @click="toggleProfileMenu()"
-      >
-        <font-awesome-icon
-          class="header-control-icon"
-          icon="fa-regular fa-user"
-        />
-      </button>
-      <button
-        v-if="!authenticatedUser"
-        class="header-control"
-        @click="navigate('/auth/login')"
-      >
-        <font-awesome-icon
-          class="header-control-icon"
-          icon="fa-regular fa-user"
-        />
-      </button>
+      <div v-if="session?.user" class="header-profile-container">
+        <button class="header-control" @click="navigate('/profile/saved-jobs')">
+          <font-awesome-icon
+            class="header-control-icon"
+            icon="fa-regular fa-heart"
+          />
+        </button>
+        <button class="header-control" @click="toggleProfileMenu()">
+          <font-awesome-icon
+            class="header-control-icon"
+            icon="fa-regular fa-user"
+          />
+        </button>
 
-      <ProfileMenu v-if="profileMenuActive" ref="target" />
+        <ProfileMenu v-if="profileMenuActive" ref="target" />
+      </div>
+
+      <div v-if="!session?.user">
+        <button class="header-control" @click="navigate('/auth/login')">
+          <font-awesome-icon
+            class="header-control-icon"
+            icon="fa-regular fa-user"
+          />
+        </button>
+      </div>
     </div>
   </header>
 </template>
@@ -54,15 +50,14 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { onClickOutside } from '@vueuse/core';
-import companyName from '../../lib/constants/companyName';
-
-import authenticatedUserStore from '@/store/useAuthenticatedUserStore';
+import companyName from '@/lib/constants/companyName';
 
 import useBurgerMenu from '@/store/useBurgerMenu';
+import headerLinks from '@/lib/links/headerLinks';
+
+const { session } = await useSession();
 
 const { openBurgerMenu } = useBurgerMenu();
-
-const { authenticatedUser } = authenticatedUserStore();
 
 const profileMenuActive = ref(false);
 
