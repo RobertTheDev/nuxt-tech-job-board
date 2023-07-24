@@ -5,6 +5,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['@/sass/style.scss', '@fortawesome/fontawesome-svg-core/styles.css'],
   components: componentsConfig,
-  modules: ['@nuxt/content', '@pinia/nuxt'],
+  modules: ['@nuxt/content', '@pinia/nuxt', '@sidebase/nuxt-session'],
   plugins: [{ src: '~/plugins/font-awesome.ts' }],
 });
