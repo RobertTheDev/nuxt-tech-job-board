@@ -26,6 +26,7 @@ module.exports = {
     'vuejs-accessibility',
     'import',
     'sonarjs',
+    'vitest',
   ],
   rules: {
     'vue/require-prop-types': 0,
