@@ -7,4 +7,15 @@ export default defineNuxtConfig({
   components: componentsConfig,
   modules: ['@nuxt/content', '@pinia/nuxt', '@sidebase/nuxt-session'],
   plugins: [{ src: '~/plugins/font-awesome.ts' }],
+  session: {
+    session: {
+      expiryInSeconds: 7 * 24 * 60 * 60,
+      storageOptions: {
+        driver: 'redis',
+        options: {
+          url: 'redis://localhost:6379',
+        },
+      },
+    },
+  },
 });
