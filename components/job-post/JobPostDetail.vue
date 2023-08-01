@@ -38,7 +38,8 @@ getJobPostById(id);
 </script> -->
 
 <template>
-  <div class="container">
+  <p>j ob featil</p>
+  <!-- <div class="container">
     <div class="job-post-detail-company-cover-image-container">
       <img
         class="job-post-detail-company-cover-image"
@@ -67,12 +68,12 @@ getJobPostById(id);
     <p>{{ jobPost.location.address }}</p>
     <p>{{ jobPost.company.name }}</p>
     <p>{{ jobPost.description }}</p>
-  </div>
+  </div> -->
 </template>
 
 <script setup>
-import { differenceInDays, format } from 'date-fns';
-const { data: jobPost } = await useFetch('/api/jobPosts/3');
+// import { differenceInDays, format } from 'date-fns';
+// const { data: jobPost } = await useFetch('/api/jobPosts/3');
 </script>
 
 <style lang="scss" scoped>

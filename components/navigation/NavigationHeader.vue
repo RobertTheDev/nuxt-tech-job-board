@@ -11,8 +11,6 @@
         :to="headerLink.href"
         >{{ headerLink.name }}</NuxtLink
       >
-
-      >
     </div>
     <div class="header-profile-container">
       <button class="header-control" @click="openBurgerMenu">
@@ -50,10 +48,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { onClickOutside } from '@vueuse/core';
-import companyName from '@/lib/constants/companyName';
+import companyName from '../../lib/constants/companyName';
 
-import useBurgerMenu from '@/store/useBurgerMenu';
-import headerLinks from '@/lib/links/headerLinks';
+import useBurgerMenu from '../../store/useBurgerMenu';
+import headerLinks from '../../lib/links/headerLinks';
 
 const { session } = await useSession();
 
@@ -75,4 +73,3 @@ function toggleProfileMenu() {
   profileMenuActive.value = !profileMenuActive.value;
 }
 </script>
-store/useAuthenticatedUserStore

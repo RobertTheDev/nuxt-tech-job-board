@@ -9,12 +9,14 @@
         />
       </div>
     </div>
-
+    <p v-if="session">{{ session.user.emailAddress }}</p>
     <JobPostDetail />
   </div>
 </template>
 
 <script setup>
+const { session } = await useSession();
+
 useHead({
   title: 'TechBoard - Job Search',
   meta: [

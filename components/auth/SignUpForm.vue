@@ -9,20 +9,25 @@
       <!-- LOGIN LINK -->
       <p class="primary-form-header-text">
         Already have an account?
-        <NuxtLink class="primary-form-header-link" to="/auth/login">
-          Login.</NuxtLink
+        <NuxtLink
+          id="sign-up-form-login-link"
+          class="primary-form-header-link"
+          to="/auth/login"
         >
+          Login</NuxtLink
+        >.
       </p>
     </div>
+
     <div class="primary-form-input-content-container">
       <p class="primary-form-input-label-text">Email</p>
       <Field
         v-slot="{ field }"
         class="primary-form-input-container"
-        name="email"
+        name="emailAddress"
         type="email"
       >
-        <label for="email" class="primary-form-input-label-container">
+        <label for="emailAddress" class="primary-form-input-label-container">
           <input
             type="email"
             v-bind="field"
@@ -33,7 +38,7 @@
       </Field>
 
       <ErrorMessage
-        name="email"
+        name="emailAddress"
         class="primary-form-input-validation-error-message-text"
       />
     </div>
@@ -101,6 +106,8 @@
             />
           </label>
           <button
+            id="sign-up-form-reveal-button"
+            type="button"
             class="reveal-button"
             @click.prevent="togglePasswordVisibility"
           >
@@ -116,50 +123,58 @@
     </div>
     <!-- PASSWORD VAALIDATORS -->
     <ul class="form-password-validators-container">
-      <PasswordValidator> 8 characters minimum </PasswordValidator>
-
-      <PasswordValidator>
-        One uppercase and one lowercase letter
-      </PasswordValidator>
-
-      <PasswordValidator> One number </PasswordValidator>
-
-      <PasswordValidator> One special character </PasswordValidator>
+      <PasswordValidator
+        v-for="signUpValidatorRule in signUpValidatorRules"
+        :key="signUpValidatorRule"
+        >{{ signUpValidatorRule }}</PasswordValidator
+      >
     </ul>
 
+    <p v-if="form.loading">Loading ...</p>
+    <p v-if="form.error">Error!</p>
     <div class="primary-form-footer-container">
       <!-- SIGN UP BUTTON -->
-      <button class="primary-form-button" type="submit">Sign Up</button>
+      <button id="sign-up-button" class="primary-form-button" type="submit">
+        Sign Up
+      </button>
     </div>
   </Form>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import signUpSchema from '../../lib/validators/signUpSchema';
+import signUpValidatorRules from '../../lib/constants/signUpValidatorRules';
+import apiUrls from '../../lib/constants/apiUrls';
 
-function handleSignUp(values: any) {
-  alert(JSON.stringify(values, null, 2));
+const router = useRouter();
+
+const passwordVisible = ref<boolean>(false);
+const form = reactive({
+  loading: false,
+  error: false,
+});
+
+async function handleSignUp(values: any) {
+  form.loading = true;
+  await useFetch(apiUrls.auth.signUp, {
+    method: 'POST',
+    body: values,
+  })
+    .then(() => {
+      form.loading = false;
+      router.push('/');
+    })
+    .catch((err) => {
+      if (err) {
+        form.error = true;
+        form.loading = false;
+      }
+    });
 }
-
-const passwordVisible = ref(false);
 
 function togglePasswordVisibility() {
   passwordVisible.value = !passwordVisible.value;
 }
 </script>
-
-<style scoped lang="scss">
-.reveal-button {
-  height: 100%;
-  aspect-ratio: 1/1;
-  border-radius: 0.5rem;
-  background: none;
-  text-decoration: underline;
-  font-weight: 500;
-}
-
-.reveal-icon {
-  font-size: 1.4rem;
-}
-</style>

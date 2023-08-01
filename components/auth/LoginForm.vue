@@ -2,7 +2,7 @@
   <Form
     class="primary-form-container"
     :validation-schema="loginSchema"
-    @submit="handleSubmit"
+    @submit="handleLogin"
   >
     <div class="primary-form-header-container">
       <h1>Login</h1>
@@ -19,10 +19,10 @@
       <Field
         v-slot="{ field }"
         class="primary-form-input-container"
-        name="email"
+        name="emailAddress"
         type="email"
       >
-        <label for="email" class="primary-form-input-label-container">
+        <label for="emailAddress" class="primary-form-input-label-container">
           <input
             type="email"
             v-bind="field"
@@ -77,7 +77,10 @@
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import loginSchema from '../../lib/validators/loginSchema';
 
-function handleSubmit(values: any) {
-  alert(JSON.stringify(values, null, 2));
+async function handleLogin(values: any) {
+  await useFetch('/api/auth/login', {
+    method: 'POST',
+    body: values,
+  });
 }
 </script>
