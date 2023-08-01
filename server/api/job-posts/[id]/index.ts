@@ -1,7 +1,7 @@
-import updateApplicationSchema from '../../../validators/applications/updateApplicationSchema';
-import getApplicationById from '../../../handlers/applications/getApplicationById';
-import deleteApplicationById from '../../../handlers/applications/deleteApplicationById';
-import updateApplicationById from '../../../handlers/applications/updateApplicationById';
+import { ObjectId } from 'mongodb';
+import { jobPostsCollection } from '../../../lib/collections';
+import getJobPostById from '../../../handlers/jobPosts/getJobPostById';
+import updateJobPostById from '../../../handlers/jobPosts/updateJobPostById';
 import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
 
 export default defineEventHandler(async (event) => {
@@ -11,15 +11,19 @@ export default defineEventHandler(async (event) => {
 
   if (method === 'GET') {
     try {
-      return getApplicationById(id);
+      return await getJobPostById(id);
     } catch (error) {
       return error;
     }
   }
+
   if (method === 'DELETE') {
     try {
       checkUserSignedIn(user);
-      return deleteApplicationById(id);
+
+      return await jobPostsCollection.findOneAndDelete({
+        _id: new ObjectId(id),
+      });
     } catch (error) {
       return error;
     }
@@ -30,9 +34,7 @@ export default defineEventHandler(async (event) => {
 
       const body = await readBody(event);
 
-      const validatedBody = await updateApplicationSchema.validate(body);
-
-      return updateApplicationById(id, validatedBody);
+      return updateJobPostById(id, body);
     } catch (error) {
       return error;
     }

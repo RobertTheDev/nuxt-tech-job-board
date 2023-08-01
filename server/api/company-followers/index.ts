@@ -1,19 +1,19 @@
-import deleteUsers from '../../handlers/users/deleteUsers';
-import getUsers from '../../handlers/users/getUsers';
+import deleteCompanyFollowers from '../../handlers/companyFollowers/deleteCompanyFollowers';
+import getCompanyFollowers from '../../handlers/companyFollowers/getCompanyFollowers';
 
 export default defineEventHandler((event) => {
   const { method } = event.node.req;
 
   if (method === 'GET') {
     try {
-      return getUsers();
+      return getCompanyFollowers();
     } catch (error) {
       return error;
     }
   }
   if (method === 'DELETE') {
     try {
-      return deleteUsers();
+      return deleteCompanyFollowers();
     } catch (error) {
       return error;
     }

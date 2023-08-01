@@ -1,21 +1,26 @@
-import mongoClient from '../../db/mongoClient';
+import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
+import createCompany from '../../handlers/companies/createCompany';
+import deleteCompanies from '../../handlers/companies/deleteCompanies';
+import getCompanies from '../../handlers/companies/getCompanies';
+import createCompanySchema from '../../validators/companies/createCompanySchema';
 
 export default defineEventHandler(async (event) => {
-  const companiesCollection = mongoClient.collection('companies');
+  const { method } = event.node.req;
+  const { user } = event.context.session;
 
-  if (event.node.req.method === 'GET') {
-    try {
-      return await companiesCollection.find({}).toArray();
-    } catch (error) {
-      return error;
-    }
+  if (method === 'GET') {
+    return await getCompanies();
   }
-  if (event.node.req.method === 'POST') {
-    try {
-      const body = await readBody(event);
-      return await companiesCollection.insertOne(body);
-    } catch (error) {
-      return error;
-    }
+  if (method === 'DELETE') {
+    return deleteCompanies();
+  }
+  if (method === 'POST') {
+    checkUserSignedIn(user);
+
+    const body = await readBody(event);
+
+    await createCompanySchema.validate(body);
+
+    return await createCompany(user._id, body);
   }
 });

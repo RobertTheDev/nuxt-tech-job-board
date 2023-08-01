@@ -1,9 +1,13 @@
 import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
 
 export default defineEventHandler((event) => {
-  const user = event.context.session.user;
+  const { user } = event.context.session;
 
   checkUserSignedIn(user);
 
-  return user;
+  event.context.session.user = null;
+
+  return {
+    statusMessage: 'User successfully logged out.',
+  };
 });

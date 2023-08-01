@@ -1,36 +1,34 @@
-import { ObjectId } from 'mongodb';
-import mongoClient from '../../../db/mongoClient';
+import getCompanyById from '../../../handlers/companies/getCompanyById';
+import deleteCompanyById from '../../../handlers/companies/deleteCompanyById';
+import updateCompanyById from '../../../handlers/companies/updateCompanyById';
+import updateCompanySchema from '../../../validators/companies/updateCompanySchema';
+import deleteCompanyOwnersByCompanyId from '../../../handlers/companyOwners/deleteCompanyOwnersByCompanyId';
+import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
 
 export default defineEventHandler(async (event) => {
-  const companiesCollection = mongoClient.collection('companies');
   const { id } = event.context.params as { id: string };
+  const { method } = event.node.req;
+  const { user } = event.context.session;
 
-  if (event.node.req.method === 'GET') {
-    try {
-      return await companiesCollection.findOne({ _id: new ObjectId(id) });
-    } catch (error) {
-      return error;
-    }
+  if (method === 'GET') {
+    return getCompanyById(id);
   }
-  if (event.node.req.method === 'DELETE') {
-    try {
-      return await companiesCollection.findOneAndDelete({
-        _id: new ObjectId(id),
-      });
-    } catch (error) {
-      return error;
-    }
-  }
-  if (event.node.req.method === 'PUT') {
-    try {
-      const body = await readBody(event);
+  if (method === 'DELETE') {
+    checkUserSignedIn(user);
 
-      return await companiesCollection.findOneAndUpdate(
-        { _id: new ObjectId(id) },
-        { $set: body },
-      );
-    } catch (error) {
-      return error;
-    }
+    const deletedCompany = await deleteCompanyById(id);
+
+    await deleteCompanyOwnersByCompanyId(id);
+
+    return deletedCompany;
+  }
+  if (method === 'PUT') {
+    checkUserSignedIn(user);
+
+    const body = await readBody(event);
+
+    const validatedBody = await updateCompanySchema.validate(body);
+
+    return updateCompanyById(id, validatedBody);
   }
 });

@@ -1,21 +1,28 @@
-import mongoClient from '../../db/mongoClient';
+import createApplication from '../../handlers/applications/createApplication';
+import deleteApplications from '../../handlers/applications/deleteApplications';
+import getApplications from '../../handlers/applications/getApplications';
+import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
+import createApplicationSchema from '../../validators/applications/createApplicationSchema';
 
 export default defineEventHandler(async (event) => {
-  const applicationsCollection = mongoClient.collection('applications');
+  const { user } = event.context.session;
+  const { method } = event.node.req;
 
-  if (event.node.req.method === 'GET') {
-    try {
-      return await applicationsCollection.find({}).toArray();
-    } catch (error) {
-      return error;
-    }
+  if (method === 'GET') {
+    return getApplications();
   }
-  if (event.node.req.method === 'POST') {
-    try {
-      const body = await readBody(event);
-      return await applicationsCollection.insertOne(body);
-    } catch (error) {
-      return error;
-    }
+
+  if (method === 'DELETE') {
+    return deleteApplications();
+  }
+
+  if (method === 'POST') {
+    checkUserSignedIn(user);
+
+    const body = await readBody(event);
+
+    const validatedBody = await createApplicationSchema.validate(body);
+
+    return createApplication(user, validatedBody);
   }
 });

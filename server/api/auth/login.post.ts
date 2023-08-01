@@ -1,38 +1,28 @@
-import { usersCollection } from '../../lib/collections';
-import { verifyPassword } from '../../lib/passwordManagement';
+import checkPasswordCorrect from '../../handlers/auth/checkPasswordCorrect';
+import checkUserIsNotSignedIn from '../../handlers/auth/checkUserIsNotSignedIn';
+import login from '../../handlers/auth/login';
+import loginSchema from '../../validators/auth/loginSchema';
 
 export default defineEventHandler(async (event) => {
-  try {
-    const body = await readBody(event);
-    const { password, emailAddress } = body; // Destructure password and other properties from the request body
+  // Get the signed in user if it is in session.
+  const { user } = await event.context.session;
 
-    const findUser = await usersCollection.findOne({ emailAddress });
+  const body = await readBody(event);
 
-    if (!findUser) {
-      throw createError({
-        statusCode: 404,
-        statusMessage: 'No user was found in the database.',
-      });
-    }
+  // Validate the inputted body.
+  const validatedBody = await loginSchema.validate(body);
 
-    // Hash the password
-    const verifyUser = await verifyPassword(findUser.password, password);
+  checkUserIsNotSignedIn(user);
 
-    if (!verifyUser) {
-      throw createError({
-        statusCode: 401,
-        statusMessage:
-          'Passwords do not match. The password entered is incorrect.',
-      });
-    }
+  // Check inputted password is correct.
+  await checkPasswordCorrect(
+    validatedBody.emailAddress,
+    validatedBody.password,
+  );
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { password: userPassword, ...user } = findUser;
+  const loggedInUser = await login(validatedBody);
 
-    event.context.session.user = user;
+  event.context.session.user = loggedInUser;
 
-    return findUser;
-  } catch (error) {
-    return error;
-  }
+  return loggedInUser;
 });

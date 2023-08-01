@@ -1,17 +1,17 @@
-import updateApplicationSchema from '../../../validators/applications/updateApplicationSchema';
-import getApplicationById from '../../../handlers/applications/getApplicationById';
-import deleteApplicationById from '../../../handlers/applications/deleteApplicationById';
-import updateApplicationById from '../../../handlers/applications/updateApplicationById';
+import updateUserSchema from '../../../validators/users/updateUserSchema';
+import updateUserById from '../../../handlers/users/updateUserById';
+import getSavedJobPostById from '../../../handlers/savedJobPosts/getSavedJobPostById';
+import deleteSavedJobById from '../../../handlers/savedJobPosts/deleteSavedJobPostById';
 import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
 
 export default defineEventHandler(async (event) => {
   const { id } = event.context.params as { id: string };
-  const { method } = event.node.req;
   const { user } = event.context.session;
+  const { method } = event.node.req;
 
   if (method === 'GET') {
     try {
-      return getApplicationById(id);
+      return getSavedJobPostById(id);
     } catch (error) {
       return error;
     }
@@ -19,7 +19,8 @@ export default defineEventHandler(async (event) => {
   if (method === 'DELETE') {
     try {
       checkUserSignedIn(user);
-      return deleteApplicationById(id);
+
+      return deleteSavedJobById(id);
     } catch (error) {
       return error;
     }
@@ -30,9 +31,9 @@ export default defineEventHandler(async (event) => {
 
       const body = await readBody(event);
 
-      const validatedBody = await updateApplicationSchema.validate(body);
+      const validatedBody = await updateUserSchema.validate(body);
 
-      return updateApplicationById(id, validatedBody);
+      return updateUserById(id, validatedBody);
     } catch (error) {
       return error;
     }
