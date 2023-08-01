@@ -1,67 +1,28 @@
-import { ObjectId } from 'mongodb';
-import mongoClient from '../../../db/mongoClient';
-
-const noUserFoundMessage = 'No user was found.';
+import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
+import getUserById from '../../../handlers/users/getUserById';
+import updateUserById from '../../../handlers/users/updateUserById';
+import updateUserSchema from '../../../validators/users/updateUserSchema';
 
 export default defineEventHandler(async (event) => {
   const { method } = event.node.req;
-
-  const usersCollection = mongoClient.collection('users');
   const { id } = event.context.params as { id: string };
+  const { user } = event.context.session;
 
   if (method === 'GET') {
-    try {
-      const user = await usersCollection.findOne({ _id: new ObjectId(id) });
-
-      if (!user) {
-        throw createError({
-          statusCode: 404,
-          statusMessage: noUserFoundMessage,
-        });
-      }
-
-      return user;
-    } catch (error) {
-      return error;
-    }
+    return getUserById(id);
   }
-  if (method === 'DELETE') {
-    try {
-      const deletedUser = await usersCollection.findOneAndDelete({
-        _id: new ObjectId(id),
-      });
 
-      if (!deletedUser) {
-        throw createError({
-          statusCode: 404,
-          statusMessage: noUserFoundMessage,
-        });
-      }
-
-      return deletedUser;
-    } catch (error) {
-      return error;
-    }
-  }
   if (method === 'PUT') {
-    try {
-      const body = await readBody(event);
+    const body = await readBody(event);
 
-      const updatedUser = await usersCollection.findOneAndUpdate(
-        { _id: new ObjectId(id) },
-        { $set: body },
-      );
+    checkUserSignedIn(user);
 
-      if (!updatedUser) {
-        throw createError({
-          statusCode: 404,
-          statusMessage: noUserFoundMessage,
-        });
-      }
+    const validatedBody = await updateUserSchema.validate(body);
 
-      return updatedUser;
-    } catch (error) {
-      return error;
-    }
+    const updatedUser = await updateUserById(id, validatedBody);
+
+    event.context.session.user = updatedUser;
+
+    return updatedUser;
   }
 });
