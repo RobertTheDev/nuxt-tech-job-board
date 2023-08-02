@@ -37,7 +37,7 @@ const {
   pending,
   error,
   refresh,
-} = await useFetch<CompanyOwner[]>(`/api/company-owners/profile`);
+} = await useFetch<CompanyOwner[]>(`/api/company-owners/authenticated-user`);
 
 // Add seo title and description for this page.
 useHead({
