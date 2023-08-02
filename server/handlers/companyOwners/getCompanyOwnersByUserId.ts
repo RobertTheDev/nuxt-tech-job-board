@@ -26,6 +26,11 @@ export default async function getCompanyOwnersByUserId(userId: string) {
             as: 'company',
           },
         },
+        {
+          $unwind: {
+            path: '$company',
+          },
+        },
       ],
       { maxTimeMS: 60000, allowDiskUse: true },
     )
