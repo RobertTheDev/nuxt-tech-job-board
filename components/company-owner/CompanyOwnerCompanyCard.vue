@@ -4,9 +4,17 @@
     <p>{{ companyOwner.company.name }}</p>
     <div>
       <!-- Button navigates to company's edit page. -->
-      <button @click="navigateTo('/')">Edit Company</button>
+      <button
+        @click="
+          navigateTo(`/companies/${companyOwner.company._id}/edit-company`)
+        "
+      >
+        Edit Company
+      </button>
       <!-- Button navigates to company's content page. -->
-      <button>View Company</button>
+      <button @click="navigateTo(`/companies/${companyOwner.company._id}`)">
+        View Company
+      </button>
     </div>
   </div>
 </template>
