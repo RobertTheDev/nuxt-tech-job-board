@@ -6,13 +6,13 @@
     @keydown.enter="navigateToJobPost(jobPost.id)"
   >
     <div class="job-post-card-company-container">
-      <div class="job-post-card-company-logo-container">
+      <!-- <div class="job-post-card-company-logo-container">
         <img
           :src="jobPost.company.logo.url"
           :alt="jobPost.company.logo.alt"
           class="job-post-card-company-logo-image"
         />
-      </div>
+      </div> -->
       <div class="job-post-card-company-content-container">
         <p>{{ jobPost.company.name }}</p>
         <p>
@@ -26,15 +26,15 @@
       <font-awesome-icon icon="fa-regular fa-bookmark" />
     </button>
     <p>{{ jobPost.title }}</p>
-    <div class="job-post-card-details-container">
+    <!-- <div class="job-post-card-details-container">
       <p>{{ jobPost.locationType }}</p>
       <p>{{ jobPost.contractType }}</p>
-    </div>
+    </div> -->
 
-    <p>
+    <!-- <p>
       £{{ jobPost.salary.min.toLocaleString() }} -
       {{ jobPost.salary.max.toLocaleString() }}
-    </p>
+    </p> -->
   </div>
 </template>
 
