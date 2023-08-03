@@ -1,10 +1,13 @@
 <template>
-  <div>
+  <div class="page-container">
     <!-- Page Heading. -->
     <h3>My Companies</h3>
     <!-- If data is loading show a loading message -->
     <div v-if="pending">
       <p>Loading...</p>
+    </div>
+    <div v-if="companyOwners?.length === 0">
+      <p>You currently have no companies set up.</p>
     </div>
     <!-- If error occurs offer an explanation and refrsh button for the user to try again. -->
     <div v-if="error">
@@ -13,12 +16,14 @@
       </p>
       <button @click="refresh()">Refresh</button>
     </div>
-    <!-- Map the data through the CompanyOwnerCompanyCard component. -->
-    <CompanyOwnerCompanyCard
-      v-for="companyOwner of companyOwners"
-      :key="companyOwner._id"
-      v-bind="companyOwner"
-    />
+    <div class="cards-container">
+      <!-- Map the data through the CompanyOwnerCompanyCard component. -->
+      <CompanyOwnerCompanyCard
+        v-for="companyOwner of companyOwners"
+        :key="companyOwner._id"
+        v-bind="companyOwner"
+      />
+    </div>
   </div>
 </template>
 
@@ -50,3 +55,16 @@ useHead({
   ],
 });
 </script>
+
+<style lang="scss" scoped>
+.page-container {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+</style>

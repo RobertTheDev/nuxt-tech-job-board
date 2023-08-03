@@ -4,18 +4,18 @@
       <div class="job-post-card-sidebar-list">
         <JobPostCard
           v-for="jobPost in jobPosts"
-          :key="jobPost.id"
+          :key="jobPost._id"
           v-bind="jobPost"
         />
       </div>
     </div>
-    <p v-if="session">{{ session.user.emailAddress }}</p>
+
     <JobPostDetail />
   </div>
 </template>
 
-<script setup>
-const { session } = await useSession();
+<script setup lang="ts">
+import JobPost from '../lib/types/JobPost';
 
 useHead({
   title: 'TechBoard - Job Search',
@@ -28,7 +28,7 @@ useHead({
   ],
 });
 
-const { data: jobPosts } = await useFetch('/api/jobPosts');
+const { data: jobPosts } = await useFetch<JobPost[]>('/api/job-posts');
 </script>
 
 <style lang="scss" scoped>

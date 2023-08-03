@@ -1,19 +1,31 @@
 <template>
   <!-- Content. -->
-  <div>
+  <div class="card-container">
+    <div class="card-logo-container">
+      <img
+        class="card-logo-image"
+        :src="companyOwner.company.logo.url"
+        :alt="companyOwner.company.logo.alt"
+      />
+    </div>
+
     <p>{{ companyOwner.company.name }}</p>
-    <div>
+    <div class="card-button-group">
       <!-- Button navigates to company's edit page. -->
       <button
+        class="card-button"
         @click="
           navigateTo(`/companies/${companyOwner.company._id}/edit-company`)
         "
       >
-        Edit Company
+        Edit
       </button>
       <!-- Button navigates to company's content page. -->
-      <button @click="navigateTo(`/companies/${companyOwner.company._id}`)">
-        View Company
+      <button
+        class="card-button"
+        @click="navigateTo(`/companies/${companyOwner.company._id}`)"
+      >
+        View
       </button>
     </div>
   </div>
@@ -36,3 +48,41 @@ function navigateTo(path: string) {
   router.push(path);
 }
 </script>
+
+<style scoped lang="scss">
+.card {
+  &-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    width: 320px;
+    padding: 16px;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  &-logo {
+    &-container {
+      height: 100px;
+      width: 100px;
+      border-radius: 100%;
+      overflow: hidden;
+    }
+    &-image {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  &-button {
+    width: 100%;
+    &-group {
+      align-items: center;
+      display: flex;
+      gap: 16px;
+      width: 100%;
+    }
+  }
+}
+</style>
