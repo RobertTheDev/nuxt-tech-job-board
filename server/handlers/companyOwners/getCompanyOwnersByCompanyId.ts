@@ -12,20 +12,21 @@ export default async function getCompanyOwnersByCompanyId(companyId: string) {
         },
         {
           $lookup: {
-            from: 'users',
-            localField: 'users._id',
-            foreignField: 'companyOwners.userId',
-            as: 'owner',
+            from: 'companies',
+            localField: 'companyId',
+            foreignField: '_id',
+            as: 'company',
           },
         },
         {
           $lookup: {
-            from: 'companies',
-            localField: 'companies._id',
-            foreignField: 'companyOwners.companyId',
-            as: 'company',
+            from: 'users',
+            foreignField: '_id',
+            localField: 'userId',
+            as: 'owners',
           },
         },
+        { $unwind: { path: '$company' } },
       ],
       { maxTimeMS: 60000, allowDiskUse: true },
     )

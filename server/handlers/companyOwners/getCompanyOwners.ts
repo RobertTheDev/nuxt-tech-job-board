@@ -7,20 +7,20 @@ export default function getCompanyOwners() {
         {
           $lookup: {
             from: 'companies',
-            localField: 'companies._id',
-            foreignField: 'companyOwners.companyId',
+            localField: 'companyId',
+            foreignField: '_id',
             as: 'company',
           },
         },
-        { $unwind: { path: '$company' } },
         {
           $lookup: {
             from: 'users',
-            localField: 'userId',
             foreignField: '_id',
+            localField: 'userId',
             as: 'owners',
           },
         },
+        { $unwind: { path: '$company' } },
       ],
 
       { maxTimeMS: 60000, allowDiskUse: true },
