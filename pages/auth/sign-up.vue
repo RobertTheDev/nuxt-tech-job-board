@@ -10,7 +10,8 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: '',
+      content:
+        'Sign up to TechBoard to apply for the latest jobs in the tech industry. Yuu can also set up your own company and find future employees for your tech business today.',
     },
   ],
 });
