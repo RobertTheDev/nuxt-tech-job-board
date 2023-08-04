@@ -1,7 +1,9 @@
 <template>
   <div class="page-container">
+    <CompanyCreateCompanyModal />
     <!-- Page Heading. -->
     <h3>My Companies</h3>
+    <button>Create Company</button>
     <!-- If data is loading show a loading message -->
     <div v-if="pending">
       <p>Loading...</p>
