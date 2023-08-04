@@ -24,7 +24,7 @@ export default async function checkPasswordCorrect(
   if (!checkPassword) {
     throw createError({
       statusCode: 401,
-      statusMessage: 'Unauthorized. The password entered is incorrect.',
+      statusMessage: 'The password you entered is incorrect.',
     });
   }
 }
