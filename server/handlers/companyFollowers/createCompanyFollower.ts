@@ -3,15 +3,14 @@ import { companyOwnersCollection } from '../../lib/collections';
 import { CreateCompanyFollowerSchemaType } from '../../validators/companyFollowers/createCompanyFollowerSchema';
 import getCompanyFollowerById from './getCompanyFollowerById';
 
-export default async function createCompanyFollower({
-  companyId,
-  userId,
-}: CreateCompanyFollowerSchemaType) {
+export default async function createCompanyFollower(
+  body: CreateCompanyFollowerSchemaType,
+) {
   // Create the company follower.
   const createdCompanyFollower = await companyOwnersCollection.insertOne({
-    createdAt: new Date(),
-    companyId: new ObjectId(companyId),
-    userId: new ObjectId(userId),
+    createdAt: body.createdAt,
+    companyId: new ObjectId(body.companyId),
+    userId: new ObjectId(body.userId),
   });
 
   // Get the created company follower by its id.

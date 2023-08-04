@@ -8,18 +8,19 @@ export default defineEventHandler((event) => {
 
   checkUserSignedIn(user);
 
-  const id = user._id;
+  const userId = user._id;
 
   if (method === 'GET') {
     try {
-      return getCompanyFollowersByUserId(id);
+      return getCompanyFollowersByUserId(userId);
     } catch (error) {
       return error;
     }
   }
+
   if (method === 'DELETE') {
     try {
-      return deleteCompanyFollowersByUserId(id);
+      return deleteCompanyFollowersByUserId(userId);
     } catch (error) {
       return error;
     }
