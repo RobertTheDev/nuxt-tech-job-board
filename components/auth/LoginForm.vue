@@ -90,9 +90,14 @@
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import loginSchema from '../../lib/validators/loginSchema';
-import formHandler from '../../lib/formHandler';
+import FormHandler from '../../lib/types/FormHandler';
 
 const router = useRouter();
+
+const formHandler = ref<FormHandler>({
+  pending: false,
+  errorMessage: undefined,
+});
 
 async function handleLogin(values: any) {
   const { pending, error, data } = await useFetch('/api/auth/login', {
