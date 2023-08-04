@@ -33,7 +33,7 @@
       </Field>
 
       <ErrorMessage
-        name="email"
+        name="emailAddress"
         class="primary-form-input-validation-error-message-text"
       />
     </div>
@@ -66,9 +66,23 @@
       />
     </div>
 
+    <p
+      v-if="formHandler.errorMessage"
+      class="primary-form-input-validation-error-message-text"
+    >
+      {{ formHandler.errorMessage }}
+    </p>
     <div class="primary-form-footer-container">
       <!-- SIGN UP BUTTON -->
-      <button class="primary-form-button" type="submit">Login</button>
+
+      <button
+        v-if="formHandler.pending"
+        class="primary-form-button"
+        type="submit"
+      >
+        Loading
+      </button>
+      <button v-else class="primary-form-button" type="submit">Login</button>
     </div>
   </Form>
 </template>
@@ -76,11 +90,26 @@
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import loginSchema from '../../lib/validators/loginSchema';
+import formHandler from '../../lib/formHandler';
+
+const router = useRouter();
 
 async function handleLogin(values: any) {
-  await useFetch('/api/auth/login', {
+  const { pending, error, data } = await useFetch('/api/auth/login', {
     method: 'POST',
     body: values,
   });
+
+  if (pending.value) {
+    formHandler.value.pending = pending.value;
+  }
+
+  if (error.value) {
+    formHandler.value.errorMessage = error.value.statusMessage;
+  }
+
+  if (data) {
+    router.push('/');
+  }
 }
 </script>

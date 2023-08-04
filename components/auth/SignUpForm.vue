@@ -146,7 +146,6 @@ import { ref } from 'vue';
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import signUpSchema from '../../lib/validators/signUpSchema';
 import signUpValidatorRules from '../../lib/constants/signUpValidatorRules';
-import apiUrls from '../../lib/constants/apiUrls';
 
 const router = useRouter();
 
@@ -158,7 +157,7 @@ const form = reactive({
 
 async function handleSignUp(values: any) {
   form.loading = true;
-  await useFetch(apiUrls.auth.signUp, {
+  await useFetch('/api/auth/sign-up', {
     method: 'POST',
     body: values,
   })
