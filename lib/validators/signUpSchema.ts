@@ -1,14 +1,27 @@
-import * as Yup from 'yup';
+import * as yup from 'yup';
 
-const signUpSchema = Yup.object().shape({
-  firstName: Yup.string().required('First Name is required'),
-  lastName: Yup.string().required('Last name is required'),
-  emailAddress: Yup.string()
-    .required('Email is required')
-    .email('Email is invalid'),
-  password: Yup.string()
-    .min(8, 'Password must be at least 6 characters')
-    .required('Password is required'),
-});
+const signUpSchema = yup
+  .object({
+    emailAddress: yup
+      .string()
+      .email('Email address must be a valid email format.')
+      .required('Email is required.'),
+    firstName: yup.string().required('First name is required.'),
+    lastName: yup.string().required('Last name is required.'),
+    password: yup
+      .string()
+      .min(8, 'Password must be at least 8 characters long')
+      .matches(/[A-Z]/, 'Password must contain at least one capital letter')
+      .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
+      .matches(/\d/, 'Password must contain at least one number')
+      .matches(
+        /[!@#$%^&*(),.?":{}|<>]/,
+        'Password must contain at least one special character',
+      )
+      .required('Password is required.'),
+  })
+  .unknown(false);
+
+export type SignUpSchemaType = yup.InferType<typeof signUpSchema>;
 
 export default signUpSchema;
