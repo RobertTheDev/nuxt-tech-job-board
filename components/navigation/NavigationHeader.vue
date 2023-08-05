@@ -8,6 +8,7 @@
         v-for="headerLink in headerLinks"
         :key="headerLink.href"
         class="header-link"
+        :class="route.fullPath === headerLink.href && 'active-link'"
         :to="headerLink.href"
         >{{ headerLink.name }}</NuxtLink
       >
@@ -55,6 +56,8 @@ import headerLinks from '../../lib/links/headerLinks';
 
 const { session } = await useSession();
 
+const route = useRoute();
+
 const { openBurgerMenu } = useBurgerMenu();
 
 const profileMenuActive = ref(false);
@@ -73,3 +76,9 @@ function toggleProfileMenu() {
   profileMenuActive.value = !profileMenuActive.value;
 }
 </script>
+
+<style lang="scss" scoped>
+.active-link {
+  color: #8046ef;
+}
+</style>
