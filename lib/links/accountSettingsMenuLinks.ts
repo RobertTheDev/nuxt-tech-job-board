@@ -2,10 +2,6 @@ import NavigationLink from 'lib/types/NavigationLink';
 
 const accountSettingsMenuLinks: NavigationLink[] = [
   {
-    href: '/profile/edit-profile',
-    name: 'Edit Profile',
-  },
-  {
     href: '/profile/account-settings',
     name: 'Account Settings',
   },
