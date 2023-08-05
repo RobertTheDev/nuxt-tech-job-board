@@ -1,7 +1,7 @@
 import checkPasswordCorrect from '../../handlers/auth/checkPasswordCorrect';
 import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
-import getSignedInUser from '../../handlers/auth/getSignedInUser';
 import deleteUserById from '../../handlers/users/deleteUserById';
+import getUserByEmailAddress from '../../handlers/users/getUserByEmailAddress';
 import closeAccountSchema from '../../validators/auth/closeAccountSchema';
 
 export default defineEventHandler(async (event) => {
@@ -14,10 +14,10 @@ export default defineEventHandler(async (event) => {
   const validatedBody = await closeAccountSchema.validate(body);
 
   // Check if a user is signed in.
-  const signedInUser = await getSignedInUser(user);
+  const signedInUser = await getUserByEmailAddress(user.emailAddress);
 
   // Check inputted password is incorrect.
-  checkPasswordCorrect(signedInUser.password, validatedBody.password);
+  await checkPasswordCorrect(signedInUser.password, validatedBody.password);
 
   const deleteUser = deleteUserById(signedInUser._id.toString());
 
