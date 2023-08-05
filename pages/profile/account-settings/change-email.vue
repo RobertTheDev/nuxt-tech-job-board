@@ -1,102 +1,26 @@
 <template>
+  <!-- Wrap Content With The Account Settings Menu Component. -->
   <AccountSettingsMenu>
-    <p>Change Email Address</p>
-    <p>Current Email Address: robertthedev@gmail.com</p>
-    <p>Change Your Email Address</p>
-
-    <Form
-      class="primary-form-container"
-      :validation-schema="signUpSchema"
-      @submit="handleSignUp"
-    >
-      <div class="primary-form-header-container">
-        <h1>Change Email</h1>
-      </div>
-      <div class="primary-form-input-content-container">
-        <p class="primary-form-input-label-text">Email</p>
-        <Field
-          v-slot="{ field }"
-          class="primary-form-input-container"
-          name="email"
-          type="email"
-        >
-          <label for="email" class="primary-form-input-label-container">
-            <input
-              type="email"
-              v-bind="field"
-              placeholder="Email"
-              class="primary-form-input"
-            />
-          </label>
-        </Field>
-
-        <ErrorMessage
-          name="email"
-          class="primary-form-input-validation-error-message-text"
-        />
-      </div>
-
-      <div class="primary-form-input-content-container">
-        <p class="primary-form-input-label-text">Password</p>
-
-        <Field v-slot="{ field }" name="password" type="text">
-          <div class="primary-form-input-container">
-            <label for="password" class="primary-form-input-label-container">
-              <input
-                class="primary-form-input"
-                :type="passwordVisible ? 'text' : 'password'"
-                v-bind="field"
-                placeholder="Password"
-              />
-            </label>
-            <button
-              class="reveal-button"
-              @click.prevent="togglePasswordVisibility"
-            >
-              {{ passwordVisible ? 'Hide' : 'Show' }}
-            </button>
-          </div>
-        </Field>
-
-        <ErrorMessage
-          class="primary-form-input-validation-error-message-text"
-          name="password"
-        />
-      </div>
-
-      <div class="primary-form-footer-container">
-        <!-- SIGN UP BUTTON -->
-        <button class="primary-form-button" type="submit">Sign Up</button>
-      </div>
-    </Form>
+    <!-- Change Email Form Component. -->
+    <ChangeEmailForm />
   </AccountSettingsMenu>
 </template>
 
 <script setup lang="ts">
-import { Form, Field } from 'vee-validate';
-import signUpSchema from '@/lib/validators/signUpSchema';
-
+// Use Unauthenticated Middleware To Prevent Unauthenticated Use.
 definePageMeta({
   middleware: 'unauthenticated',
 });
 
+// Seo Title And Content.
 useHead({
   title: 'Change Email',
   meta: [
     {
       name: 'description',
-      content: '',
+      content:
+        'Change your email on TechBoard by entering a new email address in the input below and authenticate with your password.',
     },
   ],
 });
-
-const passwordVisible = ref(false);
-
-function togglePasswordVisibility() {
-  passwordVisible.value = !passwordVisible.value;
-}
-
-function handleSignUp(values: any) {
-  alert(JSON.stringify(values, null, 2));
-}
 </script>

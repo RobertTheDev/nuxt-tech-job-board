@@ -1,41 +1,24 @@
 <template>
+  <!-- Wrap Content With The Account Settings Menu Component. -->
   <AccountSettingsMenu>
-    <p>Account Settings</p>
-    <p>Contact Information</p>
-    <p>Prefix</p>
-    <label for="suffix">
-      <select>
-        <option>Mr.</option>
-        <option>Mrs.</option>
-        <option>Ms.</option>
-        <option>Miss.</option>
-        <option>Mx.</option>
-        <option>Dr.</option>
-        <option>Prof.</option>
-        <option>Rev.</option>
-      </select>
-    </label>
-    <input placeholder="First Name" />
-    <input placeholder="Surname" />
-    <input placeholder="Home Phone" />
-    <input placeholder="Mobile Phone" />
-    <input placeholder="Job Title" />
-    <input placeholder="Company / Organisation" />
-    <input placeholder="Website" />
+    <!-- Account Settings Form Component. -->
+    <AccountSettingsForm />
   </AccountSettingsMenu>
 </template>
 
 <script setup lang="ts">
+// Use Unauthenticated Middleware To Prevent Unauthenticated Use.
 definePageMeta({
   middleware: 'unauthenticated',
 });
 
+// Seo Title And Content.
 useHead({
   title: 'Account Settings',
   meta: [
     {
       name: 'description',
-      content: '',
+      content: 'Edit your account settings below by using the form below.',
     },
   ],
 });
