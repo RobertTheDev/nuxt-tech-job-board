@@ -38,7 +38,14 @@
           class="modal-input-container"
         >
           <p>Enter Total Employees</p>
-          <input class="modal-input" />
+          <select>
+            <option
+              v-for="totalEmployee of totalEmployees"
+              :key="totalEmployee"
+            >
+              {{ totalEmployee }}
+            </option>
+          </select>
         </label>
         <label
           for="create-company-description-input"
@@ -61,6 +68,15 @@
 import createCompanyModalStore from '@/store/useCreateCompanyModalStore';
 
 const { closeCreateCompanyModal } = createCompanyModalStore();
+
+const totalEmployees = [
+  '<100',
+  '100-500',
+  '500-1000',
+  '1000-5000',
+  '5000-10000',
+  '10000+',
+];
 </script>
 
 <style lang="scss">
