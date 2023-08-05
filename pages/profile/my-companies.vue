@@ -1,9 +1,9 @@
 <template>
   <div class="page-container">
-    <CompanyCreateCompanyModal />
+    <CompanyCreateCompanyModal v-if="createCompanyModal.active" />
     <!-- Page Heading. -->
     <h3>My Companies</h3>
-    <button>Create Company</button>
+    <button @click="openCreateCompanyModal">Create Company</button>
     <!-- If data is loading show a loading message -->
     <div v-if="pending">
       <p>Loading...</p>
@@ -30,8 +30,11 @@
 </template>
 
 <script setup lang="ts">
-// Import company owner interface for type checking.
 import CompanyOwner from '../../lib/types/CompanyOwner';
+import { useCreateCompanyModalStore } from '../../store/useCreateCompanyModalStore';
+
+const { openCreateCompanyModal, createCompanyModal } =
+  useCreateCompanyModalStore();
 
 // Unauthenticated middleware added to prevent unauthenticated users from accessing this page.
 definePageMeta({
