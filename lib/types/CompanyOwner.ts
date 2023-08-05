@@ -1,11 +1,9 @@
+import Company from './Company';
+
 export default interface CompanyOwner {
   _id: string;
   companyId: string;
-  company: {
-    _id: string;
-    createdAt: Date;
-    name: string;
-  };
+  company: Company;
   userId: string;
   owner: {
     _id: string;
