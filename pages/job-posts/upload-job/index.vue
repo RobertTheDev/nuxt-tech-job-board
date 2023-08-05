@@ -82,9 +82,9 @@ import CompanyOwner from 'lib/types/CompanyOwner';
 const router = useRouter();
 
 // If User Is Not Signed In Then Send Them To Sign Up And Login Pages.
-definePageMeta({
-  middleware: 'unauthenticated',
-});
+// definePageMeta({
+//   middleware: 'unauthenticated',
+// });
 
 const selectedCompanyId = ref<string | undefined>(undefined);
 
@@ -138,12 +138,14 @@ useHead({
       flex-direction: column;
       align-items: center;
       height: 24rem;
+      border-radius: 1.6rem;
       &-selected {
-        border: 1px solid red;
+        border: 2px solid #8046ef;
         display: flex;
         flex-direction: column;
         align-items: center;
         height: 24rem;
+        border-radius: 1.6rem;
       }
     }
     &-logo {
