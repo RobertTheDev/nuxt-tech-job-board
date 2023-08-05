@@ -22,7 +22,7 @@ const createCompanySchema = yup
       .shape({
         createdAt: yup.date().default(() => new Date()),
         url: yup.string().url().required('Company logo url is required.'),
-        alt: yup.string().required('Company logo alt is required.'),
+        alt: yup.string().required().default('Company logo.'),
       })
       .required('A company logo is required.'),
     coverImage: yup
@@ -30,7 +30,7 @@ const createCompanySchema = yup
       .shape({
         createdAt: yup.date().default(() => new Date()),
         url: yup.string().url().required(), // Make url optional
-        alt: yup.string().required(), // Make alt optional
+        alt: yup.string().required().default('Company cover image.'),
       })
       .nullable()
       .default(null),
