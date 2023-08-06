@@ -60,4 +60,3 @@ const { uploadJob } = useCreateJobPostStore();
   padding: 4rem;
 }
 </style>
-store/useCreateJobPostStore
