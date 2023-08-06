@@ -1,12 +1,12 @@
-import Company from './Company';
+import JobPost from './JobPost';
 import User from './User';
 
-export default interface CompanyOwner {
+export default interface SavedJobPost {
   _id: string;
   createdAt: Date;
   updatedAt?: Date;
-  companyId: string;
-  company: Company;
+  jobPostId: string;
+  jobPost: JobPost;
   userId: string;
   user: User;
 }

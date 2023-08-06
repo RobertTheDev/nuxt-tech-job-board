@@ -1,13 +1,11 @@
+import Company from './Company';
+
 export default interface JobPost {
   _id: string;
-  company: {
-    _id: string;
-    createdAt: Date;
-    name: string;
-  };
-  companyId: string;
   createdAt: Date;
-  updatedAt: null;
+  updatedAt?: Date;
+  company: Company;
+  companyId: string;
   deadlineDate: Date;
   title: string;
 }
