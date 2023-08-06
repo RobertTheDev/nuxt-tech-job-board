@@ -1,4 +1,5 @@
 import JobPost from './JobPost';
+import User from './User';
 
 export default interface Company {
   _id: string;
@@ -16,11 +17,5 @@ export default interface Company {
     companyId: string;
     userId: string;
   };
-  owners: {
-    _id: string;
-    lastName: string;
-    firstName: string;
-    emailAddress: string;
-    createdAt: Date;
-  }[];
+  owners: User[];
 }
