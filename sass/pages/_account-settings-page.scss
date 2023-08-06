@@ -7,6 +7,11 @@
     padding: 3.2rem;
     width: 100%;
   }
+  &-sidebar {
+    &-container {
+      width: 30rem;
+    }
+  }
   &-content {
     &-container {
       display: flex;
