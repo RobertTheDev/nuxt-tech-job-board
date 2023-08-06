@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Saved Jobs</p>
+    <h3>Saved Jobs</h3>
   </div>
 </template>
 
