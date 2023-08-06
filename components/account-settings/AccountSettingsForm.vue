@@ -1,18 +1,11 @@
 <template>
   <div>
-    <p>Account Settings</p>
+    <h3>Account Settings</h3>
     <p>Contact Information</p>
     <p>Prefix</p>
     <label for="suffix">
       <select>
-        <option>Mr.</option>
-        <option>Mrs.</option>
-        <option>Ms.</option>
-        <option>Miss.</option>
-        <option>Mx.</option>
-        <option>Dr.</option>
-        <option>Prof.</option>
-        <option>Rev.</option>
+        <option v-for="suffix of suffixes" :key="suffix">{{ suffix }}</option>
       </select>
     </label>
     <input placeholder="First Name" />
@@ -24,3 +17,7 @@
     <input placeholder="Website" />
   </div>
 </template>
+
+<script setup lang="ts">
+const suffixes = ['Mr.', 'Mrs.', 'Ms.', 'Miss.', 'Mx.', 'Dr.', 'Prof.', 'Rev.'];
+</script>
