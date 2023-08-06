@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page-container">
     <!-- PAGE CONTENT. -->
     <!-- Page Title. -->
     <h1>Upload A Job Post - Select A Company To Get Started</h1>
@@ -11,8 +11,6 @@
     </p>
 
     <!-- CREATE COMPANY MODAL. -->
-    <!-- Create Company Modal Button. -->
-    <button @click="openCreateCompanyModal">Create Company</button>
     <!-- Create Company Modal Component. -->
     <CompanyCreateCompanyModal v-if="createCompanyModal.active" />
 
@@ -25,7 +23,11 @@
 
     <!-- If Loading User's Companies Has Finished Show This Content. -->
     <div v-else>
-      <p>Your Companies</p>
+      <div class="">
+        <h4>Your Companies</h4>
+        <!-- Create Company Modal Button. -->
+        <button @click="openCreateCompanyModal">Create Company</button>
+      </div>
       <!-- If No Companies Exist Show This Message. -->
       <div v-if="!companyOwners">
         <p>
@@ -124,7 +126,13 @@ useHead({
 });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.page-container {
+  padding: 3.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
 .select-company {
   &-card {
     &-grid {
@@ -137,14 +145,16 @@ useHead({
       display: flex;
       flex-direction: column;
       align-items: center;
-      height: 24rem;
+      width: 100%;
+      gap: 1.6rem;
+
       border-radius: 1.6rem;
       &-selected {
         border: 2px solid #8046ef;
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 24rem;
+        gap: 1.6rem;
         border-radius: 1.6rem;
       }
     }
@@ -155,8 +165,8 @@ useHead({
         object-fit: cover;
       }
       &-container {
-        height: 16rem;
-        width: 16rem;
+        height: 12rem;
+        width: 12rem;
         border-radius: 100%;
         overflow: hidden;
       }
