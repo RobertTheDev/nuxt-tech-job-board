@@ -37,7 +37,7 @@
         <ProfileMenu v-if="profileMenuActive" ref="target" />
       </div>
 
-      <div v-if="!session?.user">
+      <div v-else>
         <button class="header-control" @click="navigate('/auth/login')">
           <font-awesome-icon
             class="header-control-icon"
