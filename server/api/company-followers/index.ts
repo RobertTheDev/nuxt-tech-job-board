@@ -1,12 +1,43 @@
 import deleteCompanyFollowers from '../../handlers/companyFollowers/deleteCompanyFollowers';
-import getCompanyFollowers from '../../handlers/companyFollowers/getCompanyFollowers';
+import { companyFollowersCollection } from '../../lib/collections';
 
 export default defineEventHandler((event) => {
   const { method } = event.node.req;
 
   if (method === 'GET') {
     try {
-      return getCompanyFollowers();
+      return companyFollowersCollection
+        .aggregate(
+          [
+            {
+              $lookup: {
+                from: 'users',
+                localField: 'userId',
+                foreignField: '_id',
+                as: 'user',
+              },
+            },
+            { $unwind: { path: '$user' } },
+            {
+              $project: {
+                user: {
+                  password: 0,
+                },
+              },
+            },
+            {
+              $lookup: {
+                from: 'companies',
+                localField: 'companyId',
+                foreignField: '_id',
+                as: 'company',
+              },
+            },
+            { $unwind: { path: '$company' } },
+          ],
+          { maxTimeMS: 60000, allowDiskUse: true },
+        )
+        .toArray();
     } catch (error) {
       return error;
     }
