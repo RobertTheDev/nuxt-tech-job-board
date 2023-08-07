@@ -1,11 +1,32 @@
 .profile-menu-container {
   background: white;
-  border-radius: 16px;
+  border-radius: 0.8rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 20px;
+  gap: 1.6rem;
+  border: 1px solid lightgray;
+  padding: 2.4rem;
   position: fixed;
   top: 80px;
+  right: 3.2rem;
+  width: 30rem;
+}
+
+.profile-menu-link-container {
+  border-radius: 0.4rem;
+  padding: 1.6rem;
+  height: 4.8rem;
+  border: 1px solid lightgray;
+  font-size: 1.4rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.profile-menu-button {
+  border-radius: 0.4rem;
+  padding: 1.6rem;
+  height: 4.8rem;
+  font-size: 1.4rem;
+  background: #8046ef;
+  color: white;
 }
