@@ -14,8 +14,11 @@
       >
     </div>
     <div class="header-profile-container">
-      <button class="header-control" @click="openBurgerMenu">
-        <font-awesome-icon icon="fa-solid fa-bars" />
+      <button class="header-control header-burger-icon" @click="openBurgerMenu">
+        <font-awesome-icon
+          class="header-control-icon"
+          icon="fa-solid fa-bars"
+        />
       </button>
       <div v-if="session?.user" class="header-profile-container">
         <button class="header-control" @click="navigate('/profile/saved-jobs')">

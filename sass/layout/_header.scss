@@ -10,8 +10,11 @@
     width: 100%;
     background: white;
     gap: 20px;
-    padding: 3.2rem;
+    padding: 1.6rem;
     justify-content: space-between;
+    @media (min-width: 640px) {
+      padding: 3.2rem;
+    }
   }
   &-logo {
     &-container {
@@ -33,8 +36,18 @@
   &-links {
     &-container {
       align-items: center;
-      display: flex;
+      display: none;
       gap: 32px;
+      @media (min-width: 640px) {
+        display: flex;
+      }
+    }
+  }
+
+  &-burger-icon {
+    display: flex;
+    @media (min-width: 640px) {
+      display: none;
     }
   }
 
@@ -43,7 +56,7 @@
     height: 40px;
     width: 40px;
     &-icon {
-      font-size: 16px;
+      font-size: 1.8rem;
     }
     &:hover {
       background: whitesmoke;
