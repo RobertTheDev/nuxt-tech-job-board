@@ -5,7 +5,7 @@ export const applicationsCollection = mongoClient.collection('applications');
 export const companiesCollection = mongoClient.collection('companies');
 
 export const companyFollowersCollection =
-  mongoClient.collection('company-followers');
+  mongoClient.collection('companyFollowers');
 
 export const companyOwnersCollection = mongoClient.collection('companyOwners');
 
