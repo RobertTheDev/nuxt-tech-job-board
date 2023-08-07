@@ -10,8 +10,8 @@ const headerLinks: NavigationLink[] = [
     name: 'Upload job',
   },
   {
-    href: '/profile/saved-jobs',
-    name: 'Saved Jobs',
+    href: '/companies',
+    name: 'Explore Companies',
   },
   {
     href: '/profile/account-settings/upload-cv',
