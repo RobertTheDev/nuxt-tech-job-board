@@ -92,15 +92,13 @@ import { Form, Field, ErrorMessage } from 'vee-validate';
 import loginSchema from '../../lib/validators/loginSchema';
 import FormHandler from '../../lib/types/FormHandler';
 
-const router = useRouter();
-
 const formHandler = ref<FormHandler>({
   pending: false,
   errorMessage: undefined,
 });
 
 async function handleLogin(values: any) {
-  const { pending, error, data } = await useFetch('/api/auth/login', {
+  const { pending, error } = await useFetch('/api/auth/login', {
     method: 'POST',
     body: values,
   });
@@ -111,10 +109,6 @@ async function handleLogin(values: any) {
 
   if (error.value) {
     formHandler.value.errorMessage = error.value.statusMessage;
-  }
-
-  if (data) {
-    router.push('/');
   }
 }
 </script>
