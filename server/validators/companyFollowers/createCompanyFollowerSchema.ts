@@ -2,7 +2,10 @@ import * as yup from 'yup';
 
 const createCompanyFollowerSchema = yup
   .object({
-    createdAt: yup.date().default(() => new Date()),
+    createdAt: yup
+      .date()
+      .optional()
+      .default(() => new Date()),
     companyId: yup.string().required('A company id is required.'),
     userId: yup.string().required('A user id is required.'),
   })
