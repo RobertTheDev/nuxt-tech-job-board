@@ -68,11 +68,13 @@
 
     <!-- Next Step Button. -->
     <button
+      v-if="selectedCompanyId"
       :disabled="selectedCompanyId === undefined"
-      @click="navigateToNextStep"
+      @click="navigateToNextStep(selectedCompanyId)"
     >
       Next
     </button>
+    <button v-else disabled>Next</button>
   </div>
 </template>
 
@@ -103,8 +105,8 @@ const {
 } = await useFetch<CompanyOwner[]>(`/api/company-owners/authenticated-user`);
 
 // Navigate To Next Step Of Uploading Job After Selecting Company.
-function navigateToNextStep() {
-  router.push('/job-posts/upload-job/1/add-title');
+function navigateToNextStep(companyId: string) {
+  router.push(`/job-posts/upload-job/${companyId}/add-title`);
 }
 
 // Use The Global State Pinia For Toggling Create Company Modal Component.
