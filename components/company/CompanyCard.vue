@@ -15,10 +15,13 @@
     <p>{{ company.totalEmployees }}</p>
     <p>{{ company.category }}</p>
     <p>{{ company.description }}</p>
+    <button @click="(e) => followCompany(e, company._id)">Follow</button>
   </NuxtLink>
 </template>
 
 <script setup lang="ts">
+import CompanyFollower from 'lib/types/CompanyFollower';
+
 // Defines the props to be passed into the company card component.
 const company = defineProps([
   // eslint-disable-next-line vue/prop-name-casing
@@ -29,6 +32,14 @@ const company = defineProps([
   'category',
   'description',
 ]);
+
+async function followCompany(e: MouseEvent, id: string) {
+  e.preventDefault();
+
+  await useFetch<CompanyFollower[]>(`/api/company-followers/company/${id}`, {
+    method: 'POST',
+  });
+}
 </script>
 
 <style lang="scss" scoped>
