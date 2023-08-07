@@ -4,10 +4,11 @@
       v-for="profileMenuLink of profileMenuLinks"
       :key="profileMenuLink.href"
       :to="profileMenuLink.href"
+      class="profile-menu-link-container"
       >{{ profileMenuLink.name }}</NuxtLink
     >
 
-    <button @click="logout">Log Out</button>
+    <button class="profile-menu-button" @click="logout">Log Out</button>
   </div>
 </template>
 
