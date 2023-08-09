@@ -7,6 +7,7 @@ import {
 } from '../../lib/collections';
 import getJobPosts from '../../handlers/jobPosts/getJobPosts';
 import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
+import getJobPostById from '../../handlers/jobPosts/getJobPostById';
 
 export default defineEventHandler(async (event) => {
   const { user } = event.context.session;
@@ -56,10 +57,12 @@ export default defineEventHandler(async (event) => {
         });
       }
 
-      return await jobPostsCollection.insertOne({
+      const createdJobPost = await jobPostsCollection.insertOne({
         ...validatedBody,
         companyId: new ObjectId(validatedBody.companyId),
       });
+
+      return await getJobPostById(createdJobPost.insertedId.toString());
     } catch (error) {
       return error;
     }
