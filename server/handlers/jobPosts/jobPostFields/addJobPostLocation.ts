@@ -1,11 +1,11 @@
 import { ObjectId } from 'mongodb';
-import { UpdateJobPostSchemaType } from '../../validators/jobPosts/updateJobPostSchema';
-import { jobPostsCollection } from '../../lib/collections';
-import getJobPostById from './getJobPostById';
+import getJobPostById from '../getJobPostById';
+import { jobPostsCollection } from '../../../lib/collections';
+import { AddLocationSchemaType } from '../../../validators/jobPosts/jobPostFieldSchemas/addLocationSchema';
 
-export default async function updateJobPostById(
+export default async function addJobPostLocation(
   id: string,
-  body: UpdateJobPostSchemaType,
+  body: AddLocationSchemaType,
 ) {
   // Update the job post by its id with the inputted body.
   await jobPostsCollection.findOneAndUpdate(

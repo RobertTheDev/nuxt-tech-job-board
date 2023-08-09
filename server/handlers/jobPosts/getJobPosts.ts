@@ -6,6 +6,11 @@ export default function getJobPosts() {
     .aggregate(
       [
         {
+          $match: {
+            published: true,
+          },
+        },
+        {
           $lookup: {
             from: 'companies',
             localField: 'companies._id',
