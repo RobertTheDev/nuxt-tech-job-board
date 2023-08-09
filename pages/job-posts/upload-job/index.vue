@@ -42,11 +42,11 @@
           v-for="companyOwner of companyOwners"
           :key="companyOwner._id"
           :class="
-            selectedCompanyId === companyOwner._id
+            selectedCompanyId === companyOwner.companyId
               ? 'select-company-card-container-selected'
               : 'select-company-card-container'
           "
-          @click="selectCompany(companyOwner._id)"
+          @click="selectCompany(companyOwner.companyId)"
         >
           <div class="select-company-card-logo-container">
             <img
@@ -81,6 +81,7 @@
 <script setup lang="ts">
 import createCompanyModalStore from '@/store/useCreateCompanyModalStore';
 import CompanyOwner from 'lib/types/CompanyOwner';
+import JobPost from 'lib/types/JobPost';
 
 // Use Nuxt 3 Router For Programmatic Routing.
 const router = useRouter();
@@ -105,8 +106,17 @@ const {
 } = await useFetch<CompanyOwner[]>(`/api/company-owners/authenticated-user`);
 
 // Navigate To Next Step Of Uploading Job After Selecting Company.
-function navigateToNextStep(companyId: string) {
-  router.push(`/job-posts/upload-job/${companyId}/add-title`);
+async function navigateToNextStep(companyId: string) {
+  const { data: jobPost } = await useFetch<JobPost>(`/api/job-posts`, {
+    method: 'POST',
+    body: {
+      companyId,
+    },
+  });
+
+  if (jobPost.value) {
+    router.push(`/job-posts/upload-job/${jobPost.value?._id}/add-title`);
+  }
 }
 
 // Use The Global State Pinia For Toggling Create Company Modal Component.

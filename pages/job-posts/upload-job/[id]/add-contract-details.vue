@@ -1,39 +1,281 @@
-<template>
+<!-- <template>
   <div>
     <h1>Step 2: Add Contract Details</h1>
     <p>Add Contract type</p>
+    <p>{{ contract.type }}</p>
     <label for="create-job-post-contact-type-input">
-      <select>
-        <option>Full-time</option>
-        <option>Part-time</option>
-        <option>Contract</option>
+      <select v-model="contract.type">
+        <option
+          v-for="contractTypeOption of contractTypeOptions"
+          :key="contractTypeOption.value"
+          :value="contractTypeOption.value"
+        >
+          {{ contractTypeOption.name }}
+        </option>
       </select>
     </label>
     <p>Add salary</p>
     <p>Minimum salary</p>
-    <input />
+    <p>{{ contract.min }}</p>
+    <input v-model="contract.min" type="number" />
     <p>Maximum salary</p>
-    <input />
+    <p>{{ contract.max }}</p>
+    <input v-model="contract.max" type="number" />
     <p>Rate</p>
+    <p>{{ contract.rate }}</p>
     <label for="create-job-post-contact-type-input">
-      <select>
-        <option>Monthly</option>
-        <option>Hourly</option>
-        <option>Daily</option>
-        <option>Weekly</option>
-        <option>Annually</option>
+      <select v-model="contract.rate">
+        <option
+          v-for="rateOption of rateOptions"
+          :key="rateOption.value"
+          :value="rateOption.value"
+        >
+          {{ rateOption.name }}
+        </option>
       </select>
     </label>
     <button @click="navigateToNextStep">Next</button>
   </div>
+</template> -->
+
+<template>
+  <div>
+    <h1>Step 3: Add Contract Details</h1>
+    <p>Now let's add contract details about the job post.</p>
+    <p v-if="formHandler.pending">Pending</p>
+    <Form
+      class="primary-form-container"
+      :validation-schema="addContractSchema"
+      @submit="addJobContractDetails"
+    >
+      <p>Add contract type</p>
+
+      <div class="primary-form-input-content-container">
+        <p class="primary-form-input-label-text">Contract Type</p>
+        <Field
+          v-slot="{ field }"
+          class="primary-form-input-container"
+          name="contractType"
+        >
+          <label for="contractType" class="primary-form-input-label-container">
+            <select v-bind="field" class="primary-form-input">
+              <option
+                v-for="contractTypeOption in contractTypeOptions"
+                :key="contractTypeOption.value"
+                :value="contractTypeOption.value"
+              >
+                {{ contractTypeOption.name }}
+              </option>
+            </select>
+          </label>
+        </Field>
+
+        <ErrorMessage
+          name="contractType"
+          class="primary-form-input-validation-error-message-text"
+        />
+      </div>
+      <div class="primary-form-input-content-container">
+        <p class="primary-form-input-label-text">Contract Level</p>
+        <Field
+          v-slot="{ field }"
+          class="primary-form-input-container"
+          name="seniorLevel"
+        >
+          <label for="seniorLevel" class="primary-form-input-label-container">
+            <select v-bind="field" class="primary-form-input">
+              <option
+                v-for="contractLevelOption in contractLevelOptions"
+                :key="contractLevelOption.value"
+                :value="contractLevelOption.value"
+              >
+                {{ contractLevelOption.name }}
+              </option>
+            </select>
+          </label>
+        </Field>
+
+        <ErrorMessage
+          name="seniorLevel"
+          class="primary-form-input-validation-error-message-text"
+        />
+      </div>
+
+      <div class="primary-form-input-content-container">
+        <p class="primary-form-input-label-text">Salary</p>
+
+        <div class="primary-form-input-content-container">
+          <p class="primary-form-input-label-text">Add Min</p>
+          <Field
+            v-slot="{ field }"
+            class="primary-form-input-container"
+            name="salary.min"
+            type="number"
+          >
+            <label for="salary.min" class="primary-form-input-label-container">
+              <input
+                type="number"
+                v-bind="field"
+                placeholder="Min Salary"
+                class="primary-form-input"
+              />
+            </label>
+          </Field>
+
+          <ErrorMessage
+            name="salary.min"
+            class="primary-form-input-validation-error-message-text"
+          />
+        </div>
+
+        <div class="primary-form-input-content-container">
+          <p class="primary-form-input-label-text">Add Max</p>
+          <Field
+            v-slot="{ field }"
+            class="primary-form-input-container"
+            name="salary.max"
+            type="number"
+          >
+            <label for="salary.max" class="primary-form-input-label-container">
+              <input
+                type="number"
+                v-bind="field"
+                placeholder="Max Salary"
+                class="primary-form-input"
+              />
+            </label>
+          </Field>
+
+          <ErrorMessage
+            name="salary.max"
+            class="primary-form-input-validation-error-message-text"
+          />
+        </div>
+
+        <Field
+          v-slot="{ field }"
+          class="primary-form-input-container"
+          name="salary.rate"
+        >
+          <p class="primary-form-input-label-text">Add Rate</p>
+          <label for="salary.rate" class="primary-form-input-label-container">
+            <select v-bind="field" class="primary-form-input">
+              <option
+                v-for="rateOption in rateOptions"
+                :key="rateOption.value"
+                :value="rateOption.value"
+              >
+                {{ rateOption.name }}
+              </option>
+            </select>
+          </label>
+        </Field>
+
+        <ErrorMessage
+          name="salary.rate"
+          class="primary-form-input-validation-error-message-text"
+        />
+      </div>
+
+      <button type="submit">Next</button>
+    </Form>
+  </div>
 </template>
 
 <script setup lang="ts">
+import { Form, Field, ErrorMessage } from 'vee-validate';
+import FormHandler from '@/lib/types/FormHandler';
+import addContractSchema from '@/lib/validators/jobPosts/addContractSchema';
+
+const formHandler = ref<FormHandler>({
+  pending: false,
+  errorMessage: undefined,
+});
+
 const router = useRouter();
 
-function navigateToNextStep() {
-  router.push('/job-posts/upload-job/1/add-location');
+const route = useRoute();
+
+// const contract = ref<{ type: string; min: number; max: number; rate: string }>({
+//   type: 'full-time',
+//   min: 0,
+//   max: 0,
+//   rate: 'annually',
+// });
+
+async function addJobContractDetails(values: any) {
+  const { pending, error } = await useFetch(
+    `/api/job-posts/${route.params.id}/add-fields/add-contract`,
+    {
+      method: 'PUT',
+      body: values,
+    },
+  );
+
+  await router.push(
+    `/job-posts/upload-job/${route.params.id}/add-deadline-date`,
+  );
+
+  if (pending.value) {
+    formHandler.value.pending = pending.value;
+  }
+
+  if (error.value) {
+    formHandler.value.errorMessage = error.value.statusMessage;
+  }
 }
+const contractTypeOptions = [
+  {
+    name: 'Full-time',
+    value: 'full-time',
+  },
+  {
+    name: 'Part-time',
+    value: 'part-time',
+  },
+  {
+    name: 'Contract',
+    value: 'contract',
+  },
+];
+
+const contractLevelOptions = [
+  {
+    name: 'Junior',
+    value: 'junior',
+  },
+  {
+    name: 'Mid',
+    value: 'mid',
+  },
+  {
+    name: 'Senior',
+    value: 'senior',
+  },
+];
+
+const rateOptions = [
+  {
+    name: 'Monthly',
+    value: 'monthly',
+  },
+  {
+    name: 'Hourly',
+    value: 'hourly',
+  },
+  {
+    name: 'Daily',
+    value: 'daily',
+  },
+  {
+    name: 'Weekly',
+    value: 'weekly',
+  },
+  {
+    name: 'Annually',
+    value: 'annually',
+  },
+];
 
 useHead({
   title: 'Upload Job - Add Contract Details',

@@ -1,15 +1,75 @@
 <template>
   <div>
-    <h1>Step 4: Add Description</h1>
-    <button @click="navigateToNextStep">Next</button>
+    <h1>Step 6: Add Description</h1>
+    <p>Now lets add some details about the job post.</p>
+    <p v-if="formHandler.pending">Pending</p>
+    <Form
+      class="primary-form-container"
+      :validation-schema="addDescriptionSchema"
+      @submit="updateJobTitle"
+    >
+      <p>Add description</p>
+
+      <div class="primary-form-input-content-container">
+        <p class="primary-form-input-label-text">Add Description</p>
+        <Field
+          v-slot="{ field }"
+          class="primary-form-input-container"
+          name="description"
+          type="text"
+        >
+          <label for="description" class="primary-form-input-label-container">
+            <input
+              type="text"
+              v-bind="field"
+              placeholder="Description"
+              class="primary-form-input"
+            />
+          </label>
+        </Field>
+
+        <ErrorMessage
+          name="description"
+          class="primary-form-input-validation-error-message-text"
+        />
+      </div>
+      <button type="submit">Next</button>
+    </Form>
   </div>
 </template>
 
 <script setup lang="ts">
+import { Form, Field, ErrorMessage } from 'vee-validate';
+import addDescriptionSchema from '../../../../lib/validators/jobPosts/addDescriptionSchema';
+import FormHandler from '@/lib/types/FormHandler';
+
+const formHandler = ref<FormHandler>({
+  pending: false,
+  errorMessage: undefined,
+});
+
 const router = useRouter();
 
-function navigateToNextStep() {
-  router.push('/job-posts/upload-job/1/add-deadline-date');
+const route = useRoute();
+
+async function updateJobTitle(values: any) {
+  const { pending, error } = await useFetch(
+    `/api/job-posts/${route.params.id}/add-fields/add-description`,
+    {
+      method: 'PUT',
+      body: values,
+    },
+  );
+
+  await router.push(`/job-posts/upload-job/${route.params.id}/submit-job-post`);
+
+  if (pending.value) {
+    formHandler.value.pending = pending.value;
+  }
+
+  if (error.value) {
+    formHandler.value.errorMessage = error.value.statusMessage;
+  }
 }
 
 useHead({
