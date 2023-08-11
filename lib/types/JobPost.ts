@@ -15,7 +15,9 @@ export default interface JobPost {
   contractType: string;
   deadlineDate: Date;
   description: string;
-  location: null;
+  location?: {
+    address: string;
+  };
   locationType: string;
   published: boolean;
   salary: Salary;
