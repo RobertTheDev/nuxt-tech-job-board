@@ -1,10 +1,12 @@
 <template>
   <div>
-    <p>Company</p>
-    <p>{{ slug }}</p>
     <div v-if="company">
       <div>
-        <img :src="company.logo.url" :alt="company.logo.alt" />
+        <img
+          class="company-page-logo"
+          :src="company.logo.url"
+          :alt="company.logo.alt"
+        />
       </div>
       <p>{{ company.name }}</p>
       <p>{{ company.description }}</p>
@@ -14,6 +16,11 @@
         <p>{{ owner.firstName }}</p>
         <p>{{ owner.lastName }}</p>
       </div>
+      <h4>Job Posts</h4>
+
+      <p v-for="jobPost in company.jobPosts" :key="jobPost._id">
+        {{ jobPost.title }}
+      </p>
     </div>
     <div v-else>
       <p>No company</p>
@@ -42,3 +49,10 @@ useHead({
   ],
 });
 </script>
+
+<style lang="scss">
+.company-page-logo {
+  height: 10rem;
+  width: 10rem;
+}
+</style>
