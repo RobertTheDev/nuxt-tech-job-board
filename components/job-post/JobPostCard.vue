@@ -2,8 +2,8 @@
   <div
     class="job-post-card-container"
     role="presentation"
-    @click="navigateToJobPost(jobPost.id)"
-    @keydown.enter="navigateToJobPost(jobPost.id)"
+    @click="navigateToJobPost(jobPost._id)"
+    @keydown.enter="navigateToJobPost(jobPost._id)"
   >
     <div class="job-post-card-company-container">
       <div class="job-post-card-company-logo-container">
@@ -15,6 +15,7 @@
       </div>
       <div class="job-post-card-company-content-container">
         <p>{{ jobPost.company.name }}</p>
+
         <p>
           Posted
           {{
@@ -25,9 +26,20 @@
         </p>
       </div>
     </div>
-    <button>
+
+    <!-- <button @click="(e) => saveJobPost(e, jobPost._id)">
       <font-awesome-icon icon="fa-regular fa-bookmark" />
+    </button> -->
+
+    <button
+      v-if="checkJobPostSaved(jobPost._id)"
+      @click="(e) => unsaveJobPost(e, jobPost._id)"
+    >
+      Remove
     </button>
+
+    <button v-else @click="(e) => saveJobPost(e, jobPost._id)">Add</button>
+
     <p>{{ jobPost.title }}</p>
     <div class="job-post-card-details-container">
       <p>{{ jobPost.locationType }}</p>
@@ -44,6 +56,7 @@
 
 <script setup lang="ts">
 import { formatDistanceToNow } from 'date-fns';
+import SavedJobPost from '../../lib/types/SavedJobPosts';
 
 const router = useRouter();
 
@@ -51,8 +64,37 @@ function navigateToJobPost(id: string) {
   router.replace({ name: '', query: { id } });
 }
 
+async function saveJobPost(e: MouseEvent, id: string) {
+  e.preventDefault();
+
+  await useFetch<SavedJobPost[]>(`/api/saved-job-posts/job-post/${id}`, {
+    method: 'POST',
+  });
+}
+
+async function unsaveJobPost(e: MouseEvent, id: string) {
+  e.preventDefault();
+
+  await useFetch<SavedJobPost[]>(`/api/saved-job-posts/job-post/${id}/unsave`, {
+    method: 'DELETE',
+  });
+}
+
+const { data } = await useFetch<SavedJobPost[]>(
+  `/api/saved-job-posts/authenticated-user/non-related-list`,
+  {
+    method: 'GET',
+  },
+);
+
+function checkJobPostSaved(jobPostId: string) {
+  return data.value?.find((props) => {
+    return props.jobPostId === jobPostId;
+  });
+}
+
 const jobPost = defineProps([
-  'id',
+  '_id',
   'createdAt',
   'title',
   'locationType',
