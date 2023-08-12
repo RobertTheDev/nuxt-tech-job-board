@@ -1,9 +1,8 @@
 <template>
   <div class="page-container">
-    <CompanyCreateCompanyModal v-if="createCompanyModal.active" />
     <!-- Page Heading. -->
     <h3>My Companies</h3>
-    <button @click="openCreateCompanyModal">Create Company</button>
+    <button @click="openGlobalModal('createCompany')">Create Company</button>
     <!-- If data is loading show a loading message -->
     <div v-if="pending">
       <p>Loading...</p>
@@ -31,10 +30,9 @@
 
 <script setup lang="ts">
 import CompanyOwner from '../../lib/types/CompanyOwner';
-import { useCreateCompanyModalStore } from '../../store/useCreateCompanyModalStore';
+import useGlobalModal from '../../store/useGlobalModal';
 
-const { openCreateCompanyModal, createCompanyModal } =
-  useCreateCompanyModalStore();
+const { openGlobalModal } = useGlobalModal();
 
 // Unauthenticated middleware added to prevent unauthenticated users from accessing this page.
 definePageMeta({
