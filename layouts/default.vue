@@ -3,6 +3,7 @@
     <NavigationHeader />
     <NavigationBurgerMenu />
     <main class="main-container">
+      <NavigationGlobalModal />
       <slot />
     </main>
     <NavigationFooter />
