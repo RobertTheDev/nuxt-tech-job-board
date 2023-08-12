@@ -38,12 +38,7 @@
       </div>
 
       <div v-else>
-        <button class="header-control" @click="navigate('/auth/login')">
-          <font-awesome-icon
-            class="header-control-icon"
-            icon="fa-regular fa-user"
-          />
-        </button>
+        <button @click="openGlobalModal('login')">Login or Register</button>
       </div>
     </div>
   </header>
@@ -56,12 +51,13 @@ import companyName from '../../lib/constants/companyName';
 
 import useBurgerMenu from '../../store/useBurgerMenu';
 import headerLinks from '../../lib/links/headerLinks';
+import useGlobalModal from '../../store/useGlobalModal';
+
+const { openBurgerMenu } = useBurgerMenu();
 
 const { session } = await useSession();
 
 const route = useRoute();
-
-const { openBurgerMenu } = useBurgerMenu();
 
 const profileMenuActive = ref(false);
 
@@ -78,6 +74,8 @@ function navigate(href: string) {
 function toggleProfileMenu() {
   profileMenuActive.value = !profileMenuActive.value;
 }
+
+const { openGlobalModal } = useGlobalModal();
 </script>
 
 <style lang="scss" scoped>

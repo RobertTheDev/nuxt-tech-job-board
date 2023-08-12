@@ -9,9 +9,12 @@
       <!-- LOGIN LINK -->
       <p class="primary-form-header-text">
         Don't have an account?
-        <NuxtLink class="primary-form-header-link" to="/auth/sign-up">
-          Sign up.</NuxtLink
+        <button
+          class="primary-form-header-link"
+          @click="openGlobalModal('signUp')"
         >
+          Sign up.
+        </button>
       </p>
     </div>
     <div class="primary-form-input-content-container">
@@ -47,16 +50,29 @@
         name="password"
         type="text"
       >
-        <label for="password" class="primary-form-input-label-container">
-          <input
-            class="primary-form-input"
-            type="password"
-            v-bind="field"
-            placeholder="Password"
-          />
-        </label>
+        <div class="primary-form-input-container">
+          <label for="password" class="primary-form-input-label-container">
+            <input
+              class="primary-form-input"
+              :type="passwordVisible ? 'text' : 'password'"
+              v-bind="field"
+              placeholder="Password"
+            />
+          </label>
+          <button
+            id="sign-up-form-reveal-button"
+            type="button"
+            class="reveal-button"
+            @click.prevent="togglePasswordVisibility"
+          >
+            {{ passwordVisible ? 'Hide' : 'Show' }}
+          </button>
+        </div>
       </Field>
-      <NuxtLink class="primary-form-link" to="/auth/forgot-password"
+
+      <NuxtLink
+        class="primary-form-link"
+        @click="openGlobalModal('forgotPassword')"
         >Forgot password?</NuxtLink
       >
 
@@ -91,6 +107,15 @@
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import loginSchema from '../../lib/validators/loginSchema';
 import FormHandler from '../../lib/types/FormHandler';
+import useGlobalModal from '../../store/useGlobalModal';
+
+const { openGlobalModal } = useGlobalModal();
+
+const passwordVisible = ref<boolean>(false);
+
+function togglePasswordVisibility() {
+  passwordVisible.value = !passwordVisible.value;
+}
 
 const formHandler = ref<FormHandler>({
   pending: false,
@@ -105,10 +130,10 @@ async function handleLogin(values: any) {
 
   if (pending.value) {
     formHandler.value.pending = pending.value;
-  }
-
-  if (error.value) {
+  } else if (error.value) {
     formHandler.value.errorMessage = error.value.statusMessage;
+  } else {
+    window.location.reload();
   }
 }
 </script>

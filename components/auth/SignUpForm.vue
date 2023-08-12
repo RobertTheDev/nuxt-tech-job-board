@@ -9,12 +9,12 @@
       <!-- LOGIN LINK -->
       <p class="primary-form-header-text">
         Already have an account?
-        <NuxtLink
+        <button
           id="sign-up-form-login-link"
           class="primary-form-header-link"
-          to="/auth/login"
+          @click="openGlobalModal('login')"
         >
-          Login</NuxtLink
+          Login</button
         >.
       </p>
     </div>
@@ -146,6 +146,9 @@ import { ref } from 'vue';
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import signUpSchema from '../../lib/validators/signUpSchema';
 import signUpValidatorRules from '../../lib/constants/signUpValidatorRules';
+import useGlobalModal from '../../store/useGlobalModal';
+
+const { openGlobalModal } = useGlobalModal();
 
 const router = useRouter();
 
