@@ -21,20 +21,11 @@
         v-if="companyFollowers.length > 0"
         class="company-card-grid-container"
       >
-        <div
+        <CompanyCard
           v-for="companyFollower of companyFollowers"
           :key="companyFollower._id"
-        >
-          <img
-            class="logo"
-            :src="companyFollower.company.logo.url"
-            :alt="companyFollower.company.logo.alt"
-          />
-          <p>{{ companyFollower.company.name }}</p>
-          <button @click="(e) => unfollowCompany(e, companyFollower._id)">
-            Unfollow
-          </button>
-        </div>
+          v-bind="companyFollower.company"
+        />
       </div>
 
       <!-- Show this when no companies are returned from the fetch. -->
@@ -55,16 +46,6 @@ import CompanyFollower from '../../lib/types/CompanyFollower';
 definePageMeta({
   middleware: 'unauthenticated',
 });
-
-async function unfollowCompany(e: MouseEvent, id: string) {
-  e.preventDefault();
-
-  await useFetch<CompanyFollower[]>(`/api/company-followers/${id}`, {
-    method: 'DELETE',
-  }).then(() => {
-    refresh();
-  });
-}
 
 // Get owned companies by the authenticated user from the server.
 const {
