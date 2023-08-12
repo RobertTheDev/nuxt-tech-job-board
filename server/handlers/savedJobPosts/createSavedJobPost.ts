@@ -1,8 +1,6 @@
 import { ObjectId } from 'mongodb';
 import { savedJobPostsCollection } from '../../lib/collections';
-import createSavedJobPostSchema, {
-  CreateSavedJobPostSchemaType,
-} from '../../validators/savedJobPosts/createSavedJobPostSchema';
+import { CreateSavedJobPostSchemaType } from '../../validators/savedJobPosts/createSavedJobPostSchema';
 import getSavedJobPostById from './getSavedJobPostById';
 
 // This handler creates and inserts a new saved job post.
@@ -10,11 +8,8 @@ import getSavedJobPostById from './getSavedJobPostById';
 export default async function createSavedJobPost(
   body: CreateSavedJobPostSchemaType,
 ) {
-  // Validate the body.
-  const validatedBody = await createSavedJobPostSchema.validate(body);
-
   // Get the fields from the validated body.
-  const { createdAt, userId, jobPostId } = validatedBody;
+  const { createdAt, userId, jobPostId } = body;
 
   // Create saved job with signed in user's id and job post id.
   const savedJobPost = await savedJobPostsCollection.insertOne({
