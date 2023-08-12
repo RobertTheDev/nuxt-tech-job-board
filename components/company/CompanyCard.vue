@@ -40,6 +40,16 @@ async function followCompany(e: MouseEvent, id: string) {
     method: 'POST',
   });
 }
+
+// async function unfollowCompany(e: MouseEvent, id: string) {
+//   e.preventDefault();
+
+//   await useFetch<CompanyFollower[]>(`/api/company-followers/${id}`, {
+//     method: 'DELETE',
+//   }).then(() => {
+//     refresh();
+//   });
+// }
 </script>
 
 <style lang="scss" scoped>
