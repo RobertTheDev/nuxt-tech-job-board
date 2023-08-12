@@ -8,9 +8,12 @@
       </p>
       <button @click="refresh()">Refresh</button>
     </div>
-    <p v-for="savedJobPost of savedJobPosts" :key="savedJobPost._id">
-      {{ savedJobPost.jobPost.title }}
-    </p>
+
+    <JobPostCard
+      v-for="savedJobPost of savedJobPosts"
+      :key="savedJobPost._id"
+      v-bind="savedJobPost.jobPost"
+    />
   </div>
 </template>
 
