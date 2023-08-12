@@ -5,12 +5,6 @@
     @submit="handleAccountSettingsUpdate"
   >
     <h1>Account Settings</h1>
-    <p>Contact Information</p>
-    <label for="prefix">
-      <select class="primary-form-input-container">
-        <option v-for="prefix of prefixes" :key="prefix">{{ prefix }}</option>
-      </select>
-    </label>
 
     <div class="primary-form-input-content-container">
       <p class="primary-form-input-label-text">First Name</p>
@@ -164,8 +158,6 @@
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import accountSettingsSchema from '../../lib/validators/accountSettings/accountSettingsSchema';
-
-const prefixes = ['Mr.', 'Mrs.', 'Ms.', 'Miss.', 'Mx.', 'Dr.', 'Prof.', 'Rev.'];
 
 function handleAccountSettingsUpdate() {}
 </script>
