@@ -7,11 +7,7 @@
       <div v-if="!session.user">
         <p>No Session User</p>
       </div>
-
-      <p>{{ session?.user?._id }}</p>
-      <p>{{ session?.user?.emailAddress }}</p>
-      <p>{{ session?.user?.firstName }}</p>
-      <p>{{ session?.user?.lastName }}</p>
+      <ProfileDetail v-if="session.user" v-bind="session.user" />
     </div>
   </div>
 </template>
