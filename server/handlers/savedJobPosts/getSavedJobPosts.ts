@@ -20,6 +20,32 @@ export default async function getSavedJobPosts() {
         },
         // Return a single job post not an array.
         { $unwind: { path: '$jobPost' } },
+        // Get the saved job posts' related company.
+        {
+          $lookup: {
+            from: 'companies',
+            localField: 'companies._id',
+            foreignField: 'jobPosts.companyId',
+            as: 'company',
+          },
+        },
+        // Return a single company not an array.
+        {
+          $unwind: '$company',
+        },
+        // Add a new field "jobPost.company" and merge the company information
+        {
+          $addFields: {
+            'jobPost.company': '$company',
+          },
+        },
+
+        // Remove the separate "company" field
+        {
+          $project: {
+            company: 0,
+          },
+        },
         // Get the saved job posts' related user.
         {
           $lookup: {
