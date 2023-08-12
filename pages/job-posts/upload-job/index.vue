@@ -10,10 +10,6 @@
       create one by selecting the create company button.
     </p>
 
-    <!-- CREATE COMPANY MODAL. -->
-    <!-- Create Company Modal Component. -->
-    <CompanyCreateCompanyModal v-if="createCompanyModal.active" />
-
     <!-- USER'S OWNED COMPANIES. -->
 
     <!-- If Loading User's Companies Is Pending Show This Message. -->
@@ -26,7 +22,9 @@
       <div class="">
         <h4>Your Companies</h4>
         <!-- Create Company Modal Button. -->
-        <button @click="openCreateCompanyModal">Create Company</button>
+        <button @click="openGlobalModal('createCompany')">
+          Create Company
+        </button>
       </div>
       <!-- If No Companies Exist Show This Message. -->
       <div v-if="!companyOwners">
@@ -79,7 +77,7 @@
 </template>
 
 <script setup lang="ts">
-import createCompanyModalStore from '@/store/useCreateCompanyModalStore';
+import useGlobalModal from '../../../store/useGlobalModal';
 import CompanyOwner from 'lib/types/CompanyOwner';
 import JobPost from 'lib/types/JobPost';
 
@@ -119,9 +117,7 @@ async function navigateToNextStep(companyId: string) {
   }
 }
 
-// Use The Global State Pinia For Toggling Create Company Modal Component.
-const { createCompanyModal, openCreateCompanyModal } =
-  createCompanyModalStore();
+const { openGlobalModal } = useGlobalModal();
 
 // SEO Title And Description.
 useHead({
