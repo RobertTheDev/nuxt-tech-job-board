@@ -2,6 +2,7 @@ import checkUserSignedIn from '../../../../handlers/auth/checkUserSignedIn';
 import createSavedJobPost from '../../../../handlers/savedJobPosts/createSavedJobPost';
 import deleteSavedJobPostsByJobPostId from '../../../../handlers/savedJobPosts/deleteSavedJobPostsByJobPostId';
 import getSavedJobPostByUserIdAndJobPostId from '../../../../handlers/savedJobPosts/getSavedJobPostByUserIdAndJobPostId';
+import deleteSavedJobPostById from '../../../../handlers/savedJobPosts/deleteSavedJobPostById';
 
 // This route creates a saved job post and deletes a saved job post by its job post id.
 
@@ -27,15 +28,13 @@ export default defineEventHandler(async (event) => {
         id,
       );
 
-      // If the user has already saved the job post throw a 400 error.
+      // If the saved job post exists then delere it by its id.
       if (savedJobPost) {
-        throw createError({
-          statusCode: 400,
-          statusMessage: 'You have already saved this job post.',
-        });
+        return await deleteSavedJobPostById(savedJobPost._id.toString());
       }
 
-      // Create the saved job post with the user's id and the job post id.
+      // If the saved job post doesn't exist then create
+      // the saved job post with the user's id and the job post id.
       return await createSavedJobPost({
         createdAt: new Date(),
         userId,

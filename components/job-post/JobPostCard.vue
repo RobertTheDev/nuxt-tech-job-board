@@ -27,18 +27,11 @@
       </div>
     </div>
     <button @click="openGlobalModal('createApplication')">Apply</button>
-    <!-- <button @click="(e) => saveJobPost(e, jobPost._id)">
+
+    <button @click="(e) => saveJobPost(e, jobPost._id)">
       <font-awesome-icon icon="fa-regular fa-bookmark" />
-    </button> -->
-
-    <button
-      v-if="checkJobPostSaved(jobPost._id)"
-      @click="(e) => unsaveJobPost(e, jobPost._id)"
-    >
-      Remove
+      {{ checkJobPostSaved(jobPost._id) ? 'Remove' : 'Add' }}
     </button>
-
-    <button v-else @click="(e) => saveJobPost(e, jobPost._id)">Add</button>
 
     <p>{{ jobPost.title }}</p>
     <div class="job-post-card-details-container">
@@ -72,14 +65,6 @@ async function saveJobPost(e: MouseEvent, id: string) {
 
   await useFetch<SavedJobPost[]>(`/api/saved-job-posts/job-post/${id}`, {
     method: 'POST',
-  });
-}
-
-async function unsaveJobPost(e: MouseEvent, id: string) {
-  e.preventDefault();
-
-  await useFetch<SavedJobPost[]>(`/api/saved-job-posts/job-post/${id}/unsave`, {
-    method: 'DELETE',
   });
 }
 
