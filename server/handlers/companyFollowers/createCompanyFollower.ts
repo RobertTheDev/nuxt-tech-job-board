@@ -3,16 +3,22 @@ import { CreateCompanyFollowerSchemaType } from '../../validators/companyFollowe
 import { companyFollowersCollection } from '../../lib/collections';
 import getCompanyFollowerById from './getCompanyFollowerById';
 
+// This handler creates and inserts a new company follower.
+
 export default async function createCompanyFollower(
   body: CreateCompanyFollowerSchemaType,
 ) {
-  // Create the company follower.
+  // Get the fields from the validated body.
+  const { createdAt, userId, companyId } = body;
+
+  // Create company follower with signed in user's id and company id.
   const createdCompanyFollower = await companyFollowersCollection.insertOne({
-    companyId: new ObjectId(body.companyId),
-    userId: new ObjectId(body.userId),
+    createdAt,
+    companyId: new ObjectId(companyId),
+    userId: new ObjectId(userId),
   });
 
-  // Get the created company follower by its id.
+  // Retrurn the created company follower by its id.
   return await getCompanyFollowerById(
     createdCompanyFollower.insertedId.toString(),
   );
