@@ -26,7 +26,7 @@
         </p>
       </div>
     </div>
-
+    <button @click="openGlobalModal('createApplication')">Apply</button>
     <!-- <button @click="(e) => saveJobPost(e, jobPost._id)">
       <font-awesome-icon icon="fa-regular fa-bookmark" />
     </button> -->
@@ -57,6 +57,9 @@
 <script setup lang="ts">
 import { formatDistanceToNow } from 'date-fns';
 import SavedJobPost from '../../lib/types/SavedJobPosts';
+import useGlobalModal from '../../store/useGlobalModal';
+
+const { openGlobalModal } = useGlobalModal();
 
 const router = useRouter();
 
