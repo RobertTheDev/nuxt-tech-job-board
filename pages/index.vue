@@ -1,6 +1,13 @@
 <template>
   <div class="container">
     <div class="job-post-card-sidebar">
+      <div v-if="pending">
+        <p>Loading...</p>
+      </div>
+      <div v-if="error">
+        <p>Error</p>
+        <button @click="refresh()">Refetch</button>
+      </div>
       <div class="job-post-card-sidebar-list">
         <JobPostCard
           v-for="jobPost in jobPosts"
@@ -17,6 +24,13 @@
 <script setup lang="ts">
 import JobPost from '../lib/types/JobPost';
 
+const {
+  data: jobPosts,
+  pending,
+  error,
+  refresh,
+} = await useFetch<JobPost[]>('/api/job-posts');
+
 useHead({
   title: 'TechBoard - Job Search',
   meta: [
@@ -27,8 +41,6 @@ useHead({
     },
   ],
 });
-
-const { data: jobPosts } = await useFetch<JobPost[]>('/api/job-posts');
 </script>
 
 <style lang="scss" scoped>
