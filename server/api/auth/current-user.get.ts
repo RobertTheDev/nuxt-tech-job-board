@@ -1,9 +1,22 @@
 import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
+import getUserById from '../../handlers/users/getUserById';
 
-export default defineEventHandler((event) => {
-  const user = event.context.session.user;
+// Returns signed in user using session.
 
-  checkUserSignedIn(user);
+export default defineEventHandler(async (event) => {
+  // Get the user from session.
+  const userFromSession = event.context.session.user;
 
-  return user;
+  // Check user is signed in.
+  checkUserSignedIn(userFromSession);
+
+  // Get the user from the database.
+  const user = await getUserById(userFromSession._id);
+
+  // If user can be retrieved from database return that otherwise return user data from session.
+  if (user) {
+    return user;
+  }
+
+  return userFromSession;
 });
