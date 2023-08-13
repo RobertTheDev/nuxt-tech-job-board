@@ -9,6 +9,10 @@ const createUserSchema = yup
       .required('Email is required.'),
     firstName: yup.string().required('First name is required.'),
     lastName: yup.string().required('Last name is required.'),
+    companiesFollowed: yup.number().notRequired().default(0),
+    companiesOwned: yup.number().notRequired().default(0),
+    jobPostsApplied: yup.number().notRequired().default(0),
+    jobPostsSaved: yup.number().notRequired().default(0),
     password: yup
       .string()
       .min(8, 'Password must be at least 8 characters long')
