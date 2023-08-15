@@ -8,10 +8,9 @@
     gap: 32px;
     padding: 32px;
     flex-direction: column;
-
     width: 100%;
 
-    @media (min-width: 640px) {
+    @media (width >= 640px) {
       flex-direction: row;
       padding: 16px 32px;
     }
@@ -24,10 +23,9 @@
     justify-content: center;
     gap: 16px;
     width: 100%;
-
     flex: 1;
 
-    @media (min-width: 640px) {
+    @media (width >= 640px) {
       justify-content: flex-start;
     }
   }
