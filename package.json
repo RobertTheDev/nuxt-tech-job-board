@@ -30,6 +30,7 @@
     "@nuxt/test-utils": "^3.6.5",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@nuxtjs/eslint-module": "^4.1.0",
+    "@nuxtjs/stylelint-module": "^5.1.0",
     "@sidebase/nuxt-session": "^0.2.7",
     "@types/node": "^18.16.19",
     "@vitejs/plugin-vue": "^4.2.3",
@@ -47,6 +48,8 @@
     "lint-staged": "^13.2.3",
     "nuxt": "^3.6.2",
     "prettier": "^3.0.0",
+    "stylelint": "^15.10.2",
+    "stylelint-config-recommended-vue": "^1.5.0",
     "vitest": "^0.33.0",
     "vue-eslint-parser": "^9.3.1"
   },
