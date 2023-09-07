@@ -6,11 +6,6 @@ const changeEmailSchema = yup
     newEmailAddress: yup
       .string()
       .email('Email address must be a valid email format.')
-      .notOneOf(
-        [yup.ref('password')],
-        'New password must not be the same as the current password.',
-      )
-
       .required('Please provide a new email address.'),
     password: yup.string().required('Password is required.'),
   })
