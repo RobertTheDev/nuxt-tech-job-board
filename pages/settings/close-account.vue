@@ -7,6 +7,8 @@
 </template>
 
 <script setup lang="ts">
+import companyName from '@/utils/constants/companyName';
+
 // Use Unauthenticated Middleware To Prevent Unauthenticated Use.
 definePageMeta({
   middleware: 'unauthenticated',
@@ -14,12 +16,11 @@ definePageMeta({
 
 // Seo Title And Content.
 useHead({
-  title: 'Close Account',
+  title: `Close Account | ${companyName}`,
   meta: [
     {
       name: 'description',
-      content:
-        'To close your account on TechBoard, typle close in the input below and then enter your password to confirm closure. Plase note that once you have closed your account all your data will be erased and cannot be retrieved.',
+      content: `To close and delete your account on ${companyName} - and remove all associated data. Enter your password and then type 'DELETE'.`,
     },
   ],
 });

@@ -7,6 +7,8 @@
 </template>
 
 <script setup lang="ts">
+import companyName from '@/utils/constants/companyName';
+
 // Use Unauthenticated Middleware To Prevent Unauthenticated Use.
 definePageMeta({
   middleware: 'unauthenticated',
@@ -14,12 +16,11 @@ definePageMeta({
 
 // Seo Title And Content.
 useHead({
-  title: 'Change Email',
+  title: `Change Email | ${companyName}`,
   meta: [
     {
       name: 'description',
-      content:
-        'Change your email on TechBoard by entering a new email address in the input below and authenticate with your password.',
+      content: `Change your email on ${companyName} by entering a new email address in the input below and authenticate with your password.`,
     },
   ],
 });

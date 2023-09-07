@@ -7,6 +7,8 @@
 </template>
 
 <script setup lang="ts">
+import companyName from '@/utils/constants/companyName';
+
 // Use Unauthenticated Middleware To Prevent Unauthenticated Use.
 definePageMeta({
   middleware: 'unauthenticated',
@@ -14,11 +16,12 @@ definePageMeta({
 
 // Seo Title And Content.
 useHead({
-  title: 'Account Settings',
+  title: `Account Settings | ${companyName}`,
   meta: [
     {
       name: 'description',
-      content: 'Edit your account settings below by using the form below.',
+      content:
+        'Use this page to change your account settings. Click and follow the links to make the neccessary changes to your account.',
     },
   ],
 });
