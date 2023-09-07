@@ -1,6 +1,6 @@
 import JobApplicationResponse from './JobApplicationResponse';
-import JobPost from './JobPost';
-import User from './User';
+import JobPost from '../../jobPost/types/JobPost';
+import User from '../../user/types/User';
 
 export default interface JobApplication {
   _id: string;

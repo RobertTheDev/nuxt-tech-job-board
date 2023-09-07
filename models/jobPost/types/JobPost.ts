@@ -1,4 +1,4 @@
-import Company from './Company';
+import Company from '../../company/types/Company';
 
 interface Salary {
   min: number;

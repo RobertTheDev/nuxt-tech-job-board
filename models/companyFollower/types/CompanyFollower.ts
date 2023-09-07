@@ -1,5 +1,5 @@
-import Company from './Company';
-import User from './User';
+import Company from '../../company/types/Company';
+import User from '../../user/types/User';
 
 export default interface CompanyFollower {
   _id: string;

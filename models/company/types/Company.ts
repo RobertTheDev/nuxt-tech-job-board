@@ -1,6 +1,6 @@
-import CompanyOwner from './CompanyOwner';
-import JobPost from './JobPost';
-import User from './User';
+import CompanyOwner from '../../companyOwner/types/CompanyOwner';
+import JobPost from '../../jobPost/types/JobPost';
+import User from '../../user/types/User';
 
 interface CompanyLogo {
   alt: string;
