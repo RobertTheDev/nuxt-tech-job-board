@@ -1,9 +1,10 @@
 <template>
-  <div>
-    <p>Company Owner Card</p>
-  </div>
+  <p>{{ companyOwner.user.emailAddress }}</p>
+  <p>{{ companyOwner.company.name }}</p>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import CompanyOwner from '@/models/companyOwner/types/CompanyOwner';
 
-<style lang="scss" scoped></style>
+const companyOwner = defineProps<CompanyOwner>();
+</script>

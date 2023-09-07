@@ -1,9 +1,10 @@
 <template>
-  <div>
-    <p>Job Interview Card</p>
-  </div>
+  <p>{{ jobInterview.jobPost.title }}</p>
+  <p>{{ jobInterview._id }}</p>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import JobInterview from '@/models/jobInterview/types/JobInterview';
 
-<style lang="scss" scoped></style>
+const jobInterview = defineProps<JobInterview>();
+</script>

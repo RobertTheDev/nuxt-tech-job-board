@@ -51,6 +51,7 @@
 import { formatDistanceToNow } from 'date-fns';
 import useGlobalModal from '../../store/useGlobalModal';
 import SavedJobPost from '@/models/savedJobPost/types/SavedJobPosts';
+import JobPost from '@/models/jobPost/types/JobPost';
 
 const { openGlobalModal } = useGlobalModal();
 
@@ -81,13 +82,5 @@ function checkJobPostSaved(jobPostId: string) {
   });
 }
 
-const jobPost = defineProps([
-  '_id',
-  'createdAt',
-  'title',
-  'locationType',
-  'salary',
-  'contractType',
-  'company',
-]);
+const jobPost = defineProps<JobPost>();
 </script>

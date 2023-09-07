@@ -1,9 +1,10 @@
 <template>
-  <div>
-    <p>Profile Card</p>
-  </div>
+  <p>{{ profile.emailAddress }}</p>
+  <p>{{ profile.firstName }}</p>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import User from '@/models/user/types/User';
 
-<style lang="scss" scoped></style>
+const profile = defineProps<User>();
+</script>

@@ -1,9 +1,10 @@
 <template>
-  <div>
-    <p>Job Offer Card</p>
-  </div>
+  <p>{{ jobOffer.jobPost.title }}</p>
+  <p>{{ jobOffer._id }}</p>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import JobOffer from '@/models/jobOffer/types/JobOffer';
 
-<style lang="scss" scoped></style>
+const jobOffer = defineProps<JobOffer>();
+</script>
