@@ -11,6 +11,7 @@
   </div>
 
   <!-- Show this when companies are successfully fetched. -->
+
   <div v-if="companies" class="company-card-grid-container">
     <CompanyCard
       v-for="company of companies"
@@ -26,11 +27,8 @@
 </template>
 
 <script setup lang="ts">
-import Company from 'models/company/types/Company';
+import Company from '@/models/company/types/Company';
 
-// Import company type.
-
-// Use Nuxt Fetch to retrieve the companies data.
 const {
   data: companies,
   pending,
@@ -38,3 +36,5 @@ const {
   refresh,
 } = await useFetch<Company[]>('/api/companies');
 </script>
+
+<style lang="scss" scoped></style>
