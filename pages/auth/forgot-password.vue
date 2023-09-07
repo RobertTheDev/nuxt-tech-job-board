@@ -1,9 +1,19 @@
 <template>
   <div>
-    <p>Forgot Password</p>
+    <ForgotPassword />
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import companyName from '@/utils/constants/companyName';
 
-<style lang="scss" scoped></style>
+useHead({
+  title: `Forgot Password | ${companyName}`,
+  meta: [
+    {
+      name: 'description',
+      content: `If you have forgotten your password to your ${companyName} account - enter your email address below and we will send you an email with steps to get back in.`,
+    },
+  ],
+});
+</script>

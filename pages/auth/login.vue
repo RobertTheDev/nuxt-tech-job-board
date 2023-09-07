@@ -1,9 +1,19 @@
 <template>
   <div>
-    <p>Login</p>
+    <LoginForm />
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import companyName from '@/utils/constants/companyName';
 
-<style lang="scss" scoped></style>
+useHead({
+  title: `Login | ${companyName}`,
+  meta: [
+    {
+      name: 'description',
+      content: `Login to ${companyName} today to see your job posts and companies and get quick access to the job posts you have saved and companies you follow.`,
+    },
+  ],
+});
+</script>
