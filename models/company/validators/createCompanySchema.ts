@@ -25,7 +25,7 @@ const createCompanySchema = yup
     coverImage: yup
       .object()
       .shape({
-        url: yup.string().url().required(), // Make url optional
+        url: yup.string().url().required(),
       })
       .nullable()
       .default(null),
