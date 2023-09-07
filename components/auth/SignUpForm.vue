@@ -5,7 +5,6 @@
     @submit="handleSignUp"
   >
     <div class="primary-form-header-container">
-      <h1>Sign Up</h1>
       <!-- LOGIN LINK -->
       <p class="primary-form-header-text">
         Already have an account?
