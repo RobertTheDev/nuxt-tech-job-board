@@ -1,9 +1,14 @@
 <template>
-  <div>
-    <p>Update Display</p>
-  </div>
+  <form @submit.prevent="handleForm()">
+    <input />
+    <button type="submit">Update</button>
+  </form>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+function handleForm() {
+  alert('Hello');
+}
+</script>
 
 <style lang="scss" scoped></style>
