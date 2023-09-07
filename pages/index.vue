@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    <JobPostDetail />
+    <JobPostDetails />
   </div>
 </template>
 
@@ -50,4 +50,3 @@ useHead({
   background: whitesmoke;
 }
 </style>
-../models/types/JobPost ../utils/types/JobPost
