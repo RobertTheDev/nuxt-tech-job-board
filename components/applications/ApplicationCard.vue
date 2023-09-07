@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Create Application</p>
+    <p>Application Card</p>
   </div>
 </template>
 

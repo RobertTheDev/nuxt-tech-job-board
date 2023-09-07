@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Create Application</p>
+    <p>Update Application</p>
   </div>
 </template>
 
