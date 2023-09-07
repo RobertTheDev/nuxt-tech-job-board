@@ -2,6 +2,12 @@ import componentsConfig from './components.config';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+    },
+  },
   devtools: { enabled: true },
   css: ['@/sass/style.scss', '@fortawesome/fontawesome-svg-core/styles.css'],
   components: componentsConfig,
