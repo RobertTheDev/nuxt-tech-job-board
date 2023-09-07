@@ -2,3 +2,16 @@
 @use 'components';
 @use 'layout';
 @use 'pages';
+
+.companies-page-container {
+  padding: 3.2rem;
+}
+
+.spacer {
+  height: 3.2rem;
+}
+.company-card-grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3.2rem;
+}
