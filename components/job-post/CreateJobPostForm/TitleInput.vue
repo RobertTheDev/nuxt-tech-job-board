@@ -4,7 +4,6 @@
     <label for="title" class="primary-form-input-label-container">
       <input
         id="title"
-        v-model="createJobForm.title"
         name="title"
         type="text"
         placeholder="Title"
@@ -13,9 +12,3 @@
     </label>
   </div>
 </template>
-
-<script setup lang="ts">
-import { useCreateJobPostStore } from '../../../store/useCreateJobPostStore';
-
-const { createJobForm } = useCreateJobPostStore();
-</script>

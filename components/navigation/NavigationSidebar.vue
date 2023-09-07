@@ -9,5 +9,5 @@
 </template>
 
 <script setup>
-import companyName from '@/lib/constants/companyName';
+import companyName from '@/utils/constants/companyName';
 </script>

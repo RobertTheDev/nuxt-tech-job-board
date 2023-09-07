@@ -18,7 +18,8 @@
 </template>
 
 <script setup lang="ts">
-import SavedJobPost from '../../lib/types/SavedJobPosts';
+import SavedJobPost from 'models/savedJobPost/types/SavedJobPosts';
+
 definePageMeta({
   middleware: 'unauthenticated',
 });
@@ -41,3 +42,4 @@ useHead({
   ],
 });
 </script>
+../../models/types/SavedJobPosts ../../utils/types/SavedJobPosts

@@ -1,6 +1,6 @@
 <template>
   <p>Location</p>
-  <label for="location">
+  <!-- <label for="location">
     <input
       id="location"
       v-model="createJobForm.location"
@@ -8,11 +8,5 @@
       type="text"
       placeholder="location"
     />
-  </label>
+  </label> -->
 </template>
-
-<script setup lang="ts">
-import { useCreateJobPostStore } from '../../../store/useCreateJobPostStore';
-
-const { createJobForm } = useCreateJobPostStore();
-</script>

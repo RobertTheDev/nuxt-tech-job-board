@@ -82,3 +82,5 @@ useHead({
   ],
 });
 </script>
+models/types/FormHandler ../../../../models/validators/jobPosts/addTitleSchema
+../../../../utils/validators/jobPosts/addTitleSchema

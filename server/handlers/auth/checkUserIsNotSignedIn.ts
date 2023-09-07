@@ -1,4 +1,4 @@
-import User from '../../../lib/types/User';
+import User from '../../../models/user/types/User';
 
 export default function checkUserIsNotSignedIn(user: User) {
   // Return an error is a user is already in session.

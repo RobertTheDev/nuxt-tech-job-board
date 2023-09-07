@@ -64,7 +64,7 @@
 
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import closeAccountSchema from '../../lib/validators/auth/closeAccountSchema';
+import closeAccountSchema from '@/models/settings/validators/closeAccountSchema';
 
 function handleCloseAccount(values: any) {
   alert(JSON.stringify(values, null, 2));

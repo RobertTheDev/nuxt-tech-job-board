@@ -17,8 +17,8 @@
   </footer>
 </template>
 
-<script setup>
-import currentYear from '../../lib/constants/currentYear';
-import companyName from '../../lib/constants/companyName';
-import footerLinks from '../../lib/links/footerLinks';
+<script setup lang="ts">
+import currentYear from '@/utils/constants/currentYear';
+import companyName from '@/utils/constants/companyName';
+import footerLinks from '@/utils/links/footerLinks';
 </script>

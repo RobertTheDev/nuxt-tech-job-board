@@ -1,4 +1,4 @@
-import User from '../../../lib/types/User';
+import User from '../../../models/user/types/User';
 
 export default function checkUserSignedIn(user: User) {
   // Throw 400 error if user is not signed in.

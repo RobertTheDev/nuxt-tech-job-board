@@ -47,11 +47,11 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { onClickOutside } from '@vueuse/core';
-import companyName from '../../lib/constants/companyName';
 
 import useBurgerMenu from '../../store/useBurgerMenu';
-import headerLinks from '../../lib/links/headerLinks';
 import useGlobalModal from '../../store/useGlobalModal';
+import companyName from '@/utils/constants/companyName';
+import headerLinks from '@/utils/links/headerLinks';
 
 const { openBurgerMenu } = useBurgerMenu();
 

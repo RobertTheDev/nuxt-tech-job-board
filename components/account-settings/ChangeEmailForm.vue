@@ -70,7 +70,7 @@
 
 <script lang="ts" setup>
 import { Form, Field } from 'vee-validate';
-import changeEmailSchema from '@/lib/validators/auth/changeEmailSchema';
+import changeEmailSchema from '@/models/settings/validators/changeEmailSchema';
 
 const passwordVisible = ref<boolean>(false);
 

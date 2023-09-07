@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import Company from '../../../lib/types/Company';
+import Company from 'models/company/types/Company';
 
 const route = useRoute();
 

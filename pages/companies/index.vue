@@ -32,8 +32,9 @@
 </template>
 
 <script setup lang="ts">
+import Company from 'models/company/types/Company';
+
 // Import company type.
-import Company from '../../lib/types/Company';
 
 // Use Nuxt Fetch to retrieve the companies data.
 const {

@@ -184,8 +184,8 @@
 
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import FormHandler from '@/lib/types/FormHandler';
-import addContractSchema from '@/lib/validators/jobPosts/addContractSchema';
+import FormHandler from 'models/config/form/FormHandler';
+import addContractSchema from 'models/jobPost/validators/addContractSchema';
 
 const formHandler = ref<FormHandler>({
   pending: false,

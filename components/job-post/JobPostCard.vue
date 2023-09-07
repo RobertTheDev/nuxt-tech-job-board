@@ -49,8 +49,8 @@
 
 <script setup lang="ts">
 import { formatDistanceToNow } from 'date-fns';
-import SavedJobPost from '../../lib/types/SavedJobPosts';
 import useGlobalModal from '../../store/useGlobalModal';
+import SavedJobPost from '@/models/savedJobPost/types/SavedJobPosts';
 
 const { openGlobalModal } = useGlobalModal();
 

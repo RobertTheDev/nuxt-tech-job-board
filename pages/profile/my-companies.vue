@@ -29,10 +29,10 @@
 </template>
 
 <script setup lang="ts">
-import CompanyOwner from '../../lib/types/CompanyOwner';
-import useGlobalModal from '../../store/useGlobalModal';
+import CompanyOwner from 'models/companyOwner/types/CompanyOwner';
+import { useGlobalModalStore } from 'store/useGlobalModal';
 
-const { openGlobalModal } = useGlobalModal();
+const { openGlobalModal } = useGlobalModalStore();
 
 // Unauthenticated middleware added to prevent unauthenticated users from accessing this page.
 definePageMeta({
@@ -71,3 +71,4 @@ useHead({
   grid-template-columns: repeat(4, 1fr);
 }
 </style>
+../../models/types/CompanyOwner ../../utils/types/CompanyOwner

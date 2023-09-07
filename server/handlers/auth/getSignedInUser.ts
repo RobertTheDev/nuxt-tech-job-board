@@ -1,4 +1,4 @@
-import User from '../../../lib/types/User';
+import User from '../../../models/user/types/User';
 import findUserById from './findUserById';
 
 export default async function getSignedInUser(signedInUser: User) {

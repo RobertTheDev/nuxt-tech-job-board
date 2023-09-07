@@ -80,8 +80,8 @@
 
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import changePasswordSchema from '../../lib/validators/auth/changePasswordSchema';
-import FormHandler from '../../lib/types/FormHandler';
+import changePasswordSchema from '@/models/settings/validators/changePasswordSchema';
+import FormHandler from '@/models/config/form/FormHandler';
 
 const formHandler = ref<FormHandler>({
   pending: false,

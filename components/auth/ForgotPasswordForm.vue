@@ -43,7 +43,7 @@
 
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import forgotPasswordSchema from '../../lib/validators/forgotPasswordSchema';
+import forgotPasswordSchema from '@/models/auth/validators/forgotPasswordSchema';
 
 function handleSubmit(values: any) {
   alert(JSON.stringify(values, null, 2));

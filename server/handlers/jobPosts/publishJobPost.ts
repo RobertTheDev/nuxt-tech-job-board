@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
 import { jobPostsCollection } from '../../lib/collections';
-import JobPost from '../../../lib/types/JobPost';
+import JobPost from '../../../models/jobPost/types/JobPost';
 import getJobPostById from './getJobPostById';
 
 export default async function publishJobPost(id: string) {

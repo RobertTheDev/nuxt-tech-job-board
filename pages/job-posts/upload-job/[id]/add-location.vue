@@ -208,8 +208,8 @@
 
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import addLocationSchema from '../../../../lib/validators/jobPosts/addLocationSchema';
-import FormHandler from '@/lib/types/FormHandler';
+import addLocationSchema from 'models/jobPost/validators/addLocationSchema';
+import FormHandler from 'models/config/form/FormHandler';
 
 const formHandler = ref<FormHandler>({
   pending: false,

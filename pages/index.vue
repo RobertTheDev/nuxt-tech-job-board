@@ -22,7 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import JobPost from '../lib/types/JobPost';
+import JobPost from 'models/jobPost/types/JobPost';
 
 const {
   data: jobPosts,
@@ -50,3 +50,4 @@ useHead({
   background: whitesmoke;
 }
 </style>
+../models/types/JobPost ../utils/types/JobPost

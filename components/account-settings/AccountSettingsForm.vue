@@ -157,7 +157,7 @@
 
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import accountSettingsSchema from '../../lib/validators/accountSettings/accountSettingsSchema';
+import accountSettingsSchema from '@/models/settings/validators/accountSettingsSchema';
 
 function handleAccountSettingsUpdate() {}
 </script>

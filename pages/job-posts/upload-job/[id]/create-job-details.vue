@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import jobTypes from '@/lib/jobTypes';
+import jobTypes from 'models/jobPost/types/jobTypes';
 </script>
 
 <style lang="scss" scoped>
@@ -23,3 +23,4 @@ import jobTypes from '@/lib/jobTypes';
   gap: 1.6rem;
 }
 </style>
+models/jobTypes

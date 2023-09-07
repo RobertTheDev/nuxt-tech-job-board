@@ -1,7 +1,7 @@
 <template>
   <Form
     class="primary-form-container"
-    :validation-schema="signUpSchema"
+    :validation-schema="forgotPasswordSchema"
     @submit="handleSubmit"
   >
     <Field
@@ -54,7 +54,7 @@
 
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import signUpSchema from '../../lib/validators/signUpSchema';
+import forgotPasswordSchema from '@/models/auth/validators/forgotPasswordSchema';
 
 function handleSubmit(values: any) {
   alert(JSON.stringify(values, null, 2));

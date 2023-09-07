@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <form class="primary-form-container" @submit.prevent="uploadJob()">
+    <form class="primary-form-container">
       <div class="primary-form-header-container">
         <h1>Upload Job</h1>
       </div>
@@ -44,12 +44,6 @@
     </form>
   </div>
 </template>
-
-<script setup lang="ts">
-import { useCreateJobPostStore } from '@/store/useCreateJobPostStore';
-
-const { uploadJob } = useCreateJobPostStore();
-</script>
 
 <style>
 .page {

@@ -22,9 +22,7 @@
       <div class="">
         <h4>Your Companies</h4>
         <!-- Create Company Modal Button. -->
-        <button @click="openGlobalModal('createCompany')">
-          Create Company
-        </button>
+        <button>Create Company</button>
       </div>
       <!-- If No Companies Exist Show This Message. -->
       <div v-if="!companyOwners">
@@ -77,7 +75,6 @@
 </template>
 
 <script setup lang="ts">
-import useGlobalModal from '../../../store/useGlobalModal';
 import CompanyOwner from 'lib/types/CompanyOwner';
 import JobPost from 'lib/types/JobPost';
 
@@ -116,8 +113,6 @@ async function navigateToNextStep(companyId: string) {
     router.push(`/job-posts/upload-job/${jobPost.value?._id}/add-title`);
   }
 }
-
-const { openGlobalModal } = useGlobalModal();
 
 // SEO Title And Description.
 useHead({
@@ -182,3 +177,4 @@ useHead({
   }
 }
 </style>
+models/types/CompanyOwnermodels/types/JobPost

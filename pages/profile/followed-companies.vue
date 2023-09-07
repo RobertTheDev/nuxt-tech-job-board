@@ -40,7 +40,7 @@
 </template>
 
 <script setup lang="ts">
-import CompanyFollower from '../../lib/types/CompanyFollower';
+import CompanyFollower from 'models/companyFollower/types/CompanyFollower';
 
 // Unauthenticated middleware added to prevent unauthenticated users from accessing this page.
 definePageMeta({
@@ -89,3 +89,4 @@ useHead({
   gap: 3.2rem;
 }
 </style>
+../../models/types/CompanyFollower ../../utils/types/CompanyFollower

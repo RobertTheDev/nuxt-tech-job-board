@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 // Import The Account Settings Menu Links.
-import accountSettingsMenuLinks from '../../lib/links/accountSettingsMenuLinks';
+import accountSettingsMenuLinks from '../../utils/links/accountSettingsMenuLinks';
 
 const route = useRoute();
 </script>

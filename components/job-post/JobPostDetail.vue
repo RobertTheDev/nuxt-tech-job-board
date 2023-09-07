@@ -34,7 +34,7 @@
 
 <script setup lang="ts">
 import { differenceInDays, format } from 'date-fns';
-import JobPost from '@/lib/types/JobPost';
+import JobPost from '@/models/jobPost/types/JobPost';
 
 const route = useRoute();
 

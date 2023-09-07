@@ -105,9 +105,9 @@
 
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import loginSchema from '../../lib/validators/loginSchema';
-import FormHandler from '../../lib/types/FormHandler';
-import useGlobalModal from '../../store/useGlobalModal';
+import loginSchema from '@/models/auth/validators/loginSchema';
+import FormHandler from '@/models/config/form/FormHandler';
+import useGlobalModal from '@/store/useGlobalModal';
 
 const { openGlobalModal } = useGlobalModal();
 

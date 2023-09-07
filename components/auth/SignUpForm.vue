@@ -144,9 +144,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import signUpSchema from '../../lib/validators/signUpSchema';
-import signUpValidatorRules from '../../lib/constants/signUpValidatorRules';
-import useGlobalModal from '../../store/useGlobalModal';
+import signUpSchema from '@/models/auth/validators/signUpSchema';
+import signUpValidatorRules from '@/utils/constants/signUpValidatorRules';
+import useGlobalModal from '@/store/useGlobalModal';
 
 const { openGlobalModal } = useGlobalModal();
 

@@ -1,4 +1,4 @@
-import NavigationLink from 'lib/types/NavigationLink';
+import NavigationLink from 'models/config/navigation/NavigationLink';
 
 const footerLinks: NavigationLink[] = [
   {

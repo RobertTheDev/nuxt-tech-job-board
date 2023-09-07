@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import profileMenuLinks from '@/lib/links/profileMenuLinks';
+import profileMenuLinks from '@/utils/links/profileMenuLinks';
 const { reset } = await useSession();
 
 function logout() {

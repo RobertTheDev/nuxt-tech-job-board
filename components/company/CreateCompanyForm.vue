@@ -169,8 +169,8 @@
 
 <script lang="ts" setup>
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import createCompanySchema from '../../lib/validators/companies/createCompanySchema';
-import FormHandler from '../../lib/types/FormHandler';
+import createCompanySchema from '@/models/company/validators/createCompanySchema';
+import FormHandler from '@/models/config/form/FormHandler';
 
 const formHandler = ref<FormHandler>({
   pending: false,

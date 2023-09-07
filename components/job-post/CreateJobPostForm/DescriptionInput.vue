@@ -1,6 +1,6 @@
 <template>
   <div class="primary-form-input-content-container">
-    <p class="primary-form-input-label-text">Description</p>
+    <!-- <p class="primary-form-input-label-text">Description</p>
     <label for="description" class="primary-form-input-label-container">
       <textarea
         id="description"
@@ -9,12 +9,6 @@
         type="text"
         class="primary-form-input"
       />
-    </label>
+    </label> -->
   </div>
 </template>
-
-<script setup lang="ts">
-import { useCreateJobPostStore } from '../../../store/useCreateJobPostStore';
-
-const { createJobForm } = useCreateJobPostStore();
-</script>
