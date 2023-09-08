@@ -1,8 +1,124 @@
-.auth-page {
-  &-container {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    padding: 40px;
+.auth-page-container {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.auth-page-background {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.auth-page-background-grid-container {
+  display: -ms-grid;
+  display: grid;
+  justify-content: center;
+  margin: 0 -2%;
+  transform: rotate(-12deg) skew(-12deg);
+  grid-template-columns: [start] 1fr [left-gutter] repeat(16, 86.6px) [left-gutter] 1fr [end];
+  grid-template-rows: [top] 1fr [top-gutter] repeat(8, 64px) [bottom-gutter] 1fr [bottom];
+  -ms-grid-columns: [start] 1fr [left-gutter] repeat(16, 86.6px) [left-gutter]
+    1fr [end];
+  -ms-grid-rows: [top] 1fr [top-gutter] repeat(8, 64px) [bottom-gutter] 1fr
+    [bottom];
+}
+.flex-flex {
+  display: flex;
+}
+.align-center {
+  align-items: center;
+}
+.center-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-direction--column {
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.box-divider--light-all-2 {
+  box-shadow: inset 0 0 0 2px #e3e8ee;
+}
+.box-background--blue {
+  background-color: #5469d4;
+}
+.box-background--white {
+  background-color: #ffffff;
+}
+.box-background--blue800 {
+  background-color: #212d63;
+}
+.box-background--gray100 {
+  background-color: #e3e8ee;
+}
+.box-background--cyan200 {
+  background-color: #7fd3ed;
+}
+.padding-top--64 {
+  padding-top: 64px;
+}
+.padding-top--24 {
+  padding-top: 24px;
+}
+.padding-top--48 {
+  padding-top: 48px;
+}
+.padding-bottom--24 {
+  padding-bottom: 24px;
+}
+.padding-horizontal--48 {
+  padding: 48px;
+}
+.padding-bottom--15 {
+  padding-bottom: 15px;
+}
+
+.flex-justifyContent--center {
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.animationRightLeft {
+  animation: animationRightLeft 2s ease-in-out infinite;
+}
+.animationLeftRight {
+  animation: animationLeftRight 2s ease-in-out infinite;
+}
+.tans3s {
+  animation: animationLeftRight 3s ease-in-out infinite;
+}
+.tans4s {
+  animation: animationLeftRight 4s ease-in-out infinite;
+}
+
+@keyframes animationLeftRight {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(1000px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes animationRightLeft {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-1000px);
+  }
+  100% {
+    transform: translateX(0px);
   }
 }
