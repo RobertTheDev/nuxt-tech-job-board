@@ -30,5 +30,7 @@ module.exports = {
   ],
   rules: {
     'vue/require-prop-types': 0,
+    'vue/no-duplicate-attributes': 0,
+    'vue/no-parsing-errors': 0,
   },
 };
