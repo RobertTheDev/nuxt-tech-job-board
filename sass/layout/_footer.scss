@@ -1,8 +1,7 @@
 .footer {
   &-container {
     align-items: center;
-    background: #1a1a1a;
-    color: #fdfdfd;
+    background: white;
     display: flex;
     justify-content: space-between;
     gap: 32px;
@@ -31,11 +30,11 @@
   }
 
   &-copyright-text {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 
   &-link {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 
     &:hover {
       text-decoration: underline;

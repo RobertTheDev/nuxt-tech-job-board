@@ -1,23 +1,25 @@
 <template>
-  <div class="container">
-    <div class="job-post-card-sidebar">
-      <div v-if="pending">
-        <p>Loading...</p>
-      </div>
-      <div v-if="error">
-        <p>Error</p>
-        <button @click="refresh()">Refetch</button>
-      </div>
-      <div class="job-post-card-sidebar-list">
-        <JobPostCard
-          v-for="jobPost in jobPosts"
-          :key="jobPost._id"
-          v-bind="jobPost"
-        />
+  <div class="job">
+    <div class="wrapper">
+      <div class="main-container">
+        <div class="searched-jobs">
+          <div class="searched-bar">
+            <div class="searched-show">Showing 46 Jobs</div>
+            <div class="searched-sort">
+              Sort by: <span class="post-time">Newest Post </span
+              ><span class="menu-icon">▼</span>
+            </div>
+          </div>
+          <div class="job-cards">
+            <JobPostCard
+              v-for="jobPost in jobPosts"
+              :key="jobPost._id"
+              v-bind="jobPost"
+            />
+          </div>
+        </div>
       </div>
     </div>
-
-    <JobPostDetails />
   </div>
 </template>
 
@@ -27,9 +29,9 @@ import JobPost from '@/models/jobPost/types/JobPost';
 
 const {
   data: jobPosts,
-  pending,
-  error,
-  refresh,
+  // pending,
+  // error,
+  // refresh,
 } = await useFetch<JobPost[]>('/api/job-posts');
 
 useHead({
@@ -42,3 +44,42 @@ useHead({
   ],
 });
 </script>
+
+<style lang="scss">
+.job {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--theme-bg-color);
+}
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: auto;
+  padding: 0px 40px;
+}
+
+.main-container {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.job-cards {
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 25px;
+  grid-row-gap: 25px;
+  animation: slideY 0.6s both;
+  //display: none;
+  @media screen and (max-width: 1212px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (max-width: 930px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+</style>
