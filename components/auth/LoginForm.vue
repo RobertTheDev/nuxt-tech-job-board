@@ -10,7 +10,7 @@
         Don't have an account?
         <button
           class="primary-form-header-link"
-          @click="openGlobalModal('signUp')"
+          @click="navigate('/auth/sign-up')"
         >
           Sign up.
         </button>
@@ -71,7 +71,7 @@
 
       <NuxtLink
         class="primary-form-link"
-        @click="openGlobalModal('forgotPassword')"
+        @click="navigate('/auth/forgot-password')"
         >Forgot password?</NuxtLink
       >
 
@@ -106,9 +106,12 @@
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import loginSchema from '@/models/auth/validators/loginSchema';
 import FormHandler from '@/models/config/form/FormHandler';
-import useGlobalModal from '@/store/useGlobalModal';
 
-const { openGlobalModal } = useGlobalModal();
+const router = useRouter();
+
+function navigate(href: string) {
+  router.push(href);
+}
 
 const passwordVisible = ref<boolean>(false);
 

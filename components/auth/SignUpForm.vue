@@ -11,7 +11,7 @@
         <button
           id="sign-up-form-login-link"
           class="primary-form-header-link"
-          @click="openGlobalModal('login')"
+          @click="navigate('/auth/login')"
         >
           Login</button
         >.
@@ -145,11 +145,12 @@ import { ref } from 'vue';
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import signUpSchema from '@/models/auth/validators/signUpSchema';
 import signUpValidatorRules from '@/utils/constants/signUpValidatorRules';
-import useGlobalModal from '@/store/useGlobalModal';
-
-const { openGlobalModal } = useGlobalModal();
 
 const router = useRouter();
+
+function navigate(href: string) {
+  router.push(href);
+}
 
 const passwordVisible = ref<boolean>(false);
 const form = reactive({
