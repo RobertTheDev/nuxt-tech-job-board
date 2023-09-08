@@ -38,7 +38,7 @@
       </div>
 
       <div v-else>
-        <button @click="openGlobalModal('login')">Login or Register</button>
+        <button @click="navigate('/auth/login')">Login or Register</button>
       </div>
     </div>
   </header>
@@ -49,7 +49,6 @@ import { ref } from 'vue';
 import { onClickOutside } from '@vueuse/core';
 
 import useBurgerMenu from '../../store/useBurgerMenu';
-import useGlobalModal from '../../store/useGlobalModal';
 import companyName from '@/utils/constants/companyName';
 import headerLinks from '@/utils/links/headerLinks';
 
@@ -74,12 +73,4 @@ function navigate(href: string) {
 function toggleProfileMenu() {
   profileMenuActive.value = !profileMenuActive.value;
 }
-
-const { openGlobalModal } = useGlobalModal();
 </script>
-
-<style lang="scss" scoped>
-.active-link {
-  color: #8046ef;
-}
-</style>
