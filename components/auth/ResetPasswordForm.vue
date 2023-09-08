@@ -4,46 +4,29 @@
     :validation-schema="forgotPasswordSchema"
     @submit="handleSubmit"
   >
-    <Field
-      v-slot="{ field }"
-      name="password"
-      type="text"
-      class="primary-form-input-container"
-    >
-      <label for="password" class="primary-form-input-label-container">
-        <input
-          type="password"
-          v-bind="field"
-          placeholder="Password"
-          class="primary-form-input"
-        />
-      </label>
-    </Field>
+    <div class="primary-form-input-content-container">
+      <p class="primary-form-input-label-text">Email</p>
+      <Field
+        v-slot="{ field }"
+        class="primary-form-input-container"
+        name="emailAddress"
+        type="email"
+      >
+        <label for="emailAddress" class="primary-form-input-label-container">
+          <input
+            type="email"
+            v-bind="field"
+            placeholder="Email"
+            class="primary-form-input"
+          />
+        </label>
+      </Field>
 
-    <ErrorMessage
-      name="password"
-      class="primary-form-input-validation-error-message-text"
-    />
-
-    <Field
-      v-slot="{ field }"
-      name="confirmPassword"
-      type="text"
-      class="primary-form-input-container"
-    >
-      <label for="confirmPassword" class="primary-form-input-label-container">
-        <input
-          type="password"
-          v-bind="field"
-          placeholder="Confirm Password"
-          class="primary-form-input"
-        />
-      </label>
-    </Field>
-    <ErrorMessage
-      name="confirmPassword"
-      class="primary-form-input-validation-error-message-text"
-    />
+      <ErrorMessage
+        name="emailAddress"
+        class="primary-form-input-validation-error-message-text"
+      />
+    </div>
 
     <div class="primary-form-footer-container">
       <!-- SIGN UP BUTTON -->
