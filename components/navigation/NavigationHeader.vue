@@ -1,14 +1,14 @@
 <template>
   <header class="header-container">
     <div class="header-container-left">
-      <div class="header-logo-container">
+      <button class="header-logo-container" @click="goHome()">
         <img
           class="header-logo-image"
           src="logo.svg"
           alt="TechBoard brand logo"
         />
         <p class="header-logo-text">{{ companyName }}</p>
-      </div>
+      </button>
     </div>
     <div class="header-container-center">
       <nav class="header-link-group">
@@ -50,4 +50,9 @@ import companyName from '@/utils/constants/companyName';
 import headerLinks from '@/utils/links/headerLinks';
 
 const route = useRoute();
+const router = useRouter();
+
+function goHome(): void {
+  router.push('/');
+}
 </script>

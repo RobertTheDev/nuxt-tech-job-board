@@ -9,14 +9,14 @@
       </button>
     </div>
     <div class="mobile-header-container-center">
-      <div class="mobile-header-logo-container">
+      <button class="mobile-header-logo-container" @click="goHome()">
         <img
           class="mobile-header-logo-image"
           src="logo.svg"
           alt="TechBoard brand logo"
         />
         <p class="mobile-header-logo-text">{{ companyName }}</p>
-      </div>
+      </button>
     </div>
     <div class="mobile-header-container-right">
       <div class="mobile-header-avatar-container">
@@ -33,4 +33,10 @@
 
 <script setup lang="ts">
 import companyName from '@/utils/constants/companyName';
+
+const router = useRouter();
+
+function goHome(): void {
+  router.push('/');
+}
 </script>
