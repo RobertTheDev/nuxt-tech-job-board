@@ -4,6 +4,7 @@ import componentsConfig from './components.config';
 export default defineNuxtConfig({
   app: {
     head: {
+      link: [{ rel: 'icon', type: 'image/png', href: '/logo.svg' }],
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
     },
