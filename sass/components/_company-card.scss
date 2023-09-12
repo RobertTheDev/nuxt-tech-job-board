@@ -1,4 +1,4 @@
-.candidate-card {
+.company-card {
   &-container {
     display: flex;
     flex-direction: column;
@@ -36,12 +36,11 @@
   &-bottom {
     &-container {
       flex: 1;
-      justify-content: center;
       width: 100%;
     }
   }
 
-  &-avatar {
+  &-logo {
     &-container {
       height: 200px;
       width: 200px;

@@ -1,7 +1,6 @@
 <template>
   <div class="companies-page-container">
-    <h1>Companies</h1>
-    <div class="spacer" />
+    <h1 class="text-3xl bold">Companies</h1>
     <CompanyCardList />
   </div>
 </template>

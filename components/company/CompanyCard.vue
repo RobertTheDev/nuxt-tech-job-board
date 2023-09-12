@@ -1,13 +1,24 @@
 <template>
   <NuxtLink :to="`/companies/${company._id}`">
-    <div>
-      <img :src="company.logo.url" :alt="company.logo.alt" />
+    <div class="company-card-container">
+      <div class="company-card-top-container">
+        <div class="company-card-logo-container">
+          <img
+            class="company-card-logo-image"
+            :src="company.logo.url"
+            :alt="company.logo.alt"
+          />
+        </div>
+      </div>
+      <div class="company-card-bottom-container">
+        <div class="company-card-content-container">
+          <p class="text-lg bold">{{ company.name }}</p>
+          <p class="text-md">{{ company.category }}</p>
+          <p class="text-md">{{ company.totalEmployees }} employees</p>
+        </div>
+        <button @click="(e) => followCompany(e, company._id)">Follow</button>
+      </div>
     </div>
-    <p>{{ company.name }}</p>
-    <p>{{ company.totalEmployees }}</p>
-    <p>{{ company.category }}</p>
-    <p>{{ company.description }}</p>
-    <button @click="(e) => followCompany(e, company._id)">Follow</button>
   </NuxtLink>
 </template>
 

@@ -12,7 +12,7 @@
 
   <!-- Show this when companies are successfully fetched. -->
 
-  <div v-if="companies">
+  <div v-if="companies" class="company-card-list">
     <CompanyCard
       v-for="company of companies"
       :key="company._id"
