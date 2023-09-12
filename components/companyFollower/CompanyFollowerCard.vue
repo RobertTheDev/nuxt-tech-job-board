@@ -1,13 +1,9 @@
 <template>
-  <NuxtLink
-    class="company-card-container"
-    :to="`/companies/${companyFollower.company._id}`"
-  >
-    <div class="company-card-logo-container">
+  <NuxtLink :to="`/companies/${companyFollower.company._id}`">
+    <div>
       <img
         :src="companyFollower.company.logo.url"
         :alt="companyFollower.company.logo.alt"
-        class="company-card-logo-image"
       />
     </div>
     <p>{{ companyFollower.company.name }}</p>

@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar-container">
+  <div>
     <NuxtLink to="/">{{ companyName }}</NuxtLink>
     <NuxtLink to="/job-posts">Job Posts</NuxtLink>
     <NuxtLink to="/companies">Companies</NuxtLink>

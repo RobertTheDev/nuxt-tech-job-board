@@ -2,11 +2,7 @@
   <div>
     <div v-if="company">
       <div>
-        <img
-          class="company-page-logo"
-          :src="company.logo.url"
-          :alt="company.logo.alt"
-        />
+        <img :src="company.logo.url" :alt="company.logo.alt" />
       </div>
       <p>{{ company.name }}</p>
       <p>{{ company.description }}</p>
@@ -40,10 +36,3 @@ const company = defineProps([
   'jobPosts',
 ]);
 </script>
-
-<style lang="scss">
-.company-page-logo {
-  height: 10rem;
-  width: 10rem;
-}
-</style>

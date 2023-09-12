@@ -10,5 +10,3 @@ function handleForm() {
   alert('Hello');
 }
 </script>
-
-<style lang="scss" scoped></style>

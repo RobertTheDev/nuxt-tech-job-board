@@ -5,59 +5,29 @@
       Please enter "CLOSE" and your password to confirm that you wish to close
       your account.
     </p>
-    <Form
-      class="primary-form-container"
-      :validation-schema="closeAccountSchema"
-      @submit="handleCloseAccount"
-    >
-      <div class="primary-form-input-content-container">
-        <p class="primary-form-input-label-text">Type "CLOSE":</p>
-        <Field
-          v-slot="{ field }"
-          class="primary-form-input-container"
-          name="close"
-          type="text"
-        >
-          <label for="close" class="primary-form-input-label-container">
-            <input
-              type="text"
-              v-bind="field"
-              placeholder="Close"
-              class="primary-form-input"
-            />
+    <Form :validation-schema="closeAccountSchema" @submit="handleCloseAccount">
+      <div>
+        <p>Type "CLOSE":</p>
+        <Field v-slot="{ field }" name="close" type="text">
+          <label for="close">
+            <input type="text" v-bind="field" placeholder="Close" />
           </label>
         </Field>
 
-        <ErrorMessage
-          name="close"
-          class="primary-form-input-validation-error-message-text"
-        />
+        <ErrorMessage name="close" />
       </div>
 
-      <div class="primary-form-input-content-container">
-        <p class="primary-form-input-label-text">Password:</p>
-        <Field
-          v-slot="{ field }"
-          class="primary-form-input-container"
-          name="password"
-          type="password"
-        >
-          <label for="close" class="primary-form-input-label-container">
-            <input
-              type="password"
-              v-bind="field"
-              placeholder="Password"
-              class="primary-form-input"
-            />
+      <div>
+        <p>Password:</p>
+        <Field v-slot="{ field }" name="password" type="password">
+          <label for="close">
+            <input type="password" v-bind="field" placeholder="Password" />
           </label>
         </Field>
 
-        <ErrorMessage
-          name="password"
-          class="primary-form-input-validation-error-message-text"
-        />
+        <ErrorMessage name="password" />
       </div>
-      <button class="primary-form-button" type="submit">Close Account</button>
+      <button type="submit">Close Account</button>
     </Form>
   </div>
 </template>

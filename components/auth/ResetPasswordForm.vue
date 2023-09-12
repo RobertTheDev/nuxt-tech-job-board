@@ -1,36 +1,19 @@
 <template>
-  <Form
-    class="primary-form-container"
-    :validation-schema="forgotPasswordSchema"
-    @submit="handleSubmit"
-  >
-    <div class="primary-form-input-content-container">
-      <p class="primary-form-input-label-text">Email</p>
-      <Field
-        v-slot="{ field }"
-        class="primary-form-input-container"
-        name="emailAddress"
-        type="email"
-      >
-        <label for="emailAddress" class="primary-form-input-label-container">
-          <input
-            type="email"
-            v-bind="field"
-            placeholder="Email"
-            class="primary-form-input"
-          />
+  <Form :validation-schema="forgotPasswordSchema" @submit="handleSubmit">
+    <div>
+      <p>Email</p>
+      <Field v-slot="{ field }" name="emailAddress" type="email">
+        <label for="emailAddress">
+          <input type="email" v-bind="field" placeholder="Email" />
         </label>
       </Field>
 
-      <ErrorMessage
-        name="emailAddress"
-        class="primary-form-input-validation-error-message-text"
-      />
+      <ErrorMessage name="emailAddress" />
     </div>
 
-    <div class="primary-form-footer-container">
+    <div>
       <!-- SIGN UP BUTTON -->
-      <button class="primary-form-button" type="submit">Reset Password</button>
+      <button type="submit">Reset Password</button>
     </div>
   </Form>
 </template>

@@ -30,9 +30,3 @@ import accountSettingsMenuLinks from '../../utils/links/accountSettingsMenuLinks
 
 const route = useRoute();
 </script>
-
-<style lang="scss">
-.active-link {
-  color: #8046ef;
-}
-</style>
