@@ -8,8 +8,6 @@
         :to="footerLink.href"
         >{{ footerLink.name }}</NuxtLink
       >
-    </div>
-    <div class="footer-copyright-container">
       <p class="footer-copyright-text">
         © {{ currentYear }} {{ companyName }}
       </p>

@@ -1,0 +1,128 @@
+.mobile-header {
+  &-burger-menu-button {
+    &-container {
+      height: 24px;
+      width: 24px;
+
+      border-radius: 100%;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      background: none;
+      transition-duration: 0.5s;
+      &:hover {
+        cursor: pointer;
+        color: royalblue;
+      }
+    }
+    &-icon {
+      font-size: 16px;
+      color: black;
+
+      @media (prefers-color-scheme: dark) {
+        color: white;
+      }
+    }
+  }
+  &-logo {
+    &-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+    }
+    &-image {
+      height: 24px;
+      object-fit: contain;
+    }
+    &-text {
+      font-size: 2.4rem;
+      font-weight: 600;
+
+      color: black;
+
+      @media (prefers-color-scheme: dark) {
+        color: white;
+      }
+    }
+  }
+  &-link {
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+
+    @media (prefers-color-scheme: dark) {
+      color: white;
+    }
+    &:hover {
+      color: royalblue;
+      cursor: pointer;
+    }
+    &-active {
+      color: royalblue;
+    }
+    &-group {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+  }
+  &-avatar {
+    &-image {
+      height: 100%;
+      width: 100%;
+    }
+    &-container {
+      height: 40px;
+      width: 40px;
+      border-radius: 100%;
+      overflow: hidden;
+
+      &:hover {
+        outline: 1px solid blue;
+      }
+    }
+  }
+  &-container {
+    align-items: center;
+    background-color: white;
+
+    display: flex;
+    border-bottom: 1px solid lightgray;
+    height: 70px;
+    width: 100%;
+    padding: $spacer-md;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    @media (prefers-color-scheme: dark) {
+      background-color: black;
+    }
+
+    @media (width >= $laptop) {
+      display: none;
+    }
+
+    &-left {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    &-center {
+      flex: 2;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &-right {
+      flex: 1;
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+  }
+}

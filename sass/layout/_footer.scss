@@ -8,6 +8,12 @@
     padding: 32px;
     flex-direction: column;
     width: 100%;
+    font-weight: 500;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: #171c1f;
+      color: white;
+    }
 
     @media (width >= 640px) {
       flex-direction: row;
@@ -23,10 +29,6 @@
     gap: 16px;
     width: 100%;
     flex: 1;
-
-    @media (width >= 640px) {
-      justify-content: flex-start;
-    }
   }
 
   &-copyright-text {

@@ -1,84 +1,120 @@
 .header {
   &-container {
     align-items: center;
-    box-shadow: 0 1px 4px rgb(0 0 0 / 30%);
-    display: flex;
-    height: 6.4rem;
-    left: 0;
+    background-color: white;
+    border-bottom: 1px solid lightgray;
+    display: none;
+    height: 70px;
+    padding: $spacer-md;
     position: sticky;
     top: 0;
     width: 100%;
-    background: white;
-    gap: 20px;
-    padding: 1.6rem;
-    justify-content: space-between;
+    z-index: 20;
 
-    @media (width >= 640px) {
-      padding: 3.2rem;
+    @media (prefers-color-scheme: dark) {
+      background-color: black;
     }
-  }
 
-  &-logo {
-    &-container {
+    @media (width >= $laptop) {
       display: flex;
     }
 
-    &-text {
-      color: #8046f0;
-      font-size: 2.4rem;
-      font-weight: 600;
-    }
-  }
-
-  &-link {
-    font-size: 1.6rem;
-    font-weight: 500;
-
-    &:hover {
-      color: #8046f0;
-    }
-  }
-
-  &-links {
-    &-container {
+    &-left {
       align-items: center;
-      display: none;
-      gap: 32px;
+      display: flex;
+      flex: 1;
+      justify-content: flex-start;
+    }
+    &-center {
+      align-items: center;
+      display: flex;
+      flex: 2;
+      justify-content: center;
+    }
 
-      @media (width >= 640px) {
-        display: flex;
+    &-right {
+      align-items: center;
+      display: flex;
+      flex: 1;
+      justify-content: flex-end;
+    }
+  }
+  &-avatar {
+    &-image {
+      height: 100%;
+      width: 100%;
+    }
+    &-container {
+      border-radius: 100%;
+      height: 40px;
+      overflow: hidden;
+      width: 40px;
+
+      &:hover {
+        outline: 1px solid blue;
       }
     }
   }
-
-  &-burger-icon {
-    display: flex;
-
-    @media (width >= 640px) {
-      display: none;
+  &-burger-menu-button {
+    &-container {
+      align-items: center;
+      background: none;
+      border-radius: 100%;
+      display: flex;
+      height: 24px;
+      justify-content: center;
+      transition-duration: 0.5s;
+      width: 24px;
+      &:hover {
+        color: royalblue;
+        cursor: pointer;
+      }
+    }
+    &-icon {
+      font-size: 16px;
     }
   }
+  &-logo {
+    &-container {
+      align-items: center;
+      background: none;
+      display: flex;
+      gap: 8px;
+    }
+    &-image {
+      height: 24px;
+      object-fit: contain;
+    }
+    &-text {
+      color: black;
+      font-size: 2.4rem;
+      font-weight: 600;
 
-  &-control {
-    background: none;
-    height: 40px;
-    width: 40px;
+      @media (prefers-color-scheme: dark) {
+        color: white;
+      }
+    }
+  }
+  &-link {
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
 
-    &-icon {
-      font-size: 1.8rem;
+    @media (prefers-color-scheme: dark) {
+      color: white;
     }
 
     &:hover {
-      background: whitesmoke;
-      border-radius: 100%;
+      color: royalblue;
+      cursor: pointer;
     }
-  }
-
-  &-profile {
-    &-container {
+    &-active {
+      color: royalblue;
+    }
+    &-group {
       align-items: center;
       display: flex;
-      gap: 8px;
+      gap: 32px;
     }
   }
 }
