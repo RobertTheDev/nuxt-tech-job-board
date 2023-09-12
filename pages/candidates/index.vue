@@ -20,8 +20,10 @@
           <div class="candidate-card-content-container">
             <p class="text-lg bold">{{ candidate.name }}</p>
             <p class="text-md">{{ candidate.jobTitle }}</p>
+            <p class="text-md">4 years experience</p>
           </div>
         </div>
+        <button>Offer Job</button>
       </div>
     </div>
   </div>
