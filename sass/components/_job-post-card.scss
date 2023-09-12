@@ -5,7 +5,7 @@
     flex-direction: column;
 
     width: 100%;
-    padding: $spacer-md;
+    padding: 0 $spacer-md;
 
     @media (prefers-color-scheme: dark) {
       background-color: black;

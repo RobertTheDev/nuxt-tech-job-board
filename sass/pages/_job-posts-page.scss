@@ -4,7 +4,8 @@
     flex-direction: row;
     width: 100%;
     min-height: 100vh;
-    padding: $spacer-md;
+
+    padding: $spacer-md $spacer-2xl;
   }
 
   &-filter-menu-container {
@@ -12,10 +13,10 @@
   }
 
   &-card-list-container {
-    flex: 1;
+    flex: 2;
   }
 
   &-preview-container {
-    flex: 2;
+    flex: 3;
   }
 }
