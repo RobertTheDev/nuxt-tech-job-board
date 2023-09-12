@@ -1,0 +1,20 @@
+.job-posts-page {
+  &-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  &-filter-menu-container {
+    flex: 1;
+  }
+
+  &-card-list-container {
+    flex: 1;
+  }
+
+  &-preview-container {
+    flex: 2;
+  }
+}

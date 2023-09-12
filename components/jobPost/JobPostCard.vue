@@ -1,6 +1,6 @@
 <template>
-  <div class="job-card">
-    <div class="job-card-header">
+  <div class="job-post-card-container">
+    <div class="job-post-card-header-container">
       <div class="job-post-card-company-logo-container">
         <img
           :src="jobPost.company.logo.url"
@@ -8,36 +8,35 @@
           class="job-post-card-company-logo-image"
         />
       </div>
+      <div class="job-post-card-header-content-container">
+        <p class="text-md bold">{{ jobPost.title }}</p>
+        <p class="text-sm">{{ jobPost.company.name }}</p>
+      </div>
     </div>
-    <p>{{ jobPost.company.name }}</p>
+    <div class="job-post-card-content-container">
+      <p class="text-sm bold">
+        Posted
+        {{
+          formatDistanceToNow(new Date(jobPost.createdAt), {
+            addSuffix: true,
+          })
+        }}
+      </p>
 
-    <p>
-      Posted
-      {{
-        formatDistanceToNow(new Date(jobPost.createdAt), {
-          addSuffix: true,
-        })
-      }}
-    </p>
-    <div class="job-card-title">{{ jobPost.title }}</div>
-    <div class="job-card-subtitle">
-      {{ jobPost.description }}
-    </div>
-    <div class="job-detail-buttons">
-      <button class="search-buttons detail-button">
-        {{ jobPost.locationType }}
-      </button>
-      <button class="search-buttons detail-button">
-        {{ jobPost.contractType }}
-      </button>
-      <button class="search-buttons detail-button">
-        £{{ jobPost.salary.min.toLocaleString() }} -
-        {{ jobPost.salary.max.toLocaleString() }}
-      </button>
-    </div>
-    <div class="job-card-buttons">
-      <button class="search-buttons card-buttons">Apply Now</button>
-      <button class="search-buttons card-buttons-msg">Save Job</button>
+      <div class="job-detail-group">
+        <div class="job-post-card-detail-group">
+          <div class="job-post-card-detail-container">
+            <p class="text-xs bold">{{ jobPost.locationType }}</p>
+          </div>
+          <div class="job-post-card-detail-container">
+            <p class="text-xs bold">{{ jobPost.contractType }}</p>
+          </div>
+        </div>
+        <p class="text-xs bold">
+          £{{ jobPost.salary.min.toLocaleString() }} -
+          {{ jobPost.salary.max.toLocaleString() }}
+        </p>
+      </div>
     </div>
   </div>
 </template>

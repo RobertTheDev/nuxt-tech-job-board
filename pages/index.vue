@@ -1,23 +1,22 @@
 <template>
-  <div class="job">
-    <div class="wrapper">
-      <div class="main-container">
-        <div class="searched-jobs">
-          <div class="searched-bar">
-            <div class="searched-show">Showing 46 Jobs</div>
-            <div class="searched-sort">
-              Sort by: <span class="post-time">Newest Post </span
-              ><span class="menu-icon">▼</span>
-            </div>
-          </div>
-          <div class="job-cards">
-            <JobPostCard
-              v-for="jobPost in jobPosts"
-              :key="jobPost._id"
-              v-bind="jobPost"
-            />
-          </div>
-        </div>
+  <div class="job-posts-page-container">
+    <div class="job-posts-page-filter-menu-container">
+      <div class="job-post-filter-menu">
+        <p>Filter menu</p>
+      </div>
+    </div>
+    <div class="job-posts-page-card-list-container">
+      <div class="job-post-card-list">
+        <JobPostCard
+          v-for="jobPost in jobPosts"
+          :key="jobPost._id"
+          v-bind="jobPost"
+        />
+      </div>
+    </div>
+    <div class="job-posts-page-preview-container">
+      <div class="job-post-preview-container">
+        <p>Preview</p>
       </div>
     </div>
   </div>
