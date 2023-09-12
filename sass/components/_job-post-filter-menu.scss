@@ -1,0 +1,17 @@
+.job-post-filter-menu {
+  min-height: 100%;
+  &-option {
+    &-container {
+      display: flex;
+      align-items: center;
+      gap: $spacer-sm;
+    }
+    &-group {
+      display: flex;
+      flex-direction: column;
+      padding: $spacer-sm 0;
+    }
+    &-checkbox {
+    }
+  }
+}

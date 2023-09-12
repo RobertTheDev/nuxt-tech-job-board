@@ -1,39 +1,39 @@
 <!-- eslint-disable vuejs-accessibility/label-has-for -->
 <template>
-  <div class="search-type">
-    <div class="job-time">
-      <div class="job-time-title">Type of Employment</div>
-      <div class="job-wrapper">
-        <div v-for="option in options" :key="option" class="type-container">
-          <input type="checkbox" class="job-style" />
-          <label for="job1">{{ option }}</label>
-        </div>
+  <div class="job-post-filter-menu">
+    <p class="text-sm bold">Type of Employment</p>
+    <div class="job-post-filter-menu-option-group">
+      <div
+        v-for="option in options"
+        :key="option"
+        class="job-post-filter-menu-option-container"
+      >
+        <input class="job-post-filter-menu-option-checkbox" type="checkbox" />
+        <label class="text-xs bold" for="job1">{{ option }}</label>
       </div>
     </div>
-    <div class="job-time">
-      <div class="job-time-title">Seniority Level</div>
-      <div class="job-wrapper">
-        <div
-          v-for="seniorLevelOption in seniorLevelOptions"
-          :key="seniorLevelOption"
-          class="type-container"
-        >
-          <input type="checkbox" class="job-style" />
-          <label for="job7">Student Level</label>
-        </div>
+
+    <p class="text-sm bold">Seniority Level</p>
+    <div class="job-post-filter-menu-option-group">
+      <div
+        v-for="seniorLevelOption in seniorLevelOptions"
+        :key="seniorLevelOption"
+        class="job-post-filter-menu-option-container"
+      >
+        <input class="job-post-filter-menu-option-checkbox" type="checkbox" />
+        <label class="text-xs bold" for="job7">Student Level</label>
       </div>
     </div>
-    <div class="job-time">
-      <div class="job-time-title">Salary Range</div>
-      <div class="job-wrapper">
-        <div
-          v-for="salaryOption in salaryOptions"
-          :key="salaryOption"
-          class="type-container"
-        >
-          <input type="checkbox" class="job-style" />
-          <label for="job1">{{ salaryOption }}</label>
-        </div>
+
+    <p class="text-sm bold">Salary Range</p>
+    <div class="job-post-filter-menu-option-group">
+      <div
+        v-for="salaryOption in salaryOptions"
+        :key="salaryOption"
+        class="job-post-filter-menu-option-container"
+      >
+        <input class="job-post-filter-menu-option-checkbox" type="checkbox" />
+        <label class="text-xs bold" for="job1">{{ salaryOption }}</label>
       </div>
     </div>
   </div>
