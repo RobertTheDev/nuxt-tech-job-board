@@ -2,7 +2,7 @@
   <div class="job-posts-page-container">
     <div class="job-posts-page-filter-menu-container">
       <div class="job-post-filter-menu">
-        <p>Filter menu</p>
+        <JobPostFilterMenu />
       </div>
     </div>
     <div class="job-posts-page-card-list-container">
