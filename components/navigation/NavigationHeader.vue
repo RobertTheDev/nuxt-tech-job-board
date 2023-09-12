@@ -27,6 +27,9 @@
     </div>
     <div class="header-container-right">
       <div>
+        <font-awesome-icon icon="fa-regular fa-bell" />
+      </div>
+      <div>
         <font-awesome-icon icon="fa-regular fa-bookmark" />
       </div>
 

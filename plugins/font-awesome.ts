@@ -9,6 +9,7 @@ import {
   faCircleXmark,
   faUser,
   faHeart,
+  faBell,
 } from '@fortawesome/free-regular-svg-icons';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -27,6 +28,7 @@ library.add(
   faHeart,
   faBars,
   faTimes,
+  faBell,
 );
 
 export default defineNuxtPlugin((nuxtApp) => {
