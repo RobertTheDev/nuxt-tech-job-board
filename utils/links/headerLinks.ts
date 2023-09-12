@@ -17,10 +17,6 @@ const headerLinks: NavigationLink[] = [
     href: '/candidates',
     name: 'Find Candidates',
   },
-  {
-    href: '/profile/account-settings/upload-cv',
-    name: 'Upload CV',
-  },
 ];
 
 export default headerLinks;
