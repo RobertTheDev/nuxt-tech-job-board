@@ -26,10 +26,9 @@
       </nav>
     </div>
     <div class="header-container-right">
-      <font-awesome-icon
-        class="mobile-header-burger-menu-button-icon"
-        icon="fa-regular fa-bookmark"
-      />
+      <div>
+        <font-awesome-icon icon="fa-regular fa-bookmark" />
+      </div>
 
       <div class="header-avatar-container">
         <input
