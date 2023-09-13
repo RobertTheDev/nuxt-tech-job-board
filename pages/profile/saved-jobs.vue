@@ -19,10 +19,7 @@
 
 <script setup lang="ts">
 import SavedJobPost from 'models/savedJobPost/types/SavedJobPosts';
-
-definePageMeta({
-  middleware: 'unauthenticated',
-});
+import companyName from '@/utils/constants/companyName';
 
 // Get saved job posts by the authenticated user from the server.
 const {
@@ -33,7 +30,7 @@ const {
 } = await useFetch<SavedJobPost[]>(`/api/saved-job-posts/authenticated-user`);
 
 useHead({
-  title: 'Saved Jobs',
+  title: `Saved Jobs  | ${companyName}`,
   meta: [
     {
       name: 'description',
