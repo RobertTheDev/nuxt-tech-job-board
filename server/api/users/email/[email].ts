@@ -1,4 +1,4 @@
-import getUserByEmailAddress from '../../../handlers/users/getUserByEmailAddress';
+import getUserByEmailAddress from '../../../handlers/user/getUserByEmailAddress';
 
 export default defineEventHandler((event) => {
   const { method } = event.node.req;

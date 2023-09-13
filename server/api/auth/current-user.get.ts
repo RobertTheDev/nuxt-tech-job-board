@@ -1,5 +1,5 @@
 import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
-import getUserById from '../../handlers/users/getUserById';
+import getUserById from '../../handlers/user/getUserById';
 
 // Returns signed in user using session.
 

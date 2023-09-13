@@ -1,5 +1,5 @@
-import getUserById from '../users/getUserById';
-import updateUserById from '../users/updateUserById';
+import getUserById from '../user/getUserById';
+import updateUserById from '../user/updateUserById';
 import updateUserSchema from '../../validators/users/updateUserSchema';
 
 // This handler increments a user's companies followed total and returns the updated user.

@@ -1,5 +1,5 @@
-import deleteUsers from '../../handlers/users/deleteUsers';
-import getUsers from '../../handlers/users/getUsers';
+import deleteUsers from '../../handlers/user/deleteUsers';
+import getUsers from '../../handlers/user/getUsers';
 
 export default defineEventHandler((event) => {
   const { method } = event.node.req;
