@@ -1,5 +1,10 @@
 .job-post-filter-menu {
-  min-height: 100%;
+  background-color: white;
+  padding: $spacer-md;
+  border-radius: 8px;
+  border: 1px solid lightgray;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
   &-option {
     &-container {
       display: flex;

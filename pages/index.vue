@@ -1,9 +1,7 @@
 <template>
   <div class="job-posts-page-container">
     <div class="job-posts-page-filter-menu-container">
-      <div class="job-post-filter-menu">
-        <JobPostFilterMenu />
-      </div>
+      <JobPostFilterMenu />
     </div>
     <div class="job-posts-page-card-list-container">
       <div class="job-post-card-list">
