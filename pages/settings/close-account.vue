@@ -1,9 +1,7 @@
 <template>
-  <!-- Wrap Content With The Account Settings Menu Component. -->
-  <AccountSettingsMenu>
-    <!-- Close Account Form Component. -->
+  <div class="settings-page-container">
     <CloseAccountForm />
-  </AccountSettingsMenu>
+  </div>
 </template>
 
 <script setup lang="ts">

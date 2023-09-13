@@ -1,11 +1,13 @@
-.account-settings-page {
+.settings-page {
   &-container {
     background: whitesmoke;
     display: flex;
+    flex-direction: column;
     min-height: 100vh;
     gap: 3.2rem;
     padding: 3.2rem;
     width: 100%;
+    align-items: center;
   }
 
   &-sidebar {
