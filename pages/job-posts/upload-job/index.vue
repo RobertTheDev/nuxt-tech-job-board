@@ -1,5 +1,5 @@
 <template>
-  <div class="page-container">
+  <div>
     <!-- PAGE CONTENT. -->
     <!-- Page Title. -->
     <h1>Upload A Job Post - Select A Company To Get Started</h1>
@@ -32,21 +32,15 @@
         </p>
       </div>
       <!-- If Companies Exist Show The List. -->
-      <div v-else class="select-company-card-grid">
+      <div v-else>
         <!-- Companies Owned By User List. -->
         <button
           v-for="companyOwner of companyOwners"
           :key="companyOwner._id"
-          :class="
-            selectedCompanyId === companyOwner.companyId
-              ? 'select-company-card-container-selected'
-              : 'select-company-card-container'
-          "
           @click="selectCompany(companyOwner.companyId)"
         >
-          <div class="select-company-card-logo-container">
+          <div>
             <img
-              class="select-company-card-logo-image"
               :src="companyOwner.company.logo.url"
               :alt="companyOwner.company.logo.alt"
             />
@@ -128,53 +122,3 @@ useHead({
   ],
 });
 </script>
-
-<style lang="scss" scoped>
-.page-container {
-  padding: 3.2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 3.2rem;
-}
-.select-company {
-  &-card {
-    &-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.6rem;
-      padding: 1.6rem;
-    }
-    &-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      gap: 1.6rem;
-
-      border-radius: 1.6rem;
-      &-selected {
-        border: 2px solid #8046ef;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.6rem;
-        border-radius: 1.6rem;
-      }
-    }
-    &-logo {
-      &-image {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-      }
-      &-container {
-        height: 12rem;
-        width: 12rem;
-        border-radius: 100%;
-        overflow: hidden;
-      }
-    }
-  }
-}
-</style>
-models/types/CompanyOwnermodels/types/JobPost
