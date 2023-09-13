@@ -1,5 +1,5 @@
 import { jobInterviewsCollection } from '../../lib/collections';
-import { CreateJobInterviewSchemaType } from '../../validators/jobInterviews/createJobInterviewSchema';
+import { CreateJobInterviewSchemaType } from '../../validators/jobInterview/createJobInterviewSchema';
 import getJobInterviewById from './getJobInterviewById';
 
 export default async function createJobInterview(
