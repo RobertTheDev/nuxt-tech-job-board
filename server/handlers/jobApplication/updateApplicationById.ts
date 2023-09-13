@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { UpdateApplicationSchemaType } from '../../validators/applications/updateApplicationSchema';
+import { UpdateApplicationSchemaType } from '../../validators/application/updateApplicationSchema';
 import { applicationsCollection } from '../../lib/collections';
 import getApplicationById from './getApplicationById';
 

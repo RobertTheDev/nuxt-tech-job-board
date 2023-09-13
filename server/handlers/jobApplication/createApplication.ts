@@ -1,5 +1,5 @@
 import { applicationsCollection } from '../../lib/collections';
-import { CreateApplicationSchemaType } from '../../validators/applications/createApplicationSchema';
+import { CreateApplicationSchemaType } from '../../validators/application/createApplicationSchema';
 import getApplicationById from './getApplicationById';
 
 export default async function createApplication(
