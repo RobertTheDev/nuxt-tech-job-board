@@ -36,7 +36,7 @@
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import closeAccountSchema from '@/models/settings/validators/closeAccountSchema';
 
-function handleCloseAccount(values: any) {
+function handleCloseAccount(values: any): void {
   alert(JSON.stringify(values, null, 2));
 }
 </script>

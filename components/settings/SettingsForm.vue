@@ -159,5 +159,5 @@
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import accountSettingsSchema from '@/models/settings/validators/accountSettingsSchema';
 
-function handleAccountSettingsUpdate() {}
+function handleAccountSettingsUpdate(): void {}
 </script>

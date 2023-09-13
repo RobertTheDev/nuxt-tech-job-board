@@ -16,7 +16,7 @@
 import profileMenuLinks from '@/utils/links/profileMenuLinks';
 const { reset } = await useSession();
 
-function logout() {
+function logout(): void {
   reset().then(() => {
     window.location.reload();
   });

@@ -22,7 +22,7 @@
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import forgotPasswordSchema from '@/models/auth/validators/forgotPasswordSchema';
 
-function handleSubmit(values: any) {
+function handleSubmit(values: any): void {
   alert(JSON.stringify(values, null, 2));
 }
 </script>

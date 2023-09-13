@@ -177,7 +177,7 @@ const formHandler = ref<FormHandler>({
   errorMessage: undefined,
 });
 
-async function handleCreateCompany(values: any) {
+async function handleCreateCompany(values: any): Promise<void> {
   const { pending, error, data } = await useFetch('/api/companies', {
     method: 'POST',
     body: values,

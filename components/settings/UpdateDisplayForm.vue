@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-function handleForm() {
+function handleForm(): void {
   alert('Hello');
 }
 </script>

@@ -36,7 +36,7 @@ const form = reactive({
   error: false,
 });
 
-async function handleSignUp(values: any) {
+async function handleSignUp(values: any): Promise<void> {
   form.loading = true;
   await useFetch('/api/auth/sign-up', {
     method: 'POST',

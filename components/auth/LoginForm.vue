@@ -13,13 +13,10 @@
           <input type="email" v-bind="field" placeholder="Email" />
         </label>
       </Field>
-
       <ErrorMessage name="emailAddress" />
     </div>
-
     <div>
       <p>Password</p>
-
       <Field v-slot="{ field }" name="password" type="text">
         <div>
           <label for="password">
@@ -63,22 +60,22 @@ import FormHandler from '@/models/config/form/FormHandler';
 
 const router = useRouter();
 
-function navigate(href: string) {
-  router.push(href);
-}
-
 const passwordVisible = ref<boolean>(false);
-
-function togglePasswordVisibility() {
-  passwordVisible.value = !passwordVisible.value;
-}
 
 const formHandler = ref<FormHandler>({
   pending: false,
   errorMessage: undefined,
 });
 
-async function handleLogin(values: any) {
+function navigate(href: string): void {
+  router.push(href);
+}
+
+function togglePasswordVisibility(): void {
+  passwordVisible.value = !passwordVisible.value;
+}
+
+async function handleLogin(values: any): Promise<void> {
   const { pending, error } = await useFetch('/api/auth/login', {
     method: 'POST',
     body: values,

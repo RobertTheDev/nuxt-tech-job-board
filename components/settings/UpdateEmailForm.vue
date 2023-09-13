@@ -74,11 +74,11 @@ import changeEmailSchema from '@/models/settings/validators/changeEmailSchema';
 
 const passwordVisible = ref<boolean>(false);
 
-function togglePasswordVisibility() {
+function togglePasswordVisibility(): void {
   passwordVisible.value = !passwordVisible.value;
 }
 
-function handleChangeEmail(values: any) {
+function handleChangeEmail(values: any): void {
   alert(JSON.stringify(values, null, 2));
 }
 </script>

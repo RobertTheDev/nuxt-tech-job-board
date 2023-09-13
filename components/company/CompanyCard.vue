@@ -28,7 +28,7 @@ import Company from '@/models/company/types/Company';
 
 const company = defineProps<Company>();
 
-async function followCompany(e: MouseEvent, id: string) {
+async function followCompany(e: MouseEvent, id: string): Promise<void> {
   e.preventDefault();
 
   await useFetch<CompanyFollower[]>(`/api/company-followers/company/${id}`, {

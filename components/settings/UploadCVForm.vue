@@ -9,14 +9,14 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed } from 'vue';
 
-const file = ref(null);
+const file = ref<any>(null);
 
-const fileName = computed(() => file.value?.name);
+const fileName = computed(() => file.value.name);
 
-const uploadFile = (event) => {
+function uploadFile(event: any): void {
   file.value = event.target.files[0];
-};
+}
 </script>

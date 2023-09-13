@@ -36,5 +36,3 @@ const {
   refresh,
 } = await useFetch<Company[]>('/api/companies');
 </script>
-
-<style lang="scss" scoped></style>

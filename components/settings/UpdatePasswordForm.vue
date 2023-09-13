@@ -88,7 +88,7 @@ const formHandler = ref<FormHandler>({
   errorMessage: undefined,
 });
 
-async function handleChangePassword(values: any) {
+async function handleChangePassword(values: any): Promise<void> {
   const { pending, error } = await useFetch('/api/auth/change-password', {
     method: 'PUT',
     body: values,
