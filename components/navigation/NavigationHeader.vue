@@ -48,8 +48,11 @@
           class="header-avatar-image"
           src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%283%29+%281%29.png"
           alt="Profile menu control"
+          @click="toggleProfileMenu()"
         />
       </div>
+
+      <HeaderProfileMenu v-if="profileMenuActive" />
     </div>
   </header>
 </template>
@@ -60,6 +63,12 @@ import headerLinks from '@/utils/links/headerLinks';
 
 const route = useRoute();
 const router = useRouter();
+
+const profileMenuActive = ref(false);
+
+function toggleProfileMenu(): void {
+  profileMenuActive.value = !profileMenuActive.value;
+}
 
 function navigateTo(path: string): void {
   router.push(path);
