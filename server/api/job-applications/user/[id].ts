@@ -1,5 +1,5 @@
-import getApplicationsByUserId from '../../../handlers/applications/getApplicationsByUserId';
-import deleteApplicationsByUserId from '../../../handlers/applications/deleteApplicationsByUserId';
+import getApplicationsByUserId from '../../../handlers/jobApplications/getApplicationsByUserId';
+import deleteApplicationsByUserId from '../../../handlers/jobApplications/deleteApplicationsByUserId';
 import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
 
 export default defineEventHandler((event) => {

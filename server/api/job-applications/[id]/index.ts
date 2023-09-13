@@ -1,7 +1,7 @@
 import updateApplicationSchema from '../../../validators/applications/updateApplicationSchema';
-import getApplicationById from '../../../handlers/applications/getApplicationById';
-import deleteApplicationById from '../../../handlers/applications/deleteApplicationById';
-import updateApplicationById from '../../../handlers/applications/updateApplicationById';
+import getApplicationById from '../../../handlers/jobApplications/getApplicationById';
+import deleteApplicationById from '../../../handlers/jobApplications/deleteApplicationById';
+import updateApplicationById from '../../../handlers/jobApplications/updateApplicationById';
 import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
 
 export default defineEventHandler(async (event) => {

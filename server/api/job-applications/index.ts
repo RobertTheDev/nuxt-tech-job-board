@@ -1,6 +1,6 @@
-import createApplication from '../../handlers/applications/createApplication';
-import deleteApplications from '../../handlers/applications/deleteApplications';
-import getApplications from '../../handlers/applications/getApplications';
+import createApplication from '../../handlers/jobApplications/createApplication';
+import deleteApplications from '../../handlers/jobApplications/deleteApplications';
+import getApplications from '../../handlers/jobApplications/getApplications';
 import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
 import createApplicationSchema from '../../validators/applications/createApplicationSchema';
 
