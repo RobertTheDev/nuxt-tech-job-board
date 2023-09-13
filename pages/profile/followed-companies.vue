@@ -1,8 +1,7 @@
 <template>
-  <div class="companies-page-container">
+  <div>
     <!-- Page Title. -->
     <h1>Followed Companies</h1>
-    <div class="spacer" />
 
     <!-- Show this when company fetch is loading. -->
     <div v-if="pending">
@@ -17,10 +16,7 @@
 
     <!-- Show this when companies are successfully fetched. -->
     <div v-if="companyFollowers">
-      <div
-        v-if="companyFollowers.length > 0"
-        class="company-card-grid-container"
-      >
+      <div v-if="companyFollowers.length > 0">
         <CompanyCard
           v-for="companyFollower of companyFollowers"
           :key="companyFollower._id"
@@ -63,24 +59,3 @@ useHead({
   ],
 });
 </script>
-
-<style lang="scss" scoped>
-.companies-page-container {
-  padding: 3.2rem;
-}
-
-.spacer {
-  height: 3.2rem;
-}
-
-.logo {
-  height: 4rem;
-  width: 4rem;
-}
-
-.company-card-grid-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 3.2rem;
-}
-</style>
