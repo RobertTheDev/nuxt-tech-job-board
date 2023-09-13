@@ -1,5 +1,5 @@
 import checkUserSignedIn from '../../../../handlers/auth/checkUserSignedIn';
-import addJobPostLocation from '../../../../handlers/jobPosts/jobPostFields/addJobPostLocation';
+import addJobPostLocation from '../../../../handlers/jobPost/jobPostFields/addJobPostLocation';
 import addLocationSchema from '../../../../validators/jobPosts/jobPostFieldSchemas/addLocationSchema';
 
 export default defineEventHandler(async (event) => {

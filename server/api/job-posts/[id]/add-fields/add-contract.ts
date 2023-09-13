@@ -1,5 +1,5 @@
 import checkUserSignedIn from '../../../../handlers/auth/checkUserSignedIn';
-import addJobPostContract from '../../../../handlers/jobPosts/jobPostFields/addJobPostContract';
+import addJobPostContract from '../../../../handlers/jobPost/jobPostFields/addJobPostContract';
 import addContractSchema from '../../../../validators/jobPosts/jobPostFieldSchemas/addContractSchema';
 
 export default defineEventHandler(async (event) => {

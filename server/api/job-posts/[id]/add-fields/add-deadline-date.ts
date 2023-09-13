@@ -1,5 +1,5 @@
 import checkUserSignedIn from '../../../../handlers/auth/checkUserSignedIn';
-import addJobPostDeadlineDate from '../../../../handlers/jobPosts/jobPostFields/addJobPostDeadlineDate';
+import addJobPostDeadlineDate from '../../../../handlers/jobPost/jobPostFields/addJobPostDeadlineDate';
 import addDeadlineDateSchema from '../../../../validators/jobPosts/jobPostFieldSchemas/addDeadlineDateSchema';
 
 export default defineEventHandler(async (event) => {

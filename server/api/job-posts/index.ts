@@ -5,9 +5,9 @@ import {
   companyOwnersCollection,
   jobPostsCollection,
 } from '../../lib/collections';
-import getJobPosts from '../../handlers/jobPosts/getJobPosts';
+import getJobPosts from '../../handlers/jobPost/getJobPosts';
 import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
-import getJobPostById from '../../handlers/jobPosts/getJobPostById';
+import getJobPostById from '../../handlers/jobPost/getJobPostById';
 
 export default defineEventHandler(async (event) => {
   const { user } = event.context.session;

@@ -1,4 +1,4 @@
-import publishJobPost from '../../../handlers/jobPosts/publishJobPost';
+import publishJobPost from '../../../handlers/jobPost/publishJobPost';
 
 export default defineEventHandler(async (event) => {
   const { id } = event.context.params as { id: string };

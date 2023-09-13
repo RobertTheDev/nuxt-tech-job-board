@@ -1,7 +1,7 @@
 import { ObjectId } from 'mongodb';
 import { jobPostsCollection } from '../../../lib/collections';
-import getJobPostById from '../../../handlers/jobPosts/getJobPostById';
-import updateJobPostById from '../../../handlers/jobPosts/updateJobPostById';
+import getJobPostById from '../../../handlers/jobPost/getJobPostById';
+import updateJobPostById from '../../../handlers/jobPost/updateJobPostById';
 import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
 import updateJobPostSchema from '../../../validators/jobPosts/updateJobPostSchema';
 
