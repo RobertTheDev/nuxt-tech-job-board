@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
 import getCompanyById from '../../handlers/company/getCompanyById';
-import createJobPostSchema from '../../validators/jobPosts/createJobPostSchema';
+import createJobPostSchema from '../../validators/jobPost/createJobPostSchema';
 import {
   companyOwnersCollection,
   jobPostsCollection,

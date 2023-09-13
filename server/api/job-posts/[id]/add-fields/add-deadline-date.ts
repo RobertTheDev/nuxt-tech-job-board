@@ -1,6 +1,6 @@
 import checkUserSignedIn from '../../../../handlers/auth/checkUserSignedIn';
 import addJobPostDeadlineDate from '../../../../handlers/jobPost/jobPostFields/addJobPostDeadlineDate';
-import addDeadlineDateSchema from '../../../../validators/jobPosts/jobPostFieldSchemas/addDeadlineDateSchema';
+import addDeadlineDateSchema from '../../../../validators/jobPost/jobPostFieldSchemas/addDeadlineDateSchema';
 
 export default defineEventHandler(async (event) => {
   const { id } = event.context.params as { id: string };

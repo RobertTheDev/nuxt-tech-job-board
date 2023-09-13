@@ -3,7 +3,7 @@ import { jobPostsCollection } from '../../../lib/collections';
 import getJobPostById from '../../../handlers/jobPost/getJobPostById';
 import updateJobPostById from '../../../handlers/jobPost/updateJobPostById';
 import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
-import updateJobPostSchema from '../../../validators/jobPosts/updateJobPostSchema';
+import updateJobPostSchema from '../../../validators/jobPost/updateJobPostSchema';
 
 export default defineEventHandler(async (event) => {
   const { id } = event.context.params as { id: string };

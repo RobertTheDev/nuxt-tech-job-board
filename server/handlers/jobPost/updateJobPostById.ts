@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { UpdateJobPostSchemaType } from '../../validators/jobPosts/updateJobPostSchema';
+import { UpdateJobPostSchemaType } from '../../validators/jobPost/updateJobPostSchema';
 import { jobPostsCollection } from '../../lib/collections';
 import getJobPostById from './getJobPostById';
 

@@ -1,5 +1,5 @@
 import { jobPostsCollection } from '../../lib/collections';
-import { CreateJobPostSchemaType } from '../../validators/jobPosts/createJobPostSchema';
+import { CreateJobPostSchemaType } from '../../validators/jobPost/createJobPostSchema';
 import getJobPostById from './getJobPostById';
 
 export default async function createJobPost(body: CreateJobPostSchemaType) {

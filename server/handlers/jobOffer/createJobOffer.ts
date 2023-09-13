@@ -1,5 +1,5 @@
 import { jobOffersCollection } from '../../lib/collections';
-import { CreateJobPostSchemaType } from '../../validators/jobPosts/createJobPostSchema';
+import { CreateJobPostSchemaType } from '../../validators/jobPost/createJobPostSchema';
 import getJobOfferById from './getJobOfferById';
 
 export default async function createJobOffer(body: CreateJobPostSchemaType) {

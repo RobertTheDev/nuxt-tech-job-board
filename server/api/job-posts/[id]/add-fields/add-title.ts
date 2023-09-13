@@ -1,6 +1,6 @@
 import checkUserSignedIn from '../../../../handlers/auth/checkUserSignedIn';
 import addJobPostTitle from '../../../../handlers/jobPost/jobPostFields/addJobPostTitle';
-import addTitleSchema from '../../../../validators/jobPosts/jobPostFieldSchemas/addTitleSchema';
+import addTitleSchema from '../../../../validators/jobPost/jobPostFieldSchemas/addTitleSchema';
 
 export default defineEventHandler(async (event) => {
   const { id } = event.context.params as { id: string };

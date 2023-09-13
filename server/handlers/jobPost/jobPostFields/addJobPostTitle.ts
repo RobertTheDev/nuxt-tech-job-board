@@ -1,7 +1,7 @@
 import { ObjectId } from 'mongodb';
 import getJobPostById from '../getJobPostById';
 import { jobPostsCollection } from '../../../lib/collections';
-import { AddTitleSchemaType } from '../../../validators/jobPosts/jobPostFieldSchemas/addTitleSchema';
+import { AddTitleSchemaType } from '../../../validators/jobPost/jobPostFieldSchemas/addTitleSchema';
 
 export default async function addJobPostTitle(
   id: string,

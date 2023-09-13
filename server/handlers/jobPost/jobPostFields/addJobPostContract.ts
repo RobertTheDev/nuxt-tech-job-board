@@ -1,7 +1,7 @@
 import { ObjectId } from 'mongodb';
 import getJobPostById from '../getJobPostById';
 import { jobPostsCollection } from '../../../lib/collections';
-import { AddContractSchemaType } from '../../../validators/jobPosts/jobPostFieldSchemas/addContractSchema';
+import { AddContractSchemaType } from '../../../validators/jobPost/jobPostFieldSchemas/addContractSchema';
 
 export default async function addJobPostContract(
   id: string,
