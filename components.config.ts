@@ -6,10 +6,7 @@ const componentsConfig = [
     path: '~/components/auth',
     pathPrefix: false,
   },
-  {
-    path: '~/components/common',
-    pathPrefix: false,
-  },
+
   {
     path: '~/components/company',
     pathPrefix: false,
@@ -48,10 +45,6 @@ const componentsConfig = [
   },
   {
     path: '~/components/settings',
-    pathPrefix: false,
-  },
-  {
-    path: '~/components/user',
     pathPrefix: false,
   },
 ];
