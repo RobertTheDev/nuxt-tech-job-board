@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { CreateCompanyFollowerSchemaType } from '../../validators/companyFollowers/createCompanyFollowerSchema';
+import { CreateCompanyFollowerSchemaType } from '../../validators/companyFollower/createCompanyFollowerSchema';
 import { companyFollowersCollection } from '../../lib/collections';
 import getCompanyFollowerById from './getCompanyFollowerById';
 

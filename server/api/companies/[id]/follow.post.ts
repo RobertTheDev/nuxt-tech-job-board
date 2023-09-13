@@ -4,7 +4,7 @@ import {
   companiesCollection,
   companyFollowersCollection,
 } from '../../../lib/collections';
-import createCompanyFollowerSchema from '../../../validators/companyFollowers/createCompanyFollowerSchema';
+import createCompanyFollowerSchema from '../../../validators/companyFollower/createCompanyFollowerSchema';
 
 async function checkCompanyExists(id: string) {
   const company = await companiesCollection.findOne({
