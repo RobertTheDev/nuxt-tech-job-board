@@ -26,11 +26,14 @@
       </nav>
     </div>
     <div class="header-container-right">
-      <div>
-        <font-awesome-icon icon="fa-regular fa-bell" />
+      <div class="header-icon-container">
+        <font-awesome-icon class="header-icon-icon" icon="fa-regular fa-bell" />
       </div>
-      <div>
-        <font-awesome-icon icon="fa-regular fa-bookmark" />
+      <div class="header-icon-container">
+        <font-awesome-icon
+          class="header-icon-icon"
+          icon="fa-regular fa-bookmark"
+        />
       </div>
 
       <div class="header-avatar-container">

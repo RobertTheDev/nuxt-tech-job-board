@@ -37,8 +37,31 @@
       display: flex;
       flex: 1;
       justify-content: flex-end;
+      gap: $spacer-sm;
     }
   }
+
+  &-icon {
+    &-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      width: 48px;
+      border-radius: 100%;
+
+      overflow: hidden;
+
+      &:hover {
+        background-color: whitesmoke;
+        cursor: pointer;
+      }
+    }
+    &-icon {
+      font-size: 20px;
+    }
+  }
+
   &-avatar {
     &-image {
       height: 100%;
