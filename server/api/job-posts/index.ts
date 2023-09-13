@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import getCompanyById from '../../handlers/companies/getCompanyById';
+import getCompanyById from '../../handlers/company/getCompanyById';
 import createJobPostSchema from '../../validators/jobPosts/createJobPostSchema';
 import {
   companyOwnersCollection,
