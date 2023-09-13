@@ -52,12 +52,17 @@
         />
       </div>
 
-      <HeaderProfileMenu v-if="profileMenuActive" />
+      <HeaderProfileMenu
+        v-if="profileMenuActive"
+        v-on-click-outside="toggleProfileMenu"
+      />
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import { vOnClickOutside } from '@vueuse/components';
 import companyName from '@/utils/constants/companyName';
 import headerLinks from '@/utils/links/headerLinks';
 
