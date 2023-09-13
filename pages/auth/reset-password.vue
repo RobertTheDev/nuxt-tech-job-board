@@ -9,7 +9,7 @@
 import companyName from '@/utils/constants/companyName';
 
 useHead({
-  title: `Forgot Password | ${companyName}`,
+  title: `Reset Password | ${companyName}`,
   meta: [
     {
       name: 'description',
