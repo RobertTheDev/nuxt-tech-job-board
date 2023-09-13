@@ -1,11 +1,18 @@
 <template>
   <div class="candidate-page-container">
     <h1 class="text-3xl bold">Candidates</h1>
-    <CandidateCardList />
+    <div class="candidate-card-list">
+      <CandidateCard
+        v-for="candidate in candidates"
+        :key="candidate.id"
+        v-bind="candidate"
+      />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import candidates from '@/utils/dummyData/candidates';
 import companyName from '@/utils/constants/companyName';
 
 useHead({
