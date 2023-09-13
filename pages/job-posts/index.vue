@@ -8,6 +8,13 @@
         v-bind="jobPost"
       />
     </div>
+    <div v-if="pending">
+      <p>Loading...</p>
+    </div>
+    <div v-if="error">
+      <p>There was en error.</p>
+      <button @click="refresh()">Refresh</button>
+    </div>
   </div>
 </template>
 
@@ -16,9 +23,9 @@ import JobPost from '@/models/jobPost/types/JobPost';
 
 const {
   data: jobPosts,
-  // pending,
-  // error,
-  // refresh,
+  pending,
+  error,
+  refresh,
 } = await useFetch<JobPost[]>('/api/job-posts');
 
 useHead({
