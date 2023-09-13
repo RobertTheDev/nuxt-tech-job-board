@@ -84,4 +84,3 @@ useHead({
   gap: 3.2rem;
 }
 </style>
-../../models/types/CompanyFollower ../../utils/types/CompanyFollower

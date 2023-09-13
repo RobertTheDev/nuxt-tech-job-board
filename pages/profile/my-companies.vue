@@ -66,4 +66,3 @@ useHead({
   grid-template-columns: repeat(4, 1fr);
 }
 </style>
-../../models/types/CompanyOwner ../../utils/types/CompanyOwner

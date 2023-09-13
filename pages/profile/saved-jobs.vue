@@ -39,4 +39,3 @@ useHead({
   ],
 });
 </script>
-../../models/types/SavedJobPosts ../../utils/types/SavedJobPosts
