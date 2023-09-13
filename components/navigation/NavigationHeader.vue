@@ -1,7 +1,7 @@
 <template>
   <header class="header-container">
     <div class="header-container-left">
-      <button class="header-logo-container" @click="goHome()">
+      <button class="header-logo-container" @click="navigateTo('/')">
         <img
           class="header-logo-image"
           src="logo.svg"
@@ -26,15 +26,21 @@
       </nav>
     </div>
     <div class="header-container-right">
-      <div class="header-icon-container">
+      <button
+        class="header-icon-container"
+        @click="navigateTo('/notifications')"
+      >
         <font-awesome-icon class="header-icon-icon" icon="fa-regular fa-bell" />
-      </div>
-      <div class="header-icon-container">
+      </button>
+      <button
+        class="header-icon-container"
+        @click="navigateTo('/profile/saved-jobs')"
+      >
         <font-awesome-icon
           class="header-icon-icon"
           icon="fa-regular fa-bookmark"
         />
-      </div>
+      </button>
 
       <div class="header-avatar-container">
         <input
@@ -55,7 +61,7 @@ import headerLinks from '@/utils/links/headerLinks';
 const route = useRoute();
 const router = useRouter();
 
-function goHome(): void {
-  router.push('/');
+function navigateTo(path: string): void {
+  router.push(path);
 }
 </script>
