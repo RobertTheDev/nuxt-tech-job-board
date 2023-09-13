@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
 import { usersCollection } from '../../lib/collections';
-import { CreateUserSchemaType } from '../../validators/users/createUserSchema';
+import { CreateUserSchemaType } from '../../validators/user/createUserSchema';
 import getUserById from './getUserById';
 
 export default async function createUser(

@@ -1,6 +1,6 @@
 import getUserById from '../user/getUserById';
 import updateUserById from '../user/updateUserById';
-import updateUserSchema from '../../validators/users/updateUserSchema';
+import updateUserSchema from '../../validators/user/updateUserSchema';
 
 // This handler decrements a users saved job post total and returns the updated user.
 

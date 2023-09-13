@@ -1,5 +1,5 @@
 import { usersCollection } from '../../lib/collections';
-import { UpdateUserSchemaType } from '../../validators/users/updateUserSchema';
+import { UpdateUserSchemaType } from '../../validators/user/updateUserSchema';
 import getUserByEmailAddress from './getUserByEmailAddress';
 
 export default async function updateUserByEmailAddress(

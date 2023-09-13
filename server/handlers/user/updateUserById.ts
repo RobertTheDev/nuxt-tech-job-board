@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
 import { usersCollection } from '../../lib/collections';
-import { UpdateUserSchemaType } from '../../validators/users/updateUserSchema';
+import { UpdateUserSchemaType } from '../../validators/user/updateUserSchema';
 import getUserById from './getUserById';
 
 export default async function updateUserById(
