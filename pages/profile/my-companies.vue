@@ -34,11 +34,6 @@ import { useGlobalModalStore } from '@/store/useGlobalModal';
 
 const { openGlobalModal } = useGlobalModalStore();
 
-// Unauthenticated middleware added to prevent unauthenticated users from accessing this page.
-definePageMeta({
-  middleware: 'unauthenticated',
-});
-
 // Get owned companies by the authenticated user from the server.
 const {
   data: companyOwners,

@@ -42,11 +42,6 @@
 <script setup lang="ts">
 import CompanyFollower from 'models/companyFollower/types/CompanyFollower';
 
-// Unauthenticated middleware added to prevent unauthenticated users from accessing this page.
-definePageMeta({
-  middleware: 'unauthenticated',
-});
-
 // Get owned companies by the authenticated user from the server.
 const {
   data: companyFollowers,
