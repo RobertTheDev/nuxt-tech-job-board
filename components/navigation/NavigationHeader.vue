@@ -37,15 +37,6 @@
       >
         <font-awesome-icon class="header-icon-icon" icon="fa-regular fa-bell" />
       </button>
-      <button
-        class="header-icon-container"
-        @click="navigateTo('/profile/saved-jobs')"
-      >
-        <font-awesome-icon
-          class="header-icon-icon"
-          icon="fa-regular fa-bookmark"
-        />
-      </button>
 
       <div class="header-avatar-container">
         <input
