@@ -75,8 +75,8 @@
 </template>
 
 <script setup lang="ts">
-import CompanyOwner from 'lib/types/CompanyOwner';
-import JobPost from 'lib/types/JobPost';
+import CompanyOwner from '@/models/companyOwner/types/CompanyOwner';
+import JobPost from '@/models/jobPost/types/JobPost';
 
 // Use Nuxt 3 Router For Programmatic Routing.
 const router = useRouter();
