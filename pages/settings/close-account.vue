@@ -22,7 +22,6 @@
 import companyName from '@/utils/constants/companyName';
 import accountSettingsMenuLinks from '@/utils/links/accountSettingsMenuLinks';
 
-// Seo Title And Content.
 useHead({
   title: `Close Account | ${companyName}`,
   meta: [

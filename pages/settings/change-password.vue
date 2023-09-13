@@ -1,7 +1,5 @@
 <template>
-  <!-- Wrap Content With The Account Settings Menu Component. -->
   <AccountSettingsMenu>
-    <!-- Change Password Form Component. -->
     <ChangePasswordForm />
   </AccountSettingsMenu>
 </template>
@@ -9,7 +7,6 @@
 <script setup lang="ts">
 import companyName from '@/utils/constants/companyName';
 
-// Seo Title And Content.
 useHead({
   title: `Change Password | ${companyName}`,
   meta: [
