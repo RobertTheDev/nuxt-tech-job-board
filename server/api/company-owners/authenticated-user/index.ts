@@ -1,5 +1,5 @@
 import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
-import getCompanyOwnersByUserId from '../../../handlers/companyOwners/getCompanyOwnersByUserId';
+import getCompanyOwnersByUserId from '../../../handlers/companyOwner/getCompanyOwnersByUserId';
 
 export default defineEventHandler((event) => {
   const { method } = event.node.req;

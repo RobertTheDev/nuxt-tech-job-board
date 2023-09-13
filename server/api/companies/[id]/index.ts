@@ -2,7 +2,7 @@ import getCompanyById from '../../../handlers/company/getCompanyById';
 import deleteCompanyById from '../../../handlers/company/deleteCompanyById';
 import updateCompanyById from '../../../handlers/company/updateCompanyById';
 import updateCompanySchema from '../../../validators/companies/updateCompanySchema';
-import deleteCompanyOwnersByCompanyId from '../../../handlers/companyOwners/deleteCompanyOwnersByCompanyId';
+import deleteCompanyOwnersByCompanyId from '../../../handlers/companyOwner/deleteCompanyOwnersByCompanyId';
 import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
 
 export default defineEventHandler(async (event) => {

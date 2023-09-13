@@ -1,7 +1,7 @@
 import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
-import createCompanyOwner from '../../handlers/companyOwners/createCompanyOwner';
-import deleteCompanyOwners from '../../handlers/companyOwners/deleteCompanyOwners';
-import getCompanyOwners from '../../handlers/companyOwners/getCompanyOwners';
+import createCompanyOwner from '../../handlers/companyOwner/createCompanyOwner';
+import deleteCompanyOwners from '../../handlers/companyOwner/deleteCompanyOwners';
+import getCompanyOwners from '../../handlers/companyOwner/getCompanyOwners';
 
 export default defineEventHandler(async (event) => {
   const { method } = event.node.req;
