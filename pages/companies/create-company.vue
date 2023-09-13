@@ -1,7 +1,6 @@
 <template>
   <div class="companies-page-container">
     <h1>Create company</h1>
-    <div class="spacer" />
     <CreateCompanyForm />
   </div>
 </template>
