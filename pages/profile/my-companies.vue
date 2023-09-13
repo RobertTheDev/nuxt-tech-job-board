@@ -1,5 +1,5 @@
 <template>
-  <div class="page-container">
+  <div>
     <!-- Page Heading. -->
     <h3>My Companies</h3>
     <button @click="openGlobalModal('createCompany')">Create Company</button>
@@ -17,7 +17,7 @@
       </p>
       <button @click="refresh()">Refresh</button>
     </div>
-    <div class="cards-container">
+    <div>
       <!-- Map the data through the CompanyOwnerCompanyCard component. -->
       <CompanyOwnerCompanyCard
         v-for="companyOwner of companyOwners"
@@ -53,16 +53,3 @@ useHead({
   ],
 });
 </script>
-
-<style lang="scss" scoped>
-.page-container {
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-.cards-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-</style>
