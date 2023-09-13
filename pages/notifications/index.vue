@@ -1,11 +1,19 @@
 <template>
   <div>
-    <h1>Notifications</h1>
+    <h1 class="text-3xl">Notifications</h1>
+    <div>
+      <NotificationCard
+        v-for="notification in notifications"
+        :key="notification.id"
+        v-bind="notification"
+      />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import companyName from '@/utils/constants/companyName';
+import notifications from '@/utils/dummyData/notifications';
 
 useHead({
   title: `Notifications | ${companyName}`,
