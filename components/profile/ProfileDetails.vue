@@ -10,6 +10,7 @@
 
 <script setup lang="ts">
 const user = defineProps([
+  // eslint-disable-next-line vue/prop-name-casing
   '_id',
   'createdAt',
   'emailAddress',
