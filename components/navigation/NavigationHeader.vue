@@ -2,11 +2,16 @@
   <header class="header-container">
     <div class="header-container-left">
       <button class="header-logo-container" @click="navigateTo('/')">
-        <img
+        <svg
           class="header-logo-image"
-          src="logo.svg"
-          alt="TechBoard brand logo"
-        />
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 288 287.99"
+        >
+          <path
+            fill="#0473ff"
+            d="M132.93 0L66.44 66.44H0V0zm44.31 0l-66.46 66.44v221.55h66.46V66.44H288V0z"
+          />
+        </svg>
         <p class="header-logo-text">{{ companyName }}</p>
       </button>
     </div>
