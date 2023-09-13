@@ -40,8 +40,8 @@
 
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import addTitleSchema from '../../../../lib/validators/jobPosts/addTitleSchema';
-import FormHandler from '@/lib/types/FormHandler';
+import addTitleSchema from '@/models/jobPost/validators/addTitleSchema';
+import FormHandler from '@/models/config/form/FormHandler';
 
 const formHandler = ref<FormHandler>({
   pending: false,
@@ -82,5 +82,3 @@ useHead({
   ],
 });
 </script>
-models/types/FormHandler ../../../../models/validators/jobPosts/addTitleSchema
-../../../../utils/validators/jobPosts/addTitleSchema

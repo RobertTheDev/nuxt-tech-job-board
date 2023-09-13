@@ -1,43 +1,3 @@
-<!-- <template>
-  <div>
-    <h1>Step 2: Add Contract Details</h1>
-    <p>Add Contract type</p>
-    <p>{{ contract.type }}</p>
-    <label for="create-job-post-contact-type-input">
-      <select v-model="contract.type">
-        <option
-          v-for="contractTypeOption of contractTypeOptions"
-          :key="contractTypeOption.value"
-          :value="contractTypeOption.value"
-        >
-          {{ contractTypeOption.name }}
-        </option>
-      </select>
-    </label>
-    <p>Add salary</p>
-    <p>Minimum salary</p>
-    <p>{{ contract.min }}</p>
-    <input v-model="contract.min" type="number" />
-    <p>Maximum salary</p>
-    <p>{{ contract.max }}</p>
-    <input v-model="contract.max" type="number" />
-    <p>Rate</p>
-    <p>{{ contract.rate }}</p>
-    <label for="create-job-post-contact-type-input">
-      <select v-model="contract.rate">
-        <option
-          v-for="rateOption of rateOptions"
-          :key="rateOption.value"
-          :value="rateOption.value"
-        >
-          {{ rateOption.name }}
-        </option>
-      </select>
-    </label>
-    <button @click="navigateToNextStep">Next</button>
-  </div>
-</template> -->
-
 <template>
   <div>
     <h1>Step 3: Add Contract Details</h1>
@@ -195,13 +155,6 @@ const formHandler = ref<FormHandler>({
 const router = useRouter();
 
 const route = useRoute();
-
-// const contract = ref<{ type: string; min: number; max: number; rate: string }>({
-//   type: 'full-time',
-//   min: 0,
-//   max: 0,
-//   rate: 'annually',
-// });
 
 async function addJobContractDetails(values: any) {
   const { pending, error } = await useFetch(
