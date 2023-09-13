@@ -1,13 +1,11 @@
 <template>
-  <LoginForm />
+  <div class="auth-page-container">
+    <LoginForm />
+  </div>
 </template>
 
 <script setup lang="ts">
 import companyName from '@/utils/constants/companyName';
-
-definePageMeta({
-  layout: 'auth',
-});
 
 useHead({
   title: `Login | ${companyName}`,
