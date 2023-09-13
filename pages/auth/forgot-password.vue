@@ -1,6 +1,6 @@
 <template>
   <div class="auth-page-container">
-    <h1>Rest Password</h1>
+    <h1>Reset Password</h1>
     <ResetPasswordForm />
   </div>
 </template>
