@@ -1,17 +1,17 @@
 <template>
   <div class="header-menu-container">
     <NuxtLink
-      v-for="accountSettingsMenuLink in accountSettingsMenuLinks"
-      :key="accountSettingsMenuLink.href"
+      v-for="profileMenuLink in profileMenuLinks"
+      :key="profileMenuLink.href"
       class="header-menu-link"
-      :to="accountSettingsMenuLink.href"
-      >{{ accountSettingsMenuLink.name }}</NuxtLink
+      :to="profileMenuLink.href"
+      >{{ profileMenuLink.name }}</NuxtLink
     >
   </div>
 </template>
 
 <script setup lang="ts">
-import accountSettingsMenuLinks from '@/utils/links/accountSettingsMenuLinks';
+import profileMenuLinks from '@/utils/links/profileMenuLinks';
 </script>
 
 <style lang="scss">
