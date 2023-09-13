@@ -16,7 +16,7 @@
     </div>
     <div class="job-posts-page-preview-container">
       <div class="job-post-preview-container">
-        <p>Preview</p>
+        <JobPostDetailCard />
       </div>
     </div>
   </div>
