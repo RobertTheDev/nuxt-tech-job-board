@@ -7,6 +7,7 @@
       :to="profileMenuLink.href"
       >{{ profileMenuLink.name }}</NuxtLink
     >
+    <button>Log out</button>
   </div>
 </template>
 
