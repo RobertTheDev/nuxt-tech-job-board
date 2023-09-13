@@ -1,5 +1,11 @@
 <template>
   <div>
-    <p>Notification</p>
+    <p>{{ notification.id }}</p>
   </div>
 </template>
+
+<script setup lang="ts">
+import Notification from '@/models/notification/types/Notification';
+
+const notification = defineProps<Notification>();
+</script>
