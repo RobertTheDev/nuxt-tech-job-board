@@ -29,8 +29,8 @@
 </template>
 
 <script setup lang="ts">
-import CompanyOwner from 'models/companyOwner/types/CompanyOwner';
-import { useGlobalModalStore } from 'store/useGlobalModal';
+import CompanyOwner from '@/models/companyOwner/types/CompanyOwner';
+import { useGlobalModalStore } from '@/store/useGlobalModal';
 
 const { openGlobalModal } = useGlobalModalStore();
 
