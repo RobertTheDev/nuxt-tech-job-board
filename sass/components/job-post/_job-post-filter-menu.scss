@@ -1,14 +1,14 @@
 .job-post-filter-menu {
   background-color: white;
-  padding: $spacer-md;
-  border-radius: 8px;
   border: 1px solid lightgray;
+  border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: $spacer-md;
 
   &-option {
     &-container {
-      display: flex;
       align-items: center;
+      display: flex;
       gap: $spacer-sm;
     }
     &-group {

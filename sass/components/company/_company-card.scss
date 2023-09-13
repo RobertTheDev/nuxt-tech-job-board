@@ -1,36 +1,36 @@
 .company-card {
   &-container {
-    display: flex;
-    flex-direction: column;
     align-items: center;
     background-color: white;
-    padding: $spacer-lg;
-    border-radius: 8px;
-    overflow: hidden;
     border: 1px solid whitesmoke;
+    border-radius: 8px;
     box-shadow:
       0 4px 6px -1px rgb(0 0 0 / 0.1),
       0 2px 4px -2px rgb(0 0 0 / 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: $spacer-lg;
   }
 
   &-content {
     &-container {
+      align-items: center;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      width: 100%;
-      padding: $spacer-lg;
       gap: $spacer-md;
+      padding: $spacer-lg;
+      width: 100%;
     }
   }
 
   &-top {
     &-container {
-      flex: 2;
-      width: 100%;
-      display: flex;
       align-items: center;
+      display: flex;
+      flex: 2;
       justify-content: center;
+      width: 100%;
     }
   }
   &-bottom {
@@ -42,23 +42,23 @@
 
   &-logo {
     &-container {
-      height: 200px;
-      width: 200px;
       border-radius: 100%;
+      height: 200px;
       overflow: hidden;
+      width: 200px;
     }
 
     &-image {
       height: 100%;
-      width: 100%;
       object-fit: cover;
+      width: 100%;
     }
   }
   &-list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    width: 100%;
     gap: $spacer-2xl;
+    grid-template-columns: repeat(4, 1fr);
     padding: $spacer-lg 0;
+    width: 100%;
   }
 }

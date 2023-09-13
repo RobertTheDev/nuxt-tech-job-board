@@ -3,12 +3,12 @@
     align-items: center;
     background: white;
     display: flex;
-    justify-content: space-between;
-    gap: 32px;
-    padding: 32px;
     flex-direction: column;
-    width: 100%;
     font-weight: 500;
+    gap: 32px;
+    justify-content: space-between;
+    padding: 32px;
+    width: 100%;
 
     @media (prefers-color-scheme: dark) {
       background-color: #171c1f;
@@ -22,13 +22,13 @@
   }
 
   &-links-container {
-    display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    gap: 16px;
-    width: 100%;
+    display: flex;
     flex: 1;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    width: 100%;
   }
 
   &-copyright-text {

@@ -82,8 +82,8 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   font: inherit;
+  font-size: 100%;
   vertical-align: baseline;
 }
 
@@ -141,8 +141,8 @@ input {
 }
 
 button {
-  height: 30px;
   border: none;
+  height: 30px;
 }
 
 a {
@@ -164,9 +164,9 @@ button {
 }
 
 button {
-  font-size: 1.6rem;
-  display: flex;
   align-items: center;
+  display: flex;
+  font-size: 1.6rem;
   justify-content: center;
 }
 

@@ -1,19 +1,19 @@
 .account-settings-menu {
   &-container {
     background: white;
+    border: 1px solid lightgray;
+    border-radius: 0.8rem;
     box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
     display: flex;
     flex-direction: column;
     gap: 3.2rem;
     padding: 3.2rem;
-    border-radius: 0.8rem;
-    border: 1px solid lightgray;
   }
 }
 
 .account-settings-page-content-container {
-  width: 100%;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 100%;
 }

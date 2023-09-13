@@ -2,27 +2,26 @@
   &-menu {
     &-container {
       background-color: white;
-      width: 100%;
+      border-radius: 16px;
       display: flex;
       flex-direction: column;
-      border-radius: 16px;
+      width: 100%;
     }
     &-link {
-      width: 100%;
-      padding: $spacer-lg;
-      display: flex;
       align-items: center;
+      display: flex;
+      padding: $spacer-lg;
+      width: 100%;
     }
   }
   &-container {
     background: whitesmoke;
     display: flex;
-
-    min-height: 100vh;
     gap: 3.2rem;
+    justify-content: center;
+    min-height: 100vh;
     padding: 3.2rem;
     width: 100%;
-    justify-content: center;
 
     &-left {
       flex: 1;
