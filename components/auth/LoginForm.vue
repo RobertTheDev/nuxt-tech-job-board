@@ -1,57 +1,61 @@
 <template>
-  <Form :validation-schema="loginSchema" @submit="handleLogin">
-    <div>
+  <div class="auth-form-container">
+    <div class="auth-form-header">
+      <h1 class="text-lg">Login</h1>
       <p>
         Don't have an account?
-        <button @click="navigate('/auth/sign-up')">Sign up.</button>
+        <NuxtLink to="/auth/sign-up">Sign up</NuxtLink>.
       </p>
     </div>
-    <div>
-      <p>Email</p>
-      <Field v-slot="{ field }" name="emailAddress" type="email">
-        <label for="emailAddress">
-          <input type="email" v-bind="field" placeholder="Email" />
-        </label>
-      </Field>
-      <ErrorMessage name="emailAddress" />
-    </div>
-    <div>
-      <p>Password</p>
-      <Field v-slot="{ field }" name="password" type="text">
-        <div>
-          <label for="password">
-            <input
-              :type="passwordVisible ? 'text' : 'password'"
-              v-bind="field"
-              placeholder="Password"
-            />
-          </label>
-          <button
-            id="sign-up-form-reveal-button"
-            type="button"
-            @click.prevent="togglePasswordVisibility"
-          >
-            {{ passwordVisible ? 'Hide' : 'Show' }}
-          </button>
-        </div>
-      </Field>
 
-      <NuxtLink @click="navigate('/auth/forgot-password')"
-        >Forgot password?</NuxtLink
-      >
+    <Form :validation-schema="loginSchema" @submit="handleLogin">
+      <div class="auth-form-input-container">
+        <label for="emailAddress" class="auth-form-input-label">Email</label>
+        <Field v-slot="{ field }" name="emailAddress" type="email">
+          <input
+            class="auth-form-input"
+            type="email"
+            v-bind="field"
+            placeholder="Email"
+          />
+        </Field>
+        <ErrorMessage name="emailAddress" />
+      </div>
 
-      <ErrorMessage name="password" />
-    </div>
+      <div class="auth-form-input-container">
+        <label for="password" class="auth-form-input-label">Password</label>
+        <Field v-slot="{ field }" name="password" type="text">
+          <input
+            class="auth-form-input"
+            :type="passwordVisible ? 'text' : 'password'"
+            v-bind="field"
+            placeholder="Password"
+          />
+        </Field>
+        <NuxtLink @click="navigate('/auth/forgot-password')"
+          >Forgot password?</NuxtLink
+        >
+        <ErrorMessage name="password" />
+      </div>
 
-    <p v-if="formHandler.errorMessage">
-      {{ formHandler.errorMessage }}
-    </p>
-    <div>
-      <button v-if="formHandler.pending" type="submit">Loading</button>
-      <button v-else type="submit">Login</button>
-    </div>
-  </Form>
+      <p v-if="formHandler.errorMessage">
+        {{ formHandler.errorMessage }}
+      </p>
+      <button v-if="formHandler.pending" class="auth-form-button" type="submit">
+        Loading
+      </button>
+      <button v-else class="auth-form-button" type="submit">Login</button>
+    </Form>
+  </div>
 </template>
+
+<!-- <button
+id="sign-up-form-reveal-button"
+type="button"
+@click.prevent="togglePasswordVisibility"
+>
+{{ passwordVisible ? 'Hide' : 'Show' }}
+</button> -->
 
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate';
