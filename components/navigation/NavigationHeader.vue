@@ -27,6 +27,11 @@
         <font-awesome-icon class="header-icon-icon" icon="fa-regular fa-user" />
       </button>
 
+      <button @click="navigateTo('/upload-job')">
+        <font-awesome-icon class="header-icon-icon" icon="fa-solid fa-plus" />
+        Post a Job
+      </button>
+
       <HeaderProfileMenu
         v-if="profileMenuActive"
         v-on-click-outside="toggleProfileMenu"
