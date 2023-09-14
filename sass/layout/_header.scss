@@ -94,6 +94,34 @@
       font-size: 16px;
     }
   }
+
+  &-action-button {
+    display: flex;
+    align-items: center;
+    gap: $spacer-md;
+    height: 40px;
+    min-width: 120px;
+    padding: $spacer-md;
+    border-radius: $rounded;
+    background-color: $primary-500;
+    color: $white;
+    transition-duration: 0.5s;
+    &:hover {
+      cursor: pointer;
+      background-color: $primary-600;
+    }
+    &-icon {
+      font-size: 16px;
+      &-container {
+        position: relative;
+      }
+    }
+    &-text {
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+
   &-logo {
     &-container {
       align-items: center;
@@ -113,30 +141,6 @@
       @media (prefers-color-scheme: dark) {
         color: white;
       }
-    }
-  }
-  &-link {
-    color: black;
-    font-size: 14px;
-    font-weight: 500;
-    white-space: nowrap;
-    @media (prefers-color-scheme: dark) {
-      color: white;
-    }
-
-    &:hover {
-      color: royalblue;
-      cursor: pointer;
-    }
-    &-active {
-      color: royalblue;
-      font-size: 14px;
-      font-weight: 500;
-    }
-    &-group {
-      align-items: center;
-      display: flex;
-      gap: 32px;
     }
   }
 }

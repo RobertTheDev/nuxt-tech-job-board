@@ -27,10 +27,13 @@
         <font-awesome-icon class="header-icon-icon" icon="fa-regular fa-user" />
       </button>
 
-      <button @click="navigateTo('/upload-job')">
-        <font-awesome-icon class="header-icon-icon" icon="fa-solid fa-plus" />
-        Post a Job
+      <button class="header-action-button" @click="navigateTo('/upload-job')">
+        <p class="header-action-button-text">Post a Job</p>
       </button>
+
+      <!-- <button class="header-action-button" @click="navigateTo('/upload-job')">
+        <p class="header-action-button-text">Sign in</p>
+      </button> -->
 
       <HeaderProfileMenu
         v-if="profileMenuActive"
