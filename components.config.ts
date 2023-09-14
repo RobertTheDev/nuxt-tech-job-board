@@ -7,10 +7,6 @@ const componentsConfig = [
     pathPrefix: false,
   },
   {
-    path: '~/components/candidate',
-    pathPrefix: false,
-  },
-  {
     path: '~/components/company',
     pathPrefix: false,
   },
@@ -32,10 +28,6 @@ const componentsConfig = [
   },
   {
     path: '~/components/jobOffer',
-    pathPrefix: false,
-  },
-  {
-    path: '~/components/jobPost',
     pathPrefix: false,
   },
   {
