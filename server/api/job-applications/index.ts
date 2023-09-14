@@ -1,19 +1,19 @@
-import createApplication from '../../handlers/jobApplications/createApplication';
-import deleteApplications from '../../handlers/jobApplications/deleteApplications';
-import getApplications from '../../handlers/jobApplications/getApplications';
+import createJobApplicationSchema from '../../validators/jobApplication/createJobApplicationSchema';
 import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
-import createApplicationSchema from '../../validators/jobApplication/createJobApplicationSchema';
+import deleteJobApplications from '../../handlers/jobApplication/deleteJobApplications';
+import getJobApplications from '../../handlers/jobApplication/getJobApplications';
+import createJobApplication from '../../handlers/jobApplication/createJobApplication';
 
 export default defineEventHandler(async (event) => {
   const { user } = event.context.session;
   const { method } = event.node.req;
 
   if (method === 'GET') {
-    return getApplications();
+    return getJobApplications();
   }
 
   if (method === 'DELETE') {
-    return deleteApplications();
+    return deleteJobApplications();
   }
 
   if (method === 'POST') {
@@ -21,8 +21,8 @@ export default defineEventHandler(async (event) => {
 
     const body = await readBody(event);
 
-    const validatedBody = await createApplicationSchema.validate(body);
+    const validatedBody = await createJobApplicationSchema.validate(body);
 
-    return createApplication(user, validatedBody);
+    return createJobApplication(validatedBody);
   }
 });

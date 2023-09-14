@@ -1,6 +1,6 @@
-import getApplicationsByUserId from '../../../handlers/jobApplications/getApplicationsByUserId';
-import deleteApplicationsByUserId from '../../../handlers/jobApplications/deleteApplicationsByUserId';
 import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
+import getJobApplicationsByUserId from '../../../handlers/jobApplication/getJobApplicationsByUserId';
+import deleteJobApplicationsByUserId from '../../../handlers/jobApplication/deleteJobApplicationsByUserId';
 
 export default defineEventHandler((event) => {
   const { id } = event.context.params as { id: string };
@@ -9,7 +9,7 @@ export default defineEventHandler((event) => {
 
   if (method === 'GET') {
     try {
-      return getApplicationsByUserId(id);
+      return getJobApplicationsByUserId(id);
     } catch (error) {
       return error;
     }
@@ -17,7 +17,7 @@ export default defineEventHandler((event) => {
   if (method === 'DELETE') {
     try {
       checkUserSignedIn(user);
-      return deleteApplicationsByUserId(id);
+      return deleteJobApplicationsByUserId(id);
     } catch (error) {
       return error;
     }

@@ -1,8 +1,8 @@
 import updateApplicationSchema from '../../../validators/jobApplication/updateJobApplicationSchema';
-import getApplicationById from '../../../handlers/jobApplications/getApplicationById';
-import deleteApplicationById from '../../../handlers/jobApplications/deleteApplicationById';
-import updateApplicationById from '../../../handlers/jobApplications/updateApplicationById';
 import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
+import getJobApplicationById from '../../..//handlers/jobApplication/getJobApplicationById';
+import deleteJobApplicationById from '../../../handlers/jobApplication/deleteJobApplicationById';
+import updateJobApplicationById from '../../../handlers/jobApplication/updateJobApplicationById';
 
 export default defineEventHandler(async (event) => {
   const { id } = event.context.params as { id: string };
@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
 
   if (method === 'GET') {
     try {
-      return getApplicationById(id);
+      return getJobApplicationById(id);
     } catch (error) {
       return error;
     }
@@ -19,7 +19,7 @@ export default defineEventHandler(async (event) => {
   if (method === 'DELETE') {
     try {
       checkUserSignedIn(user);
-      return deleteApplicationById(id);
+      return deleteJobApplicationById(id);
     } catch (error) {
       return error;
     }
@@ -32,7 +32,7 @@ export default defineEventHandler(async (event) => {
 
       const validatedBody = await updateApplicationSchema.validate(body);
 
-      return updateApplicationById(id, validatedBody);
+      return updateJobApplicationById(id, validatedBody);
     } catch (error) {
       return error;
     }
