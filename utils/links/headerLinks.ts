@@ -13,10 +13,6 @@ const headerLinks: NavigationLink[] = [
     href: '/companies',
     name: 'Explore Companies',
   },
-  {
-    href: '/candidates',
-    name: 'Find Candidates',
-  },
 ];
 
 export default headerLinks;
