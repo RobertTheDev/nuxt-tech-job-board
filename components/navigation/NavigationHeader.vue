@@ -15,21 +15,7 @@
         <p class="header-logo-text">{{ companyName }}</p>
       </button>
     </div>
-    <div class="header-container-center">
-      <nav class="header-link-group">
-        <NuxtLink
-          v-for="headerLink in headerLinks"
-          :key="headerLink.href"
-          :class="
-            route.fullPath === headerLink.href
-              ? 'header-link-active'
-              : 'header-link'
-          "
-          :to="headerLink.href"
-          >{{ headerLink.name }}</NuxtLink
-        >
-      </nav>
-    </div>
+
     <div class="header-container-right">
       <button
         class="header-icon-container"
@@ -60,9 +46,7 @@
 import { ref } from 'vue';
 import { vOnClickOutside } from '@vueuse/components';
 import companyName from '@/utils/constants/companyName';
-import headerLinks from '@/utils/links/headerLinks';
 
-const route = useRoute();
 const router = useRouter();
 
 const profileMenuActive = ref(false);
