@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-const createApplicationSchema = yup
+const createJobApplicationSchema = yup
   .object({
     createdAt: yup.date().default(() => new Date()),
     userId: yup.string().required('A user id is required.'),
@@ -8,8 +8,8 @@ const createApplicationSchema = yup
   })
   .unknown(false);
 
-export type CreateApplicationSchemaType = yup.InferType<
-  typeof createApplicationSchema
+export type CreateJobApplicationSchemaType = yup.InferType<
+  typeof createJobApplicationSchema
 >;
 
-export default createApplicationSchema;
+export default createJobApplicationSchema;

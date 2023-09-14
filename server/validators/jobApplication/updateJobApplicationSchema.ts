@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-const updateApplicationSchema = yup
+const updateJobApplicationSchema = yup
   .object({
     updatedAt: yup.date().default(() => new Date()),
     userId: yup.string().optional(),
@@ -8,8 +8,8 @@ const updateApplicationSchema = yup
   })
   .unknown(false);
 
-export type UpdateApplicationSchemaType = yup.InferType<
-  typeof updateApplicationSchema
+export type UpdateJobApplicationSchemaType = yup.InferType<
+  typeof updateJobApplicationSchema
 >;
 
-export default updateApplicationSchema;
+export default updateJobApplicationSchema;
