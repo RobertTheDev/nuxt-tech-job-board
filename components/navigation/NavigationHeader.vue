@@ -17,23 +17,32 @@
     </div>
 
     <div class="header-container-right">
-      <!-- <button
-        class="header-icon-container"
-        @click="navigateTo('/notifications')"
-      >
-        <font-awesome-icon class="header-icon-icon" icon="fa-regular fa-bell" />
-      </button>
-      <button class="header-icon-container" @click="toggleProfileMenu()">
-        <font-awesome-icon class="header-icon-icon" icon="fa-regular fa-user" />
-      </button>
+      <div v-if="session?.user">
+        <button
+          class="header-icon-container"
+          @click="navigateTo('/notifications')"
+        >
+          <font-awesome-icon
+            class="header-icon-icon"
+            icon="fa-regular fa-bell"
+          />
+        </button>
+        <button class="header-icon-container" @click="toggleProfileMenu()">
+          <font-awesome-icon
+            class="header-icon-icon"
+            icon="fa-regular fa-user"
+          />
+        </button>
 
-      <button class="header-action-button" @click="navigateTo('/upload-job')">
-        <p class="header-action-button-text">Post a Job</p>
-      </button> -->
-
-      <button class="header-action-button" @click="navigateTo('/auth/login')">
-        <p class="header-action-button-text">Sign in</p>
-      </button>
+        <button class="header-action-button" @click="navigateTo('/upload-job')">
+          <p class="header-action-button-text">Post a Job</p>
+        </button>
+      </div>
+      <div v-else>
+        <button class="header-action-button" @click="navigateTo('/auth/login')">
+          <p class="header-action-button-text">Sign in</p>
+        </button>
+      </div>
 
       <HeaderProfileMenu
         v-if="profileMenuActive"
@@ -51,6 +60,8 @@ import companyName from '@/utils/constants/companyName';
 const router = useRouter();
 
 const profileMenuActive = ref(false);
+
+const { session } = await useSession();
 
 function toggleProfileMenu(): void {
   profileMenuActive.value = !profileMenuActive.value;

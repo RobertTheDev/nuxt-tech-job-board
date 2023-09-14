@@ -1,19 +1,22 @@
 <template>
   <div>
     <p>Profile</p>
-
-    <div v-if="!session"><p>No Session</p></div>
-    <div v-if="session">
-      <div v-if="!session.user">
-        <p>No Session User</p>
-      </div>
-      <ProfileDetail v-if="session.user" v-bind="session.user" />
+    <p>{{ JSON.stringify(session) }}</p>
+    <div v-if="session?.user">
+      <p>{{ session.user.emailAddress }}</p>
+    </div>
+    <div v-else>
+      <p>No user</p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 const { session } = await useSession();
+
+definePageMeta({
+  middleware: ['unauthenticated'],
+});
 
 useHead({
   title: 'Profile',

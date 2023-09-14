@@ -1,16 +1,50 @@
 .auth-form {
-  &-button {
-  }
   &-container {
+    background-color: white;
+    border-radius: $rounded-lg;
+    box-shadow: $shadow-lg;
+    border: 1px solid whitesmoke;
+    padding: $spacer-xl;
   }
+  &-header {
+    display: flex;
+    flex-direction: column;
+    gap: $spacer-sm;
+  }
+  &-body {
+    padding: $spacer-md 0;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    gap: $spacer-sm;
+  }
+
   &-input {
+    &-container {
+      display: flex;
+      flex-direction: column;
+      gap: $spacer-sm;
+    }
+    height: 40px;
+    border-radius: $rounded;
+    border: 1px solid lightgray;
+    font-size: 14px;
+    padding: 0 $spacer-sm;
+    outline: none;
+    &:focus {
+      outline: 1px solid $primary-500;
+    }
   }
-  &-label {
-  }
-  &-link {
-  }
-  &-title {
-  }
-  &-validation {
+  &-button {
+    background-color: $primary-500;
+    height: 40px;
+    border-radius: $rounded;
+    color: white;
+    font-weight: 500;
+    transition: 0.5s ease-in-out;
+    &:hover {
+      background-color: $primary-600;
+      cursor: pointer;
+    }
   }
 }
