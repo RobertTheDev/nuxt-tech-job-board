@@ -1,5 +1,5 @@
 import { companyOwnersCollection } from '../../lib/collections';
-import { CreateCompanyOwnerSchemaType } from '../../validators/companyOwners/createCompanyOwnerSchema';
+import { CreateCompanyOwnerSchemaType } from '../../validators/companyOwner/createCompanyOwnerSchema';
 import getCompanyOwnerById from './getCompanyOwnerById';
 
 export default async function createCompanyOwner(

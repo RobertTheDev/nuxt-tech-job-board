@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
 import { savedJobPostsCollection } from '../../lib/collections';
-import { CreateSavedJobPostSchemaType } from '../../validators/savedJobPosts/createSavedJobPostSchema';
+import { CreateSavedJobPostSchemaType } from '../../validators/savedJobPost/createSavedJobPostSchema';
 import getSavedJobPostById from './getSavedJobPostById';
 
 // This handler creates and inserts a new saved job post.

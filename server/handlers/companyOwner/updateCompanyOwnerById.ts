@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { UpdateCompanyOwnerSchemaType } from '../../validators/companyOwners/updateCompanyOwnerSchema';
+import { UpdateCompanyOwnerSchemaType } from '../../validators/companyOwner/updateCompanyOwnerSchema';
 import { companyOwnersCollection } from '../../lib/collections';
 import getCompanyOwnerById from './getCompanyOwnerById';
 

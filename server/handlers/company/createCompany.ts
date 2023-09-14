@@ -3,8 +3,8 @@ import {
   companiesCollection,
   companyOwnersCollection,
 } from '../../lib/collections';
-import { CreateCompanySchemaType } from '../../validators/companies/createCompanySchema';
-import createCompanyOwnerSchema from '../../validators/companyOwners/createCompanyOwnerSchema';
+import { CreateCompanySchemaType } from '../../validators/company/createCompanySchema';
+import createCompanyOwnerSchema from '../../validators/companyOwner/createCompanyOwnerSchema';
 import getCompanyById from './getCompanyById';
 
 export default async function createCompany(
