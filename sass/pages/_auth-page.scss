@@ -1,8 +1,10 @@
 .auth-page-container {
+  align-items: center;
   background: #fff;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   overflow: hidden;
+  padding: $spacer-xl;
   width: 100%;
 }
