@@ -36,7 +36,9 @@ export default defineEventHandler(async (event) => {
       const body = await readBody(event);
       const validatedBody = await createJobPostSchema.validate(body);
 
-      const checkCompanyExists = await getCompanyById(validatedBody.companyId);
+      const checkCompanyExists = await getCompanyById(
+        String(validatedBody.companyId),
+      );
 
       const checkCompanyOwner = await companyOwnersCollection.findOne({
         companyId: new ObjectId(validatedBody.companyId),

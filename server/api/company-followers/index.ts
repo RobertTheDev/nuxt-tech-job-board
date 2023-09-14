@@ -1,5 +1,5 @@
-import deleteCompanyFollowers from '../../handlers/companyFollowers/deleteCompanyFollowers';
 import { companyFollowersCollection } from '../../lib/collections';
+import deleteCompanyFollowers from '../../handlers/companyFollower/deleteCompanyFollowers';
 
 export default defineEventHandler((event) => {
   const { method } = event.node.req;

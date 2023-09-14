@@ -1,11 +1,11 @@
 import checkUserSignedIn from '../../../../handlers/auth/checkUserSignedIn';
-import createSavedJobPost from '../../../../handlers/savedJobPosts/createSavedJobPost';
-import deleteSavedJobPostsByJobPostId from '../../../../handlers/savedJobPosts/deleteSavedJobPostsByJobPostId';
-import getSavedJobPostByUserIdAndJobPostId from '../../../../handlers/savedJobPosts/getSavedJobPostByUserIdAndJobPostId';
-import deleteSavedJobPostById from '../../../../handlers/savedJobPosts/deleteSavedJobPostById';
-import createSavedJobPostSchema from '../../../../validators/savedJobPosts/createSavedJobPostSchema';
-import incrementUserJobPostsSaved from '../../../../handlers/savedJobPosts/incrementUserJobPostsSaved';
-import decrementUserJobPostsSaved from '../../../../handlers/savedJobPosts/decrementUserJobPostsSaved';
+import createSavedJobPost from '../../../../handlers/savedJobPost/createSavedJobPost';
+import deleteSavedJobPostsByJobPostId from '../../../../handlers/savedJobPost/deleteSavedJobPostsByJobPostId';
+import getSavedJobPostByUserIdAndJobPostId from '../../../../handlers/savedJobPost/getSavedJobPostByUserIdAndJobPostId';
+import deleteSavedJobPostById from '../../../../handlers/savedJobPost/deleteSavedJobPostById';
+import createSavedJobPostSchema from '../../../../validators/savedJobPost/createSavedJobPostSchema';
+import incrementUserJobPostsSaved from '../../../../handlers/savedJobPost/incrementUserJobPostsSaved';
+import decrementUserJobPostsSaved from '../../../../handlers/savedJobPost/decrementUserJobPostsSaved';
 
 // This route creates a saved job post and deletes a saved job post by its job post id.
 

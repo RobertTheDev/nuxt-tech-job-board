@@ -1,5 +1,5 @@
-import deleteSavedJobPosts from '../../handlers/savedJobPosts/deleteSavedJobPosts';
-import getSavedJobPosts from '../../handlers/savedJobPosts/getSavedJobPosts';
+import deleteSavedJobPosts from '../../handlers/savedJobPost/deleteSavedJobPosts';
+import getSavedJobPosts from '../../handlers/savedJobPost/getSavedJobPosts';
 
 // This route gets and deletes all saved job posts in the app.
 

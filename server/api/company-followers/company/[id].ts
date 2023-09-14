@@ -1,6 +1,6 @@
-import getCompanyFollowersByCompanyId from '../../../handlers/companyFollowers/getCompanyFollowersByCompanyId';
-import deleteCompanyFollowersByCompanyId from '../../../handlers/companyFollowers/deleteCompanyFollowersByCompanyId';
-import createCompanyFollower from '../../../handlers/companyFollowers/createCompanyFollower';
+import getCompanyFollowersByCompanyId from '../../../handlers/companyFollower/getCompanyFollowersByCompanyId';
+import deleteCompanyFollowersByCompanyId from '../../../handlers/companyFollower/deleteCompanyFollowersByCompanyId';
+import createCompanyFollower from '../../../handlers/companyFollower/createCompanyFollower';
 import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
 
 export default defineEventHandler((event) => {

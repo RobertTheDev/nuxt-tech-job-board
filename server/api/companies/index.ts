@@ -1,8 +1,8 @@
+import createCompanySchema from '../../validators/company/createCompanySchema';
 import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
 import createCompany from '../../handlers/company/createCompany';
 import deleteCompanies from '../../handlers/company/deleteCompanies';
 import getCompanies from '../../handlers/company/getCompanies';
-import createCompanySchema from '../../validators/companies/createCompanySchema';
 
 export default defineEventHandler(async (event) => {
   const { method } = event.node.req;

@@ -1,6 +1,6 @@
 import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
-import deleteSavedJobPostById from '../../../handlers/savedJobPosts/deleteSavedJobPostById';
-import getSavedJobPostById from '../../../handlers/savedJobPosts/getSavedJobPostById';
+import deleteSavedJobPostById from '../../../handlers/savedJobPost/deleteSavedJobPostById';
+import getSavedJobPostById from '../../../handlers/savedJobPost/getSavedJobPostById';
 
 // This route returns and deletes a saved job post by its id.
 

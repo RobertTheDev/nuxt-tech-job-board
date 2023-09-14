@@ -1,5 +1,5 @@
 import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
-import getSavedJobPostsWithoutRelatedFields from '../../../handlers/savedJobPosts/getSavedJobPostsByUserIdWithoutRelatedFields';
+import getSavedJobPostsWithoutRelatedFields from '../../../handlers/savedJobPost/getSavedJobPostsByUserIdWithoutRelatedFields';
 
 // This route returns saved job posts saved by the authenticated user.
 // This route does not perform lookups.
