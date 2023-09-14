@@ -1,6 +1,5 @@
 <template>
   <div class="auth-page-container">
-    <h1>Login</h1>
     <LoginForm />
   </div>
 </template>
