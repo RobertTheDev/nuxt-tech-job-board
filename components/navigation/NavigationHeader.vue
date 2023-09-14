@@ -17,7 +17,7 @@
     </div>
 
     <div class="header-container-right">
-      <button
+      <!-- <button
         class="header-icon-container"
         @click="navigateTo('/notifications')"
       >
@@ -29,11 +29,11 @@
 
       <button class="header-action-button" @click="navigateTo('/upload-job')">
         <p class="header-action-button-text">Post a Job</p>
-      </button>
-
-      <!-- <button class="header-action-button" @click="navigateTo('/upload-job')">
-        <p class="header-action-button-text">Sign in</p>
       </button> -->
+
+      <button class="header-action-button" @click="navigateTo('/auth/login')">
+        <p class="header-action-button-text">Sign in</p>
+      </button>
 
       <HeaderProfileMenu
         v-if="profileMenuActive"
