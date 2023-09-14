@@ -23,16 +23,9 @@
       >
         <font-awesome-icon class="header-icon-icon" icon="fa-regular fa-bell" />
       </button>
-
-      <div class="header-avatar-container">
-        <input
-          type="image"
-          class="header-avatar-image"
-          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%283%29+%281%29.png"
-          alt="Profile menu control"
-          @click="toggleProfileMenu()"
-        />
-      </div>
+      <button class="header-icon-container" @click="toggleProfileMenu()">
+        <font-awesome-icon class="header-icon-icon" icon="fa-regular fa-user" />
+      </button>
 
       <HeaderProfileMenu
         v-if="profileMenuActive"
