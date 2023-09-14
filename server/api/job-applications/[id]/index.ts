@@ -1,4 +1,4 @@
-import updateApplicationSchema from '../../../validators/application/updateApplicationSchema';
+import updateApplicationSchema from '../../../validators/jobApplication/updateJobApplicationSchema';
 import getApplicationById from '../../../handlers/jobApplications/getApplicationById';
 import deleteApplicationById from '../../../handlers/jobApplications/deleteApplicationById';
 import updateApplicationById from '../../../handlers/jobApplications/updateApplicationById';
