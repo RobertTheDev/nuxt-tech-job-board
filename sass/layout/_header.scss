@@ -4,7 +4,7 @@
     background-color: white;
     border-bottom: 1px solid lightgray;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    display: none;
+    display: flex;
     height: 70px;
     padding: $spacer-md $spacer-2xl;
     position: sticky;
@@ -14,10 +14,6 @@
 
     @media (prefers-color-scheme: dark) {
       background-color: black;
-    }
-
-    @media (width >= $laptop) {
-      display: flex;
     }
 
     &-left {

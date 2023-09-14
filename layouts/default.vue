@@ -1,7 +1,6 @@
 <template>
   <div>
     <NavigationHeader />
-    <MobileHeader />
     <NavigationBurgerMenu />
     <main>
       <NavigationGlobalModal />
