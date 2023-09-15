@@ -1,169 +1,85 @@
 <template>
-  <div class="modal-header">
-    <h6>Create Company</h6>
-    <button class="modal-close-button">
-      <font-awesome-icon class="modal-close-icon" icon="fa-solid fa-times" />
-    </button>
-  </div>
-
-  <Form
-    class="modal-form"
-    :validation-schema="createCompanySchema"
-    @submit="handleCreateCompany"
-  >
+  <Form :validation-schema="createCompanySchema" @submit="handleCreateCompany">
     <!-- NAME -->
-    <div class="primary-form-input-content-container">
-      <p class="primary-form-input-label-text">Company Name</p>
-      <Field
-        v-slot="{ field }"
-        class="primary-form-input-container"
-        name="name"
-        type="text"
-      >
-        <label for="name" class="primary-form-input-label-container">
-          <input
-            type="text"
-            v-bind="field"
-            placeholder="Name"
-            class="primary-form-input"
-          />
-        </label>
-      </Field>
-
-      <ErrorMessage
-        name="name"
-        class="primary-form-input-validation-error-message-text"
-      />
-    </div>
+    <Field v-slot="{ field }" name="name" type="text">
+      <label for="name">
+        <p>Company Name</p>
+        <input id="name" type="text" v-bind="field" placeholder="Name" />
+      </label>
+    </Field>
+    <ErrorMessage name="name" />
 
     <!-- DESCRIPTION -->
-    <div class="primary-form-input-content-container">
-      <p class="primary-form-input-label-text">Company Description</p>
-      <Field
-        v-slot="{ field }"
-        class="primary-form-input-container"
-        name="description"
-        type="text"
-      >
-        <label for="description" class="primary-form-input-label-container">
-          <input
-            type="text"
-            v-bind="field"
-            placeholder="Description"
-            class="primary-form-input"
-          />
-        </label>
-      </Field>
-
-      <ErrorMessage
-        name="description"
-        class="primary-form-input-validation-error-message-text"
-      />
-    </div>
+    <Field v-slot="{ field }" name="description" type="text">
+      <label for="description">
+        <p>Company Description</p>
+        <input
+          id="description"
+          type="text"
+          v-bind="field"
+          placeholder="Description"
+        />
+      </label>
+    </Field>
+    <ErrorMessage name="description" />
 
     <!-- Logo -->
-    <div class="primary-form-input-content-container">
-      <p class="primary-form-input-label-text">Company Logo</p>
-      <Field
-        v-slot="{ field }"
-        class="primary-form-input-container"
-        name="logo.url"
-        type="text"
-      >
-        <label for="logo.url" class="primary-form-input-label-container">
-          <input
-            type="text"
-            v-bind="field"
-            placeholder="Logo"
-            class="primary-form-input"
-          />
-        </label>
-      </Field>
 
-      <ErrorMessage
-        name="logo.url"
-        class="primary-form-input-validation-error-message-text"
-      />
-    </div>
+    <Field v-slot="{ field }" name="logo.url" type="text">
+      <label for="logo.url">
+        <p>Company Logo</p>
+        <input id="logo.url" type="text" v-bind="field" placeholder="Logo" />
+      </label>
+    </Field>
+    <ErrorMessage name="logo.url" />
 
     <!-- Cover Image -->
-    <div class="primary-form-input-content-container">
-      <p class="primary-form-input-label-text">Company Cover Image</p>
-      <Field
-        v-slot="{ field }"
-        class="primary-form-input-container"
-        name="coverImage.url"
-        type="text"
-      >
-        <label for="coverImage.url" class="primary-form-input-label-container">
-          <input
-            type="text"
-            v-bind="field"
-            placeholder="Cover Image"
-            class="primary-form-input"
-          />
-        </label>
-      </Field>
 
-      <ErrorMessage
-        name="coverImage.url"
-        class="primary-form-input-validation-error-message-text"
-      />
-    </div>
+    <Field v-slot="{ field }" name="coverImage.url" type="text">
+      <label for="coverImage.url">
+        <p>Company Cover Image</p>
+        <input
+          id="coverImage.url"
+          type="text"
+          v-bind="field"
+          placeholder="Cover Image"
+        />
+      </label>
+    </Field>
+    <ErrorMessage name="coverImage.url" />
 
-    <!-- Cover Image -->
-    <div class="primary-form-input-content-container">
-      <p class="primary-form-input-label-text">Company Category</p>
-      <Field
-        v-slot="{ field }"
-        class="primary-form-input-container"
-        name="category"
-        type="text"
-      >
-        <label for="category" class="primary-form-input-label-container">
-          <input
-            type="text"
-            v-bind="field"
-            placeholder="Category"
-            class="primary-form-input"
-          />
-        </label>
-      </Field>
+    <!-- Category -->
 
-      <ErrorMessage
-        name="category"
-        class="primary-form-input-validation-error-message-text"
-      />
-    </div>
+    <Field v-slot="{ field }" name="category" type="text">
+      <label for="category">
+        <p>Company Category</p>
+        <input
+          id="category"
+          type="text"
+          v-bind="field"
+          placeholder="Category"
+        />
+      </label>
+    </Field>
+    <ErrorMessage name="category" />
 
-    <div class="primary-form-input-content-container">
-      <p class="primary-form-input-label-text">Company Employees</p>
-      <Field
-        v-slot="{ field }"
-        class="primary-form-input-container"
-        name="totalEmployees"
-        type="text"
-      >
-        <label for="totalEmployees" class="primary-form-input-label-container">
-          <input
-            type="text"
-            v-bind="field"
-            placeholder="totalEmployees"
-            class="primary-form-input"
-          />
-        </label>
-      </Field>
+    <!-- Employees -->
 
-      <ErrorMessage
-        name="totalEmployees"
-        class="primary-form-input-validation-error-message-text"
-      />
-    </div>
+    <Field v-slot="{ field }" name="totalEmployees" type="text">
+      <label for="totalEmployees">
+        <p>Company Employees</p>
+        <input
+          id="totalEmployees"
+          type="text"
+          v-bind="field"
+          placeholder="totalEmployees"
+        />
+      </label>
+    </Field>
+    <ErrorMessage name="totalEmployees" />
 
-    <div class="modal-buttons-container">
-      <button class="modal-button">Preview</button>
-      <button class="modal-button" type="submit">Create Company</button>
-    </div>
+    <button>Preview</button>
+    <button type="submit">Create Company</button>
   </Form>
 </template>
 
