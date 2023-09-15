@@ -1,16 +1,14 @@
 <template>
-  <div>
-    <h1>Edit Profile</h1>
-    <UpdateAccountForm />
-  </div>
+  <SettingsMenu>
+    <div>
+      <h1>Edit Profile</h1>
+      <UpdateAccountForm />
+    </div>
+  </SettingsMenu>
 </template>
 
 <script setup lang="ts">
 import companyName from '@/utils/constants/companyName';
-
-definePageMeta({
-  middleware: ['unauthenticated'],
-});
 
 useHead({
   title: `Edit Profile | ${companyName}`,
