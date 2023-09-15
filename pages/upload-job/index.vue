@@ -37,10 +37,12 @@
         <button
           v-for="companyOwner of companyOwners"
           :key="companyOwner._id"
+          class="company-select-card-container"
           @click="selectCompany(companyOwner.companyId)"
         >
-          <div>
+          <div class="company-select-card-image-container">
             <img
+              class="company-select-card-image"
               :src="companyOwner.company.logo.url"
               :alt="companyOwner.company.logo.alt"
             />
