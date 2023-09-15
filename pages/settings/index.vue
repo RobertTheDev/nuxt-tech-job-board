@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Account Settings</h1>
-    <SettingsForm />
+    <SettingLinks />
   </div>
 </template>
 
