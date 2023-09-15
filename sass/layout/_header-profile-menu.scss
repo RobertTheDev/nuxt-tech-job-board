@@ -6,7 +6,9 @@
     border-radius: 8px;
   }
   &-container {
-    background-color: red;
+    background-color: $white;
+    border: 1px solid whitesmoke;
+    box-shadow: $shadow-lg;
     position: absolute;
     top: 80px;
     padding: 8px 16px;
