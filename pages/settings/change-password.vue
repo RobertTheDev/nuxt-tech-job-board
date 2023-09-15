@@ -2,6 +2,12 @@
   <SettingsMenu>
     <div>
       <h1>Change Password</h1>
+      <p>
+        Enter your new and current passwords to change password. Your new
+        password must not be the same as your existing one and must meet the
+        TechBoard password criteria.
+      </p>
+
       <UpdatePasswordForm />
     </div>
   </SettingsMenu>
