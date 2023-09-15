@@ -26,12 +26,17 @@ const componentsConfig = [
     path: '~/components/jobInterview',
     pathPrefix: false,
   },
+
   {
-    path: '~/components/jobOffer',
+    path: '~/components/jobPost',
     pathPrefix: false,
   },
   {
     path: '~/components/navigation',
+    pathPrefix: false,
+  },
+  {
+    path: '~/components/notification',
     pathPrefix: false,
   },
   {
