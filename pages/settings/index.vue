@@ -1,10 +1,8 @@
 <template>
-  <SettingsMenu>
-    <div>
-      <h1>Account Settings</h1>
-      <SettingsForm />
-    </div>
-  </SettingsMenu>
+  <div>
+    <h1>Account Settings</h1>
+    <SettingsForm />
+  </div>
 </template>
 
 <script setup lang="ts">
