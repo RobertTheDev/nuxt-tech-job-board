@@ -2,16 +2,16 @@ import NavigationLink from '@/models/config/navigation/NavigationLink';
 
 const settingsMenuLinks: NavigationLink[] = [
   {
-    href: '/settings/change-display',
-    name: 'Change Display',
-  },
-  {
     href: '/settings/change-email',
     name: 'Change Email',
   },
   {
     href: '/settings/change-password',
     name: 'Change Password',
+  },
+  {
+    href: '/settings/change-display',
+    name: 'Change Display',
   },
   {
     href: '/settings/verify-email',
