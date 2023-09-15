@@ -1,3 +1,4 @@
+import deleteCompanyOwnerById from '../../../handlers/companyOwner/deleteCompanyOwnerById';
 import getCompanyOwnerById from '../../../handlers/companyOwner/getCompanyOwnerById';
 
 export default defineEventHandler((event) => {
@@ -7,6 +8,13 @@ export default defineEventHandler((event) => {
   if (method === 'GET') {
     try {
       return getCompanyOwnerById(id);
+    } catch (error) {
+      return error;
+    }
+  }
+  if (method === 'DELETE') {
+    try {
+      return deleteCompanyOwnerById(id);
     } catch (error) {
       return error;
     }
