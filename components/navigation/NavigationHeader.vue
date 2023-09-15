@@ -17,7 +17,16 @@
     </div>
 
     <div class="header-container-right">
-      <div v-if="session?.user">
+      <div v-if="session?.user" class="header-container-right">
+        <button
+          class="header-icon-container"
+          @click="navigateTo('/saved-jobs')"
+        >
+          <font-awesome-icon
+            class="header-icon-icon"
+            icon="fa-regular fa-heart"
+          />
+        </button>
         <button
           class="header-icon-container"
           @click="navigateTo('/notifications')"
