@@ -10,28 +10,39 @@
 
     <Form :validation-schema="loginSchema" @submit="handleLogin">
       <div class="auth-form-input-container">
-        <label for="emailAddress" class="auth-form-input-label">Email</label>
-        <Field v-slot="{ field }" name="emailAddress" type="email">
-          <input
-            class="auth-form-input"
-            type="email"
-            v-bind="field"
-            placeholder="Email"
-          />
-        </Field>
+        <label for="emailAddress" class="auth-form-input-label">
+          <p>Email</p>
+          <Field v-slot="{ field }" name="emailAddress" type="email">
+            <input
+              class="auth-form-input"
+              type="email"
+              v-bind="field"
+              placeholder="Email"
+            />
+            <button
+              id="sign-up-form-reveal-button"
+              type="button"
+              @click.prevent="togglePasswordVisibility"
+            >
+              {{ passwordVisible ? 'Hide' : 'Show' }}
+            </button>
+          </Field>
+        </label>
         <ErrorMessage name="emailAddress" />
       </div>
 
       <div class="auth-form-input-container">
-        <label for="password" class="auth-form-input-label">Password</label>
-        <Field v-slot="{ field }" name="password" type="text">
-          <input
-            class="auth-form-input"
-            :type="passwordVisible ? 'text' : 'password'"
-            v-bind="field"
-            placeholder="Password"
-          />
-        </Field>
+        <label for="password" class="auth-form-input-label">
+          <p>Password</p>
+          <Field v-slot="{ field }" name="password" type="text">
+            <input
+              class="auth-form-input"
+              :type="passwordVisible ? 'text' : 'password'"
+              v-bind="field"
+              placeholder="Password"
+            />
+          </Field>
+        </label>
         <NuxtLink @click="navigate('/auth/forgot-password')"
           >Forgot password?</NuxtLink
         >
@@ -48,14 +59,6 @@
     </Form>
   </div>
 </template>
-
-<!-- <button
-id="sign-up-form-reveal-button"
-type="button"
-@click.prevent="togglePasswordVisibility"
->
-{{ passwordVisible ? 'Hide' : 'Show' }}
-</button> -->
 
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate';
