@@ -1,6 +1,6 @@
 <template>
   <div class="companies-page-container">
-    <h1 class="text-3xl bold">Companies</h1>
+    <h1>Companies</h1>
 
     <div v-if="companies" class="company-card-list">
       <CompanyCard
@@ -20,7 +20,7 @@
     </div>
 
     <div v-else>
-      <p>No companies availables</p>
+      <p>No companies available.</p>
     </div>
   </div>
 </template>

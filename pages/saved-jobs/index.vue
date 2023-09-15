@@ -1,7 +1,19 @@
 <template>
   <div>
-    <h3>Saved Jobs</h3>
-    <p v-if="pending">Loading...</p>
+    <h1>Saved Jobs</h1>
+
+    <div v-if="savedJobPosts">
+      <JobPostCard
+        v-for="savedJobPost of savedJobPosts"
+        :key="savedJobPost._id"
+        v-bind="savedJobPost.jobPost"
+      />
+    </div>
+
+    <div v-if="pending">
+      <p>Loading...</p>
+    </div>
+
     <div v-if="error">
       <p>
         There was an error trying to retireve saved job posts. Please try again.
@@ -9,11 +21,9 @@
       <button @click="refresh()">Refresh</button>
     </div>
 
-    <JobPostCard
-      v-for="savedJobPost of savedJobPosts"
-      :key="savedJobPost._id"
-      v-bind="savedJobPost.jobPost"
-    />
+    <div v-else>
+      <p>You have no saved job posts.</p>
+    </div>
   </div>
 </template>
 

@@ -2,14 +2,19 @@
   <div>
     <h3>My Companies</h3>
     <NuxtLink to="/companies/create-company">Create Company</NuxtLink>
+
+    <div v-if="companyOwners">
+      <CompanyOwnerCard
+        v-for="companyOwner in companyOwners"
+        :key="companyOwner._id"
+        v-bind="companyOwner"
+      />
+    </div>
+
     <div v-if="pending">
       <p>Loading...</p>
     </div>
-    <CompanyOwnerCard
-      v-for="companyOwner in companyOwners"
-      :key="companyOwner._id"
-      v-bind="companyOwner"
-    />
+
     <div v-if="error">
       <p>
         Failed to list companies due to an error. Please refresh to try again.
@@ -17,7 +22,7 @@
       <button @click="refresh()">Refresh</button>
     </div>
 
-    <div v-if="companyOwners?.length === 0">
+    <div v-else>
       <p>You currently have no companies set up.</p>
     </div>
   </div>

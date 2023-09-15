@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1 class="text-3xl">Notifications</h1>
+    <h1>Notifications</h1>
+
     <div v-if="notifications">
       <NotificationCard
         v-for="notification in notifications"
@@ -8,6 +9,7 @@
         v-bind="notification"
       />
     </div>
+
     <div v-if="pending">
       <p>Notifications loading...</p>
     </div>

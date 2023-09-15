@@ -3,17 +3,6 @@
     <!-- Page Title. -->
     <h1>Followed Companies</h1>
 
-    <!-- Show this when company fetch is loading. -->
-    <div v-if="pending">
-      <p>Companies loading...</p>
-    </div>
-
-    <!-- Show this when company fetch returns an error. -->
-    <div v-if="error">
-      <p>There was an error trying to display companies. Please try again.</p>
-      <button @click="refresh()">Try again.</button>
-    </div>
-
     <!-- Show this when companies are successfully fetched. -->
     <div v-if="companyFollowers">
       <div v-if="companyFollowers.length > 0">
@@ -22,6 +11,17 @@
           :key="companyFollower._id"
           v-bind="companyFollower.company"
         />
+      </div>
+
+      <!-- Show this when company fetch is loading. -->
+      <div v-if="pending">
+        <p>Companies loading...</p>
+      </div>
+
+      <!-- Show this when company fetch returns an error. -->
+      <div v-if="error">
+        <p>There was an error trying to display companies. Please try again.</p>
+        <button @click="refresh()">Try again.</button>
       </div>
 
       <!-- Show this when no companies are returned from the fetch. -->
@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import CompanyFollower from 'models/companyFollower/types/CompanyFollower';
+import CompanyFollower from '@/models/companyFollower/types/CompanyFollower';
 
 // Get owned companies by the authenticated user from the server.
 const {
