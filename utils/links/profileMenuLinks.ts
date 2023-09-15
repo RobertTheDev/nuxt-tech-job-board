@@ -12,7 +12,6 @@ const profileMenuLinks: NavigationLink[] = [
     name: 'Upload CV',
   },
   { href: '/my-companies', name: 'My Companies' },
-  { href: '/saved-jobs', name: 'Saved Jobs' },
   { href: '/followed-companies', name: 'Followed Companies' },
   { href: '/job-applications', name: 'My Applications' },
 ];
