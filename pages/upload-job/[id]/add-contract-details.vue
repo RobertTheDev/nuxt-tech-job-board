@@ -230,6 +230,10 @@ const rateOptions = [
   },
 ];
 
+definePageMeta({
+  middleware: ['unauthenticated'],
+});
+
 useHead({
   title: 'Upload Job - Add Contract Details',
   meta: [

@@ -14,4 +14,8 @@
 
 <script setup lang="ts">
 import jobTypes from 'models/jobPost/types/jobTypes';
+
+definePageMeta({
+  middleware: ['unauthenticated'],
+});
 </script>

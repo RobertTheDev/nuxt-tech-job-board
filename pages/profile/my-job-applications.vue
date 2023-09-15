@@ -5,6 +5,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  middleware: ['unauthenticated'],
+});
+
 useHead({
   title: 'My Applications',
   meta: [

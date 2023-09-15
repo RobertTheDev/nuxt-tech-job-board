@@ -21,6 +21,10 @@
 import SavedJobPost from 'models/savedJobPost/types/SavedJobPosts';
 import companyName from '@/utils/constants/companyName';
 
+definePageMeta({
+  middleware: ['unauthenticated'],
+});
+
 // Get saved job posts by the authenticated user from the server.
 const {
   data: savedJobPosts,

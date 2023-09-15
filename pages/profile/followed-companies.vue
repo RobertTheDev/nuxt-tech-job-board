@@ -48,6 +48,10 @@ const {
   `/api/company-followers/authenticated-user`,
 );
 
+definePageMeta({
+  middleware: ['unauthenticated'],
+});
+
 // Companies page SEO title and description.
 useHead({
   title: 'Followed Companies',

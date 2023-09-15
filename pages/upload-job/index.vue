@@ -108,6 +108,10 @@ async function navigateToNextStep(companyId: string) {
   }
 }
 
+definePageMeta({
+  middleware: ['unauthenticated'],
+});
+
 // SEO Title And Description.
 useHead({
   title: 'Upload A Job Post',

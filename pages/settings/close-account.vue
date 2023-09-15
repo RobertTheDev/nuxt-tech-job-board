@@ -22,6 +22,10 @@
 import companyName from '@/utils/constants/companyName';
 import accountSettingsMenuLinks from '@/utils/links/accountSettingsMenuLinks';
 
+definePageMeta({
+  middleware: ['unauthenticated'],
+});
+
 useHead({
   title: `Close Account | ${companyName}`,
   meta: [

@@ -71,6 +71,10 @@ async function updateJobTitle(values: any) {
   }
 }
 
+definePageMeta({
+  middleware: ['unauthenticated'],
+});
+
 useHead({
   title: 'Upload Job - Add Deadline Date',
   meta: [

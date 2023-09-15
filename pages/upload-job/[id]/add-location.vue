@@ -259,6 +259,10 @@ async function updateJobLocation(values: any) {
   }
 }
 
+definePageMeta({
+  middleware: ['unauthenticated'],
+});
+
 useHead({
   title: 'Upload Job - Add Location',
   meta: [

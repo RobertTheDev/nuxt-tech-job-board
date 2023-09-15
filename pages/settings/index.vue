@@ -7,6 +7,10 @@
 <script setup lang="ts">
 import companyName from '@/utils/constants/companyName';
 
+definePageMeta({
+  middleware: ['unauthenticated'],
+});
+
 useHead({
   title: `Account Settings | ${companyName}`,
   meta: [
