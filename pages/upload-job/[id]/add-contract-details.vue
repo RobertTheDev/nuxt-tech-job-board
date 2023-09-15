@@ -146,6 +146,9 @@
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import FormHandler from 'models/config/form/FormHandler';
 import addContractSchema from 'models/jobPost/validators/addContractSchema';
+import rateOptions from '@/utils/inputOptions/rateOptions';
+import contractLevelOptions from '@/utils/inputOptions/contractLevelOptions';
+import contractTypeOptions from '@/utils/inputOptions/contractTypeOptions';
 
 const formHandler = ref<FormHandler>({
   pending: false,
@@ -175,58 +178,6 @@ async function addJobContractDetails(values: any) {
     formHandler.value.errorMessage = error.value.statusMessage;
   }
 }
-const contractTypeOptions = [
-  {
-    name: 'Full-time',
-    value: 'full-time',
-  },
-  {
-    name: 'Part-time',
-    value: 'part-time',
-  },
-  {
-    name: 'Contract',
-    value: 'contract',
-  },
-];
-
-const contractLevelOptions = [
-  {
-    name: 'Junior',
-    value: 'junior',
-  },
-  {
-    name: 'Mid',
-    value: 'mid',
-  },
-  {
-    name: 'Senior',
-    value: 'senior',
-  },
-];
-
-const rateOptions = [
-  {
-    name: 'Monthly',
-    value: 'monthly',
-  },
-  {
-    name: 'Hourly',
-    value: 'hourly',
-  },
-  {
-    name: 'Daily',
-    value: 'daily',
-  },
-  {
-    name: 'Weekly',
-    value: 'weekly',
-  },
-  {
-    name: 'Annually',
-    value: 'annually',
-  },
-];
 
 definePageMeta({
   middleware: ['unauthenticated'],

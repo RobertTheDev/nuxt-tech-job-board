@@ -210,6 +210,7 @@
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import addLocationSchema from '@/models/jobPost/validators/addLocationSchema';
 import FormHandler from '@/models/config/form/FormHandler';
+import locationTypeOptions from '@/utils/inputOptions/locationTypeOptions';
 
 const formHandler = ref<FormHandler>({
   pending: false,
@@ -221,21 +222,6 @@ const router = useRouter();
 const locationType = ref('');
 
 const route = useRoute();
-
-const locationTypeOptions = [
-  {
-    name: 'Remote',
-    value: 'remote',
-  },
-  {
-    name: 'Hybrid',
-    value: 'hybrid',
-  },
-  {
-    name: 'On-Premise',
-    value: 'on-premise',
-  },
-];
 
 async function updateJobLocation(values: any) {
   const { pending, error } = await useFetch(
