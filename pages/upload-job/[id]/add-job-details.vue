@@ -1,9 +1,7 @@
 <template>
   <div>
-    <h1>Step 1: Add Title</h1>
-    <p>Now lets add some details about the job post.</p>
-
-    <AddTitleForm />
+    <h1>Create Job Details</h1>
+    <AddJobDetailsForm />
   </div>
 </template>
 
@@ -13,7 +11,7 @@ definePageMeta({
 });
 
 useHead({
-  title: 'Upload Job - Add Title',
+  title: 'Upload Job - Add Details',
   meta: [
     {
       name: 'description',
