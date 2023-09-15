@@ -25,9 +25,6 @@
 
 <script setup lang="ts">
 import CompanyOwner from '@/models/companyOwner/types/CompanyOwner';
-import { useGlobalModalStore } from '@/store/useGlobalModal';
-
-const { openGlobalModal } = useGlobalModalStore();
 
 // Get owned companies by the authenticated user from the server.
 const {
