@@ -2,11 +2,15 @@
   <div>
     <h1>Edit Company</h1>
     <div v-if="pending"><p>Pending...</p></div>
-    <CompanyEditCompanyForm v-if="company" v-bind="company" />
+
     <div v-if="error">
       <p>Could not find the company. Please try again.</p>
       <button @click="refresh()">Try again</button>
     </div>
+    <div v-if="company">
+      <UpdateCompanyForm v-bind="company" />
+    </div>
+
     <div v-else>
       <p>Could not find the company. Please try again.</p>
       <button @click="refresh()">Try again</button>
@@ -33,12 +37,12 @@ useHead({
 
 const route = useRoute();
 
-const { slug } = route.params;
+const { id } = route.params;
 
 const {
   data: company,
   pending,
   error,
   refresh,
-} = await useFetch<Company | null>(`/api/companies/${slug}`);
+} = await useFetch<Company | null>(`/api/companies/${id}`, { method: 'GET' });
 </script>
