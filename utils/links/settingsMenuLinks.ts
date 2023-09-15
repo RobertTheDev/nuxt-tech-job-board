@@ -1,9 +1,13 @@
-import NavigationLink from 'models/config/navigation/NavigationLink';
+import NavigationLink from '@/models/config/navigation/NavigationLink';
 
-const accountSettingsMenuLinks: NavigationLink[] = [
+const settingsMenuLinks: NavigationLink[] = [
   {
     href: '/settings',
     name: 'Account Settings',
+  },
+  {
+    href: '/settings/change-display',
+    name: 'Change Display',
   },
   {
     href: '/settings/change-email',
@@ -18,9 +22,13 @@ const accountSettingsMenuLinks: NavigationLink[] = [
     name: 'Upload CV',
   },
   {
+    href: '/settings/verify-email',
+    name: 'Verify Email',
+  },
+  {
     href: '/settings/close-account',
     name: 'Close Account',
   },
 ];
 
-export default accountSettingsMenuLinks;
+export default settingsMenuLinks;
