@@ -2,6 +2,10 @@
   <SettingsMenu>
     <div>
       <h1>Close Account</h1>
+      <p>
+        Please enter "CLOSE" and your password to confirm that you wish to close
+        your account.
+      </p>
       <CloseAccountForm />
     </div>
   </SettingsMenu>
