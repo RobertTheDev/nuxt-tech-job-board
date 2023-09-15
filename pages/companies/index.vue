@@ -2,6 +2,14 @@
   <div class="companies-page-container">
     <h1 class="text-3xl bold">Companies</h1>
 
+    <div v-if="companies" class="company-card-list">
+      <CompanyCard
+        v-for="company of companies"
+        :key="company._id"
+        v-bind="company"
+      />
+    </div>
+
     <div v-if="pending">
       <p>Companies loading...</p>
     </div>
@@ -9,14 +17,6 @@
     <div v-if="error">
       <p>There was an error trying to display companies. Please try again.</p>
       <button @click="refresh()">Try again.</button>
-    </div>
-
-    <div v-if="companies" class="company-card-list">
-      <CompanyCard
-        v-for="company of companies"
-        :key="company._id"
-        v-bind="company"
-      />
     </div>
 
     <div v-else>
