@@ -1,10 +1,8 @@
 <template>
-  <SettingsMenu>
-    <div>
-      <h1>Upload CV</h1>
-      <UploadCVForm />
-    </div>
-  </SettingsMenu>
+  <div>
+    <h1>Upload CV</h1>
+    <UploadCVForm />
+  </div>
 </template>
 
 <script setup lang="ts">
