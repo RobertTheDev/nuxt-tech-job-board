@@ -208,8 +208,8 @@
 
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import addLocationSchema from 'models/jobPost/validators/addLocationSchema';
-import FormHandler from 'models/config/form/FormHandler';
+import addLocationSchema from '@/models/jobPost/validators/addLocationSchema';
+import FormHandler from '@/models/config/form/FormHandler';
 
 const formHandler = ref<FormHandler>({
   pending: false,
@@ -246,9 +246,7 @@ async function updateJobLocation(values: any) {
     },
   );
 
-  await router.push(
-    `/job-posts/upload-job/${route.params.id}/add-contract-details`,
-  );
+  await router.push(`/upload-job/${route.params.id}/add-contract-details`);
 
   if (pending.value) {
     formHandler.value.pending = pending.value;

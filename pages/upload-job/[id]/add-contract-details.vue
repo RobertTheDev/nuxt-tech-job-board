@@ -165,9 +165,7 @@ async function addJobContractDetails(values: any) {
     },
   );
 
-  await router.push(
-    `/job-posts/upload-job/${route.params.id}/add-deadline-date`,
-  );
+  await router.push(`/upload-job/${route.params.id}/add-deadline-date`);
 
   if (pending.value) {
     formHandler.value.pending = pending.value;

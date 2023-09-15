@@ -60,7 +60,7 @@ async function updateJobTitle(values: any) {
     },
   );
 
-  await router.push(`/job-posts/upload-job/${route.params.id}/add-description`);
+  await router.push(`/upload-job/${route.params.id}/add-description`);
 
   if (pending.value) {
     formHandler.value.pending = pending.value;
