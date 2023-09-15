@@ -1,5 +1,3 @@
 <template>
-  <div>
-    <p>Verify Email</p>
-  </div>
+  <p>Verify Email</p>
 </template>

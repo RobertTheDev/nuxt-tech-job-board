@@ -4,8 +4,6 @@
     :validation-schema="accountSettingsSchema"
     @submit="handleAccountSettingsUpdate"
   >
-    <h1>Account Settings</h1>
-
     <div class="primary-form-input-content-container">
       <p class="primary-form-input-label-text">First Name</p>
       <Field
