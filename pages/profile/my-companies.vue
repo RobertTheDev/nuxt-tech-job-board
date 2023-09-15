@@ -1,29 +1,24 @@
 <template>
   <div>
-    <!-- Page Heading. -->
     <h3>My Companies</h3>
-    <button @click="openGlobalModal('createCompany')">Create Company</button>
-    <!-- If data is loading show a loading message -->
+    <NuxtLink to="/companies/create-company">Create Company</NuxtLink>
     <div v-if="pending">
       <p>Loading...</p>
     </div>
-    <div v-if="companyOwners?.length === 0">
-      <p>You currently have no companies set up.</p>
-    </div>
-    <!-- If error occurs offer an explanation and refrsh button for the user to try again. -->
+    <CompanyOwnerCard
+      v-for="companyOwner in companyOwners"
+      :key="companyOwner._id"
+      v-bind="companyOwner"
+    />
     <div v-if="error">
       <p>
         Failed to list companies due to an error. Please refresh to try again.
       </p>
       <button @click="refresh()">Refresh</button>
     </div>
-    <div>
-      <!-- Map the data through the CompanyOwnerCompanyCard component. -->
-      <CompanyOwnerCompanyCard
-        v-for="companyOwner of companyOwners"
-        :key="companyOwner._id"
-        v-bind="companyOwner"
-      />
+
+    <div v-if="companyOwners?.length === 0">
+      <p>You currently have no companies set up.</p>
     </div>
   </div>
 </template>
