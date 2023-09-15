@@ -6,6 +6,10 @@ const settingsMenuLinks: NavigationLink[] = [
     name: 'Account Settings',
   },
   {
+    href: '/settings/edit-profile',
+    name: 'Edit Profile',
+  },
+  {
     href: '/settings/change-display',
     name: 'Change Display',
   },
