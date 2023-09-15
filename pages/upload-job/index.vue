@@ -106,7 +106,7 @@ async function navigateToNextStep(companyId: string) {
   });
 
   if (jobPost.value) {
-    router.push(`/job-posts/upload-job/${jobPost.value?._id}/add-title`);
+    router.push(`/upload-job/${jobPost.value?._id}/add-title`);
   }
 }
 
