@@ -7,13 +7,11 @@
         <!-- Map The Account Settings Menu Links. -->
 
         <NuxtLink
-          v-for="accountSettingsMenuLink in accountSettingsMenuLinks"
-          :key="accountSettingsMenuLink.href"
-          :to="accountSettingsMenuLink.href"
-          :class="
-            route.fullPath === accountSettingsMenuLink.href && 'active-link'
-          "
-          >{{ accountSettingsMenuLink.name }}</NuxtLink
+          v-for="settingsMenuLink in settingsMenuLinks"
+          :key="settingsMenuLink.href"
+          :to="settingsMenuLink.href"
+          :class="route.fullPath === settingsMenuLink.href && 'active-link'"
+          >{{ settingsMenuLink.name }}</NuxtLink
         >
       </div>
     </div>
@@ -25,8 +23,9 @@
 </template>
 
 <script setup lang="ts">
-// Import The Account Settings Menu Links.
-import accountSettingsMenuLinks from '../../utils/links/accountSettingsMenuLinks';
+// Import The Settings Menu Links.
+import settingsMenuLinks from '../../utils/links/settingsMenuLinks';
 
 const route = useRoute();
 </script>
+../../utils/links/settingsMenuLinks
