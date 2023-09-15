@@ -18,6 +18,13 @@
         </p>
       </div>
     </div>
+    <button
+      @click="
+        () => router.push(`/companies/${companyOwner.company._id}/edit-company`)
+      "
+    >
+      Edit Company
+    </button>
     <button @click="(e) => deleteCompanyOwnerById(e, companyOwner._id)">
       Delete company
     </button>
@@ -26,6 +33,8 @@
 
 <script setup lang="ts">
 import CompanyOwner from '@/models/companyOwner/types/CompanyOwner';
+
+const router = useRouter();
 
 const companyOwner = defineProps<CompanyOwner>();
 
