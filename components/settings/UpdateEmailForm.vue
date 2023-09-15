@@ -4,9 +4,6 @@
     :validation-schema="changeEmailSchema"
     @submit="handleChangeEmail"
   >
-    <div class="primary-form-header-container">
-      <h1>Change Email</h1>
-    </div>
     <div class="primary-form-input-content-container">
       <p class="primary-form-input-label-text">Email</p>
       <Field
