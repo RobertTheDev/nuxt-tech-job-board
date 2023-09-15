@@ -1,16 +1,14 @@
 <template>
-  <div>
-    <h1>Verify Email</h1>
-    <VerifyEmailForm />
-  </div>
+  <SettingsMenu>
+    <div>
+      <h1>Verify Email</h1>
+      <VerifyEmailForm />
+    </div>
+  </SettingsMenu>
 </template>
 
 <script setup lang="ts">
 import companyName from '@/utils/constants/companyName';
-
-definePageMeta({
-  middleware: ['unauthenticated'],
-});
 
 useHead({
   title: `Verify Email | ${companyName}`,

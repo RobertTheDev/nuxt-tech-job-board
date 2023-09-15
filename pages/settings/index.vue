@@ -1,15 +1,14 @@
 <template>
-  <AccountSettingsMenu>
-    <AccountSettingsForm />
-  </AccountSettingsMenu>
+  <SettingsMenu>
+    <div>
+      <h1>Account Settings</h1>
+      <SettingsForm />
+    </div>
+  </SettingsMenu>
 </template>
 
 <script setup lang="ts">
 import companyName from '@/utils/constants/companyName';
-
-definePageMeta({
-  middleware: ['unauthenticated'],
-});
 
 useHead({
   title: `Account Settings | ${companyName}`,

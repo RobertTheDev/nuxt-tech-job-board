@@ -1,15 +1,14 @@
 <template>
-  <AccountSettingsMenu>
-    <ChangeEmailForm />
-  </AccountSettingsMenu>
+  <SettingsMenu>
+    <div>
+      <h1>Change Email</h1>
+      <UpdateEmailForm />
+    </div>
+  </SettingsMenu>
 </template>
 
 <script setup lang="ts">
 import companyName from '@/utils/constants/companyName';
-
-definePageMeta({
-  middleware: ['unauthenticated'],
-});
 
 useHead({
   title: `Change Email | ${companyName}`,

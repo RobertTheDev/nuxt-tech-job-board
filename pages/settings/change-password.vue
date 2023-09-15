@@ -1,15 +1,14 @@
 <template>
-  <AccountSettingsMenu>
-    <ChangePasswordForm />
-  </AccountSettingsMenu>
+  <SettingsMenu>
+    <div>
+      <h1>Change Password</h1>
+      <UpdatePasswordForm />
+    </div>
+  </SettingsMenu>
 </template>
 
 <script setup lang="ts">
 import companyName from '@/utils/constants/companyName';
-
-definePageMeta({
-  middleware: ['unauthenticated'],
-});
 
 useHead({
   title: `Change Password | ${companyName}`,
