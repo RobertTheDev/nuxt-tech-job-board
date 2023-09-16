@@ -30,6 +30,10 @@
     <p>{{ jobPost.company.name }}</p>
     <p>{{ jobPost.description }}</p>
   </div>
+
+  <div v-else>
+    <p>No job found.</p>
+  </div>
 </template>
 
 <script setup lang="ts">

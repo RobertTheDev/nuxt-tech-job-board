@@ -27,5 +27,5 @@
 <script setup lang="ts">
 import Company from '@/models/company/types/Company';
 
-const company = defineProps<Company>();
+const company = defineProps<Company | null>();
 </script>
