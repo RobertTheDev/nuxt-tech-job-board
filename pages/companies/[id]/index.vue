@@ -3,14 +3,14 @@
 </template>
 
 <script setup lang="ts">
-import Company from 'models/company/types/Company';
+import Company from '@/models/company/types/Company';
 
 const route = useRoute();
 
-const { slug } = route.params;
+const { id } = route.params;
 
 const { data: company } = await useFetch<Company | null>(
-  `/api/companies/${slug}`,
+  `/api/companies/${id}`,
 );
 
 useHead({
