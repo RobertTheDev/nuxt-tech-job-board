@@ -59,6 +59,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "@pinia/nuxt": "^0.4.11",
+    "@sendgrid/mail": "^7.7.0",
     "@sidebase/nuxt-session": "^0.2.7",
     "@vueuse/components": "^10.4.1",
     "@vueuse/core": "^10.2.1",
