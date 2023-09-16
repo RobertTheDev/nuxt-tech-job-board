@@ -1,4 +1,4 @@
-import changePassword from '../../handlers/auth/changePassword';
+import changePassword from '../../handlers/settings/changePassword';
 import checkPasswordCorrect from '../../handlers/auth/checkPasswordCorrect';
 import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
 

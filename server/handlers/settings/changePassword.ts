@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb';
 import { usersCollection } from '../../lib/collections';
 import { hashPassword } from '../../lib/passwordManagement';
 import { ChangePasswordSchemaType } from '../../validators/auth/changePasswordSchema';
-import findUserById from './findUserById';
+import findUserById from '../auth/findUserById';
 
 export default async function changePassword(
   id: string,

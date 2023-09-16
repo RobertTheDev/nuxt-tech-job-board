@@ -1,4 +1,4 @@
-import changeEmail from '../../handlers/auth/changeEmail';
+import changeEmail from '../../handlers/settings/changeEmail';
 import checkEmailIsTaken from '../../handlers/auth/checkEmailIsTaken';
 import checkPasswordCorrect from '../../handlers/auth/checkPasswordCorrect';
 import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
