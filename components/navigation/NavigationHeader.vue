@@ -16,37 +16,48 @@
       </button>
     </div>
 
-    <div v-if="session?.user" class="header-container-right">
-      <button class="header-icon-container" @click="navigateTo('/saved-jobs')">
-        <font-awesome-icon
-          class="header-icon-icon"
-          icon="fa-regular fa-heart"
-        />
-      </button>
-      <button
-        class="header-icon-container"
-        @click="navigateTo('/notifications')"
-      >
-        <font-awesome-icon class="header-icon-icon" icon="fa-regular fa-bell" />
-      </button>
-      <button class="header-icon-container" @click="toggleProfileMenu()">
-        <font-awesome-icon class="header-icon-icon" icon="fa-regular fa-user" />
-      </button>
+    <div class="header-container-right">
+      <div v-if="session?.user" class="header-container-right">
+        <button
+          class="header-icon-container"
+          @click="navigateTo('/saved-jobs')"
+        >
+          <font-awesome-icon
+            class="header-icon-icon"
+            icon="fa-regular fa-heart"
+          />
+        </button>
+        <button
+          class="header-icon-container"
+          @click="navigateTo('/notifications')"
+        >
+          <font-awesome-icon
+            class="header-icon-icon"
+            icon="fa-regular fa-bell"
+          />
+        </button>
+        <button class="header-icon-container" @click="toggleProfileMenu()">
+          <font-awesome-icon
+            class="header-icon-icon"
+            icon="fa-regular fa-user"
+          />
+        </button>
 
-      <button class="header-action-button" @click="navigateTo('/upload-job')">
-        <p class="header-action-button-text">Post a Job</p>
-      </button>
-    </div>
-    <div v-else>
-      <button class="header-action-button" @click="navigateTo('/auth/login')">
-        <p class="header-action-button-text">Sign in</p>
-      </button>
-    </div>
+        <button class="header-action-button" @click="navigateTo('/upload-job')">
+          <p class="header-action-button-text">Post a Job</p>
+        </button>
+      </div>
+      <div v-else>
+        <button class="header-action-button" @click="navigateTo('/auth/login')">
+          <p class="header-action-button-text">Sign in</p>
+        </button>
+      </div>
 
-    <HeaderProfileMenu
-      v-if="profileMenuActive"
-      v-on-click-outside="toggleProfileMenu"
-    />
+      <HeaderProfileMenu
+        v-if="profileMenuActive"
+        v-on-click-outside="toggleProfileMenu"
+      />
+    </div>
   </header>
 </template>
 
@@ -59,7 +70,13 @@ const router = useRouter();
 
 const profileMenuActive = ref(false);
 
+const mounted = ref(false);
+
 const { session } = await useSession();
+
+onBeforeMount(() => {
+  mounted.value = true;
+});
 
 function toggleProfileMenu(): void {
   profileMenuActive.value = !profileMenuActive.value;
