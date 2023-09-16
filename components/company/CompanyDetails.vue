@@ -25,14 +25,7 @@
 </template>
 
 <script setup lang="ts">
-const company = defineProps([
-  'createdAt',
-  'logo',
-  'name',
-  'description',
-  'category',
-  'totalEmployees',
-  'owners',
-  'jobPosts',
-]);
+import Company from '@/models/company/types/Company';
+
+const company = defineProps<Company>();
 </script>
