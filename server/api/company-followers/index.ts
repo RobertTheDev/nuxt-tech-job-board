@@ -1,4 +1,4 @@
-import { companyFollowersCollection } from '../../lib/collections';
+import { companyFollowersCollection } from '../../lib/mongoDBCollections';
 import deleteCompanyFollowers from '../../handlers/companyFollower/deleteCompanyFollowers';
 
 export default defineEventHandler((event) => {

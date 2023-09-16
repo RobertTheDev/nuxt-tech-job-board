@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { companyFollowersCollection } from '../../lib/collections';
+import { companyFollowersCollection } from '../../lib/mongoDBCollections';
 
 // This handler finds and returns a company follower by its matching user id and company id.
 

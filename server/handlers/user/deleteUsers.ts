@@ -1,4 +1,4 @@
-import { usersCollection } from '../../lib/collections';
+import { usersCollection } from '../../lib/mongoDBCollections';
 
 export default function deleteUsers() {
   // Delete all users from the database.

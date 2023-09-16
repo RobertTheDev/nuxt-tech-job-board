@@ -1,4 +1,4 @@
-import { companyOwnersCollection } from '../../lib/collections';
+import { companyOwnersCollection } from '../../lib/mongoDBCollections';
 import { CreateCompanyOwnerSchemaType } from '../../validators/companyOwner/createCompanyOwnerSchema';
 import getCompanyOwnerById from './getCompanyOwnerById';
 

@@ -1,4 +1,4 @@
-import { companyOwnersCollection } from '../../lib/collections';
+import { companyOwnersCollection } from '../../lib/mongoDBCollections';
 
 export default function deleteCompanyOwners() {
   // Delete all the company owners.

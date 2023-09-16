@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { usersCollection } from '../../lib/collections';
+import { usersCollection } from '../../lib/mongoDBCollections';
 
 export default async function findUserById(id: string) {
   // Find user in the database by its id.

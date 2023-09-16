@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { jobInterviewsCollection } from '../../lib/collections';
+import { jobInterviewsCollection } from '../../lib/mongoDBCollections';
 
 export default function getJobInterviewsByJobPostId(jobPostId: string) {
   return jobInterviewsCollection

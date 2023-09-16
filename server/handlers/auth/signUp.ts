@@ -1,4 +1,4 @@
-import { usersCollection } from '../../lib/collections';
+import { usersCollection } from '../../lib/mongoDBCollections';
 import { hashPassword } from '../../lib/passwordManagement';
 import { SignUpSchemaType } from '../../validators/auth/signUpSchema';
 import findUserById from './findUserById';

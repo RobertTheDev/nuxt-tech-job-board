@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
 import getJobPostById from '../getJobPostById';
-import { jobPostsCollection } from '../../../lib/collections';
+import { jobPostsCollection } from '../../../lib/mongoDBCollections';
 import { AddDescriptionSchemaType } from '../../../validators/jobPost/jobPostFieldSchemas/addDescriptionSchema';
 
 export default async function addJobPostDescription(

@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { usersCollection } from '../../lib/collections';
+import { usersCollection } from '../../lib/mongoDBCollections';
 
 export default async function getUserById(id: string) {
   // Find the user from the database by its id and remove the password field.

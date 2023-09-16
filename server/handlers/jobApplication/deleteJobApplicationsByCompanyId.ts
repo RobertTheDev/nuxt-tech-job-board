@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { jobApplicationsCollection } from '../../lib/collections';
+import { jobApplicationsCollection } from '../../lib/mongoDBCollections';
 
 export default function deleteJobApplicationsByCompanyId(companyId: string) {
   // Find and delete all job applications by their company id.

@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { savedJobPostsCollection } from '../../lib/collections';
+import { savedJobPostsCollection } from '../../lib/mongoDBCollections';
 
 // This handler finds and deletes a saved job post by its id.
 

@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { savedJobPostsCollection } from '../../lib/collections';
+import { savedJobPostsCollection } from '../../lib/mongoDBCollections';
 import { CreateSavedJobPostSchemaType } from '../../validators/savedJobPost/createSavedJobPostSchema';
 import getSavedJobPostById from './getSavedJobPostById';
 

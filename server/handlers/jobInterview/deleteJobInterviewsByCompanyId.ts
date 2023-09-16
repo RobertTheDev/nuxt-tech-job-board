@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { jobInterviewsCollection } from '../../lib/collections';
+import { jobInterviewsCollection } from '../../lib/mongoDBCollections';
 
 export default function deleteJobInterviewsByCompanyId(companyId: string) {
   // Find and delete all jon interviews by their company id.

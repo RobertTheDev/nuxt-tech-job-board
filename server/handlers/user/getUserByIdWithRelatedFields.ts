@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { usersCollection } from '../../lib/collections';
+import { usersCollection } from '../../lib/mongoDBCollections';
 
 export default async function getUserByIdWithRelatedFields(id: string) {
   const user = await usersCollection

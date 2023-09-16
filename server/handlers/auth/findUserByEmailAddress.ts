@@ -1,4 +1,4 @@
-import { usersCollection } from '../../lib/collections';
+import { usersCollection } from '../../lib/mongoDBCollections';
 
 export default async function findUserByEmailAddress(emailAddress: string) {
   // Find user in the database by its email address.

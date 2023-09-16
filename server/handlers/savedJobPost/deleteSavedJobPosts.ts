@@ -1,4 +1,4 @@
-import { savedJobPostsCollection } from '../../lib/collections';
+import { savedJobPostsCollection } from '../../lib/mongoDBCollections';
 
 // This handler deletes all saved job posts.
 

@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
 import { UpdateCompanySchemaType } from '../../validators/company/updateCompanySchema';
-import { companiesCollection } from '../../lib/collections';
+import { companiesCollection } from '../../lib/mongoDBCollections';
 import getCompanyById from './getCompanyById';
 
 export default async function updateCompanyById(

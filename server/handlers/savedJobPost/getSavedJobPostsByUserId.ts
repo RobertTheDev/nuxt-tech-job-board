@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { savedJobPostsCollection } from '../../lib/collections';
+import { savedJobPostsCollection } from '../../lib/mongoDBCollections';
 
 // This handler finds and returns all saved job posts by their matching user id.
 // This handler lookups related job post and user from their collections.

@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
 import { UpdateJobApplicationSchemaType } from '../../validators/jobApplication/updateJobApplicationSchema';
-import { jobApplicationsCollection } from '../../lib/collections';
+import { jobApplicationsCollection } from '../../lib/mongoDBCollections';
 import getJobApplicationById from './getJobApplicationById';
 
 export default async function updateJobApplicationById(

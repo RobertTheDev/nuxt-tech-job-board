@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { jobPostsCollection } from '../../lib/collections';
+import { jobPostsCollection } from '../../lib/mongoDBCollections';
 import JobPost from '../../../models/jobPost/types/JobPost';
 import getJobPostById from './getJobPostById';
 

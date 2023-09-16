@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { jobApplicationsCollection } from '../../lib/collections';
+import { jobApplicationsCollection } from '../../lib/mongoDBCollections';
 
 export default function getJobApplicationsByUserId(userId: string) {
   // Find job applications by user id.

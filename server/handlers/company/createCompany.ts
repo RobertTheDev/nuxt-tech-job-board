@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb';
 import {
   companiesCollection,
   companyOwnersCollection,
-} from '../../lib/collections';
+} from '../../lib/mongoDBCollections';
 import { CreateCompanySchemaType } from '../../validators/company/createCompanySchema';
 import createCompanyOwnerSchema from '../../validators/companyOwner/createCompanyOwnerSchema';
 import getCompanyById from './getCompanyById';

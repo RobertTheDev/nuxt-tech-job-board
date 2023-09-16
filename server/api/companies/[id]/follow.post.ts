@@ -3,7 +3,7 @@ import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
 import {
   companiesCollection,
   companyFollowersCollection,
-} from '../../../lib/collections';
+} from '../../../lib/mongoDBCollections';
 import createCompanyFollowerSchema from '../../../validators/companyFollower/createCompanyFollowerSchema';
 
 async function checkCompanyExists(id: string) {

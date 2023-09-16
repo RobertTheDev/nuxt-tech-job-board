@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { savedJobPostsCollection } from '../../lib/collections';
+import { savedJobPostsCollection } from '../../lib/mongoDBCollections';
 
 // This handler finds and deletes a company follower by its matching user id and company id.
 

@@ -1,6 +1,6 @@
 // import sgMail from '@sendgrid/mail';
 import crypto from 'node:crypto';
-import { usersCollection } from '../../lib/collections';
+import { usersCollection } from '../../lib/mongoDBCollections';
 import checkUserIsNotSignedIn from '../../handlers/auth/checkUserIsNotSignedIn';
 
 export default defineEventHandler(async (event) => {

@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { companyOwnersCollection } from '../../lib/collections';
+import { companyOwnersCollection } from '../../lib/mongoDBCollections';
 
 export default function deleteCompanyOwnerById(id: string) {
   // Delete the company owner by its id.

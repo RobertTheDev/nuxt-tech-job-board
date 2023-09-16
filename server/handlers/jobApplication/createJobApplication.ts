@@ -1,4 +1,4 @@
-import { jobApplicationsCollection } from '../../lib/collections';
+import { jobApplicationsCollection } from '../../lib/mongoDBCollections';
 import { CreateJobApplicationSchemaType } from '../../validators/jobApplication/createJobApplicationSchema';
 import getJobApplicationById from './getJobApplicationById';
 

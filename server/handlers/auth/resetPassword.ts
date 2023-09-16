@@ -1,4 +1,4 @@
-import { usersCollection } from '../../lib/collections';
+import { usersCollection } from '../../lib/mongoDBCollections';
 import User from '@/models/user/types/User';
 
 export default async function resetPassword({

@@ -1,4 +1,4 @@
-import { usersCollection } from '../../lib/collections';
+import { usersCollection } from '../../lib/mongoDBCollections';
 
 export default function getUsers() {
   // Find and returns all users and removes password field from the database.

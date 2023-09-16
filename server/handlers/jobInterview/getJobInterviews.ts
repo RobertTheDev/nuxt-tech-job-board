@@ -1,4 +1,4 @@
-import { jobInterviewsCollection } from '../../lib/collections';
+import { jobInterviewsCollection } from '../../lib/mongoDBCollections';
 
 export default function getJobInterviews() {
   return jobInterviewsCollection

@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
 import getJobPostById from '../getJobPostById';
-import { jobPostsCollection } from '../../../lib/collections';
+import { jobPostsCollection } from '../../../lib/mongoDBCollections';
 import { AddLocationSchemaType } from '../../../validators/jobPost/jobPostFieldSchemas/addLocationSchema';
 
 export default async function addJobPostLocation(

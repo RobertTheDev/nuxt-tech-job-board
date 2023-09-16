@@ -1,4 +1,4 @@
-import { companyFollowersCollection } from '../../lib/collections';
+import { companyFollowersCollection } from '../../lib/mongoDBCollections';
 
 // This handler returns all company followers.
 

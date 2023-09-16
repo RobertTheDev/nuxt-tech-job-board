@@ -1,4 +1,4 @@
-import { usersCollection } from '../../lib/collections';
+import { usersCollection } from '../../lib/mongoDBCollections';
 import { verifyPassword } from '../../lib/passwordManagement';
 
 export default async function checkPasswordCorrect(

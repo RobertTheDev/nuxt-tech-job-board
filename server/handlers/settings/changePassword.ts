@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { usersCollection } from '../../lib/collections';
+import { usersCollection } from '../../lib/mongoDBCollections';
 import { hashPassword } from '../../lib/passwordManagement';
 import { ChangePasswordSchemaType } from '../../validators/auth/changePasswordSchema';
 import findUserById from '../auth/findUserById';

@@ -1,4 +1,4 @@
-import { jobPostsCollection } from '../../lib/collections';
+import { jobPostsCollection } from '../../lib/mongoDBCollections';
 
 export default function deleteJobPosts() {
   // Delete the job posts from the database.

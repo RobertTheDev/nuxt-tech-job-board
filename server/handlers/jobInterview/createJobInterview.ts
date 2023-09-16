@@ -1,4 +1,4 @@
-import { jobInterviewsCollection } from '../../lib/collections';
+import { jobInterviewsCollection } from '../../lib/mongoDBCollections';
 import { CreateJobInterviewSchemaType } from '../../validators/jobInterview/createJobInterviewSchema';
 import getJobInterviewById from './getJobInterviewById';
 

@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
 import getJobPostById from '../getJobPostById';
-import { jobPostsCollection } from '../../../lib/collections';
+import { jobPostsCollection } from '../../../lib/mongoDBCollections';
 import { AddDeadlineDateSchemaType } from '../../../validators/jobPost/jobPostFieldSchemas/addDeadlineDateSchema';
 
 export default async function addJobPostDeadlineDate(

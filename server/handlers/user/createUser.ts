@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { usersCollection } from '../../lib/collections';
+import { usersCollection } from '../../lib/mongoDBCollections';
 import { CreateUserSchemaType } from '../../validators/user/createUserSchema';
 import getUserById from './getUserById';
 

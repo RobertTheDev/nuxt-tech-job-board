@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
 import { CreateCompanyFollowerSchemaType } from '../../validators/companyFollower/createCompanyFollowerSchema';
-import { companyFollowersCollection } from '../../lib/collections';
+import { companyFollowersCollection } from '../../lib/mongoDBCollections';
 import getCompanyFollowerById from './getCompanyFollowerById';
 
 // This handler creates and inserts a new company follower.

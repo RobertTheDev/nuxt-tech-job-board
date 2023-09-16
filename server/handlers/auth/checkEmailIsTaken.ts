@@ -1,4 +1,4 @@
-import { usersCollection } from '../../lib/collections';
+import { usersCollection } from '../../lib/mongoDBCollections';
 
 export default async function checkEmailIsTaken(emailAddress: string) {
   // Check email is not already in use in the database.

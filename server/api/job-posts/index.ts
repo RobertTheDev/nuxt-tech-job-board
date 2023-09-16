@@ -4,7 +4,7 @@ import createJobPostSchema from '../../validators/jobPost/createJobPostSchema';
 import {
   companyOwnersCollection,
   jobPostsCollection,
-} from '../../lib/collections';
+} from '../../lib/mongoDBCollections';
 import getJobPosts from '../../handlers/jobPost/getJobPosts';
 import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
 import getJobPostById from '../../handlers/jobPost/getJobPostById';

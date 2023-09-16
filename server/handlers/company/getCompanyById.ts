@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { companiesCollection } from '../../lib/collections';
+import { companiesCollection } from '../../lib/mongoDBCollections';
 
 export default async function getCompanyById(id: string) {
   const company = await companiesCollection

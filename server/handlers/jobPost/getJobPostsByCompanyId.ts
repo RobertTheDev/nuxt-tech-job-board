@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import { jobPostsCollection } from '../../lib/collections';
+import { jobPostsCollection } from '../../lib/mongoDBCollections';
 
 export default async function getJobPostsByCompanyId(companyId: string) {
   return await jobPostsCollection
