@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="mounted">
     <NavigationHeader />
     <NavigationBurgerMenu />
     <main>
@@ -11,3 +11,11 @@
     <NavigationFooter />
   </div>
 </template>
+
+<script setup lang="ts">
+const mounted = ref(false);
+
+onBeforeMount(() => {
+  mounted.value = true;
+});
+</script>
