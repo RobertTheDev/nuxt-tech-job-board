@@ -5,4 +5,6 @@ export default interface User {
   firstName: string;
   lastName: string;
   emailAddress: string;
+  resetPasswordTokenExpiryTime?: number;
+  resetPasswordToken?: string;
 }
