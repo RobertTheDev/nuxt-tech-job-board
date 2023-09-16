@@ -10,5 +10,5 @@
 </template>
 
 <script setup lang="ts">
-import jobTypes from 'models/jobPost/types/jobTypes';
+import jobTypes from '@/models/jobPost/types/jobTypes';
 </script>
