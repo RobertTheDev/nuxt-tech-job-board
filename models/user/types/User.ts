@@ -1,13 +1,37 @@
 export default interface User {
+  // DEFAULT FIELDS
   _id: string;
   createdAt: Date;
   updatedAt?: Date;
-  firstName: string;
-  lastName: string;
+
+  // CUSTOM FIELDS
+  address?: {
+    city: string;
+    country: string;
+    postalCode: string;
+    state: string;
+    street: string;
+  } | null;
+  contact?: {
+    emailAddress?: string | null;
+    githubAccountUrl?: string | null;
+    landlinePhoneNumber?: string | null;
+    linkedInAccountUrl?: string | null;
+    mobilePhoneNumber?: string | null;
+    websiteUrl?: string | null;
+    xAccountUrl?: string | null;
+  } | null;
+  cv?: string | null;
+  dateOfBirth?: Date;
   emailAddress: string;
-  emailVerificationTokenExpiryTime?: number;
   emailVerificationToken?: string;
+  emailVerificationTokenExpiryTime?: number;
   emailVerified?: Date;
-  resetPasswordTokenExpiryTime?: number;
+  firstName: string;
+  isLookingFor?: string[] | null;
+  isWillingToRelocate?: boolean;
+  jobTitle?: string | null;
+  lastName: string;
   resetPasswordToken?: string;
+  resetPasswordTokenExpiryTime?: number;
 }
