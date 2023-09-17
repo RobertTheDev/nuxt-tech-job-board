@@ -1,6 +1,6 @@
 <template>
   <div class="auth-page-container">
-    <ResetPasswordForm />
+    <SendPasswordResetTokenForm />
   </div>
 </template>
 
@@ -12,11 +12,11 @@ definePageMeta({
 });
 
 useHead({
-  title: `Reset Password | ${companyName}`,
+  title: `Forgot Password | ${companyName}`,
   meta: [
     {
       name: 'description',
-      content: `If you have forgotten your password to your ${companyName} account - enter your email address below and we will send you an email with steps to get back in.`,
+      content: `If you have forgotten your password to your ${companyName} account - enter your email address below and we will send you an email with a link to get back in.`,
     },
   ],
 });
