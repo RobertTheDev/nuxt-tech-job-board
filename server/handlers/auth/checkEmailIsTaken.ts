@@ -11,7 +11,7 @@ export default async function checkEmailIsTaken(emailAddress: string) {
     throw createError({
       statusCode: 400,
       statusMessage:
-        'Email address is already in use please try a different email address.',
+        'A user with that email address already exists. Please try again with a different email address.',
     });
   }
 }
