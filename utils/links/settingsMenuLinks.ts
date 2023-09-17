@@ -10,10 +10,6 @@ const settingsMenuLinks: NavigationLink[] = [
     name: 'Change Password',
   },
   {
-    href: '/settings/change-display',
-    name: 'Change Display',
-  },
-  {
     href: '/settings/verify-email',
     name: 'Verify Email',
   },
