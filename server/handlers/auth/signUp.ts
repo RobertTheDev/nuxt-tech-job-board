@@ -11,7 +11,10 @@ export default async function signUp(body: SignUpSchemaType) {
   const hashedPassword = await hashPassword(password);
 
   // Update the input object with the hashed password.
-  const userWithHashedPassword = { ...input, password: hashedPassword };
+  const userWithHashedPassword = {
+    ...input,
+    password: hashedPassword,
+  };
 
   // Insert the created user into the database.
   const createdUser = await usersCollection.insertOne(userWithHashedPassword);
