@@ -1,4 +1,4 @@
-import NavigationLink from 'models/config/navigation/NavigationLink';
+import NavigationLink from '@/models/config/navigation/NavigationLink';
 
 const profileMenuLinks: NavigationLink[] = [
   { href: '/profile', name: 'Profile' },
