@@ -1,8 +1,7 @@
 import changePassword from '../../handlers/settings/changePassword';
 import checkPasswordCorrect from '../../handlers/auth/checkPasswordCorrect';
 import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
-
-import changePasswordSchema from '../../validators/auth/changePasswordSchema';
+import changePasswordSchema from '../../validators/settings/changePasswordSchema';
 
 export default defineEventHandler(async (event) => {
   const { user } = await event.context.session;

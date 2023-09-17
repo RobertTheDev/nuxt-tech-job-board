@@ -1,7 +1,7 @@
 import { ObjectId } from 'mongodb';
 import { usersCollection } from '../../lib/mongoDBCollections';
-import { ChangeEmailSchemaType } from '../../validators/auth/changeEmailSchema';
 import findUserById from '../auth/findUserById';
+import { ChangeEmailSchemaType } from '../../validators/settings/changeEmailSchema';
 
 export default async function changeEmail(
   id: string,

@@ -2,7 +2,7 @@ import changeEmail from '../../handlers/settings/changeEmail';
 import checkEmailIsTaken from '../../handlers/auth/checkEmailIsTaken';
 import checkPasswordCorrect from '../../handlers/auth/checkPasswordCorrect';
 import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
-import changeEmailSchema from '../../validators/auth/changeEmailSchema';
+import changeEmailSchema from '../../validators/settings/changeEmailSchema';
 
 export default defineEventHandler(async (event) => {
   const { user } = event.context.session;
