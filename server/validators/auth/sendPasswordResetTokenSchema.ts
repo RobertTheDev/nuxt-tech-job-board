@@ -5,7 +5,7 @@ const sendPasswordResetTokenSchema = yup
     emailAddress: yup
       .string()
       .email('Email address must be in valid email format.')
-      .required('Email is required.'),
+      .required('Email address is required.'),
   })
   .unknown(false);
 

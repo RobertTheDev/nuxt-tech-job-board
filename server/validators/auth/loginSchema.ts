@@ -5,7 +5,7 @@ const loginSchema = yup
     emailAddress: yup
       .string()
       .email('Email address must be a valid email format.')
-      .required('Email is required.'),
+      .required('Email address is required.'),
     password: yup.string().required('Password is required.'),
   })
   .unknown(false);

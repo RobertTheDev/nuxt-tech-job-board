@@ -6,7 +6,8 @@ const signUpSchema = yup
     emailAddress: yup
       .string()
       .email('Email address must be a valid email format.')
-      .required('Email is required.'),
+      .required('Email address is required.'),
+    emailVerified: yup.string().default(null),
     firstName: yup.string().required('First name is required.'),
     lastName: yup.string().required('Last name is required.'),
     companiesFollowed: yup.number().notRequired().default(0),
