@@ -12,7 +12,13 @@ export default async function changeEmail(
     {
       _id: new ObjectId(id),
     },
-    { $set: { emailAddress: body.newEmailAddress, updatedAt: body.updatedAt } },
+    {
+      $set: {
+        emailAddress: body.newEmailAddress,
+        emailVerified: null,
+        updatedAt: body.updatedAt,
+      },
+    },
   );
   // Get the updated user by its id.
   const updatedUser = await findUserById(id.toString());
