@@ -1,12 +1,12 @@
 <template>
   <Form :validation-schema="resetPasswordSchema" @submit="handleSubmit">
-    <Field v-slot="{ field }" name="emailAddress" type="email">
-      <label for="emailAddress">
-        <p>Email Address</p>
-        <input type="email" v-bind="field" placeholder="Email" />
+    <Field v-slot="{ field }" name="password" type="password">
+      <label for="password">
+        <p>Password</p>
+        <input type="password" v-bind="field" placeholder="Password" />
       </label>
     </Field>
-    <ErrorMessage name="emailAddress" />
+    <ErrorMessage name="password" />
     <button type="submit">Reset Password</button>
   </Form>
 </template>
