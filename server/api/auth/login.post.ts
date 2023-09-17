@@ -7,12 +7,12 @@ export default defineEventHandler(async (event) => {
   // Get the signed in user if it is in session.
   const { user } = await event.context.session;
 
+  checkUserIsNotSignedIn(user);
+
   const body = await readBody(event);
 
   // Validate the inputted body.
   const validatedBody = await loginSchema.validate(body);
-
-  checkUserIsNotSignedIn(user);
 
   // Check inputted password is correct.
   await checkPasswordCorrect(
