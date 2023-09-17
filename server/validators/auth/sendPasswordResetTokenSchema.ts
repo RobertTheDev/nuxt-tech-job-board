@@ -1,15 +1,13 @@
-import * as yup from 'yup';
+// eslint-disable-next-line import/named
+import { string, object, InferType } from 'yup';
 
-const sendPasswordResetTokenSchema = yup
-  .object({
-    emailAddress: yup
-      .string()
-      .email('Email address must be in valid email format.')
-      .required('Email address is required.'),
-  })
-  .unknown(false);
+const sendPasswordResetTokenSchema = object({
+  emailAddress: string()
+    .email('Email address must be in valid email format.')
+    .required('Email address is required.'),
+}).unknown(false);
 
-export type SendPasswordResetTokenSchemaType = yup.InferType<
+export type SendPasswordResetTokenSchemaType = InferType<
   typeof sendPasswordResetTokenSchema
 >;
 
