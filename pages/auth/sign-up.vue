@@ -7,10 +7,6 @@
 <script setup lang="ts">
 import companyName from '@/utils/constants/companyName';
 
-definePageMeta({
-  middleware: ['authenticated'],
-});
-
 useHead({
   title: `Sign Up | ${companyName}`,
   meta: [
