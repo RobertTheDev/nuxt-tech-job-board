@@ -1,5 +1,5 @@
 <template>
-  <Form :validation-schema="forgotPasswordSchema" @submit="handleSubmit">
+  <Form :validation-schema="resetPasswordSchema" @submit="handleSubmit">
     <Field v-slot="{ field }" name="emailAddress" type="email">
       <label for="emailAddress">
         <p>Email Address</p>
@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import forgotPasswordSchema from '@/models/auth/validators/forgotPasswordSchema';
+import resetPasswordSchema from '@/models/auth/validators/resetPasswordSchema';
 
 function handleSubmit(values: any): void {
   alert(JSON.stringify(values, null, 2));
