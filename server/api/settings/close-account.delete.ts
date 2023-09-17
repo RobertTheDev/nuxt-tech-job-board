@@ -1,8 +1,8 @@
 import closeAccountSchema from '../../validators/settings/closeAccountSchema';
 import checkPasswordCorrect from '../../handlers/auth/checkPasswordCorrect';
 import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
-import deleteUserById from '../../handlers/user/deleteUserById';
 import getUserByEmailAddress from '../../handlers/user/getUserByEmailAddress';
+import closeAccount from '../../handlers/settings/closeAccount';
 
 export default defineEventHandler(async (event) => {
   const { user } = await event.context.session;
@@ -19,7 +19,7 @@ export default defineEventHandler(async (event) => {
   // Check inputted password is incorrect.
   await checkPasswordCorrect(signedInUser.password, validatedBody.password);
 
-  const deleteUser = deleteUserById(signedInUser._id.toString());
+  const deleteUser = closeAccount(signedInUser._id.toString());
 
   event.context.session = null;
 
