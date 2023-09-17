@@ -1,8 +1,13 @@
 import crypto from 'node:crypto';
 import sgMail from '@sendgrid/mail';
 import { usersCollection } from '../../lib/mongoDBCollections';
+import { SendPasswordResetTokenSchemaType } from '../../validators/auth/sendPasswordResetTokenSchema';
 
-export default async function sendPasswordResetToken(emailAddress: string) {
+export default async function sendPasswordResetToken(
+  body: SendPasswordResetTokenSchemaType,
+) {
+  const { emailAddress } = body;
+
   // Create an expiry time 10 minutes from now.
   const currentTimeInMS = new Date().getTime();
   const resetPasswordTokenExpiryTime = new Date(
@@ -24,7 +29,7 @@ export default async function sendPasswordResetToken(emailAddress: string) {
       <p>Click the button below to get started.</p>
       <a
         target="_blank"
-        href="http://localhost:3000/reset-password/${resetPasswordToken}"
+        href="http://localhost:3000/auth/reset-password/${resetPasswordToken}"
         style="
           background-color: #0075ff;
           border: none;
@@ -59,5 +64,8 @@ export default async function sendPasswordResetToken(emailAddress: string) {
     },
   );
 
-  return 'Email sent';
+  return {
+    statusCode: 200,
+    statusMessage: `Password reset email has been succesfully sent to ${emailAddress}.`,
+  };
 }
