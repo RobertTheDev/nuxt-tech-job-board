@@ -42,6 +42,8 @@ export default async function resetPassword(body: ResetPasswordSchemaType) {
       {
         $set: {
           password: hashedPassword,
+          resetPasswordToken: null,
+          resetPasswordTokenExpiryTime: null,
         },
       },
     );
