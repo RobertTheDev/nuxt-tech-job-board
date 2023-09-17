@@ -2,14 +2,13 @@ import * as yup from 'yup';
 
 const verifyEmailSchema = yup
   .object({
-    emailAddress: yup
+    emailVerificationToken: yup
       .string()
-      .email('Email address must be a valid email format.')
-      .required('Please provide a new email address.'),
-    verificationCode: yup
-      .string()
-      .min(1, 'Verification code must be at least one character in length.')
-      .required('Please provide a new email address.'),
+      .min(
+        1,
+        'Email verification token must be at least one character in length.',
+      )
+      .required('Email verification token is required.'),
   })
   .unknown(false);
 
