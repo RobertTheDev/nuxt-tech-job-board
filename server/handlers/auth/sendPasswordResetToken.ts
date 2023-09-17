@@ -1,27 +1,30 @@
-import crypto from 'node:crypto';
+import { randomUUID } from 'node:crypto';
 import sgMail from '@sendgrid/mail';
 import { usersCollection } from '../../lib/mongoDBCollections';
 import { SendPasswordResetTokenSchemaType } from '../../validators/auth/sendPasswordResetTokenSchema';
+import logger from '../../lib/winstonLogger';
+import APIResponse from '@/models/config/api/Response';
 
 export default async function sendPasswordResetToken(
-  body: SendPasswordResetTokenSchemaType,
-) {
-  const { emailAddress } = body;
+  validatedBody: SendPasswordResetTokenSchemaType,
+): Promise<APIResponse> {
+  try {
+    const { emailAddress } = validatedBody;
 
-  // Create an expiry time 10 minutes from now.
-  const currentTimeInMS = new Date().getTime();
-  const resetPasswordTokenExpiryTime = new Date(
-    currentTimeInMS + 10 * 60 * 1000,
-  ).getTime();
+    // Create an expiry time 10 minutes from now.
+    const currentTimeInMS = new Date().getTime();
+    const resetPasswordTokenExpiryTime = new Date(
+      currentTimeInMS + 10 * 60 * 1000,
+    ).getTime();
 
-  const resetPasswordToken = crypto.randomUUID();
+    const resetPasswordToken = randomUUID();
 
-  sgMail.setApiKey(String(process.env.SENDGRID_API_KEY));
-  const msg = {
-    to: emailAddress,
-    from: 'robertthedev@gmail.com',
-    subject: 'TechBoard Reset Password',
-    html: `
+    sgMail.setApiKey(String(process.env.SENDGRID_API_KEY));
+    const msg = {
+      to: emailAddress,
+      from: 'robertthedev@gmail.com',
+      subject: 'TechBoard Reset Password',
+      html: `
     <div>
       <h1>Forgotten your password?</h1>
       <p>The button below will take you to our TechBoard password reset page with instructions to reset your password.
@@ -48,24 +51,31 @@ export default async function sendPasswordResetToken(
       </a>
     </div>
     `,
-  };
+    };
 
-  await sgMail.send(msg);
+    await sgMail.send(msg);
 
-  await usersCollection.findOneAndUpdate(
-    {
-      emailAddress,
-    },
-    {
-      $set: {
-        resetPasswordToken,
-        resetPasswordTokenExpiryTime,
+    await usersCollection.findOneAndUpdate(
+      {
+        emailAddress,
       },
-    },
-  );
+      {
+        $set: {
+          resetPasswordToken,
+          resetPasswordTokenExpiryTime,
+        },
+      },
+    );
 
-  return {
-    statusCode: 200,
-    statusMessage: `Password reset email has been succesfully sent to ${emailAddress}.`,
-  };
+    return {
+      statusCode: 200,
+      statusMessage: `Password reset email has been succesfully sent to ${emailAddress}.`,
+    };
+  } catch (error) {
+    // Handle the error, log it, and throw an error.
+    logger.error('Error inserting user:', error);
+    throw new Error(
+      'Sign up could not be completed due to an error. Please try again.',
+    );
+  }
 }
