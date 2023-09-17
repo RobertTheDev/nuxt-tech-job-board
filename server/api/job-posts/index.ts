@@ -1,16 +1,11 @@
-import { ObjectId } from 'mongodb';
-import getCompanyById from '../../handlers/company/getCompanyById';
-import createJobPostSchema from '../../validators/jobPost/createJobPostSchema';
-import {
-  companyOwnersCollection,
-  jobPostsCollection,
-} from '../../lib/mongoDBCollections';
 import getJobPosts from '../../handlers/jobPost/getJobPosts';
 import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
-import getJobPostById from '../../handlers/jobPost/getJobPostById';
+import deleteJobPosts from '../../handlers/jobPost/deleteJobPosts';
+import createJobPost from 'server/handlers/jobPost/createJobPost';
+import User from '@/models/user/types/User';
 
 export default defineEventHandler(async (event) => {
-  const { user } = event.context.session;
+  const user = event.context.session.user as User;
   const { method } = event.node.req;
 
   if (method === 'GET') {
@@ -22,9 +17,7 @@ export default defineEventHandler(async (event) => {
   }
   if (method === 'DELETE') {
     try {
-      checkUserSignedIn(user);
-
-      return await jobPostsCollection.deleteMany({});
+      return deleteJobPosts();
     } catch (error) {
       return error;
     }
@@ -34,37 +27,8 @@ export default defineEventHandler(async (event) => {
       checkUserSignedIn(user);
 
       const body = await readBody(event);
-      const validatedBody = await createJobPostSchema.validate(body);
 
-      const checkCompanyExists = await getCompanyById(
-        String(validatedBody.companyId),
-      );
-
-      const checkCompanyOwner = await companyOwnersCollection.findOne({
-        companyId: new ObjectId(validatedBody.companyId),
-        userId: new ObjectId(user._id),
-      });
-
-      if (!checkCompanyExists) {
-        throw createError({
-          statusCode: 400,
-          statusMessage: 'Company does not exist.',
-        });
-      }
-
-      if (!checkCompanyOwner) {
-        throw createError({
-          statusCode: 401,
-          statusMessage: 'You are not a company owner..',
-        });
-      }
-
-      const createdJobPost = await jobPostsCollection.insertOne({
-        ...validatedBody,
-        companyId: new ObjectId(validatedBody.companyId),
-      });
-
-      return await getJobPostById(createdJobPost.insertedId.toString());
+      return createJobPost(body, user);
     } catch (error) {
       return error;
     }
