@@ -1,8 +1,7 @@
 import deleteUsers from '../../handlers/user/deleteUsers';
 import getUsers from '../../handlers/user/getUsers';
 
-// This route gets and deletes all notications.
-// This route creates a new notification.
+// This route gets and deletes all users.
 
 export default defineEventHandler((event) => {
   // Define the request method.
