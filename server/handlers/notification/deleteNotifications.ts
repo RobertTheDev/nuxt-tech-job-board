@@ -1,6 +1,6 @@
 import { DeleteResult } from 'mongodb';
 import logger from '../../lib/winstonLogger';
-import { notificationsCollection } from 'server/lib/mongoDBCollections';
+import { notificationsCollection } from '../../lib/mongoDBCollections';
 
 // This handler deletes all the app's notifications from mongoDB.
 

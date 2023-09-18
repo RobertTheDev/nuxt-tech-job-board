@@ -1,6 +1,6 @@
 import { DeleteResult } from 'mongodb';
 import logger from '../../lib/winstonLogger';
-import { companiesCollection } from 'server/lib/mongoDBCollections';
+import { companiesCollection } from '../../lib/mongoDBCollections';
 
 // This handler deletes all the app's companies from mongoDB.
 

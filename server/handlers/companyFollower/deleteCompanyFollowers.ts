@@ -1,6 +1,6 @@
 import { DeleteResult } from 'mongodb';
 import logger from '../../lib/winstonLogger';
-import { companyFollowersCollection } from 'server/lib/mongoDBCollections';
+import { companyFollowersCollection } from '../../lib/mongoDBCollections';
 
 // This handler deletes all the app's company followers from mongoDB.
 

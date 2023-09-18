@@ -1,8 +1,8 @@
 import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
-import createCompanyFollower from 'server/handlers/companyFollower/createCompanyFollower';
+import createCompanyFollower from '../../handlers/companyFollower/createCompanyFollower';
+import deleteCompanyFollowers from '../../handlers/companyFollower/deleteCompanyFollowers';
+import getCompanyFollowers from '../../handlers/companyFollower/getCompanyFollowers';
 import User from '@/models/user/types/User';
-import deleteCompanyFollowers from 'server/handlers/companyFollower/deleteCompanyFollowers';
-import getCompanyFollowers from 'server/handlers/companyFollower/getCompanyFollowers';
 
 // This route gets and deletes all company followers.
 // This route creates a new company follower.

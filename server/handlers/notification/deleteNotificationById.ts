@@ -1,9 +1,15 @@
+import { DeleteResult, ObjectId } from 'mongodb';
 import logger from '../../lib/winstonLogger';
+import { notificationsCollection } from '../../lib/mongoDBCollections';
 
-// This handler deletes a notification by its id.
+// This handler deletes a notification from MongoDB by its id.
 
-export default function deleteNotificationById() {
+export default async function deleteNotificationById(
+  id: string,
+): Promise<DeleteResult> {
   try {
+    // Delete the notification from MongoDB by its id.
+    return await notificationsCollection.deleteOne({ _id: new ObjectId(id) });
   } catch (error) {
     // Handle the error, log it, and throw an error.
     logger.error('Error deleting notification by id:', error);

@@ -1,7 +1,7 @@
 import getJobPosts from '../../handlers/jobPost/getJobPosts';
 import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
 import deleteJobPosts from '../../handlers/jobPost/deleteJobPosts';
-import createJobPost from 'server/handlers/jobPost/createJobPost';
+import createJobPost from '../../handlers/jobPost/createJobPost';
 import User from '@/models/user/types/User';
 
 // This route gets and deletes all job posts.
