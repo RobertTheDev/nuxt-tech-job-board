@@ -1,7 +1,5 @@
-import checkEmailIsTaken from '../../handlers/auth/checkEmailIsTaken';
-import checkUserIsNotSignedIn from '../../handlers/auth/checkUserIsNotSignedIn';
-import signUp from '../../handlers/auth/signUp';
-import signUpSchema from '../../validators/auth/signUpSchema';
+import checkUserIsNotSignedIn from '../../controllers/auth/checkUserIsNotSignedIn';
+import signUp from '../../controllers/auth/signUp';
 
 export default defineEventHandler(async (event) => {
   // Get the signed in user if it is in session.
@@ -13,14 +11,8 @@ export default defineEventHandler(async (event) => {
   // Get body from the user request.
   const body = await readBody(event);
 
-  // Validate the body.
-  const validatedBody = await signUpSchema.validate(body);
-
-  // Check if user email address has been taken and throw error if it has.
-  await checkEmailIsTaken(validatedBody.emailAddress);
-
   // Call the sign up handler to sign up the user.
-  const signedUpUser = await signUp(validatedBody);
+  const signedUpUser = await signUp(body);
 
   // Create session with the signed up user.
   event.context.session.user = signedUpUser;
