@@ -1,4 +1,4 @@
-import { ObjectId } from 'mongodb';
+import { Document, ObjectId } from 'mongodb';
 import createJobPostSchema from '../../validators/jobPost/createJobPostSchema';
 import {
   companyOwnersCollection,
@@ -9,7 +9,10 @@ import logger from '../../lib/winstonLogger';
 import getJobPostById from './getJobPostById';
 import User from '@/models/user/types/User';
 
-export default async function createJobPost(body: any, user: User) {
+export default async function createJobPost(
+  body: any,
+  user: User,
+): Promise<Document | null> {
   try {
     const validatedBody = await createJobPostSchema.validate(body);
 
