@@ -1,10 +1,13 @@
 // eslint-disable-next-line import/named
 import { string, object, InferType } from 'yup';
 
+/* The code defines a schema for validating a reset password request. The schema is created using the
+`object` function from the `yup` library, which allows you to define a schema for an object with
+specific properties. */
 const resetPasswordSchema = object({
   resetPasswordToken: string()
     .required('A reset password token is required.')
-    .min(1, 'Reset password token must be at least 1 character long.'),
+    .min(1, 'Reset password token cannot be empty.'),
   password: string()
     .min(8, 'Password must be at least 8 characters long')
     .matches(/[A-Z]/, 'Password must contain at least one capital letter')

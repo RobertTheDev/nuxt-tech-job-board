@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/named
 import { string, object, InferType } from 'yup';
 
+/* The code is defining a login schema using the Yup library in TypeScript. */
 const loginSchema = object({
   emailAddress: string()
     .email('Email address must be a valid email format.')
