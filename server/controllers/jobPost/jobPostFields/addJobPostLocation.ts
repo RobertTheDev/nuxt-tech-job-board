@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
 import logger from '../../../lib/winstonLogger';
-import getJobPostById from '../getJobPostById';
+import getJobPostById from '../id/getJobPostById';
 import { jobPostsCollection } from '../../../lib/mongoDBCollections';
 import { AddLocationSchemaType } from '../../../validators/jobPost/jobPostFieldSchemas/addLocationSchema';
 

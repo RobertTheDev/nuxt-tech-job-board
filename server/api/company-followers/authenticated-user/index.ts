@@ -1,6 +1,6 @@
 import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 import getCompanyFollowersByUserId from '../../../controllers/companyFollower/getCompanyFollowersByUserId';
-import deleteCompanyFollowersByUserId from '../../../controllers/companyFollower/deleteCompanyFollowersByUserId';
+import deleteCompanyFollowersByUserId from '../../../controllers/companyFollower/userId/deleteCompanyFollowersByUserId';
 
 export default defineEventHandler((event) => {
   const { method } = event.node.req;

@@ -1,6 +1,6 @@
 import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
-import deleteJobPostsByCompanyId from '../../../controllers/jobPost/deleteJobPostsByCompanyId';
-import getJobPostsByCompanyId from '../../../controllers/jobPost/getJobPostsByCompanyId';
+import deleteJobPostsByCompanyId from '../../../controllers/jobPost/companyId/deleteJobPostsByCompanyId';
+import getJobPostsByCompanyId from '../../../controllers/jobPost/companyId/getJobPostsByCompanyId';
 
 export default defineEventHandler((event) => {
   const { method } = event.node.req;

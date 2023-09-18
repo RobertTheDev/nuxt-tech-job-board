@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
 import { jobPostsCollection } from '../../../lib/mongoDBCollections';
-import getJobPostById from '../../../controllers/jobPost/getJobPostById';
+import getJobPostById from '../../../controllers/jobPost/id/getJobPostById';
 import updateJobPostById from '../../../controllers/jobPost/updateJobPostById';
 import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 import updateJobPostSchema from '../../../validators/jobPost/updateJobPostSchema';

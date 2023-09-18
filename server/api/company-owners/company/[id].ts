@@ -1,4 +1,4 @@
-import getCompanyOwnersByCompanyId from '../../../controllers/companyOwner/getCompanyOwnersByCompanyId';
+import getCompanyOwnersByCompanyId from '../../../controllers/companyOwner/companyId/getCompanyOwnersByCompanyId';
 
 export default defineEventHandler((event) => {
   const { method } = event.node.req;

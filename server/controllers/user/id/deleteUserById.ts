@@ -4,6 +4,7 @@ import {
   companyOwnersCollection,
   jobApplicationsCollection,
   jobInterviewsCollection,
+  savedJobPostsCollection,
   usersCollection,
 } from '../../../lib/mongoDBCollections';
 import logger from '../../../lib/winstonLogger';
@@ -15,7 +16,7 @@ export default async function deleteUserById(
 ): Promise<DeleteResult> {
   try {
     // Ensure no companies the user owns exists before deleting account.
-    const findOwnedCompanies = await companyOwnersCollection.find({
+    const findOwnedCompanies = companyOwnersCollection.find({
       userId: new ObjectId(id),
     });
 
@@ -27,7 +28,7 @@ export default async function deleteUserById(
       });
     }
 
-    // Cancel all job interviews booked.
+    // Cancel all active job interviews booked booked by user.
     await jobInterviewsCollection.updateMany(
       {
         userId: new ObjectId(id),
@@ -40,6 +41,9 @@ export default async function deleteUserById(
 
     // Delete all company followers with matching user id.
     await companyFollowersCollection.deleteMany({ userId: new ObjectId(id) });
+
+    // Delete all saved job posts with matching user id.
+    await savedJobPostsCollection.deleteMany({ userId: new ObjectId(id) });
 
     // Delete all job applications with matching user id.
     await jobApplicationsCollection.deleteMany({ userId: new ObjectId(id) });

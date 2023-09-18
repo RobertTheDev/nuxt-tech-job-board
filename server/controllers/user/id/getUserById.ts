@@ -1,8 +1,11 @@
-import { ObjectId, Document } from 'mongodb';
+import { ObjectId } from 'mongodb';
 import { usersCollection } from '../../../lib/mongoDBCollections';
 import logger from '../../../lib/winstonLogger';
+import User from '@/models/user/types/User';
 
-export default async function getUserById(id: string): Promise<Document> {
+// This handler gets a user's data with matching id.
+
+export default async function getUserById(id: string): Promise<User | null> {
   try {
     // Find the user from the database by its id and remove the password field.
     const userWithoutPassword = await usersCollection
@@ -22,12 +25,11 @@ export default async function getUserById(id: string): Promise<Document> {
     }
 
     // Return the user.
-    return user;
+    return user as User;
   } catch (error) {
     // Handle the error, log it, and throw an error.
     logger.error('Error retrieving user by id:', error);
-    throw new Error(
-      'Could not retrieve the user due to an error. Please try again.',
-    );
+    // Rethrow the error to be handled elsewhere if needed
+    throw error;
   }
 }

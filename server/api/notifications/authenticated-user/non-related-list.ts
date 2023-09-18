@@ -1,4 +1,4 @@
-import getNotificationsByUserIdWithoutRelatedFields from '../../../controllers/notification/getNotificationsByUserIdWithoutRelatedFields';
+import getNotificationsByUserIdWithoutRelatedFields from '../../../controllers/notification/userId/getNotificationsByUserIdWithoutRelatedFields';
 import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 
 // This route returns notifciations the authenticated user.

@@ -6,7 +6,7 @@ import {
 } from '../../lib/mongoDBCollections';
 import createCompanySchema from '../../validators/company/createCompanySchema';
 import createCompanyOwnerSchema from '../../validators/companyOwner/createCompanyOwnerSchema';
-import getCompanyById from './getCompanyById';
+import getCompanyById from './id/getCompanyById';
 import User from '@/models/user/types/User';
 
 // This handler creates and inserts a new notification.

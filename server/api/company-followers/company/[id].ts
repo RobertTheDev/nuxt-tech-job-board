@@ -1,5 +1,5 @@
-import getCompanyFollowersByCompanyId from '../../../controllers/companyFollower/getCompanyFollowersByCompanyId';
-import deleteCompanyFollowersByCompanyId from '../../../controllers/companyFollower/deleteCompanyFollowersByCompanyId';
+import getCompanyFollowersByCompanyId from '../../../controllers/companyFollower/companyId/getCompanyFollowersByCompanyId';
+import deleteCompanyFollowersByCompanyId from '../../../controllers/companyFollower/companyId/deleteCompanyFollowersByCompanyId';
 import createCompanyFollower from '../../../controllers/companyFollower/createCompanyFollower';
 import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 

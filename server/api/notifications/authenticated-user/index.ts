@@ -1,6 +1,6 @@
 import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
-import deleteNotificationsByUserId from '../../../controllers/notification/deleteNotificationsByUserId';
-import getNotificationsByUserId from '../../../controllers/notification/getNotificationsByUserId';
+import deleteNotificationsByUserId from '../../../controllers/notification/userId/deleteNotificationsByUserId';
+import getNotificationsByUserId from '../../../controllers/notification/userId/getNotificationsByUserId';
 
 // This route returns and deletes notifications by the authenticated user.
 

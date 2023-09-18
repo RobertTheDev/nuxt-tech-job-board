@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb';
 import { jobPostsCollection } from '../../lib/mongoDBCollections';
 import JobPost from '../../../models/jobPost/types/JobPost';
 import logger from '../../lib/winstonLogger';
-import getJobPostById from './getJobPostById';
+import getJobPostById from './id/getJobPostById';
 
 export default async function publishJobPost(id: string) {
   try {

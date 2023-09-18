@@ -1,8 +1,8 @@
 import updateApplicationSchema from '../../../validators/jobApplication/updateJobApplicationSchema';
 import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
-import getJobApplicationById from '../../..//controllers/jobApplication/getJobApplicationById';
-import deleteJobApplicationById from '../../../controllers/jobApplication/deleteJobApplicationById';
-import updateJobApplicationById from '../../../controllers/jobApplication/updateJobApplicationById';
+import getJobApplicationById from '../../../controllers/jobApplication/id/getJobApplicationById';
+import deleteJobApplicationById from '../../../controllers/jobApplication/id/deleteJobApplicationById';
+import updateJobApplicationById from '../../../controllers/jobApplication/id/updateJobApplicationById';
 
 export default defineEventHandler(async (event) => {
   const { id } = event.context.params as { id: string };

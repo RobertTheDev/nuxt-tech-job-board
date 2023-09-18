@@ -1,8 +1,8 @@
 import checkUserSignedIn from '../../../../controllers/auth/checkUserSignedIn';
 import createSavedJobPost from '../../../../controllers/savedJobPost/createSavedJobPost';
-import deleteSavedJobPostsByJobPostId from '../../../../controllers/savedJobPost/deleteSavedJobPostsByJobPostId';
+import deleteSavedJobPostsByJobPostId from '../../../../controllers/savedJobPost/jobPostId/deleteSavedJobPostsByJobPostId';
 import getSavedJobPostByUserIdAndJobPostId from '../../../../controllers/savedJobPost/getSavedJobPostByUserIdAndJobPostId';
-import deleteSavedJobPostById from '../../../../controllers/savedJobPost/deleteSavedJobPostById';
+import deleteSavedJobPostById from '../../../../controllers/savedJobPost/id/deleteSavedJobPostById';
 import createSavedJobPostSchema from '../../../../validators/savedJobPost/createSavedJobPostSchema';
 
 // This route creates a saved job post and deletes a saved job post by its job post id.

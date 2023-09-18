@@ -1,6 +1,6 @@
 import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
-import getJobApplicationsByCompanyId from '../../../controllers/jobApplication/getJobApplicationsByCompanyId';
-import deleteJobApplicationsByCompanyId from '../../../controllers/jobApplication/deleteJobApplicationsByCompanyId';
+import getJobApplicationsByCompanyId from '../../../controllers/jobApplication/companyId/getJobApplicationsByCompanyId';
+import deleteJobApplicationsByCompanyId from '../../../controllers/jobApplication/companyId/deleteJobApplicationsByCompanyId';
 
 export default defineEventHandler((event) => {
   const { id } = event.context.params as { id: string };

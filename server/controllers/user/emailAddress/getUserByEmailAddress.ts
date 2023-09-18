@@ -1,9 +1,12 @@
 import { usersCollection } from '../../../lib/mongoDBCollections';
 import logger from '../../../lib/winstonLogger';
+import User from '@/models/user/types/User';
 
 // This handler gets a user by their email address.
 
-export default async function getUserByEmailAddress(emailAddress: string) {
+export default async function getUserByEmailAddress(
+  emailAddress: string,
+): Promise<User | null> {
   try {
     // Find the user from the database by its email address.
     const userWithoutPassword = await usersCollection
@@ -23,7 +26,7 @@ export default async function getUserByEmailAddress(emailAddress: string) {
     }
 
     // Return the user.
-    return user;
+    return user as User;
   } catch (error) {
     // Handle the error, log it, and throw an error.
     logger.error('Error retrieving user by email address:', error);

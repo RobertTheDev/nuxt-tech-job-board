@@ -1,15 +1,16 @@
-import { ObjectId, Document } from 'mongodb';
+import { ObjectId } from 'mongodb';
 import { usersCollection } from '../../lib/mongoDBCollections';
 import changeEmailSchema from '../../validators/settings/changeEmailSchema';
 import logger from '../../lib/winstonLogger';
 import getUserById from '../user/id/getUserById';
+import User from '@/models/user/types/User';
 
 // This handler changes the user's email.
 
 export default async function changeEmail(
   id: string,
   body: any,
-): Promise<Document> {
+): Promise<User | null> {
   try {
     // Validate the body.
     const validatedBody = await changeEmailSchema.validate(body);

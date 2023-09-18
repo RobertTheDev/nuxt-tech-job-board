@@ -1,6 +1,6 @@
-import getNotificationById from '../../../controllers/notification/getNotificationById';
-import deleteNotificationById from '../../../controllers/notification/deleteNotificationById';
-import updateNotificationById from '../../../controllers/notification/updateNotificationById';
+import getNotificationById from '../../../controllers/notification/id/getNotificationById';
+import deleteNotificationById from '../../../controllers/notification/id/deleteNotificationById';
+import updateNotificationById from '../../../controllers/notification/id/updateNotificationById';
 import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 import User from '@/models/user/types/User';
 

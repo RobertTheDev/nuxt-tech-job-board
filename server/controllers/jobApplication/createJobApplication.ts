@@ -2,7 +2,7 @@ import { Document, WithId } from 'mongodb';
 import { jobApplicationsCollection } from '../../lib/mongoDBCollections';
 import createJobApplicationSchema from '../../validators/jobApplication/createJobApplicationSchema';
 import logger from '../../lib/winstonLogger';
-import getJobApplicationById from './getJobApplicationById';
+import getJobApplicationById from './id/getJobApplicationById';
 
 // This handler creates and inserts a new job application.
 

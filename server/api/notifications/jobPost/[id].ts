@@ -1,5 +1,5 @@
-import getNotificationsByJobPostId from '../../../controllers/notification/getNotificationsByJobPostId';
-import deleteNotificationsByJobPostId from '../../../controllers/notification/deleteNotificationsByJobPostId';
+import getNotificationsByJobPostId from '../../../controllers/notification/jobPostId/getNotificationsByJobPostId';
+import deleteNotificationsByJobPostId from '../../../controllers/notification/jobPostId/deleteNotificationsByJobPostId';
 import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 import User from '@/models/user/types/User';
 

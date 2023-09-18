@@ -1,8 +1,8 @@
-import getCompanyById from '../../../controllers/company/getCompanyById';
-import deleteCompanyById from '../../../controllers/company/deleteCompanyById';
+import getCompanyById from '../../../controllers/company/id/getCompanyById';
+import deleteCompanyById from '../../../controllers/company/id/deleteCompanyById';
 import updateCompanyById from '../../../controllers/company/updateCompanyById';
 import updateCompanySchema from '../../../validators/company/updateCompanySchema';
-import deleteCompanyOwnersByCompanyId from '../../../controllers/companyOwner/deleteCompanyOwnersByCompanyId';
+import deleteCompanyOwnersByCompanyId from '../../../controllers/companyOwner/companyId/deleteCompanyOwnersByCompanyId';
 import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 
 export default defineEventHandler(async (event) => {

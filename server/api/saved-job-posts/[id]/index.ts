@@ -1,5 +1,5 @@
 import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
-import deleteSavedJobPostById from '../../../controllers/savedJobPost/deleteSavedJobPostById';
+import deleteSavedJobPostById from '../../../controllers/savedJobPost/id/deleteSavedJobPostById';
 import getSavedJobPostById from '../../../controllers/savedJobPost/getSavedJobPostById';
 
 // This route returns and deletes a saved job post by its id.

@@ -4,9 +4,9 @@ import {
   companyOwnersCollection,
   jobPostsCollection,
 } from '../../lib/mongoDBCollections';
-import getCompanyById from '../company/getCompanyById';
+import getCompanyById from '../company/id/getCompanyById';
 import logger from '../../lib/winstonLogger';
-import getJobPostById from './getJobPostById';
+import getJobPostById from './id/getJobPostById';
 import User from '@/models/user/types/User';
 
 export default async function createJobPost(

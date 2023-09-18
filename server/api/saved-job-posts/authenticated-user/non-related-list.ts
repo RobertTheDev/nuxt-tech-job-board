@@ -1,5 +1,5 @@
 import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
-import getSavedJobPostsWithoutRelatedFields from '../../../controllers/savedJobPost/getSavedJobPostsByUserIdWithoutRelatedFields';
+import getSavedJobPostsWithoutRelatedFields from '../../../controllers/savedJobPost/userId/getSavedJobPostsByUserIdWithoutRelatedFields';
 
 // This route returns saved job posts saved by the authenticated user.
 // This route does not perform lookups.

@@ -1,5 +1,5 @@
-import getNotificationsByCompanyId from '../../../controllers/notification/getNotificationsByCompanyId';
-import deleteNotificationsByCompanyId from '../../../controllers/notification/deleteNotificationsByCompanyId';
+import getNotificationsByCompanyId from '../../../controllers/notification/companyId/getNotificationsByCompanyId';
+import deleteNotificationsByCompanyId from '../../../controllers/notification/companyId/deleteNotificationsByCompanyId';
 import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 import User from '@/models/user/types/User';
 
