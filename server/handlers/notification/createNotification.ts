@@ -4,7 +4,7 @@ import logger from '../../lib/winstonLogger';
 import { notificationsCollection } from '../../lib/mongoDBCollections';
 import getNotificationById from './getNotificationById';
 
-// This handler creates and inserts a new notification.
+// This handler creates and inserts a new notification into MongoDB.
 
 export default async function createNotification(
   body: any,
@@ -13,12 +13,12 @@ export default async function createNotification(
     // Validate the body.
     const validatedBody = await createNotificationSchema.validate(body);
 
-    // Create and return the notigi
+    // Create and return the notification
     const createdNotification = await notificationsCollection.insertOne(
       validatedBody,
     );
 
-    // Return created saved job post by its id.
+    // Return created notification by its id.
     return await getNotificationById(createdNotification.insertedId.toString());
   } catch (error) {
     // Handle the error, log it, and throw an error.
