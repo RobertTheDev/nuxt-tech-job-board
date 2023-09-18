@@ -1,4 +1,4 @@
-import sendEmailVerificationCode from '../../../handlers/settings/sendEmailVerificationCode';
+import sendVerificationEmail from '../../../handlers/settings/sendVerificationEmail';
 import sendEmailVerificationTokenSchema from '../../../validators/settings/sendEmailVerificationTokenSchema';
 import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
 
@@ -14,5 +14,5 @@ export default defineEventHandler(async (event) => {
 
   const validatedBody = await sendEmailVerificationTokenSchema.validate(body);
 
-  return sendEmailVerificationCode(validatedBody);
+  return sendVerificationEmail(validatedBody);
 });

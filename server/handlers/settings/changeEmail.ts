@@ -1,32 +1,40 @@
-import { ObjectId } from 'mongodb';
+import { ObjectId, Document } from 'mongodb';
 import { usersCollection } from '../../lib/mongoDBCollections';
-import findUserById from '../auth/findUserById';
-import { ChangeEmailSchemaType } from '../../validators/settings/changeEmailSchema';
+import changeEmailSchema from '../../validators/settings/changeEmailSchema';
+import logger from '../../lib/winstonLogger';
+import getUserById from '../user/getUserById';
+
+// This handler changes the user's email.
 
 export default async function changeEmail(
   id: string,
-  body: ChangeEmailSchemaType,
-) {
-  // Update the user by its id.
-  await usersCollection.findOneAndUpdate(
-    {
-      _id: new ObjectId(id),
-    },
-    {
-      $set: {
-        emailAddress: body.newEmailAddress,
-        emailVerified: null,
-        updatedAt: body.updatedAt,
+  body: any,
+): Promise<Document> {
+  try {
+    // Validate the body.
+    const validatedBody = await changeEmailSchema.validate(body);
+
+    // Update the user by its id.
+    await usersCollection.findOneAndUpdate(
+      {
+        _id: new ObjectId(id),
       },
-    },
-  );
-  // Get the updated user by its id.
-  const updatedUser = await findUserById(id.toString());
+      {
+        $set: {
+          emailAddress: validatedBody.newEmailAddress,
+          emailVerified: null,
+          updatedAt: validatedBody.updatedAt,
+        },
+      },
+    );
 
-  // Remove unwanted password field.
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { password, ...userWithoutPassword } = updatedUser;
-
-  // Return user without password.
-  return userWithoutPassword;
+    // Return the updated user by its id.
+    return await getUserById(id.toString());
+  } catch (error) {
+    // Handle the error, log it, and throw an error.
+    logger.error(`Error trying to change the user's email:`, error);
+    throw new Error(
+      'Could not change the user email due to an error. Please try again.',
+    );
+  }
 }

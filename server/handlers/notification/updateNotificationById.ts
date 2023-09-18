@@ -24,7 +24,7 @@ export default async function updateNotificationById(
     return await getNotificationById(id);
   } catch (error) {
     // Handle the error, log it, and throw an error.
-    logger.error('Error updating notification:', error);
+    logger.error('Error updating notification by id:', error);
     throw new Error(
       'Could not update the notification due to an error. Please try again.',
     );

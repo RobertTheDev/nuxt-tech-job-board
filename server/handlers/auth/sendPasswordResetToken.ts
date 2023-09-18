@@ -1,14 +1,20 @@
 import { randomUUID } from 'node:crypto';
 import sgMail from '@sendgrid/mail';
 import { usersCollection } from '../../lib/mongoDBCollections';
-import { SendPasswordResetTokenSchemaType } from '../../validators/auth/sendPasswordResetTokenSchema';
+import sendPasswordResetTokenSchema from '../../validators/auth/sendPasswordResetTokenSchema';
 import logger from '../../lib/winstonLogger';
 import APIResponse from '@/models/config/api/Response';
 
+// This handler sends a password reset token by email using SendGrid.
+
 export default async function sendPasswordResetToken(
-  validatedBody: SendPasswordResetTokenSchemaType,
+  body: any,
 ): Promise<APIResponse> {
   try {
+    // Validate the body.
+    const validatedBody = await sendPasswordResetTokenSchema.validate(body);
+
+    // Get email address from validated body.
     const { emailAddress } = validatedBody;
 
     // Create an expiry time 10 minutes from now.
@@ -17,10 +23,14 @@ export default async function sendPasswordResetToken(
       currentTimeInMS + 10 * 60 * 1000,
     ).getTime();
 
+    // Create a reset password token using a generated random uuid.
     const resetPasswordToken = randomUUID();
 
+    // Set the sendgrid api key.
     sgMail.setApiKey(String(process.env.SENDGRID_API_KEY));
-    const msg = {
+
+    // The password reset email template content.
+    const passwordResetEmailTemplate = {
       to: emailAddress,
       from: 'robertthedev@gmail.com',
       subject: 'TechBoard Reset Password',
@@ -53,8 +63,10 @@ export default async function sendPasswordResetToken(
     `,
     };
 
-    await sgMail.send(msg);
+    // Send the password reset email.
+    await sgMail.send(passwordResetEmailTemplate);
 
+    // Update the user with the reset password token to retrieve it.
     await usersCollection.findOneAndUpdate(
       {
         emailAddress,
@@ -67,15 +79,16 @@ export default async function sendPasswordResetToken(
       },
     );
 
+    // Return a 200 is password reset email is successfully sent.
     return {
       statusCode: 200,
       statusMessage: `Password reset email has been succesfully sent to ${emailAddress}.`,
     };
   } catch (error) {
     // Handle the error, log it, and throw an error.
-    logger.error('Error inserting user:', error);
+    logger.error('Error sending password reset email:', error);
     throw new Error(
-      'Sign up could not be completed due to an error. Please try again.',
+      'Password reset email coudl not be sent due to an error. Please try again.',
     );
   }
 }
