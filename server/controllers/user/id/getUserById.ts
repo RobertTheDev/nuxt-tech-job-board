@@ -1,6 +1,6 @@
 import { ObjectId, Document } from 'mongodb';
-import { usersCollection } from '../../lib/mongoDBCollections';
-import logger from '../../lib/winstonLogger';
+import { usersCollection } from '../../../lib/mongoDBCollections';
+import logger from '../../../lib/winstonLogger';
 
 export default async function getUserById(id: string): Promise<Document> {
   try {

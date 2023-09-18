@@ -2,7 +2,7 @@ import { ObjectId, Document } from 'mongodb';
 import { usersCollection } from '../../lib/mongoDBCollections';
 import changeEmailSchema from '../../validators/settings/changeEmailSchema';
 import logger from '../../lib/winstonLogger';
-import getUserById from '../user/getUserById';
+import getUserById from '../user/id/getUserById';
 
 // This handler changes the user's email.
 

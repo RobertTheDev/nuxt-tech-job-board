@@ -2,7 +2,7 @@ import { usersCollection } from '../../lib/mongoDBCollections';
 import { hashPassword } from '../../lib/passwordManagement';
 import signUpSchema from '../../validators/auth/signUpSchema';
 import logger from '../../lib/winstonLogger';
-import getUserById from '../user/getUserById';
+import getUserById from '../user/id/getUserById';
 import checkEmailIsTaken from './checkEmailIsTaken';
 import User from '@/models/user/types/User';
 

@@ -1,7 +1,7 @@
 import { ObjectId } from 'mongodb';
-import { usersCollection } from '../../lib/mongoDBCollections';
-import { UpdateUserSchemaType } from '../../validators/user/updateUserSchema';
-import logger from '../../lib/winstonLogger';
+import { usersCollection } from '../../../lib/mongoDBCollections';
+import { UpdateUserSchemaType } from '../../../validators/user/updateUserSchema';
+import logger from '../../../lib/winstonLogger';
 import getUserById from './getUserById';
 
 export default async function updateUserById(

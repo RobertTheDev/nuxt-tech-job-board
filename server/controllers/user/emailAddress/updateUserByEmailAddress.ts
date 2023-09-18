@@ -1,6 +1,6 @@
-import { usersCollection } from '../../lib/mongoDBCollections';
-import { UpdateUserSchemaType } from '../../validators/user/updateUserSchema';
-import logger from '../../lib/winstonLogger';
+import { usersCollection } from '../../../lib/mongoDBCollections';
+import { UpdateUserSchemaType } from '../../../validators/user/updateUserSchema';
+import logger from '../../../lib/winstonLogger';
 import getUserByEmailAddress from './getUserByEmailAddress';
 
 export default async function updateUserByEmailAddress(

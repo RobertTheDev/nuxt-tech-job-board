@@ -1,6 +1,6 @@
 import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
-import getUserById from '../../../controllers/user/getUserById';
-import updateUserById from '../../../controllers/user/updateUserById';
+import getUserById from '../../../controllers/user/id/getUserById';
+import updateUserById from '../../../controllers/user/id/updateUserById';
 import updateUserSchema from '../../../validators/user/updateUserSchema';
 
 export default defineEventHandler(async (event) => {

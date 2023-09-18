@@ -1,5 +1,5 @@
-import { usersCollection } from '../../lib/mongoDBCollections';
-import logger from '../../lib/winstonLogger';
+import { usersCollection } from '../../../lib/mongoDBCollections';
+import logger from '../../../lib/winstonLogger';
 
 // This handler gets a user by their email address.
 

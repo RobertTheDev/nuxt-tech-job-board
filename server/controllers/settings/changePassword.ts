@@ -3,7 +3,7 @@ import { usersCollection } from '../../lib/mongoDBCollections';
 import { hashPassword } from '../../lib/passwordManagement';
 import changePasswordSchema from '../../validators/settings/changePasswordSchema';
 import logger from '../../lib/winstonLogger';
-import getUserById from '../user/getUserById';
+import getUserById from '../user/id/getUserById';
 
 // This handler changes the user's password.
 

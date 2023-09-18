@@ -1,6 +1,6 @@
 import { DeleteResult } from 'mongodb';
-import { usersCollection } from '../../lib/mongoDBCollections';
-import logger from '../../lib/winstonLogger';
+import { usersCollection } from '../../../lib/mongoDBCollections';
+import logger from '../../../lib/winstonLogger';
 
 // This handler finds and deletes a user by their email address.
 

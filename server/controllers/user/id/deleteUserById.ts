@@ -5,8 +5,8 @@ import {
   jobApplicationsCollection,
   jobInterviewsCollection,
   usersCollection,
-} from '../../lib/mongoDBCollections';
-import logger from '../../lib/winstonLogger';
+} from '../../../lib/mongoDBCollections';
+import logger from '../../../lib/winstonLogger';
 
 // This handler finds and deletes a user by its id.
 
