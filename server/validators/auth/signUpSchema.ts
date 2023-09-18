@@ -9,7 +9,7 @@ const signUpSchema = object({
     .email('Email address must be a valid email format.')
     .min(1, 'Email address cannot be empty.')
     .required('Email address is required.'),
-  emailVerified: string().default(null),
+  emailVerified: string().nullable().default(null),
   firstName: string()
     .min(1, 'First name cannot be empty.')
     .required('First name is required.'),
