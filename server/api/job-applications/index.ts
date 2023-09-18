@@ -1,7 +1,7 @@
-import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
-import deleteJobApplications from '../../handlers/jobApplication/deleteJobApplications';
-import getJobApplications from '../../handlers/jobApplication/getJobApplications';
-import createJobApplication from '../../handlers/jobApplication/createJobApplication';
+import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
+import deleteJobApplications from '../../controllers/jobApplication/deleteJobApplications';
+import getJobApplications from '../../controllers/jobApplication/getJobApplications';
+import createJobApplication from '../../controllers/jobApplication/createJobApplication';
 import User from '@/models/user/types/User';
 
 // This route gets and deletes all job applications.

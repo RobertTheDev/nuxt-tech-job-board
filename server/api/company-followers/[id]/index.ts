@@ -1,5 +1,5 @@
-import deleteCompanyFollowerById from '../../../handlers/companyFollower/deleteCompanyFollowerById';
-import getCompanyFollowerById from '../../../handlers/companyFollower/getCompanyFollowerById';
+import deleteCompanyFollowerById from '../../../controllers/companyFollower/deleteCompanyFollowerById';
+import getCompanyFollowerById from '../../../controllers/companyFollower/getCompanyFollowerById';
 
 export default defineEventHandler((event) => {
   const { method } = event.node.req;

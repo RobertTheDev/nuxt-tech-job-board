@@ -1,8 +1,8 @@
 import closeAccountSchema from '../../validators/settings/closeAccountSchema';
-import checkPasswordCorrect from '../../handlers/auth/checkPasswordCorrect';
-import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
-import getUserByEmailAddress from '../../handlers/user/getUserByEmailAddress';
-import closeAccount from '../../handlers/settings/closeAccount';
+import checkPasswordCorrect from '../../controllers/auth/checkPasswordCorrect';
+import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
+import getUserByEmailAddress from '../../controllers/user/getUserByEmailAddress';
+import closeAccount from '../../controllers/settings/closeAccount';
 
 export default defineEventHandler(async (event) => {
   const { user } = await event.context.session;

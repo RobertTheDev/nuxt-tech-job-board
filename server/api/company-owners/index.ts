@@ -1,7 +1,7 @@
-import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
-import createCompanyOwner from '../../handlers/companyOwner/createCompanyOwner';
-import deleteCompanyOwners from '../../handlers/companyOwner/deleteCompanyOwners';
-import getCompanyOwners from '../../handlers/companyOwner/getCompanyOwners';
+import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
+import createCompanyOwner from '../../controllers/companyOwner/createCompanyOwner';
+import deleteCompanyOwners from '../../controllers/companyOwner/deleteCompanyOwners';
+import getCompanyOwners from '../../controllers/companyOwner/getCompanyOwners';
 import User from '@/models/user/types/User';
 
 // This route gets and deletes all company owners.

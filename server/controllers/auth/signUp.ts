@@ -2,8 +2,7 @@ import { usersCollection } from '../../lib/mongoDBCollections';
 import { hashPassword } from '../../lib/passwordManagement';
 import signUpSchema from '../../validators/auth/signUpSchema';
 import logger from '../../lib/winstonLogger';
-import redisClient from '../../db/redis';
-import findUserById from './findUserById';
+import getUserById from '../user/getUserById';
 import checkEmailIsTaken from './checkEmailIsTaken';
 import User from '@/models/user/types/User';
 
@@ -11,6 +10,7 @@ import User from '@/models/user/types/User';
 
 export default async function signUp(body: any) {
   try {
+    // Validate the body.
     const validatedBody = await signUpSchema.validate(body);
 
     // Check if user email address has been taken and throw error if it has.
@@ -31,21 +31,12 @@ export default async function signUp(body: any) {
     // Insert the created user into the database.
     const createUser = await usersCollection.insertOne(userWithHashedPassword);
 
-    // Find the created user in MongoDB.
-    const createdUser = (await findUserById(
-      createUser.insertedId.toString(),
-    )) as User;
-
-    // Insert the created user into Redis cache.
-    await redisClient.set(createdUser._id, JSON.stringify(createdUser));
-
     // Return the created user from the MongoDB database by id.
-    return createdUser;
+    return (await getUserById(createUser.insertedId.toString())) as User;
   } catch (error) {
-    // Handle the error, log it, and throw an error.
-    logger.error('Error inserting user:', error);
-    throw new Error(
-      'Sign up could not be completed due to an error. Please try again.',
-    );
+    // Handle the error here or rethrow it to be handled elsewhere
+    logger.error(`Error during user sign up:`, error);
+    // Rethrow the error to be handled elsewhere if needed
+    throw error;
   }
 }

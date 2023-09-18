@@ -21,8 +21,7 @@ export default async function checkEmailIsTaken(emailAddress: string) {
   } catch (error) {
     // Handle the error, log it, and throw an error.
     logger.error('Error checking if user email has been taken:', error);
-    throw new Error(
-      `Could not check the user's email due to an error. Please try again.`,
-    );
+    // Rethrow the error to be handled elsewhere if needed
+    throw error;
   }
 }

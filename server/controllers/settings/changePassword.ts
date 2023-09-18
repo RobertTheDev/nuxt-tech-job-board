@@ -1,9 +1,9 @@
 import { ObjectId, Document } from 'mongodb';
 import { usersCollection } from '../../lib/mongoDBCollections';
 import { hashPassword } from '../../lib/passwordManagement';
-import findUserById from '../auth/findUserById';
 import changePasswordSchema from '../../validators/settings/changePasswordSchema';
 import logger from '../../lib/winstonLogger';
+import getUserById from '../user/getUserById';
 
 // This handler changes the user's password.
 
@@ -30,7 +30,7 @@ export default async function changePassword(
     );
 
     // Return the user without password field.
-    return await findUserById(id);
+    return await getUserById(id);
   } catch (error) {
     // Handle the error, log it, and throw an error.
     logger.error(`Error trying to change the user's password:`, error);

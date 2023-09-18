@@ -1,4 +1,4 @@
-import getJobInterviewsByCompanyId from '../../../handlers/jobInterview/getJobInterviewsByCompanyId';
+import getJobInterviewsByCompanyId from '../../../controllers/jobInterview/getJobInterviewsByCompanyId';
 
 export default defineEventHandler((event) => {
   const { id } = event.context.params as { id: string };

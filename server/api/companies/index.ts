@@ -1,7 +1,7 @@
-import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
-import createCompany from '../../handlers/company/createCompany';
-import deleteCompanies from '../../handlers/company/deleteCompanies';
-import getCompanies from '../../handlers/company/getCompanies';
+import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
+import createCompany from '../../controllers/company/createCompany';
+import deleteCompanies from '../../controllers/company/deleteCompanies';
+import getCompanies from '../../controllers/company/getCompanies';
 import User from '@/models/user/types/User';
 
 // This route gets and deletes all companies.

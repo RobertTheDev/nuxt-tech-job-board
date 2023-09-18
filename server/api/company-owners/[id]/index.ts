@@ -1,5 +1,5 @@
-import deleteCompanyOwnerById from '../../../handlers/companyOwner/deleteCompanyOwnerById';
-import getCompanyOwnerById from '../../../handlers/companyOwner/getCompanyOwnerById';
+import deleteCompanyOwnerById from '../../../controllers/companyOwner/deleteCompanyOwnerById';
+import getCompanyOwnerById from '../../../controllers/companyOwner/getCompanyOwnerById';
 
 export default defineEventHandler((event) => {
   const { method } = event.node.req;

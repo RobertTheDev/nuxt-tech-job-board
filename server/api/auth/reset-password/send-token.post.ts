@@ -1,6 +1,6 @@
 import sendPasswordResetTokenSchema from '../../../validators/auth/sendPasswordResetTokenSchema';
-import checkUserIsNotSignedIn from '../../../handlers/auth/checkUserIsNotSignedIn';
-import sendPasswordResetToken from '../../../handlers/auth/sendPasswordResetToken';
+import checkUserIsNotSignedIn from '../../../controllers/auth/checkUserIsNotSignedIn';
+import sendPasswordResetToken from '../../../controllers/auth/sendPasswordResetToken';
 
 export default defineEventHandler(async (event) => {
   // Get the user from session.

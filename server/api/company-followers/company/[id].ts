@@ -1,7 +1,7 @@
-import getCompanyFollowersByCompanyId from '../../../handlers/companyFollower/getCompanyFollowersByCompanyId';
-import deleteCompanyFollowersByCompanyId from '../../../handlers/companyFollower/deleteCompanyFollowersByCompanyId';
-import createCompanyFollower from '../../../handlers/companyFollower/createCompanyFollower';
-import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
+import getCompanyFollowersByCompanyId from '../../../controllers/companyFollower/getCompanyFollowersByCompanyId';
+import deleteCompanyFollowersByCompanyId from '../../../controllers/companyFollower/deleteCompanyFollowersByCompanyId';
+import createCompanyFollower from '../../../controllers/companyFollower/createCompanyFollower';
+import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 
 export default defineEventHandler((event) => {
   const { method } = event.node.req;

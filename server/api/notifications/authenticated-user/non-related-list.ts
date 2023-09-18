@@ -1,5 +1,5 @@
-import getNotificationsByUserIdWithoutRelatedFields from '../../../handlers/notification/getNotificationsByUserIdWithoutRelatedFields';
-import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
+import getNotificationsByUserIdWithoutRelatedFields from '../../../controllers/notification/getNotificationsByUserIdWithoutRelatedFields';
+import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 
 // This route returns notifciations the authenticated user.
 // This route does not perform lookups.

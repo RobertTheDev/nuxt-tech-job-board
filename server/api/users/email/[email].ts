@@ -1,7 +1,7 @@
-import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
-import getUserByEmailAddress from '../../../handlers/user/getUserByEmailAddress';
+import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
+import getUserByEmailAddress from '../../../controllers/user/getUserByEmailAddress';
 import updateUserSchema from '../../../validators/user/updateUserSchema';
-import updateUserByEmailAddress from '../../../handlers/user/updateUserByEmailAddress';
+import updateUserByEmailAddress from '../../../controllers/user/updateUserByEmailAddress';
 
 export default defineEventHandler(async (event) => {
   const { method } = event.node.req;

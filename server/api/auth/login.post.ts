@@ -1,6 +1,6 @@
-import checkPasswordCorrect from '../../handlers/auth/checkPasswordCorrect';
-import checkUserIsNotSignedIn from '../../handlers/auth/checkUserIsNotSignedIn';
-import login from '../../handlers/auth/login';
+import checkPasswordCorrect from '../../controllers/auth/checkPasswordCorrect';
+import checkUserIsNotSignedIn from '../../controllers/auth/checkUserIsNotSignedIn';
+import login from '../../controllers/auth/login';
 import loginSchema from '../../validators/auth/loginSchema';
 
 export default defineEventHandler(async (event) => {

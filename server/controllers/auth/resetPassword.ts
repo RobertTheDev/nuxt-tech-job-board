@@ -68,8 +68,7 @@ export default async function resetPassword(body: any) {
   } catch (error) {
     // Handle the error, log it, and throw an error.
     logger.error(`Error trying to reset the user's password:`, error);
-    throw new Error(
-      `Could not reset the user's password due to an error. Please try again.`,
-    );
+    // Rethrow the error to be handled elsewhere if needed
+    throw error;
   }
 }

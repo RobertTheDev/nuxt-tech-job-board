@@ -1,7 +1,7 @@
-import getNotificationById from '../../../handlers/notification/getNotificationById';
-import deleteNotificationById from '../../../handlers/notification/deleteNotificationById';
-import updateNotificationById from '../../../handlers/notification/updateNotificationById';
-import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
+import getNotificationById from '../../../controllers/notification/getNotificationById';
+import deleteNotificationById from '../../../controllers/notification/deleteNotificationById';
+import updateNotificationById from '../../../controllers/notification/updateNotificationById';
+import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 import User from '@/models/user/types/User';
 
 // This route gets and deletes a notification by its id.

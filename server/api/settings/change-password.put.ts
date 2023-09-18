@@ -1,6 +1,6 @@
-import changePassword from '../../handlers/settings/changePassword';
-import checkPasswordCorrect from '../../handlers/auth/checkPasswordCorrect';
-import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
+import changePassword from '../../controllers/settings/changePassword';
+import checkPasswordCorrect from '../../controllers/auth/checkPasswordCorrect';
+import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
 import changePasswordSchema from '../../validators/settings/changePasswordSchema';
 
 export default defineEventHandler(async (event) => {

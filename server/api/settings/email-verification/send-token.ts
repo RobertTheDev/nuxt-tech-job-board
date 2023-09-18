@@ -1,6 +1,6 @@
-import sendVerificationEmail from '../../../handlers/settings/sendVerificationEmail';
+import sendVerificationEmail from '../../../controllers/settings/sendVerificationEmail';
 import sendEmailVerificationTokenSchema from '../../../validators/settings/sendEmailVerificationTokenSchema';
-import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
+import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 
 export default defineEventHandler(async (event) => {
   // Get the user from session.

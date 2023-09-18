@@ -15,8 +15,7 @@ export default function checkUserSignedIn(user: User) {
   } catch (error) {
     // Handle the error, log it, and throw an error.
     logger.error(`Error checking if user is signed in:`, error);
-    throw new Error(
-      `Could not check if user is signed in due to an error. Please try again.`,
-    );
+    // Rethrow the error to be handled elsewhere if needed
+    throw error;
   }
 }

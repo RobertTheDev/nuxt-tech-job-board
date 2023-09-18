@@ -1,7 +1,7 @@
-import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
-import deleteSavedJobPosts from '../../handlers/savedJobPost/deleteSavedJobPosts';
-import getSavedJobPosts from '../../handlers/savedJobPost/getSavedJobPosts';
-import createSavedJobPost from '../../handlers/savedJobPost/createSavedJobPost';
+import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
+import deleteSavedJobPosts from '../../controllers/savedJobPost/deleteSavedJobPosts';
+import getSavedJobPosts from '../../controllers/savedJobPost/getSavedJobPosts';
+import createSavedJobPost from '../../controllers/savedJobPost/createSavedJobPost';
 import User from '@/models/user/types/User';
 
 // This route gets and deletes all saved job posts in the app.

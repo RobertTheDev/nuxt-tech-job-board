@@ -1,4 +1,4 @@
-import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
+import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
 
 export default defineEventHandler((event) => {
   const { user } = event.context.session;

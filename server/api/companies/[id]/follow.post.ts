@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
+import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 import {
   companiesCollection,
   companyFollowersCollection,

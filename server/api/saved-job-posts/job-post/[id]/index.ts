@@ -1,11 +1,9 @@
-import checkUserSignedIn from '../../../../handlers/auth/checkUserSignedIn';
-import createSavedJobPost from '../../../../handlers/savedJobPost/createSavedJobPost';
-import deleteSavedJobPostsByJobPostId from '../../../../handlers/savedJobPost/deleteSavedJobPostsByJobPostId';
-import getSavedJobPostByUserIdAndJobPostId from '../../../../handlers/savedJobPost/getSavedJobPostByUserIdAndJobPostId';
-import deleteSavedJobPostById from '../../../../handlers/savedJobPost/deleteSavedJobPostById';
+import checkUserSignedIn from '../../../../controllers/auth/checkUserSignedIn';
+import createSavedJobPost from '../../../../controllers/savedJobPost/createSavedJobPost';
+import deleteSavedJobPostsByJobPostId from '../../../../controllers/savedJobPost/deleteSavedJobPostsByJobPostId';
+import getSavedJobPostByUserIdAndJobPostId from '../../../../controllers/savedJobPost/getSavedJobPostByUserIdAndJobPostId';
+import deleteSavedJobPostById from '../../../../controllers/savedJobPost/deleteSavedJobPostById';
 import createSavedJobPostSchema from '../../../../validators/savedJobPost/createSavedJobPostSchema';
-import incrementUserJobPostsSaved from '../../../../handlers/savedJobPost/incrementUserJobPostsSaved';
-import decrementUserJobPostsSaved from '../../../../handlers/savedJobPost/decrementUserJobPostsSaved';
 
 // This route creates a saved job post and deletes a saved job post by its job post id.
 
@@ -33,9 +31,6 @@ export default defineEventHandler(async (event) => {
 
       // If the saved job post exists then delete it by its id.
       if (savedJobPost) {
-        // Decrement the user's total jobs saved.
-        await decrementUserJobPostsSaved(userId);
-
         // Delete saved job post it by its id.
         return await deleteSavedJobPostById(savedJobPost._id.toString());
       }
@@ -45,9 +40,6 @@ export default defineEventHandler(async (event) => {
         userId,
         jobPostId: id,
       });
-
-      // Create the saved job post with the user's id and the job post id.
-      await incrementUserJobPostsSaved(userId);
 
       // Increment the user's total jobs saved.
       return await createSavedJobPost(validatedBody);

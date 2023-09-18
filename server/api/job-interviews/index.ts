@@ -1,7 +1,7 @@
-import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
-import getJobInterviews from '../../handlers/jobInterview/getJobInterviews';
-import deleteJobInterviews from '../../handlers/jobInterview/deleteJobInterviews';
-import createJobInterview from '../../handlers/jobInterview/createJobInterview';
+import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
+import getJobInterviews from '../../controllers/jobInterview/getJobInterviews';
+import deleteJobInterviews from '../../controllers/jobInterview/deleteJobInterviews';
+import createJobInterview from '../../controllers/jobInterview/createJobInterview';
 import User from '@/models/user/types/User';
 
 // This route gets and deletes all job interviews.

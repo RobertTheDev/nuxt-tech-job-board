@@ -1,9 +1,9 @@
-import getCompanyById from '../../../handlers/company/getCompanyById';
-import deleteCompanyById from '../../../handlers/company/deleteCompanyById';
-import updateCompanyById from '../../../handlers/company/updateCompanyById';
+import getCompanyById from '../../../controllers/company/getCompanyById';
+import deleteCompanyById from '../../../controllers/company/deleteCompanyById';
+import updateCompanyById from '../../../controllers/company/updateCompanyById';
 import updateCompanySchema from '../../../validators/company/updateCompanySchema';
-import deleteCompanyOwnersByCompanyId from '../../../handlers/companyOwner/deleteCompanyOwnersByCompanyId';
-import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
+import deleteCompanyOwnersByCompanyId from '../../../controllers/companyOwner/deleteCompanyOwnersByCompanyId';
+import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 
 export default defineEventHandler(async (event) => {
   const { id } = event.context.params as { id: string };

@@ -1,6 +1,6 @@
 import logger from '../../lib/winstonLogger';
 import User from '../../../models/user/types/User';
-import findUserById from './findUserById';
+import getUserByEmailAddress from '../user/getUserByEmailAddress';
 
 // This handler gets the signed in user from the session.
 
@@ -15,12 +15,11 @@ export default async function getSignedInUser(signedInUser: User) {
     }
 
     // Return user.
-    return await findUserById(signedInUser._id);
+    return await getUserByEmailAddress(signedInUser.emailAddress);
   } catch (error) {
     // Handle the error, log it, and throw an error.
     logger.error(`Error getting the authenticated user:`, error);
-    throw new Error(
-      `Could not find the authenticated user due to an error. Please try again.`,
-    );
+    // Rethrow the error to be handled elsewhere if needed
+    throw error;
   }
 }

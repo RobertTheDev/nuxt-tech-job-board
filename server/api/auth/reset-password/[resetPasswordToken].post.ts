@@ -1,5 +1,5 @@
-import checkUserIsNotSignedIn from '../../../handlers/auth/checkUserIsNotSignedIn';
-import resetPassword from '../../../handlers/auth/resetPassword';
+import checkUserIsNotSignedIn from '../../../controllers/auth/checkUserIsNotSignedIn';
+import resetPassword from '../../../controllers/auth/resetPassword';
 import resetPasswordSchema from '../../../validators/auth/resetPasswordSchema';
 
 export default defineEventHandler(async (event) => {

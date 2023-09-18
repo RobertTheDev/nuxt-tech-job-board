@@ -1,5 +1,5 @@
-import deleteUsers from '../../handlers/user/deleteUsers';
-import getUsers from '../../handlers/user/getUsers';
+import deleteUsers from '../../controllers/user/deleteUsers';
+import getUsers from '../../controllers/user/getUsers';
 
 // This route gets and deletes all users.
 

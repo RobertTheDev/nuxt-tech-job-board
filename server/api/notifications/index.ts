@@ -1,7 +1,7 @@
-import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
-import createNotification from '../../handlers/notification/createNotification';
-import deleteNotifications from '../../handlers/notification/deleteNotifications';
-import getNotifications from '../../handlers/notification/getNotifications';
+import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
+import createNotification from '../../controllers/notification/createNotification';
+import deleteNotifications from '../../controllers/notification/deleteNotifications';
+import getNotifications from '../../controllers/notification/getNotifications';
 import User from '@/models/user/types/User';
 
 // This route gets and deletes all notications.

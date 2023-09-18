@@ -1,7 +1,7 @@
-import checkUserSignedIn from '../../handlers/auth/checkUserSignedIn';
-import createCompanyFollower from '../../handlers/companyFollower/createCompanyFollower';
-import deleteCompanyFollowers from '../../handlers/companyFollower/deleteCompanyFollowers';
-import getCompanyFollowers from '../../handlers/companyFollower/getCompanyFollowers';
+import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
+import createCompanyFollower from '../../controllers/companyFollower/createCompanyFollower';
+import deleteCompanyFollowers from '../../controllers/companyFollower/deleteCompanyFollowers';
+import getCompanyFollowers from '../../controllers/companyFollower/getCompanyFollowers';
 import User from '@/models/user/types/User';
 
 // This route gets and deletes all company followers.

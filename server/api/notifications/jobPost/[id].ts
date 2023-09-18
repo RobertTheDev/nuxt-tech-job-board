@@ -1,6 +1,6 @@
-import getNotificationsByJobPostId from '../../../handlers/notification/getNotificationsByJobPostId';
-import deleteNotificationsByJobPostId from '../../../handlers/notification/deleteNotificationsByJobPostId';
-import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
+import getNotificationsByJobPostId from '../../../controllers/notification/getNotificationsByJobPostId';
+import deleteNotificationsByJobPostId from '../../../controllers/notification/deleteNotificationsByJobPostId';
+import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 import User from '@/models/user/types/User';
 
 // This route gets and deletes all notifications by their mathcing job post id.

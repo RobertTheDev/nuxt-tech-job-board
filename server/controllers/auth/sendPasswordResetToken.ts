@@ -87,8 +87,7 @@ export default async function sendPasswordResetToken(
   } catch (error) {
     // Handle the error, log it, and throw an error.
     logger.error('Error sending password reset email:', error);
-    throw new Error(
-      'Password reset email coudl not be sent due to an error. Please try again.',
-    );
+    // Rethrow the error to be handled elsewhere if needed
+    throw error;
   }
 }

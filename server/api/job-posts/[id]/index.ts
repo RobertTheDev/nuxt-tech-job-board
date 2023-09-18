@@ -1,8 +1,8 @@
 import { ObjectId } from 'mongodb';
 import { jobPostsCollection } from '../../../lib/mongoDBCollections';
-import getJobPostById from '../../../handlers/jobPost/getJobPostById';
-import updateJobPostById from '../../../handlers/jobPost/updateJobPostById';
-import checkUserSignedIn from '../../../handlers/auth/checkUserSignedIn';
+import getJobPostById from '../../../controllers/jobPost/getJobPostById';
+import updateJobPostById from '../../../controllers/jobPost/updateJobPostById';
+import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 import updateJobPostSchema from '../../../validators/jobPost/updateJobPostSchema';
 
 export default defineEventHandler(async (event) => {
