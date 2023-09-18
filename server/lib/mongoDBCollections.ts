@@ -1,4 +1,4 @@
-import mongoClient from '../db/mongoClient';
+import mongoClient from '../db/mongoDB';
 
 export const companiesCollection = mongoClient.collection('companies');
 
