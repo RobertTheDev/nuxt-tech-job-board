@@ -1,4 +1,4 @@
-import { Document, ObjectId, WithId } from 'mongodb';
+import { Document, ObjectId } from 'mongodb';
 import updateCompanyOwnerSchema from '../../validators/companyOwner/updateCompanyOwnerSchema';
 import { companyOwnersCollection } from '../../lib/mongoDBCollections';
 import logger from '../../lib/winstonLogger';
@@ -9,13 +9,13 @@ import getCompanyOwnerById from './getCompanyOwnerById';
 export default async function updateCompanyOwnerById(
   id: string,
   body: any,
-): Promise<WithId<Document> | null> {
+): Promise<Document | null> {
   try {
     // Validate the body.
     const validatedBody = await updateCompanyOwnerSchema.validate(body);
 
     // Update the company owner by its id with the inputted body.
-    await companyOwnersCollection.findOneAndUpdate(
+    await companyOwnersCollection.updateOne(
       { _id: new ObjectId(id) },
       { $set: { validatedBody } },
     );

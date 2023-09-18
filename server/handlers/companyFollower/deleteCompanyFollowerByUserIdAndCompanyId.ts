@@ -10,7 +10,7 @@ export default async function deleteCompanyFollowerByUserIdAndCompanyId(
 ): Promise<DeleteResult> {
   try {
     // Find and delete company follower by its user id company id from the database.
-    return await savedJobPostsCollection.findOneAndDelete({
+    return await savedJobPostsCollection.deleteOne({
       userId: new ObjectId(userId),
       companyId: new ObjectId(companyId),
     });
