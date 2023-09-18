@@ -1,4 +1,3 @@
-import deleteUsers from '../../controllers/user/deleteUsers';
 import getUsers from '../../controllers/user/getUsers';
 
 // This route gets and deletes all users.
@@ -12,17 +11,6 @@ export default defineEventHandler((event) => {
     try {
       // Returns all the app's users.
       return getUsers();
-    } catch (error) {
-      // If error occurs return an error.
-      return error;
-    }
-  }
-
-  // This method deletes all the app's users.
-  if (method === 'DELETE') {
-    try {
-      // Deletes all the app's users.
-      return deleteUsers();
     } catch (error) {
       // If error occurs return an error.
       return error;

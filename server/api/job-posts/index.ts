@@ -1,6 +1,5 @@
 import getJobPosts from '../../controllers/jobPost/getJobPosts';
 import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
-import deleteJobPosts from '../../controllers/jobPost/deleteJobPosts';
 import createJobPost from '../../controllers/jobPost/createJobPost';
 import User from '@/models/user/types/User';
 
@@ -19,17 +18,6 @@ export default defineEventHandler(async (event) => {
     try {
       // Returns all the app's job posts.
       return getJobPosts();
-    } catch (error) {
-      // If error occurs return an error.
-      return error;
-    }
-  }
-
-  // This method deletes all the app's job posts.
-  if (method === 'DELETE') {
-    try {
-      // Deletes all the app's job posts.
-      return deleteJobPosts();
     } catch (error) {
       // If error occurs return an error.
       return error;

@@ -1,6 +1,5 @@
 import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
 import createCompanyOwner from '../../controllers/companyOwner/createCompanyOwner';
-import deleteCompanyOwners from '../../controllers/companyOwner/deleteCompanyOwners';
 import getCompanyOwners from '../../controllers/companyOwner/getCompanyOwners';
 import User from '@/models/user/types/User';
 
@@ -19,17 +18,6 @@ export default defineEventHandler((event) => {
     try {
       // Returns all the app's company owners.
       return getCompanyOwners();
-    } catch (error) {
-      // If error occurs return an error.
-      return error;
-    }
-  }
-
-  // This method deletes all the app's company owners.
-  if (method === 'DELETE') {
-    try {
-      // Deletes all the app's company owners.
-      return deleteCompanyOwners();
     } catch (error) {
       // If error occurs return an error.
       return error;

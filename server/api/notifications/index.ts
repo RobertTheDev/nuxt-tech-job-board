@@ -1,6 +1,5 @@
 import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
 import createNotification from '../../controllers/notification/createNotification';
-import deleteNotifications from '../../controllers/notification/deleteNotifications';
 import getNotifications from '../../controllers/notification/getNotifications';
 import User from '@/models/user/types/User';
 
@@ -19,17 +18,6 @@ export default defineEventHandler((event) => {
     try {
       // Returns all the app's notifications.
       return getNotifications();
-    } catch (error) {
-      // If error occurs return an error.
-      return error;
-    }
-  }
-
-  // This method deletes all the app's notifications.
-  if (method === 'DELETE') {
-    try {
-      // Deletes all the app's notifications.
-      return deleteNotifications();
     } catch (error) {
       // If error occurs return an error.
       return error;

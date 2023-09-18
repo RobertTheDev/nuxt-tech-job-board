@@ -1,5 +1,11 @@
 import { DeleteResult, ObjectId } from 'mongodb';
-import { usersCollection } from '../../lib/mongoDBCollections';
+import {
+  companyFollowersCollection,
+  companyOwnersCollection,
+  jobApplicationsCollection,
+  jobInterviewsCollection,
+  usersCollection,
+} from '../../lib/mongoDBCollections';
 import logger from '../../lib/winstonLogger';
 
 // This handler finds and deletes a user by its id.
@@ -8,13 +14,42 @@ export default async function deleteUserById(
   id: string,
 ): Promise<DeleteResult> {
   try {
+    // Ensure no companies the user owns exists before deleting account.
+    const findOwnedCompanies = await companyOwnersCollection.find({
+      userId: new ObjectId(id),
+    });
+
+    // Ensure user has deleted all companies founded on app before closing account.
+    if (findOwnedCompanies) {
+      throw createError({
+        statusCode: 400,
+        statusMessage: `You must delete all your companies before closing your account.`,
+      });
+    }
+
+    // Cancel all job interviews booked.
+    await jobInterviewsCollection.updateMany(
+      {
+        userId: new ObjectId(id),
+        status: { $ne: 'CANCELLED' }, // Match all statuses except 'CANCELLED'
+      },
+      {
+        $set: { status: 'CANCELLED' }, // Update the status to 'CANCELLED'
+      },
+    );
+
+    // Delete all company followers with matching user id.
+    await companyFollowersCollection.deleteMany({ userId: new ObjectId(id) });
+
+    // Delete all job applications with matching user id.
+    await jobApplicationsCollection.deleteMany({ userId: new ObjectId(id) });
+
     // Delete user by its id from the database.
     return await usersCollection.deleteOne({ _id: new ObjectId(id) });
   } catch (error) {
     // Handle the error, log it, and throw an error.
     logger.error('Error deleting user by id:', error);
-    throw new Error(
-      'Could not delete the user due to an error. Please try again.',
-    );
+    // Rethrow the error to be handled elsewhere if needed
+    throw error;
   }
 }

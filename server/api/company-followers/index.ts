@@ -1,6 +1,5 @@
 import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
 import createCompanyFollower from '../../controllers/companyFollower/createCompanyFollower';
-import deleteCompanyFollowers from '../../controllers/companyFollower/deleteCompanyFollowers';
 import getCompanyFollowers from '../../controllers/companyFollower/getCompanyFollowers';
 import User from '@/models/user/types/User';
 
@@ -19,17 +18,6 @@ export default defineEventHandler((event) => {
     try {
       // Returns all the app's company followers.
       return getCompanyFollowers();
-    } catch (error) {
-      // If error occurs return an error.
-      return error;
-    }
-  }
-
-  // This method deletes all the app's company followers.
-  if (method === 'DELETE') {
-    try {
-      // Deletes all the app's company followers.
-      return deleteCompanyFollowers();
     } catch (error) {
       // If error occurs return an error.
       return error;

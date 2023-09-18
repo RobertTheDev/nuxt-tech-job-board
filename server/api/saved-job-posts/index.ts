@@ -1,5 +1,4 @@
 import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
-import deleteSavedJobPosts from '../../controllers/savedJobPost/deleteSavedJobPosts';
 import getSavedJobPosts from '../../controllers/savedJobPost/getSavedJobPosts';
 import createSavedJobPost from '../../controllers/savedJobPost/createSavedJobPost';
 import User from '@/models/user/types/User';
@@ -19,17 +18,6 @@ export default defineEventHandler((event) => {
     try {
       // Returns all the app's saved job posts.
       return getSavedJobPosts();
-    } catch (error) {
-      // If error occurs return an error.
-      return error;
-    }
-  }
-
-  // This method deletes all the app's saved job posts.
-  if (method === 'DELETE') {
-    try {
-      // Deletes all the app's saved job posts.
-      return deleteSavedJobPosts();
     } catch (error) {
       // If error occurs return an error.
       return error;

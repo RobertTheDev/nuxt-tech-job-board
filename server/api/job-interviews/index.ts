@@ -1,6 +1,5 @@
 import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
 import getJobInterviews from '../../controllers/jobInterview/getJobInterviews';
-import deleteJobInterviews from '../../controllers/jobInterview/deleteJobInterviews';
 import createJobInterview from '../../controllers/jobInterview/createJobInterview';
 import User from '@/models/user/types/User';
 
@@ -19,17 +18,6 @@ export default defineEventHandler((event) => {
     try {
       // Returns all the app's job interviews.
       return getJobInterviews();
-    } catch (error) {
-      // If error occurs return an error.
-      return error;
-    }
-  }
-
-  // This method deletes all the app's job interviews.
-  if (method === 'DELETE') {
-    try {
-      // Deletes all the app's job interviews.
-      return deleteJobInterviews();
     } catch (error) {
       // If error occurs return an error.
       return error;

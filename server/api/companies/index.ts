@@ -1,6 +1,5 @@
 import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
 import createCompany from '../../controllers/company/createCompany';
-import deleteCompanies from '../../controllers/company/deleteCompanies';
 import getCompanies from '../../controllers/company/getCompanies';
 import User from '@/models/user/types/User';
 
@@ -19,17 +18,6 @@ export default defineEventHandler((event) => {
     try {
       // Returns all the app's companies.
       return getCompanies();
-    } catch (error) {
-      // If error occurs return an error.
-      return error;
-    }
-  }
-
-  // This method deletes all the app's companies.
-  if (method === 'DELETE') {
-    try {
-      // Deletes all the app's companies.
-      return deleteCompanies();
     } catch (error) {
       // If error occurs return an error.
       return error;

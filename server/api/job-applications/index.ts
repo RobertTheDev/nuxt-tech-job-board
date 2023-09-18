@@ -1,5 +1,4 @@
 import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
-import deleteJobApplications from '../../controllers/jobApplication/deleteJobApplications';
 import getJobApplications from '../../controllers/jobApplication/getJobApplications';
 import createJobApplication from '../../controllers/jobApplication/createJobApplication';
 import User from '@/models/user/types/User';
@@ -19,17 +18,6 @@ export default defineEventHandler((event) => {
     try {
       // Returns all the app's job applications.
       return getJobApplications();
-    } catch (error) {
-      // If error occurs return an error.
-      return error;
-    }
-  }
-
-  // This method deletes all the app's job applications.
-  if (method === 'DELETE') {
-    try {
-      // Deletes all the app's job applications.
-      return deleteJobApplications();
     } catch (error) {
       // If error occurs return an error.
       return error;

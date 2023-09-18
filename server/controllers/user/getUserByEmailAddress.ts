@@ -1,6 +1,8 @@
 import { usersCollection } from '../../lib/mongoDBCollections';
 import logger from '../../lib/winstonLogger';
 
+// This handler gets a user by their email address.
+
 export default async function getUserByEmailAddress(emailAddress: string) {
   try {
     // Find the user from the database by its email address.
@@ -25,6 +27,7 @@ export default async function getUserByEmailAddress(emailAddress: string) {
   } catch (error) {
     // Handle the error, log it, and throw an error.
     logger.error('Error retrieving user by email address:', error);
-    throw Error;
+    // Rethrow the error to be handled elsewhere if needed
+    throw error;
   }
 }
