@@ -12,14 +12,14 @@ export default defineEventHandler((event) => {
   // Define the request method.
   const { method } = event.node.req;
 
-  // Gets job post id from the request params.
-  const { jobPostId } = event.context.params as { jobPostId: string };
+  // Gets id from the request params.
+  const { id } = event.context.params as { id: string };
 
   // This method finds and returns all the app's notifications by shared job post id.
   if (method === 'GET') {
     try {
       // Returns all the app's notifications by job post id.
-      return getNotificationsByJobPostId(jobPostId);
+      return getNotificationsByJobPostId(id);
     } catch (error) {
       // If error occurs return an error.
       return error;
@@ -31,7 +31,7 @@ export default defineEventHandler((event) => {
     try {
       checkUserSignedIn(user);
       // Deletes all the app's notifications by shared user id.
-      return deleteNotificationsByJobPostId(jobPostId);
+      return deleteNotificationsByJobPostId(id);
     } catch (error) {
       // If error occurs return an error.
       return error;

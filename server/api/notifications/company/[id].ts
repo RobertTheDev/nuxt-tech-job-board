@@ -12,14 +12,14 @@ export default defineEventHandler((event) => {
   // Define the request method.
   const { method } = event.node.req;
 
-  // Gets company from the request params.
-  const { companyId } = event.context.params as { companyId: string };
+  // Gets id from the request params.
+  const { id } = event.context.params as { id: string };
 
   // This method finds and returns all the app's notifications by shared company id.
   if (method === 'GET') {
     try {
       // Returns all the app's notifications byshared company id.
-      return getNotificationsByCompanyId(companyId);
+      return getNotificationsByCompanyId(id);
     } catch (error) {
       // If error occurs return an error.
       return error;
@@ -31,7 +31,7 @@ export default defineEventHandler((event) => {
     try {
       checkUserSignedIn(user);
       // Deletes all the app's notifications by shared company id.
-      return deleteNotificationsByCompanyId(companyId);
+      return deleteNotificationsByCompanyId(id);
     } catch (error) {
       // If error occurs return an error.
       return error;

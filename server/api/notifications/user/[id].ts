@@ -12,14 +12,14 @@ export default defineEventHandler((event) => {
   // Define the request method.
   const { method } = event.node.req;
 
-  // Gets user id from the request params.
-  const { userId } = event.context.params as { userId: string };
+  // Gets id from the request params.
+  const { id } = event.context.params as { id: string };
 
   // This method finds and returns all the app's notifications by shared user id.
   if (method === 'GET') {
     try {
       // Returns all the app's notifications by user id.
-      return getNotificationsByUserId(userId);
+      return getNotificationsByUserId(id);
     } catch (error) {
       // If error occurs return an error.
       return error;
@@ -31,7 +31,7 @@ export default defineEventHandler((event) => {
     try {
       checkUserSignedIn(user);
       // Deletes all the app's notifications by shared user id.
-      return deleteNotificationsByUserId(userId);
+      return deleteNotificationsByUserId(id);
     } catch (error) {
       // If error occurs return an error.
       return error;
