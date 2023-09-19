@@ -1,6 +1,6 @@
 import getUsers from '../../controllers/user/getUsers';
 
-// This route gets and deletes all users.
+// This route gets all users.
 
 export default defineEventHandler((event) => {
   // Define the request method.
