@@ -1,7 +1,7 @@
 <template>
   <Form
     :validation-schema="sendPasswordResetTokenSchema"
-    @submit="handleSubmit"
+    @submit="handleSendPasswordResetToken"
   >
     <Field v-slot="{ field }" name="emailAddress" type="email">
       <label for="emailAddress">
@@ -10,7 +10,15 @@
       </label>
     </Field>
     <ErrorMessage name="emailAddress" />
-    <button type="submit">Reset Password</button>
+    <p v-if="formHandler.errorMessage">
+      {{ formHandler.errorMessage }}
+    </p>
+    <p v-if="formHandler.successMessage">
+      {{ formHandler.successMessage }}
+    </p>
+
+    <button v-if="formHandler.pending">Loading</button>
+    <button v-else type="submit">Send Password Reset</button>
   </Form>
 </template>
 
@@ -18,7 +26,32 @@
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import sendPasswordResetTokenSchema from '@/models/auth/validators/sendPasswordResetTokenSchema';
 
-function handleSubmit(values: any): void {
-  alert(JSON.stringify(values, null, 2));
+const formHandler = ref<{
+  pending: boolean;
+  errorMessage: string | undefined;
+  successMessage: string | undefined;
+}>({
+  pending: false,
+  errorMessage: undefined,
+  successMessage: undefined,
+});
+
+async function handleSendPasswordResetToken(values: any): Promise<void> {
+  const { pending, error } = await useFetch(
+    '/api/auth/reset-password/send-token',
+    {
+      method: 'POST',
+      body: values,
+    },
+  );
+
+  if (pending.value) {
+    formHandler.value.pending = pending.value;
+  } else if (error.value) {
+    formHandler.value.errorMessage = error.value.statusMessage;
+  } else {
+    formHandler.value.successMessage =
+      'Successfully sent password reset email.';
+  }
 }
 </script>
