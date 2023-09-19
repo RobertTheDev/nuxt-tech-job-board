@@ -5,10 +5,6 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  middleware: ['unauthenticated'],
-});
-
 useHead({
   title: 'Upload Job - Preview',
   meta: [

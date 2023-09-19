@@ -39,10 +39,6 @@ const {
   refresh,
 } = await useFetch<CompanyOwner[]>(`/api/company-owners/authenticated-user`);
 
-definePageMeta({
-  middleware: ['unauthenticated'],
-});
-
 // Add seo title and description for this page.
 useHead({
   title: 'My Companies',

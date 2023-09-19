@@ -6,10 +6,6 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  middleware: ['unauthenticated'],
-});
-
 useHead({
   title: 'Edit Job',
   meta: [

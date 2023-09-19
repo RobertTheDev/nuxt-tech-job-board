@@ -8,10 +8,6 @@
 <script setup lang="ts">
 import companyName from '@/utils/constants/companyName';
 
-definePageMeta({
-  middleware: ['unauthenticated'],
-});
-
 useHead({
   title: `Start Your Company | ${companyName}`,
   meta: [

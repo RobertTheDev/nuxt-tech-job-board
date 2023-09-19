@@ -21,10 +21,6 @@
 <script setup lang="ts">
 import Company from 'models/company/types/Company';
 
-definePageMeta({
-  middleware: ['unauthenticated'],
-});
-
 useHead({
   title: 'Edit Company',
   meta: [

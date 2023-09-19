@@ -42,10 +42,6 @@ const {
   refresh,
 } = await useFetch<JobApplication[]>(`/api/job-applications/company/${id}`);
 
-// definePageMeta({
-//   middleware: ['unauthenticated'],
-// });
-
 useHead({
   title: `Company Applications | ${companyName}`,
   meta: [

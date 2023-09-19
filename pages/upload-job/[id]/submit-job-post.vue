@@ -19,10 +19,6 @@ function navigateToNextStep() {
 
 const { data: jobPost } = await useFetch(`/api/job-posts/${id}`);
 
-definePageMeta({
-  middleware: ['unauthenticated'],
-});
-
 useHead({
   title: 'Upload Job - Submit Job Post',
   meta: [

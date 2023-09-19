@@ -14,10 +14,6 @@
 <script setup lang="ts">
 const { session } = await useSession();
 
-definePageMeta({
-  middleware: ['unauthenticated'],
-});
-
 useHead({
   title: 'Profile',
   meta: [

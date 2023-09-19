@@ -36,10 +36,6 @@ const {
   method: 'GET',
 });
 
-// definePageMeta({
-//   middleware: ['unauthenticated'],
-// });
-
 useHead({
   title: 'My Applications',
   meta: [

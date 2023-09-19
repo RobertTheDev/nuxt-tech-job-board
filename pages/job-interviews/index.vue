@@ -33,8 +33,4 @@ const {
   error,
   refresh,
 } = await useFetch<JobInterview[]>('/api/job-interviews', { method: 'GET' });
-
-definePageMeta({
-  middleware: ['unauthenticated'],
-});
 </script>

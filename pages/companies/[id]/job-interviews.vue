@@ -43,10 +43,6 @@ const {
   refresh,
 } = await useFetch<JobInterview[]>(`/api/job-interviews/company/${id}`);
 
-// definePageMeta({
-//   middleware: ['unauthenticated'],
-// });
-
 useHead({
   title: `Company Interviews | ${companyName}`,
   meta: [

@@ -7,10 +7,6 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  middleware: ['unauthenticated'],
-});
-
 useHead({
   title: 'Upload Job - Add Description',
   meta: [

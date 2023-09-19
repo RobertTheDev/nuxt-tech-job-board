@@ -38,10 +38,6 @@ const {
   refresh,
 } = await useFetch<Notification[]>('/api/notifications');
 
-definePageMeta({
-  middleware: ['unauthenticated'],
-});
-
 useHead({
   title: `Notifications | ${companyName}`,
   meta: [
