@@ -4,9 +4,6 @@ import { string, object } from 'yup';
 `object` function from the `yup` library, which allows you to define a schema for an object with
 specific properties. */
 const resetPasswordSchema = object({
-  resetPasswordToken: string()
-    .required('A reset password token is required.')
-    .min(1, 'Reset password token cannot be empty.'),
   password: string()
     .min(8, 'Password must be at least 8 characters long')
     .matches(/[A-Z]/, 'Password must contain at least one capital letter')
