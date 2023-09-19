@@ -1,6 +1,6 @@
 import logger from '../../lib/winstonLogger';
-import loginSchema from '../../validators/auth/loginSchema';
 import getUserByEmailAddress from '../user/emailAddress/getUserByEmailAddress';
+import loginSchema from '@/models/auth/validators/loginSchema';
 
 // This handler handles a user login.
 

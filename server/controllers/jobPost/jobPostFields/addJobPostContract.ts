@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb';
 import logger from '../../../lib/winstonLogger';
 import getJobPostById from '../id/getJobPostById';
 import { jobPostsCollection } from '../../../lib/mongoDBCollections';
-import addContractSchema from '../../../validators/jobPost/jobPostFieldSchemas/addContractSchema';
+import addContractSchema from '@/models/jobPost/validators/jobPostFieldSchemas/addContractSchema';
 
 export default async function addJobPostContract(id: string, body: any) {
   try {

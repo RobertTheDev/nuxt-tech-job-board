@@ -1,9 +1,9 @@
 import { ObjectId } from 'mongodb';
 import { usersCollection } from '../../lib/mongoDBCollections';
-import changeEmailSchema from '../../validators/settings/changeEmailSchema';
 import logger from '../../lib/winstonLogger';
 import getUserById from '../user/id/getUserById';
 import User from '@/models/user/types/User';
+import changeEmailSchema from '@/models/settings/validators/changeEmailSchema';
 
 // This handler changes the user's email.
 

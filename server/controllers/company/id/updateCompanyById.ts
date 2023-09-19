@@ -1,8 +1,8 @@
 import { Document, ObjectId } from 'mongodb';
-import updateCompanySchema from '../../../validators/company/updateCompanySchema';
 import { companiesCollection } from '../../../lib/mongoDBCollections';
 import logger from '../../../lib/winstonLogger';
 import getCompanyById from './getCompanyById';
+import updateCompanySchema from '@/models/company/validators/updateCompanySchema';
 
 // This handler updates and returns the company by id.
 

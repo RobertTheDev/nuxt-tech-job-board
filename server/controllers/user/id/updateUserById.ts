@@ -1,9 +1,9 @@
 import { ObjectId } from 'mongodb';
 import { usersCollection } from '../../../lib/mongoDBCollections';
-import updateUserSchema from '../../../validators/user/updateUserSchema';
 import logger from '../../../lib/winstonLogger';
 import getUserById from './getUserById';
 import User from '@/models/user/types/User';
+import updateUserSchema from '@/models/user/validators/updateUserSchema';
 
 // This handler updates a user's data with matching id.
 

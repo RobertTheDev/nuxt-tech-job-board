@@ -1,5 +1,4 @@
 import { Document, ObjectId } from 'mongodb';
-import createJobPostSchema from '../../validators/jobPost/createJobPostSchema';
 import {
   companyOwnersCollection,
   jobPostsCollection,
@@ -8,6 +7,7 @@ import getCompanyById from '../company/id/getCompanyById';
 import logger from '../../lib/winstonLogger';
 import getJobPostById from './id/getJobPostById';
 import User from '@/models/user/types/User';
+import createJobPostSchema from '@/models/jobPost/validators/createJobPostSchema';
 
 export default async function createJobPost(
   body: any,

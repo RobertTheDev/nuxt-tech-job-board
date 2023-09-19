@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb';
 import logger from '../../../lib/winstonLogger';
 import getJobPostById from '../id/getJobPostById';
 import { jobPostsCollection } from '../../../lib/mongoDBCollections';
-import addDescriptionSchema from '../../../validators/jobPost/jobPostFieldSchemas/addDescriptionSchema';
+import addDescriptionSchema from '@/models/jobPost/validators/jobPostFieldSchemas/addDescriptionSchema';
 
 export default async function addJobPostDescription(id: string, body: any) {
   try {

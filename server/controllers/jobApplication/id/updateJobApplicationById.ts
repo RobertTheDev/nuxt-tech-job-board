@@ -1,8 +1,8 @@
 import { Document, ObjectId, WithId } from 'mongodb';
 import logger from '../../../lib/winstonLogger';
-import updateJobApplicationSchema from '../../../validators/jobApplication/updateJobApplicationSchema';
 import { jobApplicationsCollection } from '../../../lib/mongoDBCollections';
 import getJobApplicationById from './getJobApplicationById';
+import updateJobApplicationSchema from '@/models/jobApplication/validators/updateJobApplicationSchema';
 
 // This handler updates and returns the job application by id.
 

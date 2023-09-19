@@ -1,8 +1,8 @@
 import { Document, ObjectId, WithId } from 'mongodb';
-import updateNotificationSchema from '../../../validators/notification/updateNotificationSchema';
 import logger from '../../../lib/winstonLogger';
 import { notificationsCollection } from '../../../lib/mongoDBCollections';
 import getNotificationById from './getNotificationById';
+import updateNotificationSchema from '@/models/notification/validators/updateNotificationSchema';
 
 // This handler updates a notification by its id from MongoDB.
 

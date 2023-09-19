@@ -1,7 +1,7 @@
 import { usersCollection } from '../../../lib/mongoDBCollections';
-import updateUserSchema from '../../../validators/user/updateUserSchema';
 import logger from '../../../lib/winstonLogger';
 import getUserByEmailAddress from './getUserByEmailAddress';
+import updateUserSchema from '@/models/user/validators/updateUserSchema';
 import User from '@/models/user/types/User';
 
 // This handler updates a user's data with matching email address.

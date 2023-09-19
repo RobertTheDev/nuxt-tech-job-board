@@ -1,16 +1,17 @@
-import { ObjectId, Document } from 'mongodb';
+import { ObjectId } from 'mongodb';
 import { usersCollection } from '../../lib/mongoDBCollections';
 import { hashPassword } from '../../lib/passwordManagement';
-import changePasswordSchema from '../../validators/settings/changePasswordSchema';
 import logger from '../../lib/winstonLogger';
 import getUserById from '../user/id/getUserById';
+import changePasswordSchema from '@/models/settings/validators/changePasswordSchema';
+import User from '@/models/user/types/User';
 
 // This handler changes the user's password.
 
 export default async function changePassword(
   id: string,
   body: any,
-): Promise<Document> {
+): Promise<User | null> {
   try {
     // Validate the body.
     const validatedBody = await changePasswordSchema.validate(body);

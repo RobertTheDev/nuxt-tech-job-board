@@ -1,8 +1,8 @@
 import { Document } from 'mongodb';
 import logger from '../../lib/winstonLogger';
 import { jobInterviewsCollection } from '../../lib/mongoDBCollections';
-import createJobInterviewSchema from '../../validators/jobInterview/createJobInterviewSchema';
 import getJobInterviewById from './id/getJobInterviewById';
+import createJobInterviewSchema from '@/models/jobInterview/validators/createJobInterviewSchema';
 
 // This handler creates and inserts a new job interview.
 

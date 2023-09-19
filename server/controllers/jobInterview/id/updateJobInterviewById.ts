@@ -1,8 +1,8 @@
 import { ObjectId } from 'mongodb';
 import { jobInterviewsCollection } from '../../../lib/mongoDBCollections';
-import updateJobInterviewSchema from '../../../validators/jobInterview/updateJobInterviewSchema';
 import logger from '../../../lib/winstonLogger';
 import getJobInterviewById from './getJobInterviewById';
+import updateJobInterviewSchema from '@/models/jobInterview/validators/updateJobInterviewSchema';
 
 // This handler updates a job interview by its id from MongoDB.
 

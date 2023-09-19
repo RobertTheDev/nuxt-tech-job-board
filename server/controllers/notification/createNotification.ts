@@ -1,8 +1,8 @@
 import { Document, WithId } from 'mongodb';
-import createNotificationSchema from '../../validators/notification/createNotificationSchema';
 import logger from '../../lib/winstonLogger';
 import { notificationsCollection } from '../../lib/mongoDBCollections';
 import getNotificationById from './id/getNotificationById';
+import createNotificationSchema from '@/models/notification/validators/createNotificationSchema';
 
 // This handler creates and inserts a new notification into MongoDB.
 

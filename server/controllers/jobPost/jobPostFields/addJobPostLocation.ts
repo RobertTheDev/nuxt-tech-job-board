@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb';
 import logger from '../../../lib/winstonLogger';
 import getJobPostById from '../id/getJobPostById';
 import { jobPostsCollection } from '../../../lib/mongoDBCollections';
-import addLocationSchema from '../../../validators/jobPost/jobPostFieldSchemas/addLocationSchema';
+import addLocationSchema from '@/models/jobPost/validators/jobPostFieldSchemas/addLocationSchema';
 
 export default async function addJobPostLocation(id: string, body: any) {
   try {

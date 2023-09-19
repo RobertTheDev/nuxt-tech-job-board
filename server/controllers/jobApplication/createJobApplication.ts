@@ -1,8 +1,8 @@
 import { Document, WithId } from 'mongodb';
 import { jobApplicationsCollection } from '../../lib/mongoDBCollections';
-import createJobApplicationSchema from '../../validators/jobApplication/createJobApplicationSchema';
 import logger from '../../lib/winstonLogger';
 import getJobApplicationById from './id/getJobApplicationById';
+import createJobApplicationSchema from '@/models/jobApplication/validators/createJobApplicationSchema';
 
 // This handler creates and inserts a new job application.
 

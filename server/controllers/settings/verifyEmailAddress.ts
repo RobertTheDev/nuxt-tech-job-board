@@ -1,8 +1,8 @@
 import { Document } from 'mongodb';
-import verifyEmailSchema from '../../validators/settings/emailVerification/verifyEmailSchema';
 import { usersCollection } from '../../lib/mongoDBCollections';
 import logger from '../../lib/winstonLogger';
 import User from '@/models/user/types/User';
+import verifyEmailSchema from '@/models/settings/validators/emailVerification/verifyEmailSchema';
 
 // This handler verifies the user's email.
 

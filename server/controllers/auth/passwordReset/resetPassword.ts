@@ -1,7 +1,7 @@
-import resetPasswordSchema from '../../../validators/auth/resetPasswordSchema';
 import { usersCollection } from '../../../lib/mongoDBCollections';
 import { hashPassword } from '../../../lib/passwordManagement';
 import logger from '../../../lib/winstonLogger';
+import resetPasswordSchema from '@/models/auth/validators/resetPasswordSchema';
 import User from '@/models/user/types/User';
 
 // This handler resets a user's password.

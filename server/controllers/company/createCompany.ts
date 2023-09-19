@@ -4,10 +4,10 @@ import {
   companiesCollection,
   companyOwnersCollection,
 } from '../../lib/mongoDBCollections';
-import createCompanySchema from '../../validators/company/createCompanySchema';
-import createCompanyOwnerSchema from '../../validators/companyOwner/createCompanyOwnerSchema';
 import getCompanyById from './id/getCompanyById';
 import User from '@/models/user/types/User';
+import createCompanySchema from '@/models/company/validators/createCompanySchema';
+import createCompanyOwnerSchema from '@/models/companyOwner/validators/createCompanyOwnerSchema';
 
 // This handler creates and inserts a new notification.
 

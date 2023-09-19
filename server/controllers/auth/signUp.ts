@@ -1,9 +1,9 @@
 import { usersCollection } from '../../lib/mongoDBCollections';
 import { hashPassword } from '../../lib/passwordManagement';
-import signUpSchema from '../../validators/auth/signUpSchema';
 import logger from '../../lib/winstonLogger';
 import getUserById from '../user/id/getUserById';
 import checkEmailIsTaken from './checkEmailIsTaken';
+import signUpSchema from '@/models/auth/validators/signUpSchema';
 import User from '@/models/user/types/User';
 
 // This handler creates an account after sign up by inserting and returning a new user.

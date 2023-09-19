@@ -2,8 +2,8 @@ import crypto from 'node:crypto';
 import sgMail from '@sendgrid/mail';
 import { Document } from 'mongodb';
 import { usersCollection } from '../../lib/mongoDBCollections';
-import sendEmailVerificationTokenSchema from '../../validators/settings/emailVerification/sendEmailVerificationTokenSchema';
 import logger from '../../lib/winstonLogger';
+import sendEmailVerificationTokenSchema from '@/models/settings/validators/emailVerification/sendEmailVerificationTokenSchema';
 
 // This handler sends an email verification token to the user's email using SendGrid.
 // This handler updates the user in MongoDB to have the token to retieve it.

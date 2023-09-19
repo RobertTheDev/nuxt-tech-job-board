@@ -1,8 +1,8 @@
 import { Document } from 'mongodb';
 import logger from '../../lib/winstonLogger';
 import { companyOwnersCollection } from '../../lib/mongoDBCollections';
-import createCompanyOwnerSchema from '../../validators/companyOwner/createCompanyOwnerSchema';
 import getCompanyOwnerById from './id/getCompanyOwnerById';
+import createCompanyOwnerSchema from '@/models/companyOwner/validators/createCompanyOwnerSchema';
 
 // This handler creates and inserts a new company.
 

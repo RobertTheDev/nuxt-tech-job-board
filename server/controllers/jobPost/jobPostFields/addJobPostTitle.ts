@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb';
 import logger from '../../../lib/winstonLogger';
 import getJobPostById from '../id/getJobPostById';
 import { jobPostsCollection } from '../../../lib/mongoDBCollections';
-import addTitleSchema from '../../../validators/jobPost/jobPostFieldSchemas/addTitleSchema';
+import addTitleSchema from '@/models/jobPost/validators/jobPostFieldSchemas/addTitleSchema';
 
 export default async function addJobPostTitle(id: string, body: any) {
   try {

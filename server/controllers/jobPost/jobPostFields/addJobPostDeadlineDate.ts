@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb';
 import logger from '../../../lib/winstonLogger';
 import getJobPostById from '../id/getJobPostById';
 import { jobPostsCollection } from '../../../lib/mongoDBCollections';
-import addDeadlineDateSchema from '../../../validators/jobPost/jobPostFieldSchemas/addDeadlineDateSchema';
+import addDeadlineDateSchema from '@/models/jobPost/validators/jobPostFieldSchemas/addDeadlineDateSchema';
 
 export default async function addJobPostDeadlineDate(id: string, body: any) {
   try {

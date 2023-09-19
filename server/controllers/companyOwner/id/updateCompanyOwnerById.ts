@@ -1,8 +1,8 @@
 import { Document, ObjectId } from 'mongodb';
-import updateCompanyOwnerSchema from '../../../validators/companyOwner/updateCompanyOwnerSchema';
 import { companyOwnersCollection } from '../../../lib/mongoDBCollections';
 import logger from '../../../lib/winstonLogger';
 import getCompanyOwnerById from './getCompanyOwnerById';
+import updateCompanyOwnerSchema from '@/models/companyOwner/validators/updateCompanyOwnerSchema';
 
 // This handler updates and returns the company onwer by id.
 
