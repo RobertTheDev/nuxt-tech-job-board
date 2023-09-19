@@ -1,18 +1,32 @@
-import logger from '../../lib/winstonLogger';
 import getUserByEmailAddress from '../user/emailAddress/getUserByEmailAddress';
+import checkPasswordCorrect from '@/server/helpers/auth/checkPasswordCorrect';
 import loginSchema from '@/models/auth/validators/loginSchema';
+import logger from '@/server/lib/winstonLogger';
+import User from '@/models/user/types/User';
 
-// This handler handles a user login.
+// This controller handles a user login.
 
-export default async function login(body: any) {
+export default async function login(body: any): Promise<User | null> {
   try {
-    // Validate the body.
+    // Validate the body using the defined login schema.
     const validatedBody = await loginSchema.validate(body);
 
-    // Find user in the database by its email address.
-    const user = (await getUserByEmailAddress(
+    // Check inputted password is correct.
+    await checkPasswordCorrect(
       validatedBody.emailAddress,
-    )) as any;
+      validatedBody.password,
+    );
+
+    // Find user in the database by its email address.
+    const user = await getUserByEmailAddress(validatedBody.emailAddress);
+
+    // If no user exists return a 404.
+    if (!user) {
+      throw createError({
+        statusCode: 404,
+        statusMessage: `Account with email ${validatedBody.emailAddress} does not exist. Please sign up or try again with a different email address.`,
+      });
+    }
 
     // Remove unwanted password field.
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

@@ -1,6 +1,7 @@
 import { usersCollection } from '../../../lib/mongoDBCollections';
 import logger from '../../../lib/winstonLogger';
 import User from '@/models/user/types/User';
+// import redisClient from '@/server/db/redis';
 
 // This handler gets a user by their email address.
 
@@ -13,6 +14,16 @@ export default async function getUserByEmailAddress(
       .find({ emailAddress })
       .project({ password: 0 })
       .toArray();
+
+    // const userFromCache = // Store the user with email address key in the redis cache.
+    //   await redisClient.hgetall(emailAddress);
+
+    // if (userFromCache) {
+    //   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    //   const { password, ...cachedUser } = userFromCache as unknown as User;
+
+    //   return cachedUser;
+    // }
 
     // Return the user from the array.
     const user = userWithoutPassword[0];

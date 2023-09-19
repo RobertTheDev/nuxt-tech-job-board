@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
 import { usersCollection } from '../../lib/mongoDBCollections';
-import { hashPassword } from '../../lib/passwordManagement';
+import { hashPassword } from '../../helpers/auth/passwordManagement';
 import logger from '../../lib/winstonLogger';
 import getUserById from '../user/id/getUserById';
 import changePasswordSchema from '@/models/settings/validators/changePasswordSchema';
