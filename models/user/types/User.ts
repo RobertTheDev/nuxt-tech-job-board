@@ -32,6 +32,7 @@ export default interface User {
   isWillingToRelocate?: boolean;
   jobTitle?: string | null;
   lastName: string;
+  password?: string;
   resetPasswordToken?: string;
   resetPasswordTokenExpiryTime?: number;
 }
