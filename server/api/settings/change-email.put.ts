@@ -1,6 +1,6 @@
 import changeEmail from '../../controllers/settings/changeEmail';
-import checkEmailIsTaken from '../../controllers/auth/checkEmailIsTaken';
-import checkPasswordCorrect from '../../controllers/auth/checkPasswordCorrect';
+import checkEmailIsTaken from '../../helpers/auth/checkEmailIsTaken';
+import checkPasswordCorrect from '../../helpers/auth/checkPasswordCorrect';
 import changeEmailSchema from '@/models/settings/validators/changeEmailSchema';
 
 export default defineEventHandler(async (event) => {

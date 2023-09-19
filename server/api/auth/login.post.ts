@@ -1,22 +1,26 @@
-import checkPasswordCorrect from '../../controllers/auth/checkPasswordCorrect';
-import login from '../../controllers/auth/login';
-import loginSchema from '@/models/auth/validators/loginSchema';
+import login from '@/server/controllers/auth/login';
+import isSignedOut from '@/server/helpers/auth/isSignedOut';
+
+// This route handles user sign in.
 
 export default defineEventHandler(async (event) => {
-  const body = await readBody(event);
+  try {
+    // Helpers checks to see if user is not already signed in.
+    await isSignedOut(event);
 
-  // Validate the inputted body.
-  const validatedBody = await loginSchema.validate(body);
+    // Get the body from request.
+    const body = await readBody(event);
 
-  // Check inputted password is correct.
-  await checkPasswordCorrect(
-    validatedBody.emailAddress,
-    validatedBody.password,
-  );
+    // Get the logged in user using the login controller.
+    const loggedInUser = await login(body);
 
-  const loggedInUser = await login(validatedBody);
+    // Save logged in user into session.
+    event.context.session.user = loggedInUser;
 
-  event.context.session.user = loggedInUser;
-
-  return loggedInUser;
+    // Return logged in user.
+    return loggedInUser;
+  } catch (error) {
+    // If an error occurs return it.
+    return error;
+  }
 });

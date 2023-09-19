@@ -1,5 +1,5 @@
 import changePassword from '../../controllers/settings/changePassword';
-import checkPasswordCorrect from '../../controllers/auth/checkPasswordCorrect';
+import checkPasswordCorrect from '../../helpers/auth/checkPasswordCorrect';
 import changePasswordSchema from '@/models/settings/validators/changePasswordSchema';
 
 export default defineEventHandler(async (event) => {

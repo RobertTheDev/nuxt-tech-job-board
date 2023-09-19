@@ -1,4 +1,4 @@
-import checkPasswordCorrect from '../../controllers/auth/checkPasswordCorrect';
+import checkPasswordCorrect from '../../helpers/auth/checkPasswordCorrect';
 import getUserByEmailAddress from '../../controllers/user/emailAddress/getUserByEmailAddress';
 import closeAccount from '../../controllers/settings/closeAccount';
 import closeAccountSchema from '@/models/settings/validators/closeAccountSchema';
