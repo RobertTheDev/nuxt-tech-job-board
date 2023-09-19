@@ -1,4 +1,3 @@
-import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 import getSavedJobPostsWithoutRelatedFields from '../../../controllers/savedJobPost/userId/getSavedJobPostsByUserIdWithoutRelatedFields';
 
 // This route returns saved job posts saved by the authenticated user.
@@ -15,9 +14,6 @@ export default defineEventHandler((event) => {
   // GET - Finds the saved job posts by their user ids matching the authenticated user's id.
   if (method === 'GET') {
     try {
-      // Check the user is signed in to progress.
-      checkUserSignedIn(user);
-
       // Return the saved job posts with the matching user id.
       return getSavedJobPostsWithoutRelatedFields(userId);
     } catch (error) {

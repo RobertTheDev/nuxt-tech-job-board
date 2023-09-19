@@ -1,6 +1,6 @@
 import logger from '../../lib/winstonLogger';
 import User from '../../../models/user/types/User';
-import getUserByEmailAddress from '../user/getUserByEmailAddress';
+import getUserByEmailAddress from '../user/emailAddress/getUserByEmailAddress';
 
 // This handler gets the signed in user from the session.
 

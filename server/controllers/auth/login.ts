@@ -1,6 +1,6 @@
 import logger from '../../lib/winstonLogger';
 import loginSchema from '../../validators/auth/loginSchema';
-import getUserByEmailAddress from '../user/getUserByEmailAddress';
+import getUserByEmailAddress from '../user/emailAddress/getUserByEmailAddress';
 
 // This handler handles a user login.
 
@@ -10,7 +10,9 @@ export default async function login(body: any) {
     const validatedBody = await loginSchema.validate(body);
 
     // Find user in the database by its email address.
-    const user = await getUserByEmailAddress(validatedBody.emailAddress);
+    const user = (await getUserByEmailAddress(
+      validatedBody.emailAddress,
+    )) as any;
 
     // Remove unwanted password field.
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

@@ -1,5 +1,4 @@
 import { ObjectId } from 'mongodb';
-import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 import {
   companiesCollection,
   companyFollowersCollection,
@@ -34,12 +33,9 @@ async function checkIfCompanyFollowerExists(userId: string, companyId: string) {
 }
 
 export default defineEventHandler(async (event) => {
-  const { user } = event.context.session;
   const { id } = event.context.params as { id: string };
 
   try {
-    checkUserSignedIn(user);
-
     await checkCompanyExists(id);
 
     await checkIfCompanyFollowerExists(user._id, id);

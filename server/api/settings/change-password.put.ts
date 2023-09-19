@@ -1,14 +1,11 @@
 import changePassword from '../../controllers/settings/changePassword';
 import checkPasswordCorrect from '../../controllers/auth/checkPasswordCorrect';
-import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
 import changePasswordSchema from '../../validators/settings/changePasswordSchema';
 
 export default defineEventHandler(async (event) => {
-  const { user } = await event.context.session;
-
-  checkUserSignedIn(user);
-
   const body = await readBody(event);
+
+  const user = event.context.session.user;
 
   // Validate the inputted body.
   const validatedBody = await changePasswordSchema.validate(body);

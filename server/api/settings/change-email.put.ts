@@ -1,16 +1,12 @@
 import changeEmail from '../../controllers/settings/changeEmail';
 import checkEmailIsTaken from '../../controllers/auth/checkEmailIsTaken';
 import checkPasswordCorrect from '../../controllers/auth/checkPasswordCorrect';
-import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
 import changeEmailSchema from '../../validators/settings/changeEmailSchema';
 
 export default defineEventHandler(async (event) => {
-  const { user } = event.context.session;
-
-  // Check if a user is signed in.
-  checkUserSignedIn(user);
-
   const body = await readBody(event);
+
+  const user = event.context.session.user;
 
   // Validate the inputted body.
   const validatedBody = await changeEmailSchema.validate(body);

@@ -1,8 +1,8 @@
 import { randomUUID } from 'node:crypto';
 import sgMail from '@sendgrid/mail';
-import { usersCollection } from '../../lib/mongoDBCollections';
-import sendPasswordResetTokenSchema from '../../validators/auth/sendPasswordResetTokenSchema';
-import logger from '../../lib/winstonLogger';
+import { usersCollection } from '../../../lib/mongoDBCollections';
+import sendPasswordResetTokenSchema from '../../../validators/auth/sendPasswordResetTokenSchema';
+import logger from '../../../lib/winstonLogger';
 import APIResponse from '@/models/config/api/Response';
 
 // This handler sends a password reset token by email using SendGrid.

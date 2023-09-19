@@ -1,5 +1,5 @@
 import { Document } from 'mongodb';
-import verifyEmailSchema from '../../validators/settings/verifyEmailSchema';
+import verifyEmailSchema from '../../validators/settings/emailVerification/verifyEmailSchema';
 import { usersCollection } from '../../lib/mongoDBCollections';
 import logger from '../../lib/winstonLogger';
 import User from '@/models/user/types/User';

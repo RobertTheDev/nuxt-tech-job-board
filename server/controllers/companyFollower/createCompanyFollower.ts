@@ -2,7 +2,7 @@ import { Document, ObjectId } from 'mongodb';
 import logger from '../../lib/winstonLogger';
 import createCompanyFollowerSchema from '../../validators/companyFollower/createCompanyFollowerSchema';
 import { companyFollowersCollection } from '../../lib/mongoDBCollections';
-import getCompanyFollowerById from './getCompanyFollowerById';
+import getCompanyFollowerById from './id/getCompanyFollowerById';
 
 // This handler creates and inserts a new company follower.
 

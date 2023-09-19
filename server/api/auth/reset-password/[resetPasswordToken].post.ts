@@ -1,15 +1,7 @@
-import checkUserIsNotSignedIn from '../../../controllers/auth/checkUserIsNotSignedIn';
-import resetPassword from '../../../controllers/auth/resetPassword';
+import resetPassword from '../../../controllers/auth/passwordReset/resetPassword';
 import resetPasswordSchema from '../../../validators/auth/resetPasswordSchema';
 
 export default defineEventHandler(async (event) => {
-  // Get the user from session.
-
-  const { user } = event.context.session;
-
-  // // Check user is signed in.
-  checkUserIsNotSignedIn(user);
-
   // Get saved job psot id from request params.
   const { resetPasswordToken } = event.context.params as {
     resetPasswordToken: string;

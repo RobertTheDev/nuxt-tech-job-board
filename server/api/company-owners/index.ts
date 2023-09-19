@@ -1,15 +1,10 @@
-import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
 import createCompanyOwner from '../../controllers/companyOwner/createCompanyOwner';
 import getCompanyOwners from '../../controllers/companyOwner/getCompanyOwners';
-import User from '@/models/user/types/User';
 
 // This route gets and deletes all company owners.
 // This route creates a new company owner.
 
 export default defineEventHandler((event) => {
-  // Get the user from the session.
-  const user = event.context.session.user as User;
-
   // Define the request method.
   const { method } = event.node.req;
 

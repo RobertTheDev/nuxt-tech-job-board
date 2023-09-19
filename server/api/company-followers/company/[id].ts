@@ -1,7 +1,6 @@
 import getCompanyFollowersByCompanyId from '../../../controllers/companyFollower/companyId/getCompanyFollowersByCompanyId';
 import deleteCompanyFollowersByCompanyId from '../../../controllers/companyFollower/companyId/deleteCompanyFollowersByCompanyId';
 import createCompanyFollower from '../../../controllers/companyFollower/createCompanyFollower';
-import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 
 export default defineEventHandler((event) => {
   const { method } = event.node.req;
@@ -17,8 +16,6 @@ export default defineEventHandler((event) => {
   if (method === 'POST') {
     try {
       const { user } = event.context.session;
-
-      checkUserSignedIn(user);
 
       const userId = user._id;
 

@@ -1,28 +1,23 @@
-import checkUserSignedIn from '../../../../controllers/auth/checkUserSignedIn';
 import createSavedJobPost from '../../../../controllers/savedJobPost/createSavedJobPost';
 import deleteSavedJobPostsByJobPostId from '../../../../controllers/savedJobPost/jobPostId/deleteSavedJobPostsByJobPostId';
-import getSavedJobPostByUserIdAndJobPostId from '../../../../controllers/savedJobPost/getSavedJobPostByUserIdAndJobPostId';
+import getSavedJobPostByUserIdAndJobPostId from '../../../../controllers/savedJobPost/userIdAndJobPostId/getSavedJobPostByUserIdAndJobPostId';
 import deleteSavedJobPostById from '../../../../controllers/savedJobPost/id/deleteSavedJobPostById';
 import createSavedJobPostSchema from '../../../../validators/savedJobPost/createSavedJobPostSchema';
 
 // This route creates a saved job post and deletes a saved job post by its job post id.
 
 export default defineEventHandler(async (event) => {
-  // Defines method to be used.
-  const { method } = event.node.req;
-
-  // Get user from the session.
-  const { user } = event.context.session;
-
   // Gets the user's id from the request params.
   const { id } = event.context.params as { id: string };
+
+  // Define the request method.
+  const { method } = event.node.req;
+
+  const user = event.context.session.user;
   const userId = user._id;
 
   if (method === 'POST') {
     try {
-      // Check user is signed in to progress.
-      checkUserSignedIn(user);
-
       // Get the saved job post by its matching user id and job post id.
       const savedJobPost = await getSavedJobPostByUserIdAndJobPostId(
         userId,
@@ -50,9 +45,6 @@ export default defineEventHandler(async (event) => {
   }
   if (method === 'DELETE') {
     try {
-      // Check user is signed in to progress.
-      checkUserSignedIn(user);
-
       // Delete the saved job posts by their matching job post id,
       return deleteSavedJobPostsByJobPostId(id);
     } catch (error) {

@@ -1,4 +1,3 @@
-import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 import deleteSavedJobPostsByUserId from '../../../controllers/savedJobPost/userId/deleteSavedJobPostsByUserId';
 import getSavedJobPostsByUserId from '../../../controllers/savedJobPost/userId/getSavedJobPostsByUserId';
 
@@ -15,9 +14,6 @@ export default defineEventHandler((event) => {
   // GET - Finds the saved job posts by their user ids matching the authenticated user's id.
   if (method === 'GET') {
     try {
-      // Check user is signed in to progress.
-      checkUserSignedIn(user);
-
       // Find and return the saved job posts by their matching user id.
       return getSavedJobPostsByUserId(userId);
     } catch (error) {

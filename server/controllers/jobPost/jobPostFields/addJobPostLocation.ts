@@ -2,17 +2,17 @@ import { ObjectId } from 'mongodb';
 import logger from '../../../lib/winstonLogger';
 import getJobPostById from '../id/getJobPostById';
 import { jobPostsCollection } from '../../../lib/mongoDBCollections';
-import { AddLocationSchemaType } from '../../../validators/jobPost/jobPostFieldSchemas/addLocationSchema';
+import addLocationSchema from '../../../validators/jobPost/jobPostFieldSchemas/addLocationSchema';
 
-export default async function addJobPostLocation(
-  id: string,
-  body: AddLocationSchemaType,
-) {
+export default async function addJobPostLocation(id: string, body: any) {
   try {
+    // Validate the body
+    const validatedBody = await addLocationSchema.validate(body);
+
     // Update the job post by its id with the inputted body.
     await jobPostsCollection.findOneAndUpdate(
       { _id: new ObjectId(id) },
-      { $set: body },
+      { $set: validatedBody },
     );
 
     // Find and return the updated job post by its id.

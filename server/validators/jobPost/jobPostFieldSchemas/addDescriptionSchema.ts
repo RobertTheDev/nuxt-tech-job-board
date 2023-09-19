@@ -1,4 +1,4 @@
-import { string, date } from 'yup';
+import { string, date, object } from 'yup';
 
 const addDescriptionSchema = object({
   updatedAt: date().default(() => new Date()),

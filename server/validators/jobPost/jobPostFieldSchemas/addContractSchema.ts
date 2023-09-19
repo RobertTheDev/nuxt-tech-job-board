@@ -1,4 +1,4 @@
-import { object, date, string, number } from 'yup';
+import { object, date, string, number, ref } from 'yup';
 
 const addContractSchema = object({
   updatedAt: date().default(() => new Date()),
@@ -11,7 +11,7 @@ const addContractSchema = object({
   salary: object().shape({
     rate: string().required('Salary rate is required.'),
     min: number().min(0).required('Minimum salary is required.'),
-    max: number().min(yup.ref('min')).required('Salary is required.'),
+    max: number().min(ref('min')).required('Salary is required.'),
   }),
 }).unknown(false);
 

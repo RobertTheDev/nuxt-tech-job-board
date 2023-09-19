@@ -1,15 +1,10 @@
-import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
 import getJobApplications from '../../controllers/jobApplication/getJobApplications';
 import createJobApplication from '../../controllers/jobApplication/createJobApplication';
-import User from '@/models/user/types/User';
 
 // This route gets and deletes all job applications.
 // This route creates a new job application.
 
 export default defineEventHandler((event) => {
-  // Get the user from the session.
-  const user = event.context.session.user as User;
-
   // Define the request method.
   const { method } = event.node.req;
 
@@ -27,9 +22,6 @@ export default defineEventHandler((event) => {
   // This method creates a new job application.
   if (method === 'POST') {
     try {
-      // Ensure user is signed in before making this request.
-      checkUserSignedIn(user);
-
       // Gets the body from the request.
       const body = readBody(event);
 

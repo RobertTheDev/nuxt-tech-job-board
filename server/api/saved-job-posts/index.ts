@@ -1,18 +1,10 @@
-import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
 import getSavedJobPosts from '../../controllers/savedJobPost/getSavedJobPosts';
 import createSavedJobPost from '../../controllers/savedJobPost/createSavedJobPost';
-import User from '@/models/user/types/User';
 
 // This route gets and deletes all saved job posts in the app.
 // This route creates a new saved job post in the app.
 
 export default defineEventHandler((event) => {
-  // Get the user from the session.
-  const user = event.context.session.user as User;
-
-  // Define the request method.
-  const { method } = event.node.req;
-
   // This method finds and returns all the app's saved job posts.
   if (method === 'GET') {
     try {

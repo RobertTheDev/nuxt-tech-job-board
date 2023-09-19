@@ -1,20 +1,16 @@
-import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
-import getUserByEmailAddress from '../../../controllers/user/getUserByEmailAddress';
+import getUserByEmailAddress from '../../../controllers/user/emailAddress/getUserByEmailAddress';
 import updateUserSchema from '../../../validators/user/updateUserSchema';
-import updateUserByEmailAddress from '../../../controllers/user/updateUserByEmailAddress';
+import updateUserByEmailAddress from '../../../controllers/user/emailAddress/updateUserByEmailAddress';
 
 export default defineEventHandler(async (event) => {
   const { method } = event.node.req;
   const { email } = event.context.params as { email: string };
-  const { user } = event.context.session;
 
   if (method === 'GET') {
     return getUserByEmailAddress(email);
   }
   if (method === 'PUT') {
     const body = await readBody(event);
-
-    checkUserSignedIn(user);
 
     const validatedBody = await updateUserSchema.validate(body);
 

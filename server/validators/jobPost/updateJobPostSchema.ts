@@ -1,4 +1,4 @@
-import { object, string, date, number } from 'yup';
+import { object, string, date, number, ref } from 'yup';
 
 const updateJobPostSchema = object({
   companyId: string(),
@@ -32,7 +32,7 @@ const updateJobPostSchema = object({
     .shape({
       rate: string(),
       min: number().min(0),
-      max: number().min(yup.ref('min')),
+      max: number().min(ref('min')),
     })
     .unknown(false),
   // seniorLevel: yup
@@ -51,7 +51,5 @@ const updateJobPostSchema = object({
 
   title: string().optional(),
 }).unknown(false);
-
-export type UpdateJobPostSchemaType = yup.InferType<typeof updateJobPostSchema>;
 
 export default updateJobPostSchema;

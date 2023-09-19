@@ -1,5 +1,4 @@
-import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
-import getCompanyOwnersByUserId from '../../../controllers/companyOwner/getCompanyOwnersByUserId';
+import getCompanyOwnersByUserId from '../../../controllers/companyOwner/userId/getCompanyOwnersByUserId';
 
 export default defineEventHandler((event) => {
   const { method } = event.node.req;
@@ -9,9 +8,6 @@ export default defineEventHandler((event) => {
 
   if (method === 'GET') {
     try {
-      // Check user is signed in before performing action
-      checkUserSignedIn(user);
-
       // Return companies owned by he authenticated user.
       return getCompanyOwnersByUserId(userId);
     } catch (error) {

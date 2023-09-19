@@ -1,4 +1,3 @@
-import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 import deleteNotificationsByUserId from '../../../controllers/notification/userId/deleteNotificationsByUserId';
 import getNotificationsByUserId from '../../../controllers/notification/userId/getNotificationsByUserId';
 
@@ -15,9 +14,6 @@ export default defineEventHandler((event) => {
   // GET - Finds the notifications by their user ids matching the authenticated user's id.
   if (method === 'GET') {
     try {
-      // Check user is signed in to progress.
-      checkUserSignedIn(user);
-
       // Find and return the notifications by their matching user id.
       return getNotificationsByUserId(userId);
     } catch (error) {
@@ -28,9 +24,6 @@ export default defineEventHandler((event) => {
   // DELETE - Deletes the notifications by their user ids matching the authenticated user's id.
   if (method === 'DELETE') {
     try {
-      // Check user is signed in to progress.
-      checkUserSignedIn(user);
-
       // Delete all notifications by their matching user id.
       return deleteNotificationsByUserId(userId);
     } catch (error) {

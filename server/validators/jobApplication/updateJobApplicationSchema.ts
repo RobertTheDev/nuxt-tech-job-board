@@ -1,15 +1,9 @@
-import * as yup from 'yup';
+import { object, date, string } from 'yup';
 
-const updateJobApplicationSchema = yup
-  .object({
-    updatedAt: yup.date().default(() => new Date()),
-    userId: yup.string().optional(),
-    jobPostId: yup.string().optional(),
-  })
-  .unknown(false);
-
-export type UpdateJobApplicationSchemaType = yup.InferType<
-  typeof updateJobApplicationSchema
->;
+const updateJobApplicationSchema = object({
+  updatedAt: date().default(() => new Date()),
+  userId: string().optional(),
+  jobPostId: string().optional(),
+}).unknown(false);
 
 export default updateJobApplicationSchema;

@@ -1,7 +1,5 @@
-import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
 import createCompany from '../../controllers/company/createCompany';
 import getCompanies from '../../controllers/company/getCompanies';
-import User from '@/models/user/types/User';
 
 // This route gets and deletes all companies.
 // This route creates a new company.
@@ -27,9 +25,6 @@ export default defineEventHandler((event) => {
   // This method creates a new company.
   if (method === 'POST') {
     try {
-      // Ensure user is signed in before making this request.
-      checkUserSignedIn(user);
-
       // Gets the body from the request.
       const body = readBody(event);
 

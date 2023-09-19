@@ -1,4 +1,4 @@
-import getCompanyFollowersByUserId from '../../../controllers/companyFollower/getCompanyFollowersByUserId';
+import getCompanyFollowersByUserId from '../../../controllers/companyFollower/userId/getCompanyFollowersByUserId';
 import deleteCompanyFollowersByUserId from '../../../controllers/companyFollower/userId/deleteCompanyFollowersByUserId';
 
 export default defineEventHandler((event) => {

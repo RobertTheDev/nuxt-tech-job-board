@@ -2,17 +2,17 @@ import { ObjectId } from 'mongodb';
 import logger from '../../../lib/winstonLogger';
 import getJobPostById from '../id/getJobPostById';
 import { jobPostsCollection } from '../../../lib/mongoDBCollections';
-import { AddDescriptionSchemaType } from '../../../validators/jobPost/jobPostFieldSchemas/addDescriptionSchema';
+import addDescriptionSchema from '../../../validators/jobPost/jobPostFieldSchemas/addDescriptionSchema';
 
-export default async function addJobPostDescription(
-  id: string,
-  body: AddDescriptionSchemaType,
-) {
+export default async function addJobPostDescription(id: string, body: any) {
   try {
+    // Validate the body
+    const validatedBody = await addDescriptionSchema.validate(body);
+
     // Update the job post by its id with the inputted body.
     await jobPostsCollection.findOneAndUpdate(
       { _id: new ObjectId(id) },
-      { $set: body },
+      { $set: validatedBody },
     );
 
     // Find and return the updated job post by its id.

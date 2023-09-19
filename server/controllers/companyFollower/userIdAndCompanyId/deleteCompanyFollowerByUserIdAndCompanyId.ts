@@ -1,6 +1,6 @@
 import { ObjectId, DeleteResult } from 'mongodb';
-import { savedJobPostsCollection } from '../../lib/mongoDBCollections';
-import logger from '../../lib/winstonLogger';
+import { savedJobPostsCollection } from '../../../lib/mongoDBCollections';
+import logger from '../../../lib/winstonLogger';
 
 // This handler finds and deletes a company follower by its matching user id and company id.
 

@@ -1,12 +1,8 @@
-import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
-import getCompanyFollowersByUserId from '../../../controllers/companyFollower/getCompanyFollowersByUserId';
+import getCompanyFollowersByUserId from '../../../controllers/companyFollower/userId/getCompanyFollowersByUserId';
 import deleteCompanyFollowersByUserId from '../../../controllers/companyFollower/userId/deleteCompanyFollowersByUserId';
 
 export default defineEventHandler((event) => {
   const { method } = event.node.req;
-  const { user } = event.context.session;
-
-  checkUserSignedIn(user);
 
   const userId = user._id;
 

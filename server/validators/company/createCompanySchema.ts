@@ -1,4 +1,4 @@
-import { date, string, date, object } from 'yup';
+import { date, string, object } from 'yup';
 
 const totalEmployeesOptions = [
   '<100',
@@ -9,31 +9,29 @@ const totalEmployeesOptions = [
   '10000+',
 ];
 
-const createCompanySchema = yup
-  .object({
-    createdAt: date().default(() => new Date()),
-    name: string().required('A company name is required.'),
-    description: string().required('A company description is required.'),
-    category: string().required('A company category is required.'),
-    totalEmployees: string().oneOf(totalEmployeesOptions).required(),
-    logo: object()
-      .shape({
-        createdAt: date().default(() => new Date()),
-        url: string().url().required('Company logo url is required.'),
-        alt: string().required().default('Company logo.'),
-      })
-      .unknown(false)
-      .required('A company logo is required.'),
-    coverImage: object()
-      .shape({
-        createdAt: date().default(() => new Date()),
-        url: string().url().required(),
-        alt: string().required().default('Company cover image.'),
-      })
-      .nullable()
-      .unknown(false)
-      .default(null),
-  })
-  .unknown(false);
+const createCompanySchema = object({
+  createdAt: date().default(() => new Date()),
+  name: string().required('A company name is required.'),
+  description: string().required('A company description is required.'),
+  category: string().required('A company category is required.'),
+  totalEmployees: string().oneOf(totalEmployeesOptions).required(),
+  logo: object()
+    .shape({
+      createdAt: date().default(() => new Date()),
+      url: string().url().required('Company logo url is required.'),
+      alt: string().required().default('Company logo.'),
+    })
+    .unknown(false)
+    .required('A company logo is required.'),
+  coverImage: object()
+    .shape({
+      createdAt: date().default(() => new Date()),
+      url: string().url().required(),
+      alt: string().required().default('Company cover image.'),
+    })
+    .nullable()
+    .unknown(false)
+    .default(null),
+}).unknown(false);
 
 export default createCompanySchema;

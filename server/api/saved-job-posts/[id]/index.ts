@@ -1,6 +1,5 @@
-import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 import deleteSavedJobPostById from '../../../controllers/savedJobPost/id/deleteSavedJobPostById';
-import getSavedJobPostById from '../../../controllers/savedJobPost/getSavedJobPostById';
+import getSavedJobPostById from '../../../controllers/savedJobPost/id/getSavedJobPostById';
 
 // This route returns and deletes a saved job post by its id.
 
@@ -28,9 +27,6 @@ export default defineEventHandler(async (event) => {
   // DELETE - Deletes the saved job post by its id.
   if (method === 'DELETE') {
     try {
-      // Check user is signed in to progress.
-      checkUserSignedIn(user);
-
       // Find the saved job post by its id.
       const savedJobPost = await getSavedJobPostById(id);
 

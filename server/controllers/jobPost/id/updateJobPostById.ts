@@ -1,8 +1,8 @@
 import { ObjectId } from 'mongodb';
-import updateJobPostSchema from '../../validators/jobPost/updateJobPostSchema';
-import logger from '../../lib/winstonLogger';
-import { jobPostsCollection } from '../../lib/mongoDBCollections';
-import getJobPostById from './id/getJobPostById';
+import updateJobPostSchema from '../../../validators/jobPost/updateJobPostSchema';
+import logger from '../../../lib/winstonLogger';
+import { jobPostsCollection } from '../../../lib/mongoDBCollections';
+import getJobPostById from './getJobPostById';
 
 // This handler updates a job post by its id from MongoDB.
 

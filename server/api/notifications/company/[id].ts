@@ -1,14 +1,9 @@
 import getNotificationsByCompanyId from '../../../controllers/notification/companyId/getNotificationsByCompanyId';
 import deleteNotificationsByCompanyId from '../../../controllers/notification/companyId/deleteNotificationsByCompanyId';
-import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
-import User from '@/models/user/types/User';
 
 // This route gets and deletes all notifications by their matching company id.
 
 export default defineEventHandler((event) => {
-  // Get the user from the session.
-  const user = event.context.session.user as User;
-
   // Define the request method.
   const { method } = event.node.req;
 
@@ -29,7 +24,6 @@ export default defineEventHandler((event) => {
   // This method deletes all the app's notifications by shared company id.
   if (method === 'DELETE') {
     try {
-      checkUserSignedIn(user);
       // Deletes all the app's notifications by shared company id.
       return deleteNotificationsByCompanyId(id);
     } catch (error) {

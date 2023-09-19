@@ -1,11 +1,9 @@
-import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 import getJobApplicationsByCompanyId from '../../../controllers/jobApplication/companyId/getJobApplicationsByCompanyId';
 import deleteJobApplicationsByCompanyId from '../../../controllers/jobApplication/companyId/deleteJobApplicationsByCompanyId';
 
 export default defineEventHandler((event) => {
   const { id } = event.context.params as { id: string };
   const { method } = event.node.req;
-  const { user } = event.context.session;
 
   if (method === 'GET') {
     try {
@@ -16,7 +14,6 @@ export default defineEventHandler((event) => {
   }
   if (method === 'DELETE') {
     try {
-      checkUserSignedIn(user);
       return deleteJobApplicationsByCompanyId(id);
     } catch (error) {
       return error;

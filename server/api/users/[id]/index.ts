@@ -1,4 +1,3 @@
-import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
 import getUserById from '../../../controllers/user/id/getUserById';
 import updateUserById from '../../../controllers/user/id/updateUserById';
 import updateUserSchema from '../../../validators/user/updateUserSchema';
@@ -6,7 +5,6 @@ import updateUserSchema from '../../../validators/user/updateUserSchema';
 export default defineEventHandler(async (event) => {
   const { method } = event.node.req;
   const { id } = event.context.params as { id: string };
-  const { user } = event.context.session;
 
   if (method === 'GET') {
     return getUserById(id);
@@ -14,8 +12,6 @@ export default defineEventHandler(async (event) => {
 
   if (method === 'PUT') {
     const body = await readBody(event);
-
-    checkUserSignedIn(user);
 
     const validatedBody = await updateUserSchema.validate(body);
 

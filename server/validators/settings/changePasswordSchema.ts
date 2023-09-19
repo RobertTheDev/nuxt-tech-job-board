@@ -1,11 +1,11 @@
-import { object, date, string } from 'yup';
+import { object, date, string, ref } from 'yup';
 
 const changePasswordSchema = object({
   updatedAt: date().default(() => new Date()),
   currentPassword: string().required('Password is required.'),
   newPassword: string()
     .notOneOf(
-      [yup.ref('currentPassword')],
+      [ref('currentPassword')],
       'New password must be different from the current password.',
     )
     .required('New password is required.')

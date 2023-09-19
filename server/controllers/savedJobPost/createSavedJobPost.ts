@@ -2,7 +2,7 @@ import { Document, ObjectId } from 'mongodb';
 import createSavedJobPostSchema from '../../validators/savedJobPost/createSavedJobPostSchema';
 import logger from '../../lib/winstonLogger';
 import { savedJobPostsCollection } from '../../lib/mongoDBCollections';
-import getSavedJobPostById from './getSavedJobPostById';
+import getSavedJobPostById from './id/getSavedJobPostById';
 
 // This handler creates and inserts a new saved job post.
 

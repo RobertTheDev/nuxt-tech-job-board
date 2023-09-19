@@ -1,4 +1,4 @@
-import { object, date, string, number, boolean } from 'yup';
+import { object, date, string, number, boolean, ref } from 'yup';
 
 const createJobPostSchema = object({
   companyId: string(),
@@ -21,20 +21,20 @@ const createJobPostSchema = object({
 
   location: object()
     .shape({
-      fullName: yup.string().required('Full name is required'),
-      streetAddress: yup.string().required('Street address is required'),
-      city: yup.string().required('City is required'),
-      state: yup.string().required('State is required'),
-      postalCode: yup.string().required('Postal code is required'),
-      country: yup.string().required('Country is required'),
+      fullName: string().required('Full name is required'),
+      streetAddress: string().required('Street address is required'),
+      city: string().required('City is required'),
+      state: string().required('State is required'),
+      postalCode: string().required('Postal code is required'),
+      country: string().required('Country is required'),
     })
     .notRequired()
     .default(null),
   salary: object()
     .shape({
-      rate: yup.string().notRequired(),
-      min: yup.number().min(0).notRequired(),
-      max: yup.number().min(yup.ref('min')).notRequired(),
+      rate: string().notRequired(),
+      min: number().min(0).notRequired(),
+      max: number().min(ref('min')).notRequired(),
     })
     .notRequired()
     .default(null),

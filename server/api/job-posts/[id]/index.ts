@@ -1,14 +1,12 @@
 import { ObjectId } from 'mongodb';
 import { jobPostsCollection } from '../../../lib/mongoDBCollections';
 import getJobPostById from '../../../controllers/jobPost/id/getJobPostById';
-import updateJobPostById from '../../../controllers/jobPost/updateJobPostById';
-import checkUserSignedIn from '../../../controllers/auth/checkUserSignedIn';
+import updateJobPostById from '../../../controllers/jobPost/id/updateJobPostById';
 import updateJobPostSchema from '../../../validators/jobPost/updateJobPostSchema';
 
 export default defineEventHandler(async (event) => {
   const { id } = event.context.params as { id: string };
   const { method } = event.node.req;
-  const { user } = event.context.session;
 
   if (method === 'GET') {
     try {
@@ -20,8 +18,6 @@ export default defineEventHandler(async (event) => {
 
   if (method === 'DELETE') {
     try {
-      checkUserSignedIn(user);
-
       return await jobPostsCollection.findOneAndDelete({
         _id: new ObjectId(id),
       });
@@ -31,8 +27,6 @@ export default defineEventHandler(async (event) => {
   }
   if (method === 'PUT') {
     try {
-      checkUserSignedIn(user);
-
       const body = await readBody(event);
 
       const validatedBody = await updateJobPostSchema.validate(body);

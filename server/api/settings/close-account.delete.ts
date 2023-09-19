@@ -1,20 +1,17 @@
 import closeAccountSchema from '../../validators/settings/closeAccountSchema';
 import checkPasswordCorrect from '../../controllers/auth/checkPasswordCorrect';
-import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
-import getUserByEmailAddress from '../../controllers/user/getUserByEmailAddress';
+import getUserByEmailAddress from '../../controllers/user/emailAddress/getUserByEmailAddress';
 import closeAccount from '../../controllers/settings/closeAccount';
 
 export default defineEventHandler(async (event) => {
-  const { user } = await event.context.session;
-
-  checkUserSignedIn(user);
-
   const body = await readBody(event);
+
+  const user = event.context.session.user;
 
   const validatedBody = await closeAccountSchema.validate(body);
 
   // Check if a user is signed in.
-  const signedInUser = await getUserByEmailAddress(user.emailAddress);
+  const signedInUser = (await getUserByEmailAddress(user.emailAddress)) as any;
 
   // Check inputted password is incorrect.
   await checkPasswordCorrect(signedInUser.password, validatedBody.password);

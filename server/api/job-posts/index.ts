@@ -1,5 +1,4 @@
 import getJobPosts from '../../controllers/jobPost/getJobPosts';
-import checkUserSignedIn from '../../controllers/auth/checkUserSignedIn';
 import createJobPost from '../../controllers/jobPost/createJobPost';
 import User from '@/models/user/types/User';
 
@@ -27,9 +26,6 @@ export default defineEventHandler(async (event) => {
   // This method creates a new job post.
   if (method === 'POST') {
     try {
-      // Ensure user is signed in before making this request.
-      checkUserSignedIn(user);
-
       // Gets the body from the request.
       const body = await readBody(event);
 
