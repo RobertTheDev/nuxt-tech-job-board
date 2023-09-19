@@ -1,7 +1,7 @@
-import closeAccountSchema from '../../validators/settings/closeAccountSchema';
 import checkPasswordCorrect from '../../controllers/auth/checkPasswordCorrect';
 import getUserByEmailAddress from '../../controllers/user/emailAddress/getUserByEmailAddress';
 import closeAccount from '../../controllers/settings/closeAccount';
+import closeAccountSchema from '@/models/settings/validators/closeAccountSchema';
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);

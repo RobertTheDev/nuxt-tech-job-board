@@ -1,5 +1,5 @@
 import verifyEmailAddress from '../../../controllers/settings/verifyEmailAddress';
-import verifyEmailSchema from '../../../validators/settings/emailVerification/verifyEmailSchema';
+import verifyEmailSchema from '@/models/settings/validators/emailVerification/verifyEmailSchema';
 
 export default defineEventHandler(async (event) => {
   // Get saved job psot id from request params.

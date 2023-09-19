@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb';
 import { jobPostsCollection } from '../../../lib/mongoDBCollections';
 import getJobPostById from '../../../controllers/jobPost/id/getJobPostById';
 import updateJobPostById from '../../../controllers/jobPost/id/updateJobPostById';
-import updateJobPostSchema from '../../../validators/jobPost/updateJobPostSchema';
+import updateJobPostSchema from '@/models/jobPost/validators/updateJobPostSchema';
 
 export default defineEventHandler(async (event) => {
   const { id } = event.context.params as { id: string };

@@ -1,8 +1,8 @@
 import getCompanyById from '../../../controllers/company/id/getCompanyById';
 import deleteCompanyById from '../../../controllers/company/id/deleteCompanyById';
 import updateCompanyById from '../../../controllers/company/id/updateCompanyById';
-import updateCompanySchema from '../../../validators/company/updateCompanySchema';
 import deleteCompanyOwnersByCompanyId from '../../../controllers/companyOwner/companyId/deleteCompanyOwnersByCompanyId';
+import updateCompanySchema from '@/models/company/validators/updateCompanySchema';
 
 export default defineEventHandler(async (event) => {
   const { id } = event.context.params as { id: string };

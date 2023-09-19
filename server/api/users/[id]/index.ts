@@ -1,6 +1,6 @@
 import getUserById from '../../../controllers/user/id/getUserById';
 import updateUserById from '../../../controllers/user/id/updateUserById';
-import updateUserSchema from '../../../validators/user/updateUserSchema';
+import updateUserSchema from '@/models/user/validators/updateUserSchema';
 
 export default defineEventHandler(async (event) => {
   const { method } = event.node.req;

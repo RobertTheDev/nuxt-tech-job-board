@@ -2,7 +2,7 @@ import createSavedJobPost from '../../../../controllers/savedJobPost/createSaved
 import deleteSavedJobPostsByJobPostId from '../../../../controllers/savedJobPost/jobPostId/deleteSavedJobPostsByJobPostId';
 import getSavedJobPostByUserIdAndJobPostId from '../../../../controllers/savedJobPost/userIdAndJobPostId/getSavedJobPostByUserIdAndJobPostId';
 import deleteSavedJobPostById from '../../../../controllers/savedJobPost/id/deleteSavedJobPostById';
-import createSavedJobPostSchema from '../../../../validators/savedJobPost/createSavedJobPostSchema';
+import createSavedJobPostSchema from '@/models/savedJobPost/validators/createSavedJobPostSchema';
 
 // This route creates a saved job post and deletes a saved job post by its job post id.
 

@@ -1,5 +1,5 @@
 import addJobPostDeadlineDate from '../../../../controllers/jobPost/jobPostFields/addJobPostDeadlineDate';
-import addDeadlineDateSchema from '../../../../validators/jobPost/jobPostFieldSchemas/addDeadlineDateSchema';
+import addDeadlineDateSchema from '@/models/jobPost/validators/jobPostFieldSchemas/addDeadlineDateSchema';
 
 export default defineEventHandler(async (event) => {
   const { id } = event.context.params as { id: string };

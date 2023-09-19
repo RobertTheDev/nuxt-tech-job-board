@@ -141,7 +141,7 @@
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import FormHandler from '@/models/config/form/FormHandler';
-import addContractSchema from '@/models/jobPost/validators/addContractSchema';
+import addContractSchema from '@/models/jobPost/validators/jobPostFieldSchemas/addContractSchema';
 import rateOptions from '@/utils/inputOptions/rateOptions';
 import contractLevelOptions from '@/utils/inputOptions/contractLevelOptions';
 import contractTypeOptions from '@/utils/inputOptions/contractTypeOptions';

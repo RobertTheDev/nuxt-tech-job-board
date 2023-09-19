@@ -1,5 +1,5 @@
 import addJobPostLocation from '../../../../controllers/jobPost/jobPostFields/addJobPostLocation';
-import addLocationSchema from '../../../../validators/jobPost/jobPostFieldSchemas/addLocationSchema';
+import addLocationSchema from '@/models/jobPost/validators/jobPostFieldSchemas/addLocationSchema';
 
 export default defineEventHandler(async (event) => {
   const { id } = event.context.params as { id: string };

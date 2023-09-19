@@ -36,7 +36,7 @@
 
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import addTitleSchema from '@/models/jobPost/validators/addTitleSchema';
+import addTitleSchema from '@/models/jobPost/validators/jobPostFieldSchemas/addTitleSchema';
 import FormHandler from '@/models/config/form/FormHandler';
 
 const formHandler = ref<FormHandler>({

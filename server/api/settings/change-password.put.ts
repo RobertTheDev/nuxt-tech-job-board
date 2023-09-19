@@ -1,6 +1,6 @@
 import changePassword from '../../controllers/settings/changePassword';
 import checkPasswordCorrect from '../../controllers/auth/checkPasswordCorrect';
-import changePasswordSchema from '../../validators/settings/changePasswordSchema';
+import changePasswordSchema from '@/models/settings/validators/changePasswordSchema';
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);

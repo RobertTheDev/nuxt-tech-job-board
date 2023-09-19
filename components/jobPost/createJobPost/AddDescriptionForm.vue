@@ -37,7 +37,7 @@
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import FormHandler from '@/models/config/form/FormHandler';
-import addDescriptionSchema from '@/models/jobPost/validators/addDescriptionSchema';
+import addDescriptionSchema from '@/models/jobPost/validators/jobPostFieldSchemas/addDescriptionSchema';
 
 const formHandler = ref<FormHandler>({
   pending: false,

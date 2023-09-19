@@ -24,9 +24,6 @@ export default defineEventHandler((event) => {
   // DELETE - Deletes the saved job posts by their user ids matching the authenticated user's id.
   if (method === 'DELETE') {
     try {
-      // Check user is signed in to progress.
-      checkUserSignedIn(user);
-
       // Delete all the saved job posts by their matching user id.
       return deleteSavedJobPostsByUserId(userId);
     } catch (error) {

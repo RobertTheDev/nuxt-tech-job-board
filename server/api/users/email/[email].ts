@@ -1,6 +1,6 @@
 import getUserByEmailAddress from '../../../controllers/user/emailAddress/getUserByEmailAddress';
-import updateUserSchema from '../../../validators/user/updateUserSchema';
 import updateUserByEmailAddress from '../../../controllers/user/emailAddress/updateUserByEmailAddress';
+import updateUserSchema from '@/models/user/validators/updateUserSchema';
 
 export default defineEventHandler(async (event) => {
   const { method } = event.node.req;

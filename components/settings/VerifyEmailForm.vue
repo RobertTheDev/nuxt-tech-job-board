@@ -47,7 +47,7 @@
 
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import sendEmailVerificationTokenSchema from '@/models/settings/validators/sendEmailVerificationTokenSchema';
+import sendEmailVerificationTokenSchema from '@/models/settings/validators/emailVerification/sendEmailVerificationTokenSchema';
 import FormHandler from '@/models/config/form/FormHandler';
 
 const formHandler = ref<FormHandler>({

@@ -1,7 +1,7 @@
-import updateApplicationSchema from '../../../validators/jobApplication/updateJobApplicationSchema';
 import getJobApplicationById from '../../../controllers/jobApplication/id/getJobApplicationById';
 import deleteJobApplicationById from '../../../controllers/jobApplication/id/deleteJobApplicationById';
 import updateJobApplicationById from '../../../controllers/jobApplication/id/updateJobApplicationById';
+import updateJobApplicationSchema from '@/models/jobApplication/validators/updateJobApplicationSchema';
 
 export default defineEventHandler(async (event) => {
   const { id } = event.context.params as { id: string };
@@ -25,7 +25,7 @@ export default defineEventHandler(async (event) => {
     try {
       const body = await readBody(event);
 
-      const validatedBody = await updateApplicationSchema.validate(body);
+      const validatedBody = await updateJobApplicationSchema.validate(body);
 
       return updateJobApplicationById(id, validatedBody);
     } catch (error) {

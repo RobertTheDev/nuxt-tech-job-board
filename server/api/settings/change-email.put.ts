@@ -1,7 +1,7 @@
 import changeEmail from '../../controllers/settings/changeEmail';
 import checkEmailIsTaken from '../../controllers/auth/checkEmailIsTaken';
 import checkPasswordCorrect from '../../controllers/auth/checkPasswordCorrect';
-import changeEmailSchema from '../../validators/settings/changeEmailSchema';
+import changeEmailSchema from '@/models/settings/validators/changeEmailSchema';
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);

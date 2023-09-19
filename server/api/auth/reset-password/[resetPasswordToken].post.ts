@@ -1,5 +1,5 @@
 import resetPassword from '../../../controllers/auth/passwordReset/resetPassword';
-import resetPasswordSchema from '../../../validators/auth/resetPasswordSchema';
+import resetPasswordSchema from '@/models/auth/validators/resetPasswordSchema';
 
 export default defineEventHandler(async (event) => {
   // Get saved job psot id from request params.

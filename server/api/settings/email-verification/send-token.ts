@@ -1,5 +1,5 @@
 import sendVerificationEmail from '../../../controllers/settings/sendVerificationEmail';
-import sendEmailVerificationTokenSchema from '../../../validators/settings/emailVerification/sendEmailVerificationTokenSchema';
+import sendEmailVerificationTokenSchema from '@/models/settings/validators/emailVerification/sendEmailVerificationTokenSchema';
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);

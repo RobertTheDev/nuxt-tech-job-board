@@ -203,7 +203,7 @@
 
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import addLocationSchema from '@/models/jobPost/validators/addLocationSchema';
+import addLocationSchema from '@/models/jobPost/validators/jobPostFieldSchemas/addLocationSchema';
 import FormHandler from '@/models/config/form/FormHandler';
 import locationTypeOptions from '@/utils/inputOptions/locationTypeOptions';
 

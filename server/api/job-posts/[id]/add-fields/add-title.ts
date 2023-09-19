@@ -1,5 +1,5 @@
 import addJobPostTitle from '../../../../controllers/jobPost/jobPostFields/addJobPostTitle';
-import addTitleSchema from '../../../../validators/jobPost/jobPostFieldSchemas/addTitleSchema';
+import addTitleSchema from '@/models/jobPost/validators/jobPostFieldSchemas/addTitleSchema';
 
 export default defineEventHandler(async (event) => {
   const { id } = event.context.params as { id: string };

@@ -4,6 +4,8 @@ import deleteCompanyFollowersByUserId from '../../../controllers/companyFollower
 export default defineEventHandler((event) => {
   const { method } = event.node.req;
 
+  const { user } = event.context.session;
+
   const userId = user._id;
 
   if (method === 'GET') {

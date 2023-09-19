@@ -22,9 +22,6 @@ export default defineEventHandler((event) => {
   // This method creates a new company owner.
   if (method === 'POST') {
     try {
-      // Ensure user is signed in before making this request.
-      checkUserSignedIn(user);
-
       // Gets the body from the request.
       const body = readBody(event);
 

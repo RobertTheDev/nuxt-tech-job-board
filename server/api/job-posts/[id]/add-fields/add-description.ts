@@ -1,5 +1,5 @@
 import addJobPostDescription from '../../../../controllers/jobPost/jobPostFields/addJobPostDescription';
-import addDescriptionSchema from '../../../../validators/jobPost/jobPostFieldSchemas/addDescriptionSchema';
+import addDescriptionSchema from '@/models/jobPost/validators/jobPostFieldSchemas/addDescriptionSchema';
 
 export default defineEventHandler(async (event) => {
   const { id } = event.context.params as { id: string };

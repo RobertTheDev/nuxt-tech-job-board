@@ -1,5 +1,6 @@
 import createCompany from '../../controllers/company/createCompany';
 import getCompanies from '../../controllers/company/getCompanies';
+import User from '@/models/user/types/User';
 
 // This route gets and deletes all companies.
 // This route creates a new company.

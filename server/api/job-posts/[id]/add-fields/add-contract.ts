@@ -1,5 +1,5 @@
 import addJobPostContract from '../../../../controllers/jobPost/jobPostFields/addJobPostContract';
-import addContractSchema from '../../../../validators/jobPost/jobPostFieldSchemas/addContractSchema';
+import addContractSchema from '@/models/jobPost/validators/jobPostFieldSchemas/addContractSchema';
 
 export default defineEventHandler(async (event) => {
   const { id } = event.context.params as { id: string };

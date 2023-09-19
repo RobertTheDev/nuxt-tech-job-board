@@ -5,6 +5,9 @@ import createSavedJobPost from '../../controllers/savedJobPost/createSavedJobPos
 // This route creates a new saved job post in the app.
 
 export default defineEventHandler((event) => {
+  // Define the request method.
+  const { method } = event.node.req;
+
   // This method finds and returns all the app's saved job posts.
   if (method === 'GET') {
     try {
@@ -19,9 +22,6 @@ export default defineEventHandler((event) => {
   // This method creates a new saved job post.
   if (method === 'POST') {
     try {
-      // Ensure user is signed in before making this request.
-      checkUserSignedIn(user);
-
       // Gets the body from the request.
       const body = readBody(event);
 
