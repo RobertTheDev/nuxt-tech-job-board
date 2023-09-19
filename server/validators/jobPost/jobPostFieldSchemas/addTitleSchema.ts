@@ -1,12 +1,8 @@
-import * as yup from 'yup';
+import { date, string, object } from 'yup';
 
-const addTitleSchema = yup
-  .object({
-    updatedAt: yup.date().default(() => new Date()),
-    title: yup.string().notRequired().required('Job title is required.'),
-  })
-  .unknown(false);
-
-export type AddTitleSchemaType = yup.InferType<typeof addTitleSchema>;
+const addTitleSchema = object({
+  updatedAt: date().default(() => new Date()),
+  title: string().notRequired().required('Job title is required.'),
+}).unknown(false);
 
 export default addTitleSchema;

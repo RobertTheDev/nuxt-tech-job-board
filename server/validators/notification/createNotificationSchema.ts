@@ -1,18 +1,11 @@
-import * as yup from 'yup';
+import { date, string, object } from 'yup';
 
-const createNotificationSchema = yup
-  .object({
-    createdAt: yup
-      .date()
-      .default(() => new Date())
-      .notRequired(),
-    jobPostId: yup.string().required('A job post id is required.'),
-    userId: yup.string().required('A user id is required.'),
-  })
-  .unknown(false);
-
-export type CreateNotificationSchemaType = yup.InferType<
-  typeof createNotificationSchema
->;
+const createNotificationSchema = object({
+  createdAt: date()
+    .default(() => new Date())
+    .notRequired(),
+  jobPostId: string().required('A job post id is required.'),
+  userId: string().required('A user id is required.'),
+}).unknown(false);
 
 export default createNotificationSchema;

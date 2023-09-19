@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/named
-import { string, object, InferType } from 'yup';
+import { string, object } from 'yup';
 
 /* The code is defining a login schema using the Yup library in TypeScript. */
 const loginSchema = object({
@@ -8,7 +7,5 @@ const loginSchema = object({
     .required('Email address is required.'),
   password: string().required('Password is required.'),
 }).unknown(false);
-
-export type LoginSchemaType = InferType<typeof loginSchema>;
 
 export default loginSchema;

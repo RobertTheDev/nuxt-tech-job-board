@@ -1,14 +1,8 @@
-import * as yup from 'yup';
+import { object, date } from 'yup';
 
-const addDeadlineDateSchema = yup
-  .object({
-    updatedAt: yup.date().default(() => new Date()),
-    deadlineDate: yup.date().required('Job deadline date is required.'),
-  })
-  .unknown(false);
-
-export type AddDeadlineDateSchemaType = yup.InferType<
-  typeof addDeadlineDateSchema
->;
+const addDeadlineDateSchema = object({
+  updatedAt: date().default(() => new Date()),
+  deadlineDate: date().required('Job deadline date is required.'),
+}).unknown(false);
 
 export default addDeadlineDateSchema;

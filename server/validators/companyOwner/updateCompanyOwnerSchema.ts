@@ -1,15 +1,9 @@
-import * as yup from 'yup';
+import { date, string, object } from 'yup';
 
-const updateCompanyOwnerSchema = yup
-  .object({
-    updatedAt: yup.date().default(() => new Date()),
-    companyId: yup.string().optional(),
-    userId: yup.string().optional(),
-  })
-  .unknown(false);
-
-export type UpdateCompanyOwnerSchemaType = yup.InferType<
-  typeof updateCompanyOwnerSchema
->;
+const updateCompanyOwnerSchema = object({
+  updatedAt: date().default(() => new Date()),
+  companyId: string().optional(),
+  userId: string().optional(),
+}).unknown(false);
 
 export default updateCompanyOwnerSchema;

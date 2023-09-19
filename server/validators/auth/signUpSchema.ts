@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/named
-import { string, date, object, InferType } from 'yup';
+import { string, date, object } from 'yup';
 
 /* The code defines a schema for signing up a user. It uses the `yup` library to define validation
 rules for each field in the schema. */
@@ -27,7 +26,5 @@ const signUpSchema = object({
     )
     .required('Password is required.'),
 }).unknown(false);
-
-export type SignUpSchemaType = InferType<typeof signUpSchema>;
 
 export default signUpSchema;

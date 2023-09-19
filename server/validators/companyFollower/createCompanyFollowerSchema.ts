@@ -1,18 +1,11 @@
-import * as yup from 'yup';
+import { object, string, date } from 'yup';
 
-const createCompanyFollowerSchema = yup
-  .object({
-    createdAt: yup
-      .date()
-      .optional()
-      .default(() => new Date()),
-    companyId: yup.string().required('A company id is required.'),
-    userId: yup.string().required('A user id is required.'),
-  })
-  .unknown(false);
-
-export type CreateCompanyFollowerSchemaType = yup.InferType<
-  typeof createCompanyFollowerSchema
->;
+const createCompanyFollowerSchema = object({
+  createdAt: date()
+    .optional()
+    .default(() => new Date()),
+  companyId: string().required('A company id is required.'),
+  userId: string().required('A user id is required.'),
+}).unknown(false);
 
 export default createCompanyFollowerSchema;

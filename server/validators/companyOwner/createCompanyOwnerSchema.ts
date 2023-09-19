@@ -1,15 +1,9 @@
-import * as yup from 'yup';
+import { date, string, object } from 'yup';
 
-const createCompanyOwnerSchema = yup
-  .object({
-    createdAt: yup.date().default(() => new Date()),
-    companyId: yup.string().required('A company id is required.'),
-    userId: yup.string().required('A user id is required.'),
-  })
-  .unknown(false);
-
-export type CreateCompanyOwnerSchemaType = yup.InferType<
-  typeof createCompanyOwnerSchema
->;
+const createCompanyOwnerSchema = object({
+  createdAt: date().default(() => new Date()),
+  companyId: string().required('A company id is required.'),
+  userId: string().required('A user id is required.'),
+}).unknown(false);
 
 export default createCompanyOwnerSchema;

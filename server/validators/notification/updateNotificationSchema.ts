@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/named
-import { string, date, InferType, object } from 'yup';
+import { string, date, object } from 'yup';
 
 const updateNotificationSchema = object({
   createdAt: date()
@@ -8,9 +7,5 @@ const updateNotificationSchema = object({
   jobPostId: string().required('A job post id is required.'),
   userId: string().required('A user id is required.'),
 }).unknown(false);
-
-export type UpdateNotificationSchemaType = InferType<
-  typeof updateNotificationSchema
->;
 
 export default updateNotificationSchema;

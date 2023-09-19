@@ -1,4 +1,4 @@
-import * as yup from 'yup';
+import { date, string, date, object } from 'yup';
 
 const totalEmployeesOptions = [
   '<100',
@@ -11,33 +11,29 @@ const totalEmployeesOptions = [
 
 const createCompanySchema = yup
   .object({
-    createdAt: yup.date().default(() => new Date()),
-    name: yup.string().required('A company name is required.'),
-    description: yup.string().required('A company description is required.'),
-    category: yup.string().required('A company category is required.'),
-    totalEmployees: yup.string().oneOf(totalEmployeesOptions).required(),
-    logo: yup
-      .object()
+    createdAt: date().default(() => new Date()),
+    name: string().required('A company name is required.'),
+    description: string().required('A company description is required.'),
+    category: string().required('A company category is required.'),
+    totalEmployees: string().oneOf(totalEmployeesOptions).required(),
+    logo: object()
       .shape({
-        createdAt: yup.date().default(() => new Date()),
-        url: yup.string().url().required('Company logo url is required.'),
-        alt: yup.string().required().default('Company logo.'),
+        createdAt: date().default(() => new Date()),
+        url: string().url().required('Company logo url is required.'),
+        alt: string().required().default('Company logo.'),
       })
       .unknown(false)
       .required('A company logo is required.'),
-    coverImage: yup
-      .object()
+    coverImage: object()
       .shape({
-        createdAt: yup.date().default(() => new Date()),
-        url: yup.string().url().required(), // Make url optional
-        alt: yup.string().required().default('Company cover image.'),
+        createdAt: date().default(() => new Date()),
+        url: string().url().required(),
+        alt: string().required().default('Company cover image.'),
       })
       .nullable()
       .unknown(false)
       .default(null),
   })
   .unknown(false);
-
-export type CreateCompanySchemaType = yup.InferType<typeof createCompanySchema>;
 
 export default createCompanySchema;

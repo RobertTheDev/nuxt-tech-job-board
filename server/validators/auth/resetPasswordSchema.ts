@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/named
-import { string, object, InferType } from 'yup';
+import { string, object } from 'yup';
 
 /* The code defines a schema for validating a reset password request. The schema is created using the
 `object` function from the `yup` library, which allows you to define a schema for an object with
@@ -19,7 +18,5 @@ const resetPasswordSchema = object({
     )
     .required('Password is required.'),
 }).unknown(false);
-
-export type ResetPasswordSchemaType = InferType<typeof resetPasswordSchema>;
 
 export default resetPasswordSchema;

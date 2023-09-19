@@ -1,17 +1,12 @@
-import * as yup from 'yup';
+import { string, object } from 'yup';
 
-const verifyEmailSchema = yup
-  .object({
-    emailVerificationToken: yup
-      .string()
-      .min(
-        1,
-        'Email verification token must be at least one character in length.',
-      )
-      .required('Email verification token is required.'),
-  })
-  .unknown(false);
-
-export type VerifyEmailSchemaType = yup.InferType<typeof verifyEmailSchema>;
+const verifyEmailSchema = object({
+  emailVerificationToken: string()
+    .min(
+      1,
+      'Email verification token must be at least one character in length.',
+    )
+    .required('Email verification token is required.'),
+}).unknown(false);
 
 export default verifyEmailSchema;

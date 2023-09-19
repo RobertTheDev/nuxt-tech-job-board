@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/named
-import { date, string, object, InferType, array, boolean } from 'yup';
+import { date, string, object, array, boolean } from 'yup';
 import { subYears } from 'date-fns';
 
 const invalidUrlMessage = 'Please provide a valid URL.';
@@ -83,7 +82,5 @@ const updateUserSchema = object({
   isWillingToRelocate: boolean().optional(),
   jobTitle: string().nullable().min(1, 'CV cannot be empty.').optional(),
 }).unknown(false);
-
-export type UpdateUserSchemaType = InferType<typeof updateUserSchema>;
 
 export default updateUserSchema;

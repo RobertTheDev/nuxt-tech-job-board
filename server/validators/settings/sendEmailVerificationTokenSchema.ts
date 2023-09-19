@@ -1,16 +1,9 @@
-import * as yup from 'yup';
+import { string, object } from 'yup';
 
-const sendEmailVerificationTokenSchema = yup
-  .object({
-    emailAddress: yup
-      .string()
-      .email('Email address must be a valid email format.')
-      .required('Please provide a new email address.'),
-  })
-  .unknown(false);
-
-export type SendEmailVerificationTokenSchemaType = yup.InferType<
-  typeof sendEmailVerificationTokenSchema
->;
+const sendEmailVerificationTokenSchema = object({
+  emailAddress: string()
+    .email('Email address must be a valid email format.')
+    .required('Please provide a new email address.'),
+}).unknown(false);
 
 export default sendEmailVerificationTokenSchema;
