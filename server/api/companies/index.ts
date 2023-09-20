@@ -1,11 +1,12 @@
 import createCompany from '../../controllers/company/createCompany';
 import getCompanies from '../../controllers/company/getCompanies';
+import isAuthenticated from '@/server/helpers/auth/isAuthenticated';
 import User from '@/models/user/types/User';
 
 // This route gets and deletes all companies.
 // This route creates a new company.
 
-export default defineEventHandler((event) => {
+export default defineEventHandler(async (event) => {
   // Get the user from the session.
   const user = event.context.session.user as User;
 
@@ -26,8 +27,11 @@ export default defineEventHandler((event) => {
   // This method creates a new company.
   if (method === 'POST') {
     try {
+      // Check to user is authenticated.
+      await isAuthenticated(event);
+
       // Gets the body from the request.
-      const body = readBody(event);
+      const body = await readBody(event);
 
       // Creates a new company and takes in the body and user as params.
       return createCompany(body, user);
