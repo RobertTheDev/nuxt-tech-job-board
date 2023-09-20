@@ -1,12 +1,11 @@
-import { ObjectId, Document } from 'mongodb';
+import { ObjectId } from 'mongodb';
 import { companiesCollection } from '../../../lib/mongoDBCollections';
 import logger from '../../../lib/winstonLogger';
+import Company from '@/models/company/types/Company';
 
 // This handler gets the company by its id.
 
-export default async function getCompanyById(
-  id: string,
-): Promise<Document | null> {
+export default async function getCompanyById(id: string): Promise<Company> {
   try {
     // Gets company bu its id and uses agregation to get related fields.
     const company = await companiesCollection
@@ -61,12 +60,11 @@ export default async function getCompanyById(
       });
     }
     // Return company from the aggregated array
-    return company[0];
+    return company[0] as Company;
   } catch (error) {
     // Handle the error, log it, and throw an error.
-    logger.error('Error retrieving company by id:', error);
-    throw new Error(
-      'Could not retrieve the company due to an error. Please try again.',
-    );
+    logger.error('Error getting company by id:', error);
+    // Rethrow the error to be handled elsewhere if needed
+    throw error;
   }
 }
