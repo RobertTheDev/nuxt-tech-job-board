@@ -1,22 +1,21 @@
-import { Document } from 'mongodb';
+import { Document, ObjectId } from 'mongodb';
 import logger from '../../lib/winstonLogger';
 import { companyOwnersCollection } from '../../lib/mongoDBCollections';
 import getCompanyOwnerById from './id/getCompanyOwnerById';
-import createCompanyOwnerSchema from '@/models/companyOwner/validators/createCompanyOwnerSchema';
 
 // This handler creates and inserts a new company.
 
 export default async function createCompanyOwner(
-  body: any,
+  companyId: string,
+  userId: string,
 ): Promise<Document | null> {
   try {
-    // Validate the body.
-    const validatedBody = await createCompanyOwnerSchema.validate(body);
-
     // Create the company owner.
-    const createdCompanyOwner = await companyOwnersCollection.insertOne(
-      validatedBody,
-    );
+    const createdCompanyOwner = await companyOwnersCollection.insertOne({
+      createdAt: new Date(),
+      companyId: new ObjectId(companyId),
+      userId: new ObjectId(userId),
+    });
 
     // Get the created company owner by its id.
     return await getCompanyOwnerById(createdCompanyOwner.insertedId.toString());

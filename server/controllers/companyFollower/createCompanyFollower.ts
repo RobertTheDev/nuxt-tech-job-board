@@ -2,23 +2,17 @@ import { Document, ObjectId } from 'mongodb';
 import logger from '../../lib/winstonLogger';
 import { companyFollowersCollection } from '../../lib/mongoDBCollections';
 import getCompanyFollowerById from './id/getCompanyFollowerById';
-import createCompanyFollowerSchema from '@/models/companyFollower/validators/createCompanyFollowerSchema';
 
 // This handler creates and inserts a new company follower.
 
 export default async function createCompanyFollower(
-  body: any,
+  userId: string,
+  companyId: string,
 ): Promise<Document | null> {
   try {
-    // Validate the body.
-    const validatedBody = await createCompanyFollowerSchema.validate(body);
-
-    // Get the fields from the validated body.
-    const { createdAt, userId, companyId } = validatedBody;
-
     // Create company follower with signed in user's id and company id.
     const createdCompanyFollower = await companyFollowersCollection.insertOne({
-      createdAt,
+      createdAt: new Date(),
       companyId: new ObjectId(companyId),
       userId: new ObjectId(userId),
     });

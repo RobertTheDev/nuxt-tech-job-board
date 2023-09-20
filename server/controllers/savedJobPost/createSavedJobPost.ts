@@ -2,25 +2,19 @@ import { Document, ObjectId } from 'mongodb';
 import logger from '../../lib/winstonLogger';
 import { savedJobPostsCollection } from '../../lib/mongoDBCollections';
 import getSavedJobPostById from './id/getSavedJobPostById';
-import createSavedJobPostSchema from '@/models/savedJobPost/validators/createSavedJobPostSchema';
 
 // This handler creates and inserts a new saved job post.
 
-export default async function createSavedJobPost(
-  body: any,
-): Promise<Document | null> {
+export default async function createSavedJobPost(body: {
+  userId: string;
+  jobPostId: string;
+}): Promise<Document | null> {
   try {
-    // Validate the body.
-    const validatedBody = await createSavedJobPostSchema.validate(body);
-
-    // Get the fields from the validated body.
-    const { createdAt, userId, jobPostId } = validatedBody;
-
     // Create saved job with signed in user's id and job post id.
     const savedJobPost = await savedJobPostsCollection.insertOne({
-      createdAt,
-      userId: new ObjectId(userId),
-      jobPostId: new ObjectId(jobPostId),
+      createdAt: new Date(),
+      userId: new ObjectId(body.userId),
+      jobPostId: new ObjectId(body.jobPostId),
     });
 
     // Return created saved job post by its id.

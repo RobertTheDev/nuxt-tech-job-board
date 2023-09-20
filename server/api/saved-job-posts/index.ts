@@ -23,7 +23,7 @@ export default defineEventHandler((event) => {
   if (method === 'POST') {
     try {
       // Gets the body from the request.
-      const body = readBody(event);
+      const body = readBody(event) as any;
 
       // Creates a new saved job post and takes in the body as params.
       return createSavedJobPost(body);
