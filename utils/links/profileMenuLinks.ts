@@ -9,7 +9,7 @@ const profileMenuLinks: NavigationLink[] = [
   { href: '/job-applications', name: 'My Applications' },
   { href: '/job-interviews', name: 'My Interviews' },
   { href: '/my-companies', name: 'My Companies' },
-  { href: '/followed-companies', name: 'Followed Companies' },
+  { href: '/saved-companies', name: 'Saved Companies' },
   { href: '/settings', name: 'Account Settings' },
 ];
 
