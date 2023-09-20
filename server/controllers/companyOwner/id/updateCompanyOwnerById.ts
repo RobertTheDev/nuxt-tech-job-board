@@ -2,7 +2,6 @@ import { Document, ObjectId } from 'mongodb';
 import { companyOwnersCollection } from '../../../lib/mongoDBCollections';
 import logger from '../../../lib/winstonLogger';
 import getCompanyOwnerById from './getCompanyOwnerById';
-import updateCompanyOwnerSchema from '@/models/companyOwner/validators/updateCompanyOwnerSchema';
 
 // This handler updates and returns the company onwer by id.
 
@@ -12,12 +11,11 @@ export default async function updateCompanyOwnerById(
 ): Promise<Document | null> {
   try {
     // Validate the body.
-    const validatedBody = await updateCompanyOwnerSchema.validate(body);
 
     // Update the company owner by its id with the inputted body.
     await companyOwnersCollection.updateOne(
       { _id: new ObjectId(id) },
-      { $set: { validatedBody } },
+      { $set: { body } },
     );
 
     // Find and return the updated company owner by its id.
