@@ -1,5 +1,5 @@
 <template>
-  <CompanyDetail v-bind="company" />
+  <CompanyDetails v-if="company" v-bind="company" />
 </template>
 
 <script setup lang="ts">
