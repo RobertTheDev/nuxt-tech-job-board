@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Page Title. -->
-    <h1>Followed Companies</h1>
+    <h1>Saved Companies</h1>
 
     <!-- Show this when companies are successfully fetched. -->
     <div v-if="companyFollowers">
@@ -50,7 +50,7 @@ const {
 
 // Companies page SEO title and description.
 useHead({
-  title: 'Followed Companies',
+  title: 'Saved Companies',
   meta: [
     {
       name: 'description',
