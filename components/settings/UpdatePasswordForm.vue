@@ -1,94 +1,68 @@
 <template>
   <Form
-    class="primary-form-container"
     :validation-schema="changePasswordSchema"
     @submit="handleChangePassword"
   >
-    <div class="primary-form-input-content-container">
-      <Field
-        v-slot="{ field }"
-        class="primary-form-input-container"
-        name="currentPassword"
-        type="text"
-      >
-        <label for="currentPassword" class="primary-form-input-label-container">
+    <div>
+      <Field v-slot="{ field }" name="currentPassword" type="text">
+        <label for="currentPassword">
           <input
-            class="primary-form-input"
             type="password"
             v-bind="field"
             placeholder="Current Password"
           />
         </label>
       </Field>
-      <ErrorMessage
-        name="currentPassword"
-        class="primary-form-input-validation-error-message-text"
-      />
+      <ErrorMessage name="currentPassword" />
     </div>
 
-    <div class="primary-form-input-content-container">
-      <Field
-        v-slot="{ field }"
-        class="primary-form-input-container"
-        name="newPassword"
-        type="text"
-      >
-        <label for="newPassword" class="primary-form-input-label-container">
-          <input
-            class="primary-form-input"
-            type="password"
-            v-bind="field"
-            placeholder="New Password"
-          />
+    <div>
+      <Field v-slot="{ field }" name="newPassword" type="text">
+        <label for="newPassword">
+          <input type="password" v-bind="field" placeholder="New Password" />
         </label>
       </Field>
-      <ErrorMessage
-        name="newPassword"
-        class="primary-form-input-validation-error-message-text"
-      />
+      <ErrorMessage name="newPassword" />
     </div>
-    <p
-      v-if="formHandler.errorMessage"
-      class="primary-form-input-validation-error-message-text"
-    >
+
+    <p v-if="formHandler.errorMessage">
       {{ formHandler.errorMessage }}
     </p>
+    <p v-if="formHandler.successMessage">
+      {{ formHandler.successMessage }}
+    </p>
+    <button v-if="formHandler.pending">Loading</button>
 
-    <button
-      v-if="formHandler.pending"
-      class="primary-form-button"
-      type="submit"
-    >
-      Loading
-    </button>
-    <button v-else class="primary-form-button" type="submit">
-      Change Password
-    </button>
+    <button v-else type="submit">Update Password</button>
   </Form>
 </template>
 
 <script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import changePasswordSchema from '@/models/settings/validators/changePasswordSchema';
-import FormHandler from '@/models/config/form/FormHandler';
 
-const formHandler = ref<FormHandler>({
+const formHandler = ref<{
+  pending: boolean;
+  errorMessage: string | undefined;
+  successMessage: string | undefined;
+}>({
   pending: false,
   errorMessage: undefined,
+  successMessage: undefined,
 });
 
 async function handleChangePassword(values: any): Promise<void> {
-  const { pending, error } = await useFetch('/api/auth/change-password', {
+  const { pending, error } = await useFetch('/api/settings/change-password', {
     method: 'PUT',
     body: values,
   });
 
   if (pending.value) {
     formHandler.value.pending = pending.value;
-  }
-
-  if (error.value) {
+  } else if (error.value) {
     formHandler.value.errorMessage = error.value.statusMessage;
+  } else {
+    formHandler.value.successMessage = 'Successfully updated your password.';
   }
 }
 </script>

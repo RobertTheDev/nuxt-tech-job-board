@@ -21,7 +21,16 @@
 
       <ErrorMessage name="password" />
     </div>
-    <button type="submit">Close Account</button>
+
+    <p v-if="formHandler.errorMessage">
+      {{ formHandler.errorMessage }}
+    </p>
+    <p v-if="formHandler.successMessage">
+      {{ formHandler.successMessage }}
+    </p>
+    <button v-if="formHandler.pending">Loading</button>
+
+    <button v-else type="submit">Close Account</button>
   </Form>
 </template>
 
@@ -29,7 +38,28 @@
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import closeAccountSchema from '@/models/settings/validators/closeAccountSchema';
 
-function handleCloseAccount(values: any): void {
-  alert(JSON.stringify(values, null, 2));
+const formHandler = ref<{
+  pending: boolean;
+  errorMessage: string | undefined;
+  successMessage: string | undefined;
+}>({
+  pending: false,
+  errorMessage: undefined,
+  successMessage: undefined,
+});
+
+async function handleCloseAccount(values: any): Promise<void> {
+  const { pending, error } = await useFetch('/api/settings/close-account', {
+    method: 'DELETE',
+    body: values,
+  });
+
+  if (pending.value) {
+    formHandler.value.pending = pending.value;
+  } else if (error.value) {
+    formHandler.value.errorMessage = error.value.statusMessage;
+  } else {
+    formHandler.value.successMessage = 'Successfully deleted your account.';
+  }
 }
 </script>

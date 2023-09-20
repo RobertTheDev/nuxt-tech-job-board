@@ -1,72 +1,50 @@
 <template>
-  <Form
-    class="primary-form-container"
-    :validation-schema="changeEmailSchema"
-    @submit="handleChangeEmail"
-  >
-    <div class="primary-form-input-content-container">
-      <p class="primary-form-input-label-text">Email</p>
-      <Field
-        v-slot="{ field }"
-        class="primary-form-input-container"
-        name="email"
-        type="email"
-      >
-        <label for="email" class="primary-form-input-label-container">
-          <input
-            type="email"
-            v-bind="field"
-            placeholder="Email"
-            class="primary-form-input"
-          />
+  <Form :validation-schema="changeEmailSchema" @submit="handleChangeEmail">
+    <div>
+      <p>Email</p>
+      <Field v-slot="{ field }" name="newEmailAddress" type="email">
+        <label for="newEmailAddress">
+          <input type="email" v-bind="field" placeholder="Email" />
         </label>
       </Field>
 
-      <ErrorMessage
-        name="email"
-        class="primary-form-input-validation-error-message-text"
-      />
+      <ErrorMessage name="newEmailAddress" />
     </div>
 
-    <div class="primary-form-input-content-container">
-      <p class="primary-form-input-label-text">Password</p>
+    <div>
+      <p>Password</p>
 
-      <Field v-slot="{ field }" name="password" type="text">
-        <div class="primary-form-input-container">
-          <label for="password" class="primary-form-input-label-container">
+      <Field v-slot="{ field }" name="password" type="password">
+        <div>
+          <label for="password">
             <input
-              class="primary-form-input"
               :type="passwordVisible ? 'text' : 'password'"
               v-bind="field"
               placeholder="Password"
             />
           </label>
-          <button
-            class="reveal-button"
-            @click.prevent="togglePasswordVisibility"
-          >
+          <button @click.prevent="togglePasswordVisibility">
             {{ passwordVisible ? 'Hide' : 'Show' }}
           </button>
         </div>
       </Field>
 
-      <ErrorMessage
-        class="primary-form-input-validation-error-message-text"
-        name="password"
-      />
+      <ErrorMessage name="password" />
     </div>
+    <p v-if="formHandler.errorMessage">
+      {{ formHandler.errorMessage }}
+    </p>
+    <p v-if="formHandler.successMessage">
+      {{ formHandler.successMessage }}
+    </p>
+    <button v-if="formHandler.pending">Loading</button>
 
-    <div class="primary-form-footer-container">
-      <!-- SIGN UP BUTTON -->
-      <button class="primary-form-button" type="submit">
-        Change Email Address
-      </button>
-    </div>
+    <button v-else type="submit">Change Email Address</button>
   </Form>
 </template>
 
 <script lang="ts" setup>
-import { Form, Field } from 'vee-validate';
+import { Form, Field, ErrorMessage } from 'vee-validate';
 import changeEmailSchema from '@/models/settings/validators/changeEmailSchema';
 
 const passwordVisible = ref<boolean>(false);
@@ -75,7 +53,29 @@ function togglePasswordVisibility(): void {
   passwordVisible.value = !passwordVisible.value;
 }
 
-function handleChangeEmail(values: any): void {
-  alert(JSON.stringify(values, null, 2));
+const formHandler = ref<{
+  pending: boolean;
+  errorMessage: string | undefined;
+  successMessage: string | undefined;
+}>({
+  pending: false,
+  errorMessage: undefined,
+  successMessage: undefined,
+});
+
+async function handleChangeEmail(values: any): Promise<void> {
+  const { pending, error } = await useFetch(`/api/settings/change-email`, {
+    method: 'PUT',
+    body: values,
+  });
+
+  if (pending.value) {
+    formHandler.value.pending = pending.value;
+  } else if (error.value) {
+    formHandler.value.errorMessage = error.value.statusMessage;
+  } else {
+    formHandler.value.successMessage =
+      'Successfully updated your email address.';
+  }
 }
 </script>
