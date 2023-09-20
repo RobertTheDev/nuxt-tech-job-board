@@ -1,4 +1,4 @@
-import { Document, ObjectId } from 'mongodb';
+import { ObjectId } from 'mongodb';
 import logger from '../../lib/winstonLogger';
 import {
   companiesCollection,
@@ -8,13 +8,14 @@ import getCompanyById from './id/getCompanyById';
 import User from '@/models/user/types/User';
 import createCompanySchema from '@/models/company/validators/createCompanySchema';
 import createCompanyOwnerSchema from '@/models/companyOwner/validators/createCompanyOwnerSchema';
+import Company from '@/models/company/types/Company';
 
 // This handler creates and inserts a new notification.
 
 export default async function createCompany(
   body: any,
   user: User,
-): Promise<Document | null> {
+): Promise<Company | null> {
   try {
     // Validated the body.
     const validatedBody = await createCompanySchema.validate(body);
@@ -42,8 +43,7 @@ export default async function createCompany(
   } catch (error) {
     // Handle the error, log it, and throw an error.
     logger.error('Error creating company:', error);
-    throw new Error(
-      'Could not create the company due to an error. Please try again.',
-    );
+    // Rethrow the error to be handled elsewhere if needed
+    throw error;
   }
 }
