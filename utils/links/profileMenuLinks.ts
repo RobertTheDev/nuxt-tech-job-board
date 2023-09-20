@@ -6,10 +6,6 @@ const profileMenuLinks: NavigationLink[] = [
     href: '/profile/edit-profile',
     name: 'Edit Profile',
   },
-  {
-    href: '/upload-cv',
-    name: 'Upload CV',
-  },
   { href: '/job-applications', name: 'My Applications' },
   { href: '/job-interviews', name: 'My Interviews' },
   { href: '/my-companies', name: 'My Companies' },
