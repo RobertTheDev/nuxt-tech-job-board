@@ -1,4 +1,3 @@
-import createCompanyOwner from '../../controllers/companyOwner/createCompanyOwner';
 import getCompanyOwners from '../../controllers/companyOwner/getCompanyOwners';
 
 // This route gets and deletes all company owners.
@@ -23,10 +22,7 @@ export default defineEventHandler((event) => {
   if (method === 'POST') {
     try {
       // Gets the body from the request.
-      const body = readBody(event);
-
       // Creates a new company owner and takes in the body as params.
-      return createCompanyOwner(body);
     } catch (error) {
       // If error occurs return an error.
       return error;

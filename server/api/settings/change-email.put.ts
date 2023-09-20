@@ -6,7 +6,7 @@ import changeEmailSchema from '@/models/settings/validators/changeEmailSchema';
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
 
-  const user = event.context.session.user;
+  const user = await event.context.session.user;
 
   // Validate the inputted body.
   const validatedBody = await changeEmailSchema.validate(body);

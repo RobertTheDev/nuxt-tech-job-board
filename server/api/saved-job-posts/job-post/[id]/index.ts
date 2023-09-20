@@ -2,7 +2,6 @@ import createSavedJobPost from '../../../../controllers/savedJobPost/createSaved
 import deleteSavedJobPostsByJobPostId from '../../../../controllers/savedJobPost/jobPostId/deleteSavedJobPostsByJobPostId';
 import getSavedJobPostByUserIdAndJobPostId from '../../../../controllers/savedJobPost/userIdAndJobPostId/getSavedJobPostByUserIdAndJobPostId';
 import deleteSavedJobPostById from '../../../../controllers/savedJobPost/id/deleteSavedJobPostById';
-import createSavedJobPostSchema from '@/models/savedJobPost/validators/createSavedJobPostSchema';
 
 // This route creates a saved job post and deletes a saved job post by its job post id.
 
@@ -30,14 +29,11 @@ export default defineEventHandler(async (event) => {
         return await deleteSavedJobPostById(savedJobPost._id.toString());
       }
 
-      // Validate the body.
-      const validatedBody = await createSavedJobPostSchema.validate({
+      // Increment the user's total jobs saved.
+      return await createSavedJobPost({
         userId,
         jobPostId: id,
       });
-
-      // Increment the user's total jobs saved.
-      return await createSavedJobPost(validatedBody);
     } catch (error) {
       // Catch and return an error.
       return error;
