@@ -1,7 +1,9 @@
 <template>
   <div>
     <h1>Edit Profile</h1>
-    <UpdateAccountForm />
+    <UpdateProfileDetailsForm />
+    <UpdateProfileContactsForm />
+    <UpdateProfileAddressForm />
   </div>
 </template>
 
